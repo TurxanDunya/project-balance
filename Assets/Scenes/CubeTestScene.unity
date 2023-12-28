@@ -313,7 +313,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.24306095, y: -0.25252137, z: 0.055577204, w: 0.9349147}
-  m_LocalPosition: {x: 1.531, y: 2.921, z: -2.611}
+  m_LocalPosition: {x: 4.02, y: 5.62, z: -6.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -334,15 +334,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 439732219819538275, guid: f1787c1067ee1264ea738b4a029262e1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.069
+      value: 0.48
       objectReference: {fileID: 0}
     - target: {fileID: 439732219819538275, guid: f1787c1067ee1264ea738b4a029262e1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.634
+      value: 3.15
       objectReference: {fileID: 0}
     - target: {fileID: 439732219819538275, guid: f1787c1067ee1264ea738b4a029262e1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.137
+      value: -1.09
       objectReference: {fileID: 0}
     - target: {fileID: 439732219819538275, guid: f1787c1067ee1264ea738b4a029262e1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -372,10 +372,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1820809425175776420, guid: f1787c1067ee1264ea738b4a029262e1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2442796575675897745, guid: f1787c1067ee1264ea738b4a029262e1, type: 3}
       propertyPath: plaformMesh
       value: 
       objectReference: {fileID: 313924000}
+    - target: {fileID: 2442796575675897745, guid: f1787c1067ee1264ea738b4a029262e1, type: 3}
+      propertyPath: axis.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2442796575675897745, guid: f1787c1067ee1264ea738b4a029262e1, type: 3}
+      propertyPath: pressed.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2442796575675897745, guid: f1787c1067ee1264ea738b4a029262e1, type: 3}
+      propertyPath: axis.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 19c1e8f2-a225-4778-a019-38adff2523fc
+      objectReference: {fileID: 0}
+    - target: {fileID: 2442796575675897745, guid: f1787c1067ee1264ea738b4a029262e1, type: 3}
+      propertyPath: axis.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Mouse>/delta
+      objectReference: {fileID: 0}
+    - target: {fileID: 2442796575675897745, guid: f1787c1067ee1264ea738b4a029262e1, type: 3}
+      propertyPath: pressed.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 28f8a92a-9641-40d2-8012-e8a68732c2a1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2442796575675897745, guid: f1787c1067ee1264ea738b4a029262e1, type: 3}
+      propertyPath: pressed.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Mouse>/leftButton
+      objectReference: {fileID: 0}
     - target: {fileID: 2708798959611058759, guid: f1787c1067ee1264ea738b4a029262e1, type: 3}
       propertyPath: m_Name
       value: Cube

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CubeRayCastScript : MonoBehaviour
 {
-    public float raycastDistance = 500f;
+    public float raycastDistance = 50f;
     private LineRenderer lineRenderer;
 
     void Start()
@@ -12,14 +12,7 @@ public class CubeRayCastScript : MonoBehaviour
 
     void Update()
     {
-        if (Physics.Raycast(transform.position, -transform.up, raycastDistance))
-        {
-            if (lineRenderer != null)
-            {
-                lineRenderer.SetPosition(0, transform.position);
-                lineRenderer.SetPosition(1, transform.position - transform.up * raycastDistance);
-            }
-        }
+        UpdateLineRendererPosition();
     }
 
     public bool IsHittingPlatform()
@@ -36,6 +29,18 @@ public class CubeRayCastScript : MonoBehaviour
         }
 
         return true;
+    }
+
+    private void UpdateLineRendererPosition()
+    {
+        if (Physics.Raycast(transform.position, -transform.up, raycastDistance))
+        {
+            if (lineRenderer != null)
+            {
+                lineRenderer.SetPosition(0, transform.position);
+                lineRenderer.SetPosition(1, transform.position - transform.up * raycastDistance);
+            }
+        }
     }
 
 }
