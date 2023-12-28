@@ -38,7 +38,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9010876098355215620
 MeshFilter:
@@ -119,7 +119,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2708798959611058759}
   serializedVersion: 4
-  m_Mass: 400
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -352,4 +352,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62359d80fdc0e4315ab6331b78ec5b90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kinematicForParticles: 0
+  kinematicForParticles: 1
