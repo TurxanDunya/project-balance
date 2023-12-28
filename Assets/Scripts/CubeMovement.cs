@@ -35,7 +35,9 @@ public class CubeMovement : MonoBehaviour
         pressed.Enable();
         axis.Enable();
 
-        pressed.performed += _ => { StartCoroutine(Move()); };
+        pressed.performed += _ => {
+            StartCoroutine(Move()); 
+        };
 
         pressed.canceled += _ => { 
             ReleaseObject();

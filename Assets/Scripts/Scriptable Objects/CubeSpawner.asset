@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CubeSpawner
   m_EditorClassIdentifier: 
   cubePrefab: {fileID: 2708798959611058759, guid: f1787c1067ee1264ea738b4a029262e1, type: 3}
-  spawnPosition: {x: 0, y: 2, z: 0}
+  spawnPosition: {x: 2.9, y: 5.91, z: 0.16}

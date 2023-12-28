@@ -3,7 +3,9 @@ guid: fdd5d4f297f3b1041a27c2168491ff11
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - cubeSpawner: {fileID: 11400000, guid: 40bd3a0413841c04ea8017d876904c78, type: 2}
+  - plaformMesh: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
