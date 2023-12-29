@@ -12,7 +12,7 @@ public class CubeRayCastScript : MonoBehaviour
 
     void Update()
     {
-        UpdateLineRendererPosition();
+        UpdateLineRendererStatus();
     }
 
     public bool IsHittingPlatform()
@@ -31,14 +31,22 @@ public class CubeRayCastScript : MonoBehaviour
         return true;
     }
 
-    private void UpdateLineRendererPosition()
+    private void UpdateLineRendererStatus()
     {
         if (Physics.Raycast(transform.position, -transform.up, raycastDistance))
         {
             if (lineRenderer != null)
             {
+                lineRenderer.enabled = true;
                 lineRenderer.SetPosition(0, transform.position);
                 lineRenderer.SetPosition(1, transform.position - transform.up * raycastDistance);
+            }
+        }
+        else
+        {
+            if (lineRenderer != null)
+            {
+                lineRenderer.enabled = false;
             }
         }
     }
