@@ -17,7 +17,7 @@ public class MainMenuController : MonoBehaviour
         Button quit = menuRoot.Q<Button>("btn_quit");
 
         start.clicked += () => {
-            NavigateScene("Enviroment");
+            NavigateScene("MainSceneV2");
         };
 
         quit.clicked += () => Quit();
