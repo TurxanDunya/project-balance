@@ -20,7 +20,7 @@ public class CubeRayCastScript : MonoBehaviour
         RaycastHit hit;
         if (!Physics.Raycast(transform.position, -transform.up, out hit, raycastDistance))
         {
-           return false;
+            return false;
         }
 
         if (!hit.collider.CompareTag("MainPlatform"))
