@@ -7,8 +7,6 @@ public class GameCore : MonoBehaviour
     [Header("GameUI Controller")]
     [SerializeField] private GameUIController gameUIController;
 
-    private bool isGameEnded = false;
-
     private void OnEnable()
     {
         CubeFallDetector.playableCubeDetect += PlayableCubeDetected;
@@ -21,7 +19,6 @@ public class GameCore : MonoBehaviour
 
     public void PlayableCubeDetected()
     {
-        isGameEnded = true;
         gameUIController.GameOverUIVisibility(true);
     }
 }
