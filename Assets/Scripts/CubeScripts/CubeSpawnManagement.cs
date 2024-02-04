@@ -1,13 +1,19 @@
-using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class CubeSpawnManagementScript : MonoBehaviour
 {
     [SerializeField] private InputAction pressed;
-    [SerializeField] private GameObject cubePrefab;
+    [SerializeField] private List<GameObject> cubePrefabs;
     [SerializeField] private Transform spawnPosition;
-    [SerializeField] private float cubeSpawnDelay = 3.0f;
+
+    [SerializeField] CubeCounter CubeCounter;
+
+    [Header("Cubes")]
+    [SerializeField] private GameObject woodPrefab;
+    [SerializeField] private GameObject metalPrefab;
+    [SerializeField] private GameObject icePrefab;
 
     GameObject currentMoveableCube;
 
@@ -16,10 +22,7 @@ public class CubeSpawnManagementScript : MonoBehaviour
         pressed.Enable();
         SpawnCube();
 
-        pressed.canceled += _ =>
-        {
-            ReleaseObject();
-        };
+        pressed.canceled += _ => { ReleaseObject(); };
     }
 
     private void OnEnable()
@@ -34,13 +37,41 @@ public class CubeSpawnManagementScript : MonoBehaviour
 
     public void SpawnCube()
     {
-        currentMoveableCube = Instantiate(cubePrefab, spawnPosition.position, Quaternion.identity);
+        CubeData.CubeMaterialType? cubeMaterialType = CubeCounter.getAvailableCube();
+        if (cubeMaterialType == null)
+        {
+            return; // TODO: Win pop up will be shown
+        }
+
+        GameObject cubePrefab = null;
+        switch (cubeMaterialType)
+        {
+            case CubeData.CubeMaterialType.WOOD:
+                cubePrefab = woodPrefab;
+                break;
+            case CubeData.CubeMaterialType.METAL:
+                cubePrefab = metalPrefab;
+                break;
+            case CubeData.CubeMaterialType.ICE:
+                cubePrefab = icePrefab;
+                break;
+            default:
+                break;
+        }
+
+        if (cubePrefab != null) {
+            currentMoveableCube = Instantiate(cubePrefab, spawnPosition.position, Quaternion.identity);
+        }
+        
     }
 
     private void ReleaseObject()
     {
-        currentMoveableCube.GetComponent<Cube>().CubeReleased();
-        currentMoveableCube = null;
+        if (currentMoveableCube != null) {
+            currentMoveableCube.GetComponent<Cube>().CubeReleased();
+            currentMoveableCube = null;
+        }
+       
     }
 
 }
