@@ -16,7 +16,7 @@ public class CubeRayCastScript : MonoBehaviour
     }
 
     public bool IsHittingPlatform()
-    {
+    { 
         RaycastHit hit;
         if (!Physics.Raycast(transform.position, -transform.up, out hit, raycastDistance))
         {

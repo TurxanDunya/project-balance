@@ -12,7 +12,6 @@ public class GameCore : MonoBehaviour
     private void OnEnable()
     {
         CubeFallDetector.playableCubeDetect += PlayableCubeDetected;
-
     }
 
     private void OnDisable()

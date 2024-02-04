@@ -18,9 +18,10 @@ GameObject:
   - component: {fileID: 2442796575675897745}
   - component: {fileID: 5929365353986474293}
   - component: {fileID: 4509376578340805329}
+  - component: {fileID: 7194837065488494185}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: PlayableCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,8 +121,8 @@ Rigidbody:
   m_GameObject: {fileID: 2708798959611058759}
   serializedVersion: 4
   m_Mass: 0.2
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 7
+  m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -269,10 +270,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2708798959611058759}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4b2327123ceadb4c906ebeca0ea2a0e, type: 3}
+  m_Script: {fileID: 11500000, guid: 9e633dca4970d4e3998e07065d12f222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raycastDistance: 20
+  raycastDistance: 50
 --- !u!114 &2442796575675897745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,3 +351,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kinematicForParticles: 1
+--- !u!114 &7194837065488494185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2708798959611058759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1856c66ad8b2d40e8a582576a3621c25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

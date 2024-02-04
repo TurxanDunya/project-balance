@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlayableCube
+  - MainPlatform
   layers:
   - Default
   - TransparentFX

@@ -4,15 +4,13 @@ using UnityEngine.InputSystem;
 
 public class CubeMovement : MonoBehaviour
 {
-    [SerializeField] private InputAction pressed, axis;
+    [SerializeField] public InputAction pressed, axis;
     [SerializeField] private float moveSpeed = 1.0f;
 
     private Vector2 movement;
     private Vector3 previousPosition;
     private readonly bool moveAllowed = true;
 
-    private Rigidbody rb;
-    private LineRenderer lineRenderer;
     private CubeRayCastScript cubeRayCastScript;
 
     // cube movement variables
@@ -22,12 +20,10 @@ public class CubeMovement : MonoBehaviour
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        lineRenderer = GetComponent<LineRenderer>();
         cubeRayCastScript = GetComponent<CubeRayCastScript>();
     }
 
-    private void Awake()
+    private void OnEnable()
     {
         pressed.Enable();
         axis.Enable();
@@ -36,18 +32,24 @@ public class CubeMovement : MonoBehaviour
             StartCoroutine(Move()); 
         };
 
-        pressed.canceled += _ => { 
-            ReleaseObject();
+        axis.performed += context => {
+            movement = context.ReadValue<Vector2>();
         };
 
-        axis.performed += context => { movement = context.ReadValue<Vector2>(); };
-        axis.canceled += _ => { movement = Vector2.zero; };
+        axis.canceled += _ => {
+            movement = Vector2.zero;
+        };
+    }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
     }
 
     private void Update()
     {
         KeepMoveableCubeInPlatformArea();
-    }
+    } 
 
     public IEnumerator Move()
     {
@@ -62,17 +64,6 @@ public class CubeMovement : MonoBehaviour
             transform.position += moveDirection;
             yield return null;
         }
-    }
-
-    private void ReleaseObject()
-    {
-        rb.useGravity = true;
-
-        pressed.Disable();
-        axis.Disable();
-
-        Destroy(lineRenderer);
-        this.enabled = false;
     }
 
     private void KeepMoveableCubeInPlatformArea()
