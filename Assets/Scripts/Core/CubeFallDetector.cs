@@ -16,11 +16,7 @@ public class CubeFallDetector : MonoBehaviour
         if (other.tag == Constants.PLAYABLE_CUBE)
         {
             playableCubeDetect?.Invoke();
-          
         }
     }
-
-  
-
 
 }
