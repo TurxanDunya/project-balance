@@ -37,6 +37,5 @@ public class GameCore : MonoBehaviour
     {
         isGameEnded = true;
         gameUIController.GameOverUIVisibility(true);
-        Debug.Log("Detect Action in GameCore ");
     }
 }
