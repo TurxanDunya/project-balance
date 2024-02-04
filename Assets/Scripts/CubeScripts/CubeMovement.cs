@@ -6,9 +6,6 @@ public class CubeMovement : MonoBehaviour
 {
     [SerializeField] private InputAction pressed, axis;
     [SerializeField] private float moveSpeed = 1.0f;
-    [SerializeField] private float cubeSpawnDelay = 3.0f;
-    [SerializeField] private CubeSpawner cubeSpawner;
-    [SerializeField] private GameObject plaformMesh;
 
     private Vector2 movement;
     private Vector3 previousPosition;
@@ -41,7 +38,6 @@ public class CubeMovement : MonoBehaviour
 
         pressed.canceled += _ => { 
             ReleaseObject();
-            StartCoroutine(SpawnCubeAfterDelay(cubeSpawnDelay));
         };
 
         axis.performed += context => { movement = context.ReadValue<Vector2>(); };
@@ -76,13 +72,7 @@ public class CubeMovement : MonoBehaviour
         axis.Disable();
 
         Destroy(lineRenderer);
-    }
-
-    // Coroutine to spawn the cube after a delay
-    private IEnumerator SpawnCubeAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        cubeSpawner.SpawnCube();
+        this.enabled = false;
     }
 
     private void KeepMoveableCubeInPlatformArea()
