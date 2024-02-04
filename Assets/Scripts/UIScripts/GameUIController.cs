@@ -7,24 +7,18 @@ using UnityEngine.UIElements;
 public class GameUIController : MonoBehaviour
 {
     [Header("GameOver UI")]
-    [SerializeField]
-    public GameObject gameOverUI;
+    [SerializeField] private GameObject gameOverUI;
     private VisualElement rootGameOver;
    
-
     void Start()
     {
         rootGameOver = gameOverUI.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("root_container");
         rootGameOver.Q<Button>("btn_home").clicked += () => GameOverHomeClick();
     }
 
-
-
-
     void GameOverHomeClick() {
-        NavigateScene("MainScreen");
+        NavigateScene(Constants.START_SCENE_INDEX);
     }
-
 
     public void GameOverUIVisibility(bool visibility) {
         if (visibility)
@@ -36,8 +30,7 @@ public class GameUIController : MonoBehaviour
         }
     }
 
-
-    void NavigateScene(string scene)
+    void NavigateScene(int scene)
     {
         SceneManager.LoadScene(scene);
     }

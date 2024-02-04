@@ -30,9 +30,9 @@ ModelImporter:
       name: Object001Mat
     second: {fileID: 2100000, guid: e758c27377bf241c1aa69167a9317185, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 0
     materialName: 0
-    materialSearch: 1
+    materialSearch: 2
     materialLocation: 0
   animations:
     legacyGenerateAnimations: 4

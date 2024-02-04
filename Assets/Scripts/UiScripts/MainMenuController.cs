@@ -6,9 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
-
     private VisualElement menuRoot;
-
+   
     void Start()
     {
         menuRoot = GetComponent<UIDocument>().rootVisualElement;
@@ -17,13 +16,13 @@ public class MainMenuController : MonoBehaviour
         Button quit = menuRoot.Q<Button>("btn_quit");
 
         start.clicked += () => {
-            NavigateScene("MainSceneV2");
+            NavigateScene(Constants.MAIN_SCENE_INDEX);
         };
 
         quit.clicked += () => Quit();
     }
 
-    void NavigateScene(string scene)
+    void NavigateScene(int scene)
     {
         SceneManager.LoadScene(scene);
     }

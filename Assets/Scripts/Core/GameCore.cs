@@ -5,22 +5,9 @@ using UnityEngine;
 public class GameCore : MonoBehaviour
 {
     [Header("GameUI Controller")]
-    [SerializeField]
-    public GameUIController gameUIController;
+    [SerializeField] private GameUIController gameUIController;
 
     private bool isGameEnded = false;
-
-    void Start()
-    {
-       
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
 
     private void OnEnable()
     {
