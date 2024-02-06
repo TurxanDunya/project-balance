@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class CubeSpawnManagementScript : MonoBehaviour
 {
+    public static event Action winGame;
+
     [SerializeField] private InputAction pressed;
     [SerializeField] private List<GameObject> cubePrefabs;
     [SerializeField] private Transform spawnPosition;
@@ -40,7 +43,7 @@ public class CubeSpawnManagementScript : MonoBehaviour
         CubeData.CubeMaterialType? cubeMaterialType = CubeCounter.getAvailableCube();
         if (cubeMaterialType == null)
         {
-            return; // TODO: Win pop up will be shown
+            winGame?.Invoke();
         }
 
         GameObject cubePrefab = null;

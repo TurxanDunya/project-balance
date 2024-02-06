@@ -10,15 +10,22 @@ public class GameCore : MonoBehaviour
     private void OnEnable()
     {
         CubeFallDetector.playableCubeDetect += PlayableCubeDetected;
+        CubeSpawnManagementScript.winGame += GameWin;
     }
 
     private void OnDisable()
     {
         CubeFallDetector.playableCubeDetect -= PlayableCubeDetected;
+        CubeSpawnManagementScript.winGame -= GameWin;
     }
 
     public void PlayableCubeDetected()
     {
         gameUIController.GameOverUIVisibility(true);
+    }
+
+    public void GameWin()
+    {
+        gameUIController.WinnerUIVisibility(true);
     }
 }
