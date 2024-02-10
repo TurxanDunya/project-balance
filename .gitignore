@@ -10,6 +10,13 @@
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 /[Aa]ssets/Obi/*
+/[Aa]ssets/LunarConsole/*
+/buildForDevices/*
+/publishConfigs/*
+/[Aa]ssets/LunarConsole.meta
+
+
+
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
