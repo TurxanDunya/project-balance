@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 public class CubeSpawnManagementScript : MonoBehaviour
 {
@@ -14,9 +15,9 @@ public class CubeSpawnManagementScript : MonoBehaviour
     [SerializeField] CubeCounter CubeCounter;
 
     [Header("Cubes")]
-    [SerializeField] private GameObject woodPrefab;
-    [SerializeField] private GameObject metalPrefab;
-    [SerializeField] private GameObject icePrefab;
+    [SerializeField] private GameObject[] woodPrefab;
+    [SerializeField] private GameObject[] metalPrefab;
+    [SerializeField] private GameObject[] icePrefab;
 
     GameObject currentMoveableCube;
 
@@ -50,13 +51,16 @@ public class CubeSpawnManagementScript : MonoBehaviour
         switch (cubeMaterialType)
         {
             case CubeData.CubeMaterialType.WOOD:
-                cubePrefab = woodPrefab;
+                int randomCubeWood = Random.Range(0, woodPrefab.Length - 1);
+                cubePrefab = woodPrefab[randomCubeWood];
                 break;
             case CubeData.CubeMaterialType.METAL:
-                cubePrefab = metalPrefab;
+                int randomCubeMetal = Random.Range(0, metalPrefab.Length - 1);
+                cubePrefab = metalPrefab[randomCubeMetal];
                 break;
             case CubeData.CubeMaterialType.ICE:
-                cubePrefab = icePrefab;
+                int randomCubeIce = Random.Range(0, icePrefab.Length - 1);
+                cubePrefab = icePrefab[randomCubeIce];
                 break;
             default:
                 break;
