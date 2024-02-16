@@ -1,21 +1,17 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class CubeMovement : MonoBehaviour
 {
-    [SerializeField] public InputAction pressed, axis;
-    [SerializeField] private float moveSpeed = 1.0f;
+    [SerializeField] private float moveSpeed = 3.0f;
 
-    private Vector2 movement;
-    private Vector3 previousPosition;
-    private readonly bool moveAllowed = true;
-
+    private InputManager inputManager;
     private CubeRayCastScript cubeRayCastScript;
 
+    private Vector3 previousPosition;
+
     // cube movement variables
-    Vector3 forwardNormalizedVector;
-    Vector3 rightNormalizedVector;
+    Vector3 forwardDirection;
+    Vector3 rightDirection;
     Vector3 moveDirection;
 
     private void Start()
@@ -23,49 +19,35 @@ public class CubeMovement : MonoBehaviour
         cubeRayCastScript = GetComponent<CubeRayCastScript>();
     }
 
+    private void Awake()
+    {
+        inputManager = gameObject.AddComponent<InputManager>();
+    }
+
     private void OnEnable()
     {
-        pressed.Enable();
-        axis.Enable();
-
-        pressed.performed += _ => {
-            Debug.Log("basildi");
-            StartCoroutine(Move()); 
-        };
-
-        axis.performed += context => {
-            Debug.Log("hereketde" + context.ReadValue<Vector2>());
-            movement = context.ReadValue<Vector2>();
-        };
-
-        axis.canceled += _ => {
-            movement = Vector2.zero;
-        };
+        inputManager.OnPerformedTouch += Move;
     }
 
     private void OnDisable()
     {
-        StopAllCoroutines();
+        inputManager.OnPerformedTouch -= Move;
     }
 
     private void Update()
     {
         KeepMoveableCubeInPlatformArea();
-    } 
+    }
 
-    public IEnumerator Move()
+    public void Move(Vector2 screenPosition)
     {
-        while (moveAllowed)
-        {
-            forwardNormalizedVector = transform.forward.normalized;
-            rightNormalizedVector = transform.right.normalized;
-           
-            moveDirection = forwardNormalizedVector * movement.y + rightNormalizedVector * movement.x;
-            moveDirection *= moveSpeed * Time.deltaTime;
+        forwardDirection = Vector3.ProjectOnPlane(Camera.main.transform.forward, Vector3.up).normalized;
+        rightDirection = Vector3.ProjectOnPlane(Camera.main.transform.right, Vector3.up).normalized;
 
-            transform.position += moveDirection;
-            yield return null;
-        }
+        moveDirection = forwardDirection * screenPosition.y + rightDirection * screenPosition.x;
+        moveDirection *= moveSpeed * Time.deltaTime;
+
+        transform.position += moveDirection;
     }
 
     private void KeepMoveableCubeInPlatformArea()

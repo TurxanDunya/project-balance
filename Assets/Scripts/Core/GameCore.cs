@@ -14,13 +14,13 @@ public class GameCore : MonoBehaviour
     private void OnEnable()
     {
         CubeFallDetector.playableCubeDetect += PlayableCubeDetected;
-        CubeSpawnManagementScript.winGame += ProcessWinEvent;
+        CubeSpawnManagement.winGame += ProcessWinEvent;
     }
 
     private void OnDisable()
     {
         CubeFallDetector.playableCubeDetect -= PlayableCubeDetected;
-        CubeSpawnManagementScript.winGame -= ProcessWinEvent;
+        CubeSpawnManagement.winGame -= ProcessWinEvent;
     }
 
     public void PlayableCubeDetected()
@@ -40,7 +40,6 @@ public class GameCore : MonoBehaviour
 
     private IEnumerator CheckGameWinForDuration() {
         yield return new WaitForSeconds(5);
-        Debug.Log("Win game");
         if (!isGameEnd)
         {
             isWin = true;
