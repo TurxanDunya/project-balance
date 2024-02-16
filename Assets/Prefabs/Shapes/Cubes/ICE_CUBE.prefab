@@ -337,7 +337,7 @@ MonoBehaviour:
       m_Action: Axis
       m_Flags: 0
     m_Flags: 0
-  moveSpeed: 0.1
+  moveSpeed: 0.2
 --- !u!114 &6272379570641153352
 MonoBehaviour:
   m_ObjectHideFlags: 0

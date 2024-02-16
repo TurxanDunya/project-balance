@@ -29,12 +29,10 @@ public class CubeMovement : MonoBehaviour
         axis.Enable();
 
         pressed.performed += _ => {
-            Debug.Log("basildi");
             StartCoroutine(Move()); 
         };
 
         axis.performed += context => {
-            Debug.Log("hereketde" + context.ReadValue<Vector2>());
             movement = context.ReadValue<Vector2>();
         };
 

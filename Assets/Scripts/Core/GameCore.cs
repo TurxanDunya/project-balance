@@ -15,12 +15,14 @@ public class GameCore : MonoBehaviour
     {
         CubeFallDetector.playableCubeDetect += PlayableCubeDetected;
         CubeSpawnManagementScript.winGame += ProcessWinEvent;
+        CalculateAngle.platformAnge += (degree) => AngleCalculated(degree);
     }
 
     private void OnDisable()
     {
         CubeFallDetector.playableCubeDetect -= PlayableCubeDetected;
         CubeSpawnManagementScript.winGame -= ProcessWinEvent;
+        CalculateAngle.platformAnge -= (degree) => AngleCalculated(degree);
     }
 
     public void PlayableCubeDetected()
@@ -30,6 +32,13 @@ public class GameCore : MonoBehaviour
             isGameEnd = true;
             gameUIController.GameOverUIVisibility(true);
         }
+
+    }
+
+    public void AngleCalculated(int degree)
+    {
+        Debug.Log("Degree -> " + degree);
+        gameUIController.SetLevelStars(degree);
 
     }
 

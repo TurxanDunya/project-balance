@@ -12,6 +12,7 @@ public class FileUtil
 
     }
 
+    #nullable enable
     public static string? LoadFromFile(string file)
     {
         var path = Application.persistentDataPath + "/" + file;
