@@ -47,6 +47,7 @@ public class CubeMovement : MonoBehaviour
         moveDirection = forwardDirection * screenPosition.y + rightDirection * screenPosition.x;
         moveDirection *= moveSpeed * Time.deltaTime;
 
+        moveDirection.y = 0;
         transform.position += moveDirection;
     }
 
