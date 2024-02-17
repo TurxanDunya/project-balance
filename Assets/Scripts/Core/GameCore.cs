@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class GameCore : MonoBehaviour
@@ -37,8 +38,10 @@ public class GameCore : MonoBehaviour
 
     public void AngleCalculated(int degree)
     {
-        Debug.Log("Degree -> " + degree);
-        gameUIController.SetLevelStars(degree);
+        UnityEngine.Debug.Log("Degree -> " + degree);
+        var progress = 90 - degree;
+        UnityEngine.Debug.Log("Progress -> " + progress);
+        gameUIController.SetLevelStars(progress);
 
     }
 
@@ -49,7 +52,6 @@ public class GameCore : MonoBehaviour
 
     private IEnumerator CheckGameWinForDuration() {
         yield return new WaitForSeconds(5);
-        Debug.Log("Win game");
         if (!isGameEnd)
         {
             isWin = true;

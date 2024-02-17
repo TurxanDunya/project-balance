@@ -7,27 +7,31 @@ using static UnityEngine.GraphicsBuffer;
 public class CalculateAngle: MonoBehaviour
 {
     [SerializeField]
-    Transform target,origin;
+    Transform target;
 
    
     public static event Action<int> platformAnge;
 
-    float sign = 1;
-    float offset = 0;
+    float currentX = 0;
+    float currentZ = 0;
 
-    // Update is called once per frame
+    private void Start()
+    {
+        currentX = transform.rotation.eulerAngles.x;
+        currentZ = transform.rotation.eulerAngles.z;
+    }
+
     void Update()
     {
-        var direction = target.position - origin.position;
-
-        sign = (direction.y >= 0) ? 1: -1;
-        // offset = (sign >= 0) ? 0 : 360;
-
-        var angle = Vector3.Angle(Vector3.right, direction) * sign;
-        Debug.Log("angle -> " + angle);
-        var degree = (int)(Mathf.Abs((sign > 0) ? angle - 90 : angle + 90));
-        Debug.Log("abc -> " + degree);
-        platformAnge?.Invoke(degree);
+        var eulerAnglesX = target.rotation.eulerAngles.x;
+        var eulerAnglesZ = target.rotation.eulerAngles.z;
+        var angleX = (int)Mathf.Abs(Mathf.DeltaAngle(currentX, eulerAnglesX));
+        var angleZ = (int)Mathf.Abs(Mathf.DeltaAngle(currentZ, eulerAnglesZ));
+        Debug.Log("Angle -> X: " + angleX);
+        Debug.Log("Angle -> Z: " + angleZ);
+        var finalAngle = Mathf.Max(angleX, angleZ);
+        Debug.Log("Final Angle -> " + finalAngle);
+        platformAnge?.Invoke(finalAngle);
     }
 
 }
