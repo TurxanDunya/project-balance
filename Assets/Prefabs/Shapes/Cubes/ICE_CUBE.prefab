@@ -287,56 +287,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdd5d4f297f3b1041a27c2168491ff11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pressed:
-    m_Name: Pressed
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: d01fcfad-41b4-4b50-b8e2-2988b46cf47c
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 071cfcfa-875c-4833-b27e-4e2ab43e9214
-      m_Path: <Mouse>/leftButton
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Pressed
-      m_Flags: 0
-    - m_Name: 
-      m_Id: f46b47fe-6fbc-42ff-bb50-2892bbf823fb
-      m_Path: <Touchscreen>/Press
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Pressed
-      m_Flags: 0
-    m_Flags: 0
-  axis:
-    m_Name: Axis
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: a71806a8-1c73-4a11-8233-43f3224bbd7c
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: edab1b85-53cb-4839-8adf-31f419f2d3ae
-      m_Path: <Mouse>/delta
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Axis
-      m_Flags: 0
-    - m_Name: 
-      m_Id: 5d4cb2a6-92b1-4d45-b1da-f59fbf3e1c5c
-      m_Path: <Touchscreen>/delta
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Axis
-      m_Flags: 0
-    m_Flags: 0
   moveSpeed: 0.2
 --- !u!114 &6272379570641153352
 MonoBehaviour:
