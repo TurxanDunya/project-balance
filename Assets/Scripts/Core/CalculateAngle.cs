@@ -27,10 +27,7 @@ public class CalculateAngle: MonoBehaviour
         var eulerAnglesZ = target.rotation.eulerAngles.z;
         var angleX = (int)Mathf.Abs(Mathf.DeltaAngle(currentX, eulerAnglesX));
         var angleZ = (int)Mathf.Abs(Mathf.DeltaAngle(currentZ, eulerAnglesZ));
-        Debug.Log("Angle -> X: " + angleX);
-        Debug.Log("Angle -> Z: " + angleZ);
         var finalAngle = Mathf.Max(angleX, angleZ);
-        Debug.Log("Final Angle -> " + finalAngle);
         platformAnge?.Invoke(finalAngle);
     }
 

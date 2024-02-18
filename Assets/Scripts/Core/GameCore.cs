@@ -15,18 +15,16 @@ public class GameCore : MonoBehaviour
     private void OnEnable()
     {
         CubeFallDetector.playableCubeDetect += PlayableCubeDetected;
-        CubeSpawnManagementScript.winGame += ProcessWinEvent;
-        CalculateAngle.platformAnge += (degree) => AngleCalculated(degree);
         CubeSpawnManagement.winGame += ProcessWinEvent;
+        CalculateAngle.platformAnge += (degree) => AngleCalculated(degree);
+      
     }
 
     private void OnDisable()
     {
         CubeFallDetector.playableCubeDetect -= PlayableCubeDetected;
-        CubeSpawnManagementScript.winGame -= ProcessWinEvent;
-        CalculateAngle.platformAnge -= (degree) => AngleCalculated(degree);
         CubeSpawnManagement.winGame -= ProcessWinEvent;
-
+        CalculateAngle.platformAnge -= (degree) => AngleCalculated(degree);
     }
 
     public void PlayableCubeDetected()
@@ -41,15 +39,14 @@ public class GameCore : MonoBehaviour
 
     public void AngleCalculated(int degree)
     {
-        UnityEngine.Debug.Log("Degree -> " + degree);
         var progress = 90 - degree;
-        UnityEngine.Debug.Log("Progress -> " + progress);
         gameUIController.SetLevelStars(progress);
 
     }
 
     public void ProcessWinEvent()
     {
+        UnityEngine.Debug.Log("GameCore WINProcessWinEvent");
         StartCoroutine(CheckGameWinForDuration());
     }
 
@@ -57,6 +54,7 @@ public class GameCore : MonoBehaviour
         yield return new WaitForSeconds(5);
         if (!isGameEnd)
         {
+            UnityEngine.Debug.Log("GameCore CheckGameWinForDuration");
             isWin = true;
             gameUIController.WinnerUIVisibility(true);
         }
