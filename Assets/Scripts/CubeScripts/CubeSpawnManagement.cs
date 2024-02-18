@@ -1,18 +1,18 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
-public class CubeSpawnManagementScript : MonoBehaviour
+public class CubeSpawnManagement : MonoBehaviour
 {
+    private InputManager inputManager;
+
     public static event Action winGame;
 
-    [SerializeField] private InputAction pressed;
     [SerializeField] private List<GameObject> cubePrefabs;
     [SerializeField] private Transform spawnPosition;
 
-    [SerializeField] CubeCounter CubeCounter;
+    [SerializeField] private CubeCounter cubeCounter;
 
     [Header("Cubes")]
     [SerializeField] private GameObject[] woodPrefab;
@@ -21,27 +21,31 @@ public class CubeSpawnManagementScript : MonoBehaviour
 
     GameObject currentMoveableCube;
 
+    private void Awake()
+    {
+        inputManager = gameObject.AddComponent<InputManager>();
+    }
+
     void Start()
     {
-        pressed.Enable();
         SpawnCube();
-
-        pressed.canceled += _ => { ReleaseObject(); };
     }
 
     private void OnEnable()
     {
         Platform.CubeLanded += SpawnCube;
+        inputManager.OnEndTouch += ReleaseObject;
     }
 
     private void OnDisable()
     {
         Platform.CubeLanded -= SpawnCube;
+        inputManager.OnEndTouch -= ReleaseObject;
     }
 
     public void SpawnCube()
     {
-        CubeData.CubeMaterialType? cubeMaterialType = CubeCounter.getAvailableCube();
+        CubeData.CubeMaterialType? cubeMaterialType = cubeCounter.getAvailableCube();
         if (cubeMaterialType == null)
         {
             winGame?.Invoke();
@@ -69,7 +73,6 @@ public class CubeSpawnManagementScript : MonoBehaviour
         if (cubePrefab != null) {
             currentMoveableCube = Instantiate(cubePrefab, spawnPosition.position, Quaternion.identity);
         }
-        
     }
 
     private void ReleaseObject()
@@ -78,7 +81,6 @@ public class CubeSpawnManagementScript : MonoBehaviour
             currentMoveableCube.GetComponent<Cube>().CubeReleased();
             currentMoveableCube = null;
         }
-       
     }
 
 }

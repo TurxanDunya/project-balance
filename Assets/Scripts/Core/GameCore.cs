@@ -17,6 +17,7 @@ public class GameCore : MonoBehaviour
         CubeFallDetector.playableCubeDetect += PlayableCubeDetected;
         CubeSpawnManagementScript.winGame += ProcessWinEvent;
         CalculateAngle.platformAnge += (degree) => AngleCalculated(degree);
+        CubeSpawnManagement.winGame += ProcessWinEvent;
     }
 
     private void OnDisable()
@@ -24,6 +25,8 @@ public class GameCore : MonoBehaviour
         CubeFallDetector.playableCubeDetect -= PlayableCubeDetected;
         CubeSpawnManagementScript.winGame -= ProcessWinEvent;
         CalculateAngle.platformAnge -= (degree) => AngleCalculated(degree);
+        CubeSpawnManagement.winGame -= ProcessWinEvent;
+
     }
 
     public void PlayableCubeDetected()
