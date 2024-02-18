@@ -23,7 +23,8 @@ public class CubeRayCastScript : MonoBehaviour
             return false;
         }
 
-        if (!hit.collider.CompareTag("MainPlatform"))
+        if (!hit.collider.CompareTag(Constants.MAIN_PLATFORM) &&
+                !hit.collider.CompareTag(Constants.PLAYABLE_CUBE))
         {
             return false;
         }
@@ -33,13 +34,14 @@ public class CubeRayCastScript : MonoBehaviour
 
     private void UpdateLineRendererStatus()
     {
-        if (Physics.Raycast(transform.position, -transform.up, raycastDistance))
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, -transform.up, out hit, raycastDistance))
         {
             if (lineRenderer != null)
             {
                 lineRenderer.enabled = true;
                 lineRenderer.SetPosition(0, transform.position);
-                lineRenderer.SetPosition(1, transform.position - transform.up * raycastDistance);
+                lineRenderer.SetPosition(1, hit.point);
             }
         }
         else
