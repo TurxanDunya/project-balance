@@ -14,12 +14,19 @@ public class GameUIController : MonoBehaviour
     [SerializeField] private GameObject winnerUI;
     private VisualElement rootWinner;
 
+    [Header("LevelStars UI")]
+    [SerializeField] private GameObject levelStarsUI;
+    private VisualElement rootLevelStars;
+    private ProgressBar levelStarProgressBar;
+
     void Start()
     {
         rootGameOver = gameOverUI.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("root_container");
         rootWinner = winnerUI.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("root_container");
+        rootLevelStars = levelStarsUI.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("root_container");
         rootGameOver.Q<Button>("btn_home").clicked += () => GameOverHomeClick();
         rootWinner.Q<Button>("btn_next").clicked += () => GoNextLevel();
+        levelStarProgressBar = rootLevelStars.Q<ProgressBar>("progress");
     }
 
     void GameOverHomeClick() {
@@ -51,6 +58,10 @@ public class GameUIController : MonoBehaviour
         {
             rootWinner.style.display = DisplayStyle.None;
         }
+    }
+
+    public void SetLevelStars(int degree) {
+        levelStarProgressBar.value = degree;
     }
 
     void NavigateScene(int scene)

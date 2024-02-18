@@ -1,0 +1,22 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/UI/LevelStarsStyle.uss?fileID=7433441132597879392&amp;guid=f73874ea47229428b875772318424483&amp;type=3#LevelStarsStyle" />
+    <ui:VisualElement name="root_container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+        <ui:VisualElement name="level_stars" style="margin-left: 10%; margin-right: 10%; margin-top: 10%; margin-bottom: auto; flex-shrink: 0; flex-basis: auto; flex-grow: 0; min-width: auto; min-height: auto; height: 200px;">
+            <ui:ProgressBar value="76.3" name="progress" high-value="90" style="background-color: rgba(255, 255, 255, 0); height: 136px;" />
+            <ui:VisualElement name="stars" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.22); flex-direction: row; flex-wrap: nowrap; align-items: stretch; justify-content: space-around; align-self: stretch; width: 100%;">
+                <ui:VisualElement name="one" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 100px; max-width: none; max-height: 50px; align-items: stretch; justify-content: space-around; flex-direction: row; align-self: auto;">
+                    <ui:VisualElement name="star" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Graphics/UI/star.png?fileID=21300000&amp;guid=661f9096d5a0d4dea98824bb9ced95bd&amp;type=3#star&apos;); width: auto; height: auto; max-width: 50px;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="two" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; justify-content: center;">
+                    <ui:VisualElement name="star" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Graphics/UI/star.png?fileID=21300000&amp;guid=661f9096d5a0d4dea98824bb9ced95bd&amp;type=3#star&apos;); max-width: 50px; max-height: 50px;" />
+                    <ui:VisualElement name="star" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Graphics/UI/star.png?fileID=21300000&amp;guid=661f9096d5a0d4dea98824bb9ced95bd&amp;type=3#star&apos;); max-width: 50px; max-height: 50px;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="three" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; justify-content: flex-end; align-items: stretch;">
+                    <ui:VisualElement name="star" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Graphics/UI/star.png?fileID=21300000&amp;guid=661f9096d5a0d4dea98824bb9ced95bd&amp;type=3#star&apos;); max-width: 50px; max-height: 50px;" />
+                    <ui:VisualElement name="star" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Graphics/UI/star.png?fileID=21300000&amp;guid=661f9096d5a0d4dea98824bb9ced95bd&amp;type=3#star&apos;); max-width: 50px; max-height: 50px;" />
+                    <ui:VisualElement name="star" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Graphics/UI/star.png?fileID=21300000&amp;guid=661f9096d5a0d4dea98824bb9ced95bd&amp;type=3#star&apos;); max-width: 50px; max-height: 50px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

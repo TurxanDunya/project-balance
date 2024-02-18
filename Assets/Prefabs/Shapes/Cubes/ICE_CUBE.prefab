@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 562164308048227802}
   - component: {fileID: 6184572030340582202}
   - component: {fileID: 8370166390604765183}
-  - component: {fileID: 6344522748670718761}
   - component: {fileID: 1042459548708642134}
+  - component: {fileID: 6344522748670718761}
   - component: {fileID: 6272379570641153352}
   - component: {fileID: 5739763038122711024}
   - component: {fileID: 3531674258864897448}
@@ -262,18 +262,6 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &6344522748670718761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2381819755398050511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdd5d4f297f3b1041a27c2168491ff11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1042459548708642134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,6 +275,69 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   raycastDistance: 50
+--- !u!114 &6344522748670718761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2381819755398050511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdd5d4f297f3b1041a27c2168491ff11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pressed:
+    m_Name: Pressed
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: d01fcfad-41b4-4b50-b8e2-2988b46cf47c
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 071cfcfa-875c-4833-b27e-4e2ab43e9214
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Pressed
+      m_Flags: 0
+    - m_Name: 
+      m_Id: f46b47fe-6fbc-42ff-bb50-2892bbf823fb
+      m_Path: <Touchscreen>/Press
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Pressed
+      m_Flags: 0
+    m_Flags: 0
+  axis:
+    m_Name: Axis
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: a71806a8-1c73-4a11-8233-43f3224bbd7c
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: edab1b85-53cb-4839-8adf-31f419f2d3ae
+      m_Path: <Mouse>/delta
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Axis
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 5d4cb2a6-92b1-4d45-b1da-f59fbf3e1c5c
+      m_Path: <Touchscreen>/delta
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Axis
+      m_Flags: 0
+    m_Flags: 0
+  moveSpeed: 0.2
 --- !u!114 &6272379570641153352
 MonoBehaviour:
   m_ObjectHideFlags: 0
