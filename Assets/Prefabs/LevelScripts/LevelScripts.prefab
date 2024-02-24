@@ -44,29 +44,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cb267fdf21534b17bf97891309d6afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pressed:
-    m_Name: Pressed
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: f388372e-4696-487f-b452-e107fafa3960
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 13eb24b6-9482-4241-963c-610ffd16cabc
-      m_Path: <Mouse>/leftButton
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Pressed
-      m_Flags: 0
-    m_Flags: 0
   cubePrefabs: []
   spawnPosition: {fileID: 0}
-  CubeCounter: {fileID: 8430131813013168004}
-  woodPrefab: {fileID: 2708798959611058759, guid: 99699c72a638243dc83f28938157f6b9, type: 3}
-  metalPrefab: {fileID: 2708798959611058759, guid: 80c8837d01a144be08715d414c349b0f, type: 3}
-  icePrefab: {fileID: 2708798959611058759, guid: e89ab8da1b12f4faf8a913fd40d40596, type: 3}
+  cubeCounter: {fileID: 8430131813013168004}
+  woodPrefab:
+  - {fileID: 6071608726711378591, guid: 99699c72a638243dc83f28938157f6b9, type: 3}
+  metalPrefab:
+  - {fileID: 1607663645162760985, guid: 80c8837d01a144be08715d414c349b0f, type: 3}
+  icePrefab:
+  - {fileID: 2381819755398050511, guid: e89ab8da1b12f4faf8a913fd40d40596, type: 3}
+--- !u!1 &520417424472337400
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2073682952050823014}
+  - component: {fileID: 3826409048328296625}
+  m_Layer: 0
+  m_Name: AngleCalculator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2073682952050823014
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520417424472337400}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2098701138026252257}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3826409048328296625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520417424472337400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2aac96f942b64771a213e87ecea2dfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!1 &3347014556053285954
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,11 +143,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubes:
-  - cubeCount: 2
+  - cubeCount: 1
     cubeMaterialType: 0
   - cubeCount: 1
     cubeMaterialType: 2
-  - cubeCount: 2
+  - cubeCount: 1
     cubeMaterialType: 1
 --- !u!1 &6328143981375303186
 GameObject:
@@ -149,8 +180,9 @@ Transform:
   - {fileID: 8120333929407948287}
   - {fileID: 8339725416034104468}
   - {fileID: 876488142404567905}
+  - {fileID: 2073682952050823014}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &9150219992077955847
 PrefabInstance:
