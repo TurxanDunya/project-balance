@@ -48,7 +48,7 @@ public class CubeSpawnManagement : MonoBehaviour
         CubeData.CubeMaterialType? cubeMaterialType = cubeCounter.getAvailableCube();
         if (cubeMaterialType == null)
         {
-            Debug.Log("CubeSpawnManagement WIN");
+           
             winGame?.Invoke();
         }
 

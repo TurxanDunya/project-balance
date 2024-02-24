@@ -46,7 +46,7 @@ public class GameCore : MonoBehaviour
 
     public void ProcessWinEvent()
     {
-        UnityEngine.Debug.Log("GameCore WINProcessWinEvent");
+        
         StartCoroutine(CheckGameWinForDuration());
     }
 
@@ -54,7 +54,6 @@ public class GameCore : MonoBehaviour
         yield return new WaitForSeconds(5);
         if (!isGameEnd)
         {
-            UnityEngine.Debug.Log("GameCore CheckGameWinForDuration");
             isWin = true;
             gameUIController.WinnerUIVisibility(true);
         }
