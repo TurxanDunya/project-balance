@@ -1,15 +1,13 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CubeData", menuName = "CubeScriptableObjects/CubeData")]
+[CreateAssetMenu(fileName = "CubeData", menuName = "ScriptableObjects/CubeData")]
 public class CubeData : ScriptableObject
 {
-
     public GameObject mesh;
     public float density;
     public CubeMaterialType cubeMaterialType;
     public CubeShape cubeShape;
 
-    
     public enum CubeShape
     {
         CUBE,
