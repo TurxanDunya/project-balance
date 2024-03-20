@@ -51,8 +51,7 @@ public class InputManager : MonoBehaviour
     {
         touchControls.CubeController.Touch.canceled += _ => EndTouch();
 
-        touchControls.CubeController.DragAndMove.started += ctx => PerformTouch(ctx);
-        touchControls.CubeController.DragAndMove.performed -= ctx => PerformTouch(ctx);
+        touchControls.CubeController.DragAndMove.started += moveContext => PerformTouch(moveContext);
     }
 
     private void EndTouch()
@@ -63,12 +62,11 @@ public class InputManager : MonoBehaviour
         }
     }
 
-    private void PerformTouch(InputAction.CallbackContext context)
+    private void PerformTouch(InputAction.CallbackContext moveContext)
     {
-        bool isTouched = touchControls.CubeController.Touch.IsPressed();
-        if (isTouched && OnPerformedTouch != null && !isOverUI)
+        if (OnPerformedTouch != null && !isOverUI)
         {
-            OnPerformedTouch(touchControls.CubeController.DragAndMove.ReadValue<Vector2>());
+            OnPerformedTouch(moveContext.ReadValue<Vector2>());
         }
     }
 

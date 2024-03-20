@@ -16,7 +16,7 @@
                 },
                 {
                     "name": "DragAndMove",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "0cedfabe-34b9-4fc3-9929-0d7a2e9103d2",
                     "expectedControlType": "",
                     "processors": "",
@@ -38,17 +38,6 @@
                 },
                 {
                     "name": "",
-                    "id": "9bb482bd-c401-4273-ace0-4efe2a0a8e80",
-                    "path": "<Touchscreen>/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "DragAndMove",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "8e9cb81b-5301-4e82-9bf4-91c5fb877bf2",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
@@ -59,15 +48,70 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "70b00ee0-6d7e-426a-a5a6-264274626885",
+                    "name": "MoveOnTouch",
+                    "id": "d4240b23-87cb-4e5f-b0fd-27fe8da39839",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DragAndMove",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "af96a041-8e70-471f-854a-30b6aea6c1f2",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DragAndMove",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "6f6696c4-9fc1-4036-ace8-be20a6667243",
+                    "path": "<Touchscreen>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DragAndMove",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "MoveOnMouse",
+                    "id": "9b0d3483-af03-49a7-a529-970b00750e6d",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DragAndMove",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "80cdf809-3137-4621-93e2-ae2588c887b6",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DragAndMove",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "81a8a160-bc7d-4bda-a86b-aed10be558b2",
                     "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "DragAndMove",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 }
             ]
         }
