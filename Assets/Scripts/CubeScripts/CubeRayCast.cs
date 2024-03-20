@@ -10,11 +10,6 @@ public class CubeRayCastScript : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
     }
 
-    void Update()
-    {
-        UpdateLineRendererStatus();
-    }
-
     public bool IsHittingPlatform()
     { 
         RaycastHit hit;
@@ -32,7 +27,7 @@ public class CubeRayCastScript : MonoBehaviour
         return true;
     }
 
-    private void UpdateLineRendererStatus()
+    public void UpdateLineRendererStatus()
     {
         RaycastHit hit;
         if (Physics.Raycast(transform.position, -transform.up, out hit, raycastDistance))

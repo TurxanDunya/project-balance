@@ -36,7 +36,8 @@ public class CubeMovement : MonoBehaviour
 
     private void Update()
     {
-        KeepMoveableCubeInPlatformArea();
+        KeepCubeInPlatformArea();
+        cubeRayCastScript.UpdateLineRendererStatus();
     }
 
     public void Move(Vector2 screenPosition)
@@ -51,7 +52,7 @@ public class CubeMovement : MonoBehaviour
         transform.position += moveDirection;
     }
 
-    private void KeepMoveableCubeInPlatformArea()
+    private void KeepCubeInPlatformArea()
     {
         if (cubeRayCastScript.IsHittingPlatform())
         {
