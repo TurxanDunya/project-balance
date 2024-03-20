@@ -30,11 +30,27 @@ public class PowerUpsController : MonoBehaviour
             }
         });
 
+        rootVisualElement.RegisterCallback<PointerDownEvent>((evt) =>
+        {
+            if (evt.target == rootVisualElement)
+            {
+                inputManager.isOverUI = true;
+            }
+        });
+
         rootVisualElement.RegisterCallback<MouseLeaveEvent>((evt) =>
         {
             if (evt.target == rootVisualElement)
             {
                 inputManager.isOverUI = false;
+            }
+        });
+
+        rootVisualElement.RegisterCallback<PointerUpEvent>((evt) =>
+        {
+            if (evt.target == rootVisualElement)
+            {
+                inputManager.isOverUI = true;
             }
         });
     }

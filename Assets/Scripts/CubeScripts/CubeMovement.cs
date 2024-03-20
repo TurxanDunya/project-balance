@@ -38,13 +38,13 @@ public class CubeMovement : MonoBehaviour
         cubeRayCastScript.UpdateLineRendererStatus();
     }
 
-    public void Move(Vector2 screenPosition)
+    public void Move(Vector2 deltaPosition)
     {
         forwardDirection = Vector3.ProjectOnPlane(Camera.main.transform.forward, Vector3.up).normalized;
         rightDirection = Vector3.ProjectOnPlane(Camera.main.transform.right, Vector3.up).normalized;
 
-        moveDirection = forwardDirection * screenPosition.y + rightDirection * screenPosition.x;
-        moveDirection *= Time.deltaTime;
+        moveDirection = forwardDirection * deltaPosition.y + rightDirection * deltaPosition.x;
+        moveDirection *= Time.deltaTime * 0.03f;
 
         moveDirection.y = 0;
         transform.position += moveDirection;
