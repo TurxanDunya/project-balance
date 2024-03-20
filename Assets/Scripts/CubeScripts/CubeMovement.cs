@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class CubeMovement : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 3.0f;
-
     private InputManager inputManager;
     private CubeRayCastScript cubeRayCastScript;
 
@@ -46,7 +44,7 @@ public class CubeMovement : MonoBehaviour
         rightDirection = Vector3.ProjectOnPlane(Camera.main.transform.right, Vector3.up).normalized;
 
         moveDirection = forwardDirection * screenPosition.y + rightDirection * screenPosition.x;
-        moveDirection *= moveSpeed * Time.deltaTime;
+        moveDirection *= Time.deltaTime;
 
         moveDirection.y = 0;
         transform.position += moveDirection;
