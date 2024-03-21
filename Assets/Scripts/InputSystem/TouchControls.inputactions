@@ -7,9 +7,9 @@
             "actions": [
                 {
                     "name": "Touch",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "0035ac43-c6ee-4ba2-a973-1da553758972",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -37,15 +37,37 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "8e9cb81b-5301-4e82-9bf4-91c5fb877bf2",
-                    "path": "<Mouse>/leftButton",
+                    "name": "MouseClick",
+                    "id": "cb722c53-4bf9-4581-a5ab-4c671d4b5724",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "463d9abe-a8b4-4649-b139-efc7f568ee84",
+                    "path": "<Mouse>/press",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Touch",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "553c9d12-f61d-4574-8a08-a5c8cf14b759",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "MoveOnTouch",

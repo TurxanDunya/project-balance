@@ -5,15 +5,17 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     private static InputManager instance;
-    public bool isOverUI = false;
+    private bool isOverUI = false;
 
     public delegate void EndTouchEvent();
     public event EndTouchEvent OnEndTouch;
 
-    public delegate void PerformedTouchEvent(Vector2 position);
+    public delegate void PerformedTouchEvent(Vector2 delta);
     public event PerformedTouchEvent OnPerformedTouch;
 
     private TouchControls touchControls;
+
+    private UIButtonsTemplate uIButtonsTemplate;
 
     // This class should be singleton, because of integration with old input system
     public static InputManager Instance
@@ -35,6 +37,8 @@ public class InputManager : MonoBehaviour
     private void Awake()
     {
         touchControls = new TouchControls();
+
+        uIButtonsTemplate = FindObjectOfType<UIButtonsTemplate>();
     }
 
     private void OnEnable()
@@ -49,9 +53,25 @@ public class InputManager : MonoBehaviour
 
     private void Start()
     {
+        touchControls.CubeController.Touch.started += touchContext => StartTouch(touchContext);
         touchControls.CubeController.Touch.canceled += _ => EndTouch();
 
         touchControls.CubeController.DragAndMove.started += moveContext => PerformTouch(moveContext);
+    }
+
+    // In start touch we define if overlapping UI, and if so all other inputs will be blocked
+    private void StartTouch(InputAction.CallbackContext touchContext)
+    {
+        Vector2 touchPosition = touchContext.ReadValue<Vector2>();
+
+        if (uIButtonsTemplate.IsOverlappingAnyUI(touchPosition))
+        {
+            isOverUI = true;
+        }
+        else
+        {
+            isOverUI = false;
+        }
     }
 
     private void EndTouch()
@@ -66,7 +86,8 @@ public class InputManager : MonoBehaviour
     {
         if (OnPerformedTouch != null && !isOverUI)
         {
-            OnPerformedTouch(moveContext.ReadValue<Vector2>());
+            Vector2 delta = moveContext.ReadValue<Vector2>();
+            OnPerformedTouch(delta);
         }
     }
 

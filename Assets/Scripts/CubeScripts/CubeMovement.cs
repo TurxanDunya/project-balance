@@ -15,6 +15,12 @@ public class CubeMovement : MonoBehaviour
     private void Start()
     {
         cubeRayCastScript = GetComponent<CubeRayCastScript>();
+
+        // Since the camera is static, calculating only once should be enough
+        forwardDirection = Vector3.ProjectOnPlane(
+           Camera.main.transform.forward, Vector3.up).normalized;
+        rightDirection = Vector3.ProjectOnPlane(
+            Camera.main.transform.right, Vector3.up).normalized;
     }
 
     private void Awake()
@@ -38,12 +44,9 @@ public class CubeMovement : MonoBehaviour
         cubeRayCastScript.UpdateLineRendererStatus();
     }
 
-    public void Move(Vector2 deltaPosition)
+    public void Move(Vector2 delta)
     {
-        forwardDirection = Vector3.ProjectOnPlane(Camera.main.transform.forward, Vector3.up).normalized;
-        rightDirection = Vector3.ProjectOnPlane(Camera.main.transform.right, Vector3.up).normalized;
-
-        moveDirection = forwardDirection * deltaPosition.y + rightDirection * deltaPosition.x;
+        moveDirection = forwardDirection * delta.y + rightDirection * delta.x;
         moveDirection *= Time.deltaTime * 0.03f;
 
         moveDirection.y = 0;
