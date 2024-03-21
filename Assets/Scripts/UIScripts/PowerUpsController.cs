@@ -4,6 +4,7 @@ using UnityEngine.UIElements;
 public class PowerUpsController : MonoBehaviour
 {
     [SerializeField] private PowerUps powerUps;
+    [SerializeField] private CubeSpawnManagement cubeSpawnManagement;
 
     private VisualElement rootElement;
     private VisualElement rootVisualElement;
@@ -36,7 +37,12 @@ public class PowerUpsController : MonoBehaviour
 
     private void PerformFirstPowerUp()
     {
-        Debug.Log("Do first power up job!");
+        bool isCubeChanged = cubeSpawnManagement.ReplaceCubeIfPossible();
+
+        if(!isCubeChanged)
+        {
+            // TODO: Will ignore power-up
+        }
     }
 
 }

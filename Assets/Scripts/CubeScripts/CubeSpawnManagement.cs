@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -9,7 +8,6 @@ public class CubeSpawnManagement : MonoBehaviour
 
     public static event Action winGame;
 
-    [SerializeField] private List<GameObject> cubePrefabs;
     [SerializeField] private Transform spawnPosition;
 
     [SerializeField] private CubeCounter cubeCounter;
@@ -19,7 +17,7 @@ public class CubeSpawnManagement : MonoBehaviour
     [SerializeField] private GameObject[] metalPrefab;
     [SerializeField] private GameObject[] icePrefab;
 
-    GameObject currentMoveableCube;
+    private GameObject currentMoveableCube;
 
     private void Awake()
     {
@@ -45,33 +43,62 @@ public class CubeSpawnManagement : MonoBehaviour
 
     public void SpawnCube()
     {
-        CubeData.CubeMaterialType? cubeMaterialType = cubeCounter.getAvailableCube();
+        CubeData.CubeMaterialType? cubeMaterialType = cubeCounter.GetAvailableCube();
         if (cubeMaterialType == null)
         {
             winGame?.Invoke();
+            return;
         }
 
-        GameObject cubePrefab = null;
+        GameObject cubePrefab = GetCubePrefabFromPool(cubeMaterialType);
+        
+        if (cubePrefab != null) {
+            currentMoveableCube = Instantiate(cubePrefab, spawnPosition.position, Quaternion.identity);
+        }
+    }
+
+    public bool ReplaceCubeIfPossible()
+    {
+        CubeData.CubeMaterialType currentCubeMaterialType =
+            currentMoveableCube.GetComponent<Cube>().GetCubeMaterialType();
+        CubeData.CubeMaterialType? newCubeMaterialType =
+            cubeCounter.ChangeAvailableCubeTypeFrom(currentCubeMaterialType);
+
+        if(newCubeMaterialType == null)
+        {
+            return false;
+        }
+
+        if (cubeCounter.GetCubeCount() <= 1)
+        {
+            return false;
+        }
+
+        Destroy(currentMoveableCube);
+        GameObject cubePrefab = GetCubePrefabFromPool(newCubeMaterialType);
+        if (cubePrefab != null)
+        {
+            currentMoveableCube = Instantiate(cubePrefab, spawnPosition.position, Quaternion.identity);
+        }
+
+        return true;
+    }
+
+    private GameObject GetCubePrefabFromPool(CubeData.CubeMaterialType? cubeMaterialType)
+    {
         switch (cubeMaterialType)
         {
             case CubeData.CubeMaterialType.WOOD:
                 int randomCubeWood = Random.Range(0, woodPrefab.Length - 1);
-                cubePrefab = woodPrefab[randomCubeWood];
-                break;
+                return woodPrefab[randomCubeWood];
             case CubeData.CubeMaterialType.METAL:
                 int randomCubeMetal = Random.Range(0, metalPrefab.Length - 1);
-                cubePrefab = metalPrefab[randomCubeMetal];
-                break;
+                return metalPrefab[randomCubeMetal];
             case CubeData.CubeMaterialType.ICE:
                 int randomCubeIce = Random.Range(0, icePrefab.Length - 1);
-                cubePrefab = icePrefab[randomCubeIce];
-                break;
+                return icePrefab[randomCubeIce];
             default:
-                break;
-        }
-
-        if (cubePrefab != null) {
-            currentMoveableCube = Instantiate(cubePrefab, spawnPosition.position, Quaternion.identity);
+                throw new Exception("No such type cube material defined!");
         }
     }
 

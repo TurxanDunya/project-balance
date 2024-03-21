@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class CubeCounter : MonoBehaviour
@@ -13,10 +12,10 @@ public class CubeCounter : MonoBehaviour
     private int iceCount;
 
     private void Awake() {
-        defineCubeCounts();
+        DefineCubeCounts();
     }
 
-    public CubeData.CubeMaterialType? getAvailableCube()
+    public CubeData.CubeMaterialType? GetAvailableCube()
     {
         if (totalCubeCount <= 0)
         {
@@ -27,17 +26,39 @@ public class CubeCounter : MonoBehaviour
         CubeCountData cube = cubes[index];
         if (cube.cubeCount <= 0)
         {
-            return getAvailableCube();
+            return GetAvailableCube();
         }
         else
         {
             totalCubeCount--;
-            decreaseCount(cube.cubeMaterialType);
+            DecreaseCount(cube.cubeMaterialType);
             return cube.cubeMaterialType;
         }
     }
 
-    private void decreaseCount(CubeData.CubeMaterialType type)
+    public CubeData.CubeMaterialType? ChangeAvailableCubeTypeFrom(CubeData.CubeMaterialType cubeMaterialType)
+    {
+        if (totalCubeCount <= 0)
+        {
+            return null;
+        }
+
+        int index = Random.Range(0, cubes.Count);
+        CubeCountData cube = cubes[index];
+        if (cube.cubeMaterialType == cubeMaterialType)
+        {
+            ChangeAvailableCubeTypeFrom(cubeMaterialType);
+        }
+
+        return cube.cubeMaterialType;
+    }
+
+    public int GetCubeCount()
+    {
+        return cubes.Count;
+    }
+
+    private void DecreaseCount(CubeData.CubeMaterialType type)
     {
         switch(type)
         {
@@ -53,7 +74,7 @@ public class CubeCounter : MonoBehaviour
         }
     }
 
-    private void defineCubeCounts()
+    private void DefineCubeCounts()
     {
         foreach (var cube in cubes)
         {
