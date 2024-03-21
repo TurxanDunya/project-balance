@@ -59,6 +59,11 @@ public class CubeSpawnManagement : MonoBehaviour
 
     public bool ReplaceCubeIfPossible()
     {
+        if(currentMoveableCube == null)
+        {
+            return false;
+        }
+
         CubeData.CubeMaterialType currentCubeMaterialType =
             currentMoveableCube.GetComponent<Cube>().GetCubeMaterialType();
         CubeData.CubeMaterialType? newCubeMaterialType =
