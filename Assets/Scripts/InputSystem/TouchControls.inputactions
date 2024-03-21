@@ -26,15 +26,37 @@
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "88311dde-74c2-4bb0-b588-e29408299105",
+                    "name": "Touch",
+                    "id": "48a13c0e-96cd-441c-9838-73b7b226409b",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "b7f6158f-836b-4ed9-880d-3d843873a285",
                     "path": "<Touchscreen>/Press",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Touch",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "1ce18c8e-a8c6-4a80-a175-76c12d39e27e",
+                    "path": "<Touchscreen>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "MouseClick",
