@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement name="RootVE" style="flex-grow: 1;">
+    <ui:VisualElement name="RootVE" style="flex-grow: 1; display: flex; visibility: hidden;">
         <ui:VisualElement name="MoveFingerImageVE" style="flex-grow: 1; background-color: rgba(70, 70, 70, 0.74); align-items: center; justify-content: center; align-self: auto;">
             <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="GotItButton" style="background-image: url(&quot;project://database/Assets/UI/Tutorials/WelcomeTutorial/Assets/move-fingers.png?fileID=2800000&amp;guid=a6d347a120e7e4c50a67a5e3a9ff0e05&amp;type=3#move-fingers&quot;); background-color: rgba(188, 188, 188, 0); width: 40%; height: 20%; border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0);" />
         </ui:VisualElement>

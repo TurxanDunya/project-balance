@@ -16,7 +16,8 @@ public class WelcomeTutorialController : MonoBehaviour
         rootElement = GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("RootVE");
         moveFingerImageVE = rootElement.Q<VisualElement>("MoveFingerImageVE");
         gotItButton = moveFingerImageVE.Q<Button>("GotItButton");
-        
+
+        rootElement.visible = true;
 
         gotItButton.clicked += DisableHowToMoveCubeVE;
     }
