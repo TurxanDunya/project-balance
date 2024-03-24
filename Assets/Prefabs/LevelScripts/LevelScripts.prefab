@@ -44,7 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cb267fdf21534b17bf97891309d6afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubePrefabs: []
   spawnPosition: {fileID: 0}
   cubeCounter: {fileID: 8430131813013168004}
   woodPrefab:
@@ -53,6 +52,50 @@ MonoBehaviour:
   - {fileID: 1607663645162760985, guid: 80c8837d01a144be08715d414c349b0f, type: 3}
   icePrefab:
   - {fileID: 2381819755398050511, guid: e89ab8da1b12f4faf8a913fd40d40596, type: 3}
+--- !u!1 &121233217796708331
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5185592143091511909}
+  - component: {fileID: 1439958952294343122}
+  m_Layer: 0
+  m_Name: CoinManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5185592143091511909
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121233217796708331}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2098701138026252257}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1439958952294343122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121233217796708331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 417115ba13dda43b2ac792b79a7e721f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &520417424472337400
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,7 +185,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67b1ae61f28d6467cab09ae2096d2307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOverUI: 0
 --- !u!1 &3347014556053285954
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,6 +317,7 @@ Transform:
   - {fileID: 2073682952050823014}
   - {fileID: 4642240445196865744}
   - {fileID: 2524733852679122432}
+  - {fileID: 5185592143091511909}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &9150219992077955847
