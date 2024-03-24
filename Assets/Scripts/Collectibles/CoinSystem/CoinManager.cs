@@ -2,15 +2,21 @@ using UnityEngine;
 
 public class CoinManager : MonoBehaviour
 {
+    private long coinCount = 100;
 
-    void Start()
+    public long CoinCount
     {
-        
+        get { return coinCount; }
     }
 
-    void Update()
+    public void AddCoin(long addCount)
     {
-        
+        coinCount += addCount;
+    }
+
+    public void SubtractCoin(long subtractCount)
+    {
+        coinCount -= subtractCount;
     }
 
 }

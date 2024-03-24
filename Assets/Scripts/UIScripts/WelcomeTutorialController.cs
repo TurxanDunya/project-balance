@@ -3,7 +3,7 @@ using UnityEngine.UIElements;
 
 public class WelcomeTutorialController : MonoBehaviour
 {
-    [SerializeField] private GameObject self;
+    [SerializeField] private GameObject selfPrefab;
 
     private VisualElement rootElement;
     private Button gotItButton;
@@ -33,7 +33,7 @@ public class WelcomeTutorialController : MonoBehaviour
         {
             rootElement.Remove(moveFingerImageVE);
             isMoveFingerImageVEEnabled = false;
-            Destroy(self);
+            Destroy(selfPrefab);
         }
     }
 

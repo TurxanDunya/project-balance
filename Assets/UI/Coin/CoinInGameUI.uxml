@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="RootVE" style="flex-grow: 1; align-items: center; justify-content: center; align-self: flex-start;">
+        <ui:VisualElement name="CollectedCoins" style="flex-grow: 1; justify-content: center; align-self: auto; align-items: center;">
+            <ui:Label tabindex="-1" text="Coin Count" parse-escape-sequences="true" display-tooltip-when-elided="true" name="CoinCount" style="font-size: 60px; background-color: rgba(46, 30, 30, 0.55); color: rgb(255, 255, 255); -unity-font-style: bold; -unity-font: url(&quot;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&amp;guid=32d8c2a2016da4c80bc3cb9a9149d463&amp;type=3#NotInter-Regular&quot;);" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
