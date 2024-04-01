@@ -3,7 +3,7 @@ using UnityEngine.UIElements;
 
 public class WelcomeTutorialController : MonoBehaviour
 {
-    [SerializeField] private GameObject self;
+    [SerializeField] private GameObject selfPrefab;
 
     private VisualElement rootElement;
     private Button gotItButton;
@@ -16,7 +16,8 @@ public class WelcomeTutorialController : MonoBehaviour
         rootElement = GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("RootVE");
         moveFingerImageVE = rootElement.Q<VisualElement>("MoveFingerImageVE");
         gotItButton = moveFingerImageVE.Q<Button>("GotItButton");
-        
+
+        rootElement.visible = true;
 
         gotItButton.clicked += DisableHowToMoveCubeVE;
     }
@@ -32,7 +33,7 @@ public class WelcomeTutorialController : MonoBehaviour
         {
             rootElement.Remove(moveFingerImageVE);
             isMoveFingerImageVEEnabled = false;
-            Destroy(self);
+            Destroy(selfPrefab);
         }
     }
 
