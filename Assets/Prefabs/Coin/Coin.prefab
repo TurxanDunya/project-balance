@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6224780443284680818}
   - component: {fileID: 6241143819207629273}
   - component: {fileID: 118434273852958199}
-  - component: {fileID: 7114553505010222990}
+  - component: {fileID: 4829351697571568116}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Coin
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 4162693392634624837}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3, y: 1.816, z: -0.7434124}
+  m_LocalPosition: {x: -0.7908004, y: 0.6030287, z: 0.021351278}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1184d274f4bc24b1ea803e424fbd3cab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7114553505010222990
+--- !u!114 &4829351697571568116
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,5 +161,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f5170c038460490c9fda786eafe7313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selfPrefab: {fileID: 4162693392634624837}
-  addCountOnCubeCollision: 10
+  addCountOnCubeCollision: 5
