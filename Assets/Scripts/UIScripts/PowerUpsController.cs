@@ -41,7 +41,7 @@ public class PowerUpsController : MonoBehaviour
 
         if(!isCubeChanged)
         {
-            // TODO: Will ignore power-up
+            // TODO: Will ignore power-up and will purchase some coin
         }
     }
 
