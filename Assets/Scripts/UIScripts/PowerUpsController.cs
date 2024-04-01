@@ -4,44 +4,45 @@ using UnityEngine.UIElements;
 public class PowerUpsController : MonoBehaviour
 {
     [SerializeField] private PowerUps powerUps;
+    [SerializeField] private CubeSpawnManagement cubeSpawnManagement;
 
+    private VisualElement rootElement;
     private VisualElement rootVisualElement;
     private Button firstPowerUpButton;
 
-    private InputManager inputManager;
-
-    private void Awake()
-    {
-        inputManager = InputManager.Instance;
-    }
-
     void Start()
     {
-        rootVisualElement = GetComponent<UIDocument>().rootVisualElement;
+        rootElement = GetComponent<UIDocument>().rootVisualElement;
+        rootVisualElement = rootElement.Q<VisualElement>("power_ups");
         firstPowerUpButton = rootVisualElement.Q<Button>("first_power_up");
 
         firstPowerUpButton.clicked += () => PerformFirstPowerUp();
+    }
 
-        rootVisualElement.RegisterCallback<MouseEnterEvent>((evt) =>
+    public bool IsOverUI(Vector2 touchPosition)
+    {
+        float leftBorder = rootVisualElement.layout.x - rootVisualElement.layout.width / 2;
+        float rightBorder = rootVisualElement.layout.x + rootVisualElement.layout.width / 2;
+        float bottomBorder = rootVisualElement.layout.y - rootVisualElement.layout.height / 2;
+        float upBorder = rootVisualElement.layout.y + rootVisualElement.layout.height / 2;
+        
+        if (touchPosition.x >= leftBorder && touchPosition.x <= rightBorder
+            && touchPosition.x >= bottomBorder && touchPosition.y <= upBorder)
         {
-            if (evt.target == rootVisualElement)
-            {
-                inputManager.isOverUI = true;
-            }
-        });
+            return true;
+        }
 
-        rootVisualElement.RegisterCallback<MouseLeaveEvent>((evt) =>
-        {
-            if (evt.target == rootVisualElement)
-            {
-                inputManager.isOverUI = false;
-            }
-        });
+        return false;
     }
 
     private void PerformFirstPowerUp()
     {
-        Debug.Log("Do first power up job!");
+        bool isCubeChanged = cubeSpawnManagement.ReplaceCubeIfPossible();
+
+        if(!isCubeChanged)
+        {
+            // TODO: Will ignore power-up
+        }
     }
 
 }

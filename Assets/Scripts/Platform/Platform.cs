@@ -7,7 +7,7 @@ public class Platform : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == Constants.PLAYABLE_CUBE)
+        if (collision.gameObject.CompareTag(Constants.PLAYABLE_CUBE))
         {
             CubeLanded?.Invoke();
         }

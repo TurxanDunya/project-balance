@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/PowerUps/PowerUpsStyle.uss?fileID=7433441132597879392&amp;guid=1028d42204b184f93be764d1519b58ba&amp;type=3#PowerUpsStyle" />
-    <ui:VisualElement name="power_ups" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-items: center; align-self: flex-end; max-width: none; max-height: none; justify-content: center; width: 15%; height: 80%;">
-        <ui:Button display-tooltip-when-elided="true" name="first_power_up" class="power_up" style="bottom: 530px;" />
+    <ui:VisualElement name="power_ups" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-items: center; align-self: flex-end; max-width: none; max-height: none; justify-content: center; width: 15%; height: 80%; margin-left: 20px; margin-right: 20px; margin-top: 50px; margin-bottom: 50px;">
+        <ui:Button display-tooltip-when-elided="true" name="first_power_up" class="power_up" style="bottom: 0;" />
     </ui:VisualElement>
 </ui:UXML>

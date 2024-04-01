@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class CubeMovement : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 3.0f;
-
     private InputManager inputManager;
     private CubeRayCastScript cubeRayCastScript;
 
@@ -17,6 +15,12 @@ public class CubeMovement : MonoBehaviour
     private void Start()
     {
         cubeRayCastScript = GetComponent<CubeRayCastScript>();
+
+        // Since the camera is static, calculating only once should be enough
+        forwardDirection = Vector3.ProjectOnPlane(
+           Camera.main.transform.forward, Vector3.up).normalized;
+        rightDirection = Vector3.ProjectOnPlane(
+            Camera.main.transform.right, Vector3.up).normalized;
     }
 
     private void Awake()
@@ -36,22 +40,20 @@ public class CubeMovement : MonoBehaviour
 
     private void Update()
     {
-        KeepMoveableCubeInPlatformArea();
+        KeepCubeInPlatformArea();
+        cubeRayCastScript.UpdateLineRendererStatus();
     }
 
-    public void Move(Vector2 screenPosition)
+    public void Move(Vector2 delta)
     {
-        forwardDirection = Vector3.ProjectOnPlane(Camera.main.transform.forward, Vector3.up).normalized;
-        rightDirection = Vector3.ProjectOnPlane(Camera.main.transform.right, Vector3.up).normalized;
-
-        moveDirection = forwardDirection * screenPosition.y + rightDirection * screenPosition.x;
-        moveDirection *= moveSpeed * Time.deltaTime;
+        moveDirection = forwardDirection * delta.y + rightDirection * delta.x;
+        moveDirection *= Time.deltaTime * 0.03f;
 
         moveDirection.y = 0;
         transform.position += moveDirection;
     }
 
-    private void KeepMoveableCubeInPlatformArea()
+    private void KeepCubeInPlatformArea()
     {
         if (cubeRayCastScript.IsHittingPlatform())
         {
