@@ -1,0 +1,4 @@
+.level_btn_style {
+    width: 24%;
+    height: 50%;
+}
