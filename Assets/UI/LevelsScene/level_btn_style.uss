@@ -1,4 +1,11 @@
 .level_btn_style {
-    width: 24%;
-    height: 50%;
+    width: 18%;
+    height: 18%;
+    align-self: stretch;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-left: 0;
+    font-size: 40px;
+    background-color: rgb(37, 171, 192);
+    -unity-font-style: bold;
 }

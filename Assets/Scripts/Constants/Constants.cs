@@ -6,5 +6,3 @@ public class Constants
     public const string MAIN_PLATFORM = "MainPlatform";
     public const string PLAYER_DATA_FILE = "player_data.dat";
 }
-
-
