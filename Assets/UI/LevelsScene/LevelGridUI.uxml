@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/UI/LevelsScene/scroll_view_style.uss?fileID=7433441132597879392&amp;guid=7606221439a534c669ac3a00299f792f&amp;type=3#scroll_view_style" />
+    <ui:VisualElement name="root_container" style="flex-grow: 1; color: rgb(255, 255, 255); flex-direction: column;">
+        <ui:ScrollView name="ScrollView" mode="Horizontal" usage-hints="None" touch-scroll-type="Clamped" nested-interaction-kind="Default" style="background-color: rgb(250, 65, 65); align-items: auto; max-width: none; max-height: none; min-width: auto; min-height: auto; justify-content: space-between; position: relative; align-self: auto; flex-direction: column; flex-shrink: 1; flex-wrap: nowrap; width: 100%; height: 100%;" />
+    </ui:VisualElement>
+</ui:UXML>
