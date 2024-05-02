@@ -13,33 +13,13 @@ public class LevelManagment
 
     public LevelManagment()
     {
-        var levelsString = FileUtil.LoadFromFile(levelFile);
+        String levelsStatus = FileUtil.LoadFromFile(levelFile);
 
         var folderLevels = GetLevelNamesFromFolder(levelsPath);
 
-        if (levelsString != null)
+        if (levelsStatus != null)
         {
-            levelList = JsonUtility.FromJson<LevelList>(levelsString);
-
-            ////if new level added
-            //if (1 > 2)
-            //{
-            //    foreach (string levelName in folderLevels)
-            //    {
-            //        foreach (Level l in levelList.levels)
-            //        {
-            //            if (!levelName.Equals(l.name))
-            //            {
-            //                var newLevel = new Level();
-            //                newLevel.name = levelName;
-            //                levelList.levels.Add(newLevel);
-            //            }
-            //        }
-            //    }
-            //    //setNewLevels false
-                  //SaveLevels();
-            //}
-
+            levelList = JsonUtility.FromJson<LevelList>(levelsStatus);
         }
         else
         {
@@ -56,14 +36,14 @@ public class LevelManagment
         List<Level> initials = new List<Level>();
         foreach (string level in levels)
         {
-            var l = new Level();
+            Level newLevel = new Level();
             if (level.Equals("Level 1"))
             {
-                l.status = LevelStatus.Open;
+                newLevel.status = LevelStatus.Open;
             }
-            l.name = level;
+            newLevel.name = level;
 
-            initials.Add(l);
+            initials.Add(newLevel);
         }
 
         levelList.levels = initials;
@@ -124,9 +104,6 @@ public class LevelManagment
     {
         return levelList.levels.FindLast(c => c.status == LevelStatus.Open);
     }
-
-
-
 
 }
 
