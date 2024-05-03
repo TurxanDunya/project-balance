@@ -1,8 +1,8 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
     <Style src="project://database/Assets/UI/MainStyle.uss?fileID=7433441132597879392&amp;guid=76cfc8fa02aa948789191297b356a831&amp;type=3#MainStyle" />
-    <ui:VisualElement name="root_container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 100%; height: 100%; align-self: center; justify-content: center; -unity-text-align: upper-center; background-image: url(&apos;project://database/Assets/Graphics/UI/menu_background.jpg?fileID=2800000&amp;guid=3210cce2cd084431c95a2a7153516fdb&amp;type=3#menu_background&apos;); -unity-background-scale-mode: stretch-to-fill; -unity-background-image-tint-color: rgb(229, 229, 229);">
+    <ui:VisualElement name="root_container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 100%; height: 100%; align-self: center; justify-content: center; -unity-text-align: upper-center; background-image: url(&quot;project://database/Assets/Graphics/UI/menu_background.jpg?fileID=2800000&amp;guid=3210cce2cd084431c95a2a7153516fdb&amp;type=3#menu_background&quot;); -unity-background-scale-mode: stretch-to-fill; -unity-background-image-tint-color: rgb(229, 229, 229);">
         <ui:Button text="Start" display-tooltip-when-elided="true" name="btn_start" class="menu-button" style="font-size: 100%; margin-bottom: 2%;" />
-        <ui:Button text="Setting" display-tooltip-when-elided="true" name="btn_setting" class="menu-button" style="margin-bottom: 2%; font-size: 100%;" />
+        <ui:Button text="Levels" display-tooltip-when-elided="true" name="btn_levels" class="menu-button" style="margin-bottom: 2%; font-size: 100%;" />
         <ui:Button text="Quit" display-tooltip-when-elided="true" name="btn_quit" class="menu-button" style="margin-bottom: 2%; font-size: 100%;" />
     </ui:VisualElement>
 </ui:UXML>
