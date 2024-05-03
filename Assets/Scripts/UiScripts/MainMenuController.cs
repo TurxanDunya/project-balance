@@ -10,11 +10,17 @@ public class MainMenuController : MonoBehaviour
     {
         menuRoot = GetComponent<UIDocument>().rootVisualElement;
         Button start = menuRoot.Q<Button>("btn_start");
-        Button setting = menuRoot.Q<Button>("btn_setting");
+        Button levels = menuRoot.Q<Button>("btn_levels");
         Button quit = menuRoot.Q<Button>("btn_quit");
 
+
         start.clicked += () => {
-            NavigateScene(Constants.MAIN_SCENE_INDEX);
+            var lastLevel = new LevelManagment().currentLevel;
+            SceneManager.LoadScene(lastLevel.name);
+        };
+
+        levels.clicked += () => {
+            NavigateScene(Constants.LEVELS_SCENE_INDEX);
         };
 
         quit.clicked += () => Quit();

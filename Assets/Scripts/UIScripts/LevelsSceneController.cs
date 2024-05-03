@@ -1,28 +1,102 @@
+using System;
 using System.Collections.Generic;
+using UnityEditor;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class LevelsSceneController : MonoBehaviour
 {
-    private VisualElement rootElement;
-    private VisualElement levelsPanelVE;
+    private VisualElement rootContainer;
     private ScrollView scrollView;
+    private VisualElement contentCointainer;
 
     void Start()
     {
-        rootElement = GetComponent<UIDocument>().rootVisualElement;
-        levelsPanelVE = rootElement.Q<VisualElement>("LevelsPanelVE");
-        scrollView = levelsPanelVE.Q<ScrollView>("ScrollView");
-        IEnumerable<Button> buttons = scrollView.Query<Button>().ToList();
+        rootContainer = GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("root_container");
+        scrollView = rootContainer.Q<ScrollView>("ScrollView");
+        var levelItem = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI/LevelsScene/LevelItem.uxml");
 
-        foreach (Button button in buttons)
-        {
-            button.clickable.clicked += () =>
+
+
+        foreach (Level level in LevelManager.INSTANCE.levelManagment.levelList.levels) {
+
+            var levelView = levelItem.Instantiate();
+
+            var rootContainer = levelView.Q<VisualElement>("root_container");
+            var item = rootContainer.Q<VisualElement>("item");
+            var levelName = rootContainer.Q<Label>("name");
+            levelName.text = level.name;
+
+            var stars = rootContainer.Q<VisualElement>("stars");
+            var starsLocked = rootContainer.Q<VisualElement>("stars_locked");
+            
+
+            var statusLocked = rootContainer.Q<VisualElement>("status");
+
+            if (level.star == 0) {
+                starsLocked.style.display = DisplayStyle.Flex;
+            }
+            else
             {
-                NavigateScene(int.Parse(button.text));
-            };
+                var star1 = stars.Q<VisualElement>("star1");
+                var star2 = stars.Q<VisualElement>("star2");
+                var star3 = stars.Q<VisualElement>("star3");
+
+                switch (level.star) {
+                    case 1: {
+                        star1.style.display = DisplayStyle.Flex;
+                        }
+                        break;
+                    case 2:
+                        {
+                        star1.style.display = DisplayStyle.Flex;
+                        star2.style.display = DisplayStyle.Flex;
+                        }
+                        break;
+                    case 3:
+                         {
+                         star1.style.display = DisplayStyle.Flex;
+                         star2.style.display = DisplayStyle.Flex;
+                         star3.style.display = DisplayStyle.Flex;
+                        }
+                         break;
+                }
+
+                stars.style.display = DisplayStyle.Flex;
+            }
+
+            if (level.status == LevelStatus.Open) {
+                statusLocked.style.display = DisplayStyle.None;
+            }
+
+            item.AddManipulator(new Clickable(evt =>
+            {
+                if (level.status == LevelStatus.Open) {
+
+                    LevelManager.INSTANCE.levelManagment.currentLevel = level;
+                    SceneManager.LoadScene(level.name);
+                }
+            }));
+
+
+            scrollView.Add(levelView);
+
         }
+
+     
+
+        //IEnumerable<Button> buttons = scrollView.Query<Button>().ToList();
+
+
+        //foreach (Button button in buttons)
+        //{
+        //    button.clickable.clicked += () =>
+        //    {
+        //        NavigateScene(int.Parse(button.text));
+        //    };
+        //}
     }
 
     void NavigateScene(int scene)

@@ -9,6 +9,7 @@ public class GameCore : MonoBehaviour
     private bool isGameEnd = false;
     private bool isWin = false;
 
+
     private void OnEnable()
     {
         CubeFallDetector.playableCubeDetect += PlayableCubeDetected;
@@ -53,8 +54,15 @@ public class GameCore : MonoBehaviour
         yield return new WaitForSeconds(5);
         if (!isGameEnd)
         {
-            isWin = true;
+            LevelManager.INSTANCE.levelManagment.currentLevel.star = gameUIController.GetLevelStar();
+            LevelManager.INSTANCE.levelManagment.SetLevelData(LevelManager.INSTANCE.levelManagment.currentLevel);
+            var nextLevel = LevelManager.INSTANCE.levelManagment.FindNextLevel();
+            nextLevel.status = LevelStatus.Open;
+            LevelManager.INSTANCE.levelManagment.SetLevelData(nextLevel);
+            LevelManager.INSTANCE.levelManagment.currentLevel = nextLevel;
+            LevelManager.INSTANCE.levelManagment.SaveLevels();
             gameUIController.WinnerUIVisibility(true);
+
         }
     }
 
