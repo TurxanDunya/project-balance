@@ -63,6 +63,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUps: {fileID: 0}
   cubeSpawnManagement: {fileID: 0}
+  timeLevelFinish: {fileID: 0}
 --- !u!1 &2299487983283890040
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,9 +267,9 @@ GameObject:
   m_Component:
   - component: {fileID: 542228473333071466}
   - component: {fileID: 991645397202700237}
-  - component: {fileID: 3529147784637465523}
+  - component: {fileID: 7890366589865422788}
   m_Layer: 5
-  m_Name: Coin
+  m_Name: CoinUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -305,7 +306,7 @@ MonoBehaviour:
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: 5ffbee46d6a134f968f228581a291e38, type: 3}
   m_SortingOrder: 0
---- !u!114 &3529147784637465523
+--- !u!114 &7890366589865422788
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
