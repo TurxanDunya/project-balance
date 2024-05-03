@@ -5,18 +5,22 @@ public class PowerUpsController : MonoBehaviour
 {
     [SerializeField] private PowerUps powerUps;
     [SerializeField] private CubeSpawnManagement cubeSpawnManagement;
+    [SerializeField] private TimeLevelFinish timeLevelFinish;
 
     private VisualElement rootElement;
     private VisualElement rootVisualElement;
     private Button firstPowerUpButton;
+    private Button secondPowerUpButton;
 
     void Start()
     {
         rootElement = GetComponent<UIDocument>().rootVisualElement;
         rootVisualElement = rootElement.Q<VisualElement>("power_ups");
         firstPowerUpButton = rootVisualElement.Q<Button>("first_power_up");
+        secondPowerUpButton = rootVisualElement.Q<Button>("second_power_up");
 
         firstPowerUpButton.clicked += () => PerformFirstPowerUp();
+        secondPowerUpButton.clicked += () => PerformSecondPowerUp();
     }
 
     public bool IsOverUI(Vector2 touchPosition)
@@ -43,6 +47,11 @@ public class PowerUpsController : MonoBehaviour
         {
             // TODO: Will ignore power-up and will purchase some coin
         }
+    }
+
+    private void PerformSecondPowerUp()
+    {
+        timeLevelFinish.IncreaseFinishTime(5);
     }
 
 }
