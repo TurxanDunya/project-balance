@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "PowerUpsData", menuName = "ScriptableObjects/PowerUpsData")]
@@ -15,6 +13,7 @@ public class PowerUpsData : ScriptableObject
     {
         RANDOM_NEXT,
         MAGNET_CUBE,
+        BOMB_CUBE,
         PLUS_5_SECOND
     }
 }

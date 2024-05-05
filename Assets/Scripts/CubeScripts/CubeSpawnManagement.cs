@@ -9,7 +9,6 @@ public class CubeSpawnManagement : MonoBehaviour
     public static event Action winGame;
 
     [SerializeField] private Transform spawnPosition;
-
     [SerializeField] private CubeCounter cubeCounter;
 
     [Header("Cubes")]
@@ -17,7 +16,10 @@ public class CubeSpawnManagement : MonoBehaviour
     [SerializeField] private GameObject[] metalPrefab;
     [SerializeField] private GameObject[] icePrefab;
 
-    private GameObject currentMoveableCube;
+    [Header("Magnets")]
+    [SerializeField] private GameObject magnetPrefab;
+
+    private GameObject currentMoveableObject;
 
     private void Awake()
     {
@@ -53,40 +55,41 @@ public class CubeSpawnManagement : MonoBehaviour
         GameObject cubePrefab = GetCubePrefabFromPool(cubeMaterialType);
         
         if (cubePrefab != null) {
-            currentMoveableCube = Instantiate(cubePrefab, spawnPosition.position, Quaternion.identity);
+            currentMoveableObject = Instantiate(cubePrefab, spawnPosition.position, Quaternion.identity);
         }
     }
 
     public bool ReplaceCubeIfPossible()
     {
-        if(currentMoveableCube == null)
+        if(currentMoveableObject == null)
         {
             return false;
         }
 
         CubeData.CubeMaterialType currentCubeMaterialType =
-            currentMoveableCube.GetComponent<Cube>().GetCubeMaterialType();
+            currentMoveableObject.GetComponent<Cube>().GetCubeMaterialType();
         CubeData.CubeMaterialType? newCubeMaterialType =
             cubeCounter.ChangeAvailableCubeTypeFrom(currentCubeMaterialType);
 
-        if(newCubeMaterialType == null)
+        if(newCubeMaterialType == null || cubeCounter.GetCubeCount() <= 1)
         {
             return false;
         }
 
-        if (cubeCounter.GetCubeCount() <= 1)
-        {
-            return false;
-        }
-
-        Destroy(currentMoveableCube);
+        Destroy(currentMoveableObject);
         GameObject cubePrefab = GetCubePrefabFromPool(newCubeMaterialType);
         if (cubePrefab != null)
         {
-            currentMoveableCube = Instantiate(cubePrefab, spawnPosition.position, Quaternion.identity);
+            currentMoveableObject = Instantiate(cubePrefab, spawnPosition.position, Quaternion.identity);
         }
 
         return true;
+    }
+
+    public void ReplaceWithMagnet()
+    {
+        Destroy(currentMoveableObject);
+        currentMoveableObject = Instantiate(magnetPrefab, spawnPosition.position, Quaternion.identity);
     }
 
     private GameObject GetCubePrefabFromPool(CubeData.CubeMaterialType? cubeMaterialType)
@@ -109,10 +112,24 @@ public class CubeSpawnManagement : MonoBehaviour
 
     private void ReleaseObject()
     {
-        if (currentMoveableCube != null) {
-            currentMoveableCube.GetComponent<Cube>().CubeReleased();
-            currentMoveableCube = null;
+        if (currentMoveableObject == null)
+        {
+            return;
         }
+
+        Cube cube = currentMoveableObject.GetComponent<Cube>();
+        if (cube != null)
+        {
+            cube.Release();
+        }
+
+        Magnet magnet = currentMoveableObject.GetComponent<Magnet>();
+        if (magnet != null)
+        {
+            magnet.Release();
+        }
+
+        currentMoveableObject = null;
     }
 
 }
