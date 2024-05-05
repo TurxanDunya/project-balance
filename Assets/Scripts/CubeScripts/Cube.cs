@@ -5,7 +5,7 @@ public class Cube : MonoBehaviour
     [SerializeField] private ParticleSystem rippleEffect;
     [SerializeField] private CubeData.CubeMaterialType cubeMaterialType;
 
-    public void CubeReleased()
+    public void Release()
     {
         GetComponent<Rigidbody>().useGravity = true;
 

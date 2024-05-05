@@ -11,32 +11,52 @@ public class PowerUpsController : MonoBehaviour
     private VisualElement rootVisualElement;
     private Button firstPowerUpButton;
     private Button secondPowerUpButton;
+    private Button thirdPowerUpButton;
+
+    // VE coord fields
+    float leftBorder;
+    float rightBorder;
+    float bottomBorder;
+    float upBorder;
 
     void Start()
     {
         rootElement = GetComponent<UIDocument>().rootVisualElement;
         rootVisualElement = rootElement.Q<VisualElement>("power_ups");
+
         firstPowerUpButton = rootVisualElement.Q<Button>("first_power_up");
         secondPowerUpButton = rootVisualElement.Q<Button>("second_power_up");
+        thirdPowerUpButton = rootVisualElement.Q<Button>("third_power_up");
 
-        firstPowerUpButton.clicked += () => PerformFirstPowerUp();
-        secondPowerUpButton.clicked += () => PerformSecondPowerUp();
+        BindEventsWithFunctions();
     }
 
     public bool IsOverUI(Vector2 touchPosition)
     {
-        float leftBorder = rootVisualElement.layout.x - rootVisualElement.layout.width / 2;
-        float rightBorder = rootVisualElement.layout.x + rootVisualElement.layout.width / 2;
-        float bottomBorder = rootVisualElement.layout.y - rootVisualElement.layout.height / 2;
-        float upBorder = rootVisualElement.layout.y + rootVisualElement.layout.height / 2;
-        
+        CalculateRootVECoords();
+
         if (touchPosition.x >= leftBorder && touchPosition.x <= rightBorder
-            && touchPosition.x >= bottomBorder && touchPosition.y <= upBorder)
+            && touchPosition.y >= bottomBorder && touchPosition.y <= upBorder)
         {
             return true;
         }
 
         return false;
+    }
+
+    private void CalculateRootVECoords()
+    {
+        leftBorder = rootVisualElement.layout.x - rootVisualElement.layout.width / 2;
+        rightBorder = rootVisualElement.layout.x + rootVisualElement.layout.width / 2;
+        bottomBorder = rootVisualElement.layout.y;
+        upBorder = rootVisualElement.layout.y + rootVisualElement.layout.height;
+    }
+
+    private void BindEventsWithFunctions()
+    {
+        firstPowerUpButton.clicked += () => PerformFirstPowerUp();
+        secondPowerUpButton.clicked += () => PerformSecondPowerUp();
+        thirdPowerUpButton.clicked += () => PerformThirdPowerUp();
     }
 
     private void PerformFirstPowerUp()
@@ -52,6 +72,11 @@ public class PowerUpsController : MonoBehaviour
     private void PerformSecondPowerUp()
     {
         timeLevelFinish.IncreaseFinishTime(5);
+    }
+
+    private void PerformThirdPowerUp()
+    {
+        cubeSpawnManagement.ReplaceWithMagnet();
     }
 
 }
