@@ -19,6 +19,9 @@ public class CubeSpawnManagement : MonoBehaviour
     [Header("Magnets")]
     [SerializeField] private GameObject magnetPrefab;
 
+    [Header("Bombs")]
+    [SerializeField] private GameObject bombPrefab;
+
     private GameObject currentMoveableObject;
 
     private void Awake()
@@ -92,6 +95,12 @@ public class CubeSpawnManagement : MonoBehaviour
         currentMoveableObject = Instantiate(magnetPrefab, spawnPosition.position, Quaternion.identity);
     }
 
+    public void ReplaceWithBomb()
+    {
+        Destroy(currentMoveableObject);
+        currentMoveableObject = Instantiate(bombPrefab, spawnPosition.position, Quaternion.identity);
+    }
+
     private GameObject GetCubePrefabFromPool(CubeData.CubeMaterialType? cubeMaterialType)
     {
         switch (cubeMaterialType)
@@ -127,6 +136,12 @@ public class CubeSpawnManagement : MonoBehaviour
         if (magnet != null)
         {
             magnet.Release();
+        }
+
+        Bomb bomb = currentMoveableObject.GetComponent<Bomb>();
+        if (bomb != null)
+        {
+            bomb.Release();
         }
 
         currentMoveableObject = null;

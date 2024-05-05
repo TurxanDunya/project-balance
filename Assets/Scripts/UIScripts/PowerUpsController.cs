@@ -12,6 +12,7 @@ public class PowerUpsController : MonoBehaviour
     private Button firstPowerUpButton;
     private Button secondPowerUpButton;
     private Button thirdPowerUpButton;
+    private Button fourthPowerUpButton;
 
     // VE coord fields
     float leftBorder;
@@ -27,6 +28,7 @@ public class PowerUpsController : MonoBehaviour
         firstPowerUpButton = rootVisualElement.Q<Button>("first_power_up");
         secondPowerUpButton = rootVisualElement.Q<Button>("second_power_up");
         thirdPowerUpButton = rootVisualElement.Q<Button>("third_power_up");
+        fourthPowerUpButton = rootVisualElement.Q<Button>("fourth_power_up");
 
         BindEventsWithFunctions();
     }
@@ -57,6 +59,7 @@ public class PowerUpsController : MonoBehaviour
         firstPowerUpButton.clicked += () => PerformFirstPowerUp();
         secondPowerUpButton.clicked += () => PerformSecondPowerUp();
         thirdPowerUpButton.clicked += () => PerformThirdPowerUp();
+        fourthPowerUpButton.clicked += () => PerformFourthPowerUp();
     }
 
     private void PerformFirstPowerUp()
@@ -77,6 +80,11 @@ public class PowerUpsController : MonoBehaviour
     private void PerformThirdPowerUp()
     {
         cubeSpawnManagement.ReplaceWithMagnet();
+    }
+
+    private void PerformFourthPowerUp()
+    {
+        cubeSpawnManagement.ReplaceWithBomb();
     }
 
 }

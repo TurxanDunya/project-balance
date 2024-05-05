@@ -4,5 +4,6 @@
         <ui:Button display-tooltip-when-elided="true" name="first_power_up" class="power_up" style="bottom: 0;" />
         <ui:Button display-tooltip-when-elided="true" name="second_power_up" class="power_up" style="bottom: 0; background-image: url(&quot;project://database/Assets/Graphics/UI/time.png?fileID=2800000&amp;guid=64354cfb796e746d3978a0526be15adc&amp;type=3#time&quot;);" />
         <ui:Button display-tooltip-when-elided="true" name="third_power_up" class="power_up" style="bottom: 0; background-image: url(&quot;project://database/Assets/Graphics/UI/magnet.png?fileID=2800000&amp;guid=8c4bfad8a363e486eb204f8f6df248b7&amp;type=3#magnet&quot;);" />
+        <ui:Button display-tooltip-when-elided="true" name="fourth_power_up" class="power_up" style="bottom: 0; background-image: url(&quot;project://database/Assets/Graphics/UI/bomb.png?fileID=2800000&amp;guid=730499b058e76467c824352f305d28e7&amp;type=3#bomb&quot;);" />
     </ui:VisualElement>
 </ui:UXML>
