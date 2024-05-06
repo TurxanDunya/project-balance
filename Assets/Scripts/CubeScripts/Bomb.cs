@@ -1,0 +1,44 @@
+using UnityEngine;
+
+public class Bomb : MonoBehaviour
+{
+    [SerializeField] private GameObject self;
+    [SerializeField] private float affectDistance;
+
+    private void OnEnable()
+    {
+        Platform.BombLanded += Blast;
+    }
+
+    private void OnDisable()
+    {
+        Platform.BombLanded -= Blast;
+    }
+
+    public void Blast()
+    {
+        GameObject[] affectedObjects = GameObject.FindGameObjectsWithTag(Constants.PLAYABLE_CUBE);
+
+        foreach (GameObject affectedObject in affectedObjects)
+        {
+            Vector3 magnetPosition = transform.position;
+            Vector3 otherObjectPosition = affectedObject.transform.position;
+            float distanceBetween = Vector3.Distance(magnetPosition, otherObjectPosition);
+
+            if (distanceBetween <= affectDistance)
+            {
+                Destroy(affectedObject);
+                Destroy(self);
+            }
+        }
+    }
+
+    public void Release()
+    {
+        GetComponent<Rigidbody>().useGravity = true;
+
+        Destroy(GetComponent<CubeMovement>());
+        Destroy(GetComponent<CubeRayCastScript>());
+        Destroy(GetComponent<LineRenderer>());
+    }
+}

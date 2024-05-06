@@ -14,14 +14,14 @@ GameObject:
   - component: {fileID: 6016542251444792400}
   - component: {fileID: 5775667437942466714}
   - component: {fileID: 1820809425175776420}
-  - component: {fileID: -5896516185640395122}
+  - component: {fileID: -5651800940396332623}
   - component: {fileID: 7683002099999255989}
   - component: {fileID: 2442796575675897745}
   - component: {fileID: 5929365353986474293}
   - component: {fileID: 4509376578340805329}
   m_Layer: 0
-  m_Name: Magnet
-  m_TagString: Magnet
+  m_Name: Bomb
+  m_TagString: Bomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,7 +69,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b74081a5a5bbf418ea9f95bfec18f393, type: 2}
+  - {fileID: 2100000, guid: 336e5222d2aa3429d81edd47be1871e4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -261,7 +261,7 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &-5896516185640395122
+--- !u!114 &-5651800940396332623
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -270,11 +270,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2708798959611058759}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 231838281893c4ffaa7826b4f8d3e02c, type: 3}
+  m_Script: {fileID: 11500000, guid: 887ea59062ea24ab998706da39e7cf24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attractDistance: 0.3
-  attractForce: 400
+  self: {fileID: 2708798959611058759}
+  affectDistance: 0.2
 --- !u!114 &7683002099999255989
 MonoBehaviour:
   m_ObjectHideFlags: 0
