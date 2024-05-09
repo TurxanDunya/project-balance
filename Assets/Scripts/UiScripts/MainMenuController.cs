@@ -2,10 +2,17 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 
+
 public class MainMenuController : MonoBehaviour
 {
     private VisualElement menuRoot;
-   
+    private string lastLevel;
+
+    private void Awake()
+    {
+        lastLevel = new LevelManagment().currentLevel.name;
+    }
+
     void Start()
     {
         menuRoot = GetComponent<UIDocument>().rootVisualElement;
@@ -13,10 +20,8 @@ public class MainMenuController : MonoBehaviour
         Button levels = menuRoot.Q<Button>("btn_levels");
         Button quit = menuRoot.Q<Button>("btn_quit");
 
-
         start.clicked += () => {
-            var lastLevel = new LevelManagment().currentLevel;
-            SceneManager.LoadScene(lastLevel.name);
+            SceneManager.LoadScene(lastLevel);
         };
 
         levels.clicked += () => {
@@ -35,4 +40,5 @@ public class MainMenuController : MonoBehaviour
     {
         Application.Quit();
     }
+
 }
