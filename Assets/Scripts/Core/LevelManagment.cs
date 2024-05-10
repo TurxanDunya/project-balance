@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManagment
 {
-    private string levelFile = "levels.dat";
-    private string levelsPath = "Assets/Scenes/Levels";
+    private readonly string levelFile = "levels.dat";
     public LevelList levelList;
     public Level currentLevel;
 
@@ -15,7 +15,7 @@ public class LevelManagment
     {
         String levelsStatus = FileUtil.LoadFromFile(levelFile);
 
-        var folderLevels = GetLevelNamesFromFolder(levelsPath);
+        var folderLevels = GetLevelNamesFromBuildSettings();
 
         if (levelsStatus != null)
         {
@@ -81,6 +81,23 @@ public class LevelManagment
         cl.star = l.star;
         cl.status = l.status;
 
+    }
+
+    private List<string> GetLevelNamesFromBuildSettings()
+    {
+        List<string> levelNames = new List<string>();
+        int sceneCount = SceneManager.sceneCountInBuildSettings;
+       
+        for (int i = 0; i < sceneCount; i++)
+        {
+            var fileName = SceneUtility.GetScenePathByBuildIndex(i);
+            if (fileName.Contains("/Levels/") && fileName.EndsWith(".unity")) {
+                var levelName = Path.GetFileNameWithoutExtension(fileName);
+                levelNames.Add(levelName);
+            }
+            
+        }
+        return levelNames;
     }
 
    public Level FindNextLevel() {

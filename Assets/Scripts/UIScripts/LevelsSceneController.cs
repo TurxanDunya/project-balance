@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEditor;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -12,14 +11,13 @@ public class LevelsSceneController : MonoBehaviour
     private ScrollView scrollView;
     private VisualElement contentCointainer;
 
+    [SerializeField]
+    public VisualTreeAsset levelItem;
+
     void Start()
     {
         rootContainer = GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("root_container");
         scrollView = rootContainer.Q<ScrollView>("ScrollView");
-        var levelItem = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI/LevelsScene/LevelItem.uxml");
-
-
-
         foreach (Level level in LevelManager.INSTANCE.levelManagment.levelList.levels) {
 
             var levelView = levelItem.Instantiate();
@@ -84,19 +82,6 @@ public class LevelsSceneController : MonoBehaviour
             scrollView.Add(levelView);
 
         }
-
-     
-
-        //IEnumerable<Button> buttons = scrollView.Query<Button>().ToList();
-
-
-        //foreach (Button button in buttons)
-        //{
-        //    button.clickable.clicked += () =>
-        //    {
-        //        NavigateScene(int.Parse(button.text));
-        //    };
-        //}
     }
 
     void NavigateScene(int scene)
