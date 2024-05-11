@@ -123,17 +123,18 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
-    - _StarCount: 86.26
-    - _StarFOD: 4.59
+    - _StarBrightness: 101.6
+    - _StarCount: 12.9
+    - _StarFOD: 222.63
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BottomColor: {r: 0.372549, g: 0.172549, b: 0.509804, a: 1}
+    - _BottomColor: {r: 0.115752354, g: 0.109736554, b: 0.16981131, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _Tilling: {r: 11.4, g: 3.19, b: 0, a: 0}
-    - _TopColor: {r: 0, g: 0.19215687, b: 0.6037736, a: 1}
+    - _Tilling: {r: -0.15, g: -0.16, b: 0, a: 0}
+    - _TopColor: {r: 0.22241008, g: 0.3442062, b: 0.9245283, a: 1}
   m_BuildTextureStacks: []

@@ -670,10 +670,10 @@
     "m_Guid": {
         "m_GuidSerialized": "0a95e01a-5d7c-41fc-9050-03779ac7c158"
     },
-    "m_Name": "StarCount",
+    "m_Name": "StarBrightness",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "StarCount",
-    "m_DefaultReferenceName": "_StarCount",
+    "m_RefNameGeneratedByDisplayName": "StarBrightness",
+    "m_DefaultReferenceName": "_StarBrightness",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -683,7 +683,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 90.0,
+    "m_Value": 28.100000381469728,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,
@@ -1344,7 +1344,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "6fd3252a2b6a4f0aa2cfa7a44d7225f3",
     "m_Id": 0,
-    "m_DisplayName": "StarCount",
+    "m_DisplayName": "StarBrightness",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -1886,7 +1886,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 5.0,
+    "m_Value": 17.68000030517578,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,
