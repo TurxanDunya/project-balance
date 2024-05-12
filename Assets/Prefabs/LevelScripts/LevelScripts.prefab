@@ -53,7 +53,7 @@ MonoBehaviour:
   icePrefab:
   - {fileID: 2381819755398050511, guid: e89ab8da1b12f4faf8a913fd40d40596, type: 3}
   magnetPrefab: {fileID: 2708798959611058759, guid: 59723707e6b1b4a00b2da459135987ed, type: 3}
-  bombPrefab: {fileID: 0}
+  bombPrefab: {fileID: 2708798959611058759, guid: f790c60f0a2e14f988e625e78f297070, type: 3}
 --- !u!1 &121233217796708331
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,0 +1,55 @@
+.unity-progress-bar__container {
+    min-height: 150%;
+    height: 150%;
+    max-height: 150%;
+    min-width: 50%;
+    width: 50%;
+    max-width: 50%;
+    flex-grow: 1;
+}
+
+.unity-progress-bar__background {
+    border-width: 5px;
+    border-radius: 30px;
+    border-color: rgb(1, 255, 255);
+    height: 5%;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.unity-progress-bar__progress {
+    height: 100%;
+    border-radius: 16px;
+    margin-left: 5px;
+    margin-right: 2px;
+    margin-top: 6px;
+    margin-bottom: 7px;
+    background-color: rgb(255, 192, 9);
+    margin: 3px;
+}
+
+.star_style {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("project://database/Assets/Graphics/UI/star.png?fileID=21300000&guid=661f9096d5a0d4dea98824bb9ced95bd&type=3#star");
+    width: 7%;
+    height: 40%;
+    max-width: 7%;
+    min-width: 7%;
+    max-height: 40%;
+    min-height: 40%;
+    display: flex;
+}
+
+.starsVE_style {
+    min-height: 10%;
+    height: 10%;
+    max-height: 10%;
+    min-width: 50%;
+    width: 50%;
+    max-width: 50%;
+    flex-grow: 1;
+    flex-direction: row;
+    align-items: center;
+    align-self: center;
+    margin-top: 3%;
+}
