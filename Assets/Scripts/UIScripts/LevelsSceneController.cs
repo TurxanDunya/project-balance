@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -9,17 +6,14 @@ public class LevelsSceneController : MonoBehaviour
 {
     private VisualElement rootContainer;
     private ScrollView scrollView;
-    private VisualElement contentCointainer;
 
-    [SerializeField]
-    public VisualTreeAsset levelItem;
+    [SerializeField] private VisualTreeAsset levelItem;
 
     void Start()
     {
         rootContainer = GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("root_container");
         scrollView = rootContainer.Q<ScrollView>("ScrollView");
         foreach (Level level in LevelManager.INSTANCE.levelManagment.levelList.levels) {
-
             var levelView = levelItem.Instantiate();
 
             var rootContainer = levelView.Q<VisualElement>("root_container");
@@ -29,8 +23,6 @@ public class LevelsSceneController : MonoBehaviour
 
             var stars = rootContainer.Q<VisualElement>("stars");
             var starsLocked = rootContainer.Q<VisualElement>("stars_locked");
-            
-
             var statusLocked = rootContainer.Q<VisualElement>("status");
 
             if (level.star == 0) {
@@ -78,15 +70,8 @@ public class LevelsSceneController : MonoBehaviour
                 }
             }));
 
-
             scrollView.Add(levelView);
-
         }
-    }
-
-    void NavigateScene(int scene)
-    {
-        SceneManager.LoadScene(scene);
     }
 
 }

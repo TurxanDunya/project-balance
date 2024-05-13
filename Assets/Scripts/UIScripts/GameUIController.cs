@@ -36,7 +36,6 @@ public class GameUIController : MonoBehaviour
     {
         var level = LevelManager.INSTANCE.levelManagment.currentLevel;
         if(level != null) NavigateSceneByName(level.name);
-
     }
 
     public void GameOverUIVisibility(bool visibility) {
