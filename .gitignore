@@ -14,8 +14,8 @@
 /buildForDevices/*
 /publishConfigs/*
 /[Aa]ssets/LunarConsole.meta
-
-
+/[Aa]ssets/TextMesh Pro
+/[Aa]ssets/UIElementsSchema
 
 
 # MemoryCaptures can get excessive in size.

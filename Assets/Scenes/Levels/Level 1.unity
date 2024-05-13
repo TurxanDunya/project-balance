@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3044215, g: 0.17824543, b: 0.53055996, a: 1}
+  m_IndirectSpecularColor: {r: 0.14047101, g: 0.16462904, b: 0.3554897, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -508,69 +508,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4212608896809122150, guid: e1f4079b5f8164880a8ef2150dfa9a11, type: 3}
   m_PrefabInstance: {fileID: 4959051561595580849}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1405537470
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1405537471}
-  - component: {fileID: 1405537472}
-  - component: {fileID: 1405537473}
-  m_Layer: 5
-  m_Name: WelcomeTutorialUI
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1405537471
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1405537470}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 789708642}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1405537472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1405537470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PanelSettings: {fileID: 11400000, guid: 468278f28d0ac4cd18ca82d7196688b5, type: 2}
-  m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: a907d66a3ca4e4afcb13574b912e31b9, type: 3}
-  m_SortingOrder: 2
---- !u!114 &1405537473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1405537470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef050860f27c14a99addc8f11458842e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selfPrefab: {fileID: 1405537470}
---- !u!43 &1406793496
+--- !u!43 &1282341117
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -735,6 +673,68 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1405537470
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1405537471}
+  - component: {fileID: 1405537472}
+  - component: {fileID: 1405537473}
+  m_Layer: 5
+  m_Name: WelcomeTutorialUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1405537471
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405537470}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 789708642}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1405537472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405537470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: 468278f28d0ac4cd18ca82d7196688b5, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: a907d66a3ca4e4afcb13574b912e31b9, type: 3}
+  m_SortingOrder: 2
+--- !u!114 &1405537473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405537470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef050860f27c14a99addc8f11458842e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selfPrefab: {fileID: 1405537470}
 --- !u!114 &1655422147 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7454388596297837352, guid: 7f3e224445bba4c8f838c2ca32164068, type: 3}
@@ -771,15 +771,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6294272877836790699, guid: 3da7ffc36d1f743cbbcef56c0dfd8dd9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.27
+      value: -1.12
       objectReference: {fileID: 0}
     - target: {fileID: 6294272877836790699, guid: 3da7ffc36d1f743cbbcef56c0dfd8dd9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.29
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 6294272877836790699, guid: 3da7ffc36d1f743cbbcef56c0dfd8dd9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.94
+      value: -0.65
       objectReference: {fileID: 0}
     - target: {fileID: 6294272877836790699, guid: 3da7ffc36d1f743cbbcef56c0dfd8dd9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -878,10 +878,6 @@ PrefabInstance:
       propertyPath: gameUIController
       value: 
       objectReference: {fileID: 282231324}
-    - target: {fileID: 6762653154033847079, guid: 7f3e224445bba4c8f838c2ca32164068, type: 3}
-      propertyPath: bombPrefab
-      value: 
-      objectReference: {fileID: 2708798959611058759, guid: f790c60f0a2e14f988e625e78f297070, type: 3}
     - target: {fileID: 6762653154033847079, guid: 7f3e224445bba4c8f838c2ca32164068, type: 3}
       propertyPath: spawnPosition
       value: 
