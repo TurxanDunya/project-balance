@@ -1,18 +1,26 @@
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class PowerUpsController : MonoBehaviour
 {
+    [Header("Dependant controllers")]
+    [SerializeField] private PausePopUpController pausePopUpController;
+
     [SerializeField] private PowerUps powerUps;
     [SerializeField] private CubeSpawnManagement cubeSpawnManagement;
     [SerializeField] private TimeLevelFinish timeLevelFinish;
 
     private VisualElement rootElement;
-    private VisualElement rootVisualElement;
+    private VisualElement powerUpsVE;
     private Button firstPowerUpButton;
     private Button secondPowerUpButton;
     private Button thirdPowerUpButton;
     private Button fourthPowerUpButton;
+
+    private VisualElement topVE;
+    private Button pauseButton;
+    private Button levelsButton;
 
     // VE coord fields
     float leftBorder;
@@ -23,12 +31,16 @@ public class PowerUpsController : MonoBehaviour
     void Start()
     {
         rootElement = GetComponent<UIDocument>().rootVisualElement;
-        rootVisualElement = rootElement.Q<VisualElement>("power_ups");
 
-        firstPowerUpButton = rootVisualElement.Q<Button>("first_power_up");
-        secondPowerUpButton = rootVisualElement.Q<Button>("second_power_up");
-        thirdPowerUpButton = rootVisualElement.Q<Button>("third_power_up");
-        fourthPowerUpButton = rootVisualElement.Q<Button>("fourth_power_up");
+        powerUpsVE = rootElement.Q<VisualElement>("power_ups");
+        firstPowerUpButton = powerUpsVE.Q<Button>("first_power_up");
+        secondPowerUpButton = powerUpsVE.Q<Button>("second_power_up");
+        thirdPowerUpButton = powerUpsVE.Q<Button>("third_power_up");
+        fourthPowerUpButton = powerUpsVE.Q<Button>("fourth_power_up");
+
+        topVE = rootElement.Q<VisualElement>("top-VE");
+        pauseButton = topVE.Q<Button>("Pause");
+        levelsButton = topVE.Q<Button>("Levels");
 
         BindEventsWithFunctions();
     }
@@ -48,10 +60,10 @@ public class PowerUpsController : MonoBehaviour
 
     private void CalculateRootVECoords()
     {
-        leftBorder = rootVisualElement.layout.x - rootVisualElement.layout.width / 2;
-        rightBorder = rootVisualElement.layout.x + rootVisualElement.layout.width / 2;
-        bottomBorder = rootVisualElement.layout.y;
-        upBorder = rootVisualElement.layout.y + rootVisualElement.layout.height;
+        leftBorder = powerUpsVE.layout.x - powerUpsVE.layout.width / 2;
+        rightBorder = powerUpsVE.layout.x + powerUpsVE.layout.width / 2;
+        bottomBorder = powerUpsVE.layout.y;
+        upBorder = powerUpsVE.layout.y + powerUpsVE.layout.height;
     }
 
     private void BindEventsWithFunctions()
@@ -60,6 +72,9 @@ public class PowerUpsController : MonoBehaviour
         secondPowerUpButton.clicked += () => PerformSecondPowerUp();
         thirdPowerUpButton.clicked += () => PerformThirdPowerUp();
         fourthPowerUpButton.clicked += () => PerformFourthPowerUp();
+
+        pauseButton.clicked += () => PauseGame();
+        levelsButton.clicked += () => ShowLevels();
     }
 
     private void PerformFirstPowerUp()
@@ -85,6 +100,17 @@ public class PowerUpsController : MonoBehaviour
     private void PerformFourthPowerUp()
     {
         cubeSpawnManagement.ReplaceWithBomb();
+    }
+
+    private void PauseGame()
+    {
+        Time.timeScale = 0;
+        pausePopUpController.Show();
+    }
+
+    private void ShowLevels()
+    {
+        SceneManager.LoadScene(LevelNameConstants.LEVEL_SCENE_NAME);
     }
 
 }
