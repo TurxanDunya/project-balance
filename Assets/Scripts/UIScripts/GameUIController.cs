@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -39,25 +38,12 @@ public class GameUIController : MonoBehaviour
     }
 
     public void GameOverUIVisibility(bool visibility) {
-        if (visibility)
-        {
-            rootGameOver.style.display = DisplayStyle.Flex;
-        }
-        else {
-            rootGameOver.style.display = DisplayStyle.None;
-        }
+        rootGameOver.visible = visibility;
     }
 
     public void WinnerUIVisibility(bool visibility)
     {
-        if (visibility)
-        {
-            rootWinner.style.display = DisplayStyle.Flex;
-        }
-        else
-        {
-            rootWinner.style.display = DisplayStyle.None;
-        }
+        rootWinner.visible = visibility;
     }
 
     public void SetLevelStars(int degree) {
@@ -65,7 +51,7 @@ public class GameUIController : MonoBehaviour
     }
 
     public int GetLevelStar() {
-        var progress = ((int)levelStarProgressBar.value);
+        var progress = (int)levelStarProgressBar.value;
         var star = 0;
         switch (progress){
             case int n when (n > 80 && n <= 90):
@@ -82,7 +68,6 @@ public class GameUIController : MonoBehaviour
         }
 
         return star;
-
     }
 
     void NavigateScene(int scene)
@@ -90,10 +75,9 @@ public class GameUIController : MonoBehaviour
         SceneManager.LoadScene(scene);
     }
 
-    void NavigateSceneByName(String scene)
+    void NavigateSceneByName(string scene)
     {
         SceneManager.LoadScene(scene);
     }
-
 
 }
