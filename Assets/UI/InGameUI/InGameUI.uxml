@@ -1,0 +1,18 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/InGameUI/ButtonStyles.uss?fileID=7433441132597879392&amp;guid=a7847a2045c9046f68fb9fc1c8d4c6d3&amp;type=3#ButtonStyles" />
+    <Style src="project://database/Assets/UI/InGameUI/PowerUpsStyle.uss?fileID=7433441132597879392&amp;guid=1028d42204b184f93be764d1519b58ba&amp;type=3#PowerUpsStyle" />
+    <ui:VisualElement name="rootVE" style="flex-grow: 1; align-items: stretch; justify-content: flex-start; align-self: stretch; overflow: hidden; visibility: visible;">
+        <ui:VisualElement name="top-VE" style="flex-grow: 1; align-self: flex-start; flex-direction: row; justify-content: flex-start; height: 8%; max-height: 8%; min-height: 8%; width: 100%; max-width: 100%; min-width: 100%;">
+            <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Pause" class="pause_btn_style" style="overflow: visible; margin-top: 4%; height: 70%;" />
+            <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="Levels" class="levels_btn_style" style="justify-content: flex-end; margin-top: 5%; margin-right: 0; margin-bottom: 0; margin-left: 9%; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; align-items: stretch; font-size: 0; -unity-text-align: upper-center;">
+                <ui:Label tabindex="-1" text="Level 1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Level" class="level_lbl_style" style="margin-top: 0; margin-left: 0; margin-right: 0; margin-bottom: 0; -unity-font-style: normal; font-size: 86%;" />
+            </ui:Button>
+        </ui:VisualElement>
+        <ui:VisualElement name="power_ups" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-items: center; align-self: flex-end; max-width: 100%; max-height: 100%; justify-content: center; width: 15%; height: 100%; margin-left: 2%; margin-right: 2%; margin-top: 5%; margin-bottom: 3%; min-width: 15%; min-height: 100%;">
+            <ui:Button display-tooltip-when-elided="true" name="first_power_up" class="power_up" style="bottom: 0;" />
+            <ui:Button display-tooltip-when-elided="true" name="second_power_up" class="power_up" style="bottom: 0; background-image: url(&quot;project://database/Assets/Graphics/UI/time.png?fileID=2800000&amp;guid=64354cfb796e746d3978a0526be15adc&amp;type=3#time&quot;);" />
+            <ui:Button display-tooltip-when-elided="true" name="third_power_up" class="power_up" style="bottom: 0; background-image: url(&quot;project://database/Assets/Graphics/UI/magnet.png?fileID=2800000&amp;guid=8c4bfad8a363e486eb204f8f6df248b7&amp;type=3#magnet&quot;);" />
+            <ui:Button display-tooltip-when-elided="true" name="fourth_power_up" class="power_up" style="bottom: 0; background-image: url(&quot;project://database/Assets/Graphics/UI/bomb.png?fileID=2800000&amp;guid=730499b058e76467c824352f305d28e7&amp;type=3#bomb&quot;);" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
