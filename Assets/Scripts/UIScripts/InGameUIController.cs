@@ -105,7 +105,7 @@ public class InGameUIController : MonoBehaviour
     private void PauseGame()
     {
         Time.timeScale = 0;
-        pauseScreenController.Show();
+        pauseScreenController.ChangeStateToPausePage();
     }
 
     private void ShowLevels()

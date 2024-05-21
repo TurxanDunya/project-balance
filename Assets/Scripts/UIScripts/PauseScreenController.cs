@@ -23,9 +23,11 @@ public class PauseScreenController : MonoBehaviour
         pausePopUpVE = rootElement.Q<VisualElement>("PausePopUpVE");
     }
 
-    public void Show()
+    public void ChangeStateToPausePage()
     {
         pausePopUpVE.style.display = DisplayStyle.Flex;
+        homeButton.style.display = DisplayStyle.Flex;
+        stateChanger.ChangeStateToPause();
     }
 
     private void ChangeStateToHomePage()

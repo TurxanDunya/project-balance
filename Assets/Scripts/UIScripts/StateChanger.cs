@@ -37,6 +37,18 @@ public class StateChanger : MonoBehaviour
         homeScreenUI.SetActive(true);
     }
 
+    public void ChangeStateToPause()
+    {
+        gameUI.SetActive(false);
+        inGameUI.SetActive(false);
+        gameOverUI.SetActive(false);
+        winnerUI.SetActive(false);
+        levelStar.SetActive(false);
+        homeScreenUI.SetActive(false);
+
+        pauseScreenUI.SetActive(true);
+    }
+
     private void CheckWelcomeTutorial()
     {
         if (welcomeTutorialUI != null)
