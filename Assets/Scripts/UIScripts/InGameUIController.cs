@@ -2,10 +2,10 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 
-public class PowerUpsController : MonoBehaviour
+public class InGameUIController : MonoBehaviour
 {
     [Header("Dependant controllers")]
-    [SerializeField] private PausePopUpController pausePopUpController;
+    [SerializeField] private PauseScreenController pauseScreenController;
 
     [SerializeField] private PowerUps powerUps;
     [SerializeField] private CubeSpawnManagement cubeSpawnManagement;
@@ -38,7 +38,7 @@ public class PowerUpsController : MonoBehaviour
         thirdPowerUpButton = powerUpsVE.Q<Button>("third_power_up");
         fourthPowerUpButton = powerUpsVE.Q<Button>("fourth_power_up");
 
-        topVE = rootElement.Q<VisualElement>("top-VE");
+        topVE = rootElement.Q<VisualElement>("topVE");
         pauseButton = topVE.Q<Button>("Pause");
         levelsButton = topVE.Q<Button>("Levels");
 
@@ -105,7 +105,7 @@ public class PowerUpsController : MonoBehaviour
     private void PauseGame()
     {
         Time.timeScale = 0;
-        pausePopUpController.Show();
+        pauseScreenController.Show();
     }
 
     private void ShowLevels()

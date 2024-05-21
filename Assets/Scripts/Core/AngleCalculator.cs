@@ -1,19 +1,11 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
-public class CalculateAngle: MonoBehaviour
+public class AngleCalculator : MonoBehaviour
 {
-    [SerializeField]
-    Transform target;
+    [SerializeField] private Transform target;
 
-   
-    public static event Action<int> platformAnge;
-
-    float currentX = 0;
-    float currentZ = 0;
+    private float currentX = 0;
+    private float currentZ = 0;
 
     private void Start()
     {
@@ -21,14 +13,14 @@ public class CalculateAngle: MonoBehaviour
         currentZ = transform.rotation.eulerAngles.z;
     }
 
-    void Update()
+    public int GetPlatformAngle()
     {
         var eulerAnglesX = target.rotation.eulerAngles.x;
         var eulerAnglesZ = target.rotation.eulerAngles.z;
+
         var angleX = (int)Mathf.Abs(Mathf.DeltaAngle(currentX, eulerAnglesX));
         var angleZ = (int)Mathf.Abs(Mathf.DeltaAngle(currentZ, eulerAnglesZ));
-        var finalAngle = Mathf.Max(angleX, angleZ);
-        platformAnge?.Invoke(finalAngle);
+        return Mathf.Max(angleX, angleZ);
     }
 
 }

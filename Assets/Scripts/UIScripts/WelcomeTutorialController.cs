@@ -9,32 +9,24 @@ public class WelcomeTutorialController : MonoBehaviour
     private Button gotItButton;
     private VisualElement moveFingerImageVE;
 
-    private bool isMoveFingerImageVEEnabled = true;
-
     void Start()
     {
         rootElement = GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("RootVE");
         moveFingerImageVE = rootElement.Q<VisualElement>("MoveFingerImageVE");
         gotItButton = moveFingerImageVE.Q<Button>("GotItButton");
 
-        rootElement.visible = true;
-
         gotItButton.clicked += DisableHowToMoveCubeVE;
     }
 
-    public bool IsOverUI(Vector2 touchPosition)
+    public void MakeRootElementVisible()
     {
-        return isMoveFingerImageVEEnabled;
+        rootElement.visible = true;
     }
 
     private void DisableHowToMoveCubeVE()
     {
-        if (isMoveFingerImageVEEnabled)
-        {
-            rootElement.Remove(moveFingerImageVE);
-            isMoveFingerImageVEEnabled = false;
-            Destroy(selfPrefab);
-        }
+        rootElement.Remove(moveFingerImageVE);
+        Destroy(selfPrefab);
     }
 
 }

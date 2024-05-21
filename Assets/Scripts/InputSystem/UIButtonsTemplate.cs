@@ -2,24 +2,27 @@ using UnityEngine;
 
 public class UIButtonsTemplate : MonoBehaviour
 {
-    private PowerUpsController powerUpsController;
-    private WelcomeTutorialController welcomeTutorialController;
-
-    private void Awake()
-    {
-        powerUpsController = FindObjectOfType<PowerUpsController>();
-        welcomeTutorialController = FindObjectOfType<WelcomeTutorialController>();
-    }
+    [SerializeField] private InGameUIController inGameUIController;
+    [SerializeField] private WelcomeTutorialController welcomeTutorialController;
+    [SerializeField] private HomeScreenController homeScreenController;
 
     public bool IsOverlappingAnyUI(Vector2 touchPosition)
     {
-        if(powerUpsController.IsOverUI(touchPosition))
+        if (inGameUIController != null &&
+            inGameUIController.isActiveAndEnabled &&
+            inGameUIController.IsOverUI(touchPosition))
         {
             return true;
         }
 
         if(welcomeTutorialController != null &&
-            welcomeTutorialController.IsOverUI(touchPosition))
+            welcomeTutorialController.isActiveAndEnabled)
+        {
+            return true;
+        }
+
+        if(homeScreenController != null &&
+            homeScreenController.isActiveAndEnabled)
         {
             return true;
         }

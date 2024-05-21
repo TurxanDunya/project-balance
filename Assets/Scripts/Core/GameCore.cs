@@ -3,36 +3,26 @@ using UnityEngine;
 
 public class GameCore : MonoBehaviour
 {
-    [Header("GameUI Controller")]
     [SerializeField] private GameUIController gameUIController;
 
     private bool isGameEnd = false;
     private bool isWin = false;
 
-
     private void OnEnable()
     {
         CubeFallDetector.playableCubeDetect += PlayableCubeDetected;
         CubeSpawnManagement.winGame += ProcessWinEvent;
-        CalculateAngle.platformAnge += (degree) => AngleCalculated(degree);
     }
 
     private void OnDisable()
     {
         CubeFallDetector.playableCubeDetect -= PlayableCubeDetected;
         CubeSpawnManagement.winGame -= ProcessWinEvent;
-        CalculateAngle.platformAnge -= (degree) => AngleCalculated(degree);
     }
 
     public void PlayableCubeDetected()
     {
         ProcessEndGame();
-    }
-
-    public void AngleCalculated(int degree)
-    {
-        var progress = 90 - degree;
-        gameUIController.SetLevelStars(progress);
     }
 
     public void ProcessWinEvent()
