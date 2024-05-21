@@ -104,7 +104,6 @@ public class InGameUIController : MonoBehaviour
 
     private void PauseGame()
     {
-        Time.timeScale = 0;
         pauseScreenController.ChangeStateToPausePage();
     }
 

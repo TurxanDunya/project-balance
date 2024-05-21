@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StateChanger : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class StateChanger : MonoBehaviour
 
     public void ChangeStateToInGameUI()
     {
+        Time.timeScale = 1;
+
         gameUI.SetActive(true);
         inGameUI.SetActive(true);
         pauseScreenUI.SetActive(true);
@@ -27,6 +30,8 @@ public class StateChanger : MonoBehaviour
 
     public void ChangeStateToMainUI()
     {
+        SceneManager.LoadScene(LevelNameConstants.LEVEL_1_NAME);
+
         gameUI.SetActive(false);
         inGameUI.SetActive(false);
         pauseScreenUI.SetActive(false);
@@ -39,6 +44,8 @@ public class StateChanger : MonoBehaviour
 
     public void ChangeStateToPause()
     {
+        Time.timeScale = 0;
+
         gameUI.SetActive(false);
         inGameUI.SetActive(false);
         gameOverUI.SetActive(false);
