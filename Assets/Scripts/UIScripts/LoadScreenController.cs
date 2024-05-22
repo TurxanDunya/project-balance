@@ -41,6 +41,8 @@ public class LoadScreenController : MonoBehaviour
 
     private IEnumerator FadeIn()
     {
+        Time.timeScale = 1;
+
         float alpha = 1f;
         while (alpha > 0f)
         {
