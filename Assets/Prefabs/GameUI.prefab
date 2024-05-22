@@ -561,5 +561,4 @@ MonoBehaviour:
   pauseScreenUI: {fileID: 471164949728130507}
   gameOverUI: {fileID: 5715331772997791880}
   winnerUI: {fileID: 2299487983283890040}
-  levelStar: {fileID: 6973379358230488474}
   welcomeTutorialUI: {fileID: 0}
