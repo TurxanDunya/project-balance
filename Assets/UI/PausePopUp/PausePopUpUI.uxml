@@ -1,5 +1,9 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement name="RootVE" style="flex-grow: 1; align-items: center; justify-content: center; align-self: stretch; visibility: visible; display: none; overflow: visible;">
-        <ui:VisualElement name="PausePopUpVE" style="flex-grow: 1; align-self: center; display: flex; width: 70%; height: 20%; justify-content: center; min-height: 20%; max-height: 20%; max-width: 70%; min-width: 70%; background-color: rgba(0, 0, 0, 0.65); visibility: visible;" />
+    <Style src="project://database/Assets/UI/InGameUI/ButtonStyles.uss?fileID=7433441132597879392&amp;guid=a7847a2045c9046f68fb9fc1c8d4c6d3&amp;type=3#ButtonStyles" />
+    <ui:VisualElement name="RootVE" style="flex-grow: 1; align-items: center; justify-content: flex-start; align-self: stretch; visibility: visible; display: flex; overflow: visible;">
+        <ui:VisualElement name="topVE" class="topVE_style" style="flex-grow: 1;">
+            <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="Home" class="pause_btn_style" style="overflow: hidden; background-image: url(&quot;project://database/Assets/Graphics/UI/buttons/home.png?fileID=2800000&amp;guid=6f451b2df50354b1c97e4115318c4072&amp;type=3#home&quot;); display: none;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="PausePopUpVE" style="flex-grow: 1; align-self: center; display: none; width: 70%; height: 20%; justify-content: center; min-height: 20%; max-height: 20%; max-width: 70%; min-width: 70%; background-color: rgba(0, 0, 0, 0.65); visibility: visible; margin-top: 70%;" />
     </ui:VisualElement>
 </ui:UXML>

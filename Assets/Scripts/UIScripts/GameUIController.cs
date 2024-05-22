@@ -17,14 +17,34 @@ public class GameUIController : MonoBehaviour
     private VisualElement rootLevelStars;
     private ProgressBar levelStarProgressBar;
 
+    private AngleCalculator angleCalculator;
+
     void Start()
     {
-        rootGameOver = gameOverUI.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("root_container");
-        rootWinner = winnerUI.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("root_container");
-        rootLevelStars = levelStarsUI.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("root_container");
+        angleCalculator = GetComponent<AngleCalculator>();
+
+        rootGameOver = gameOverUI.GetComponent<UIDocument>()
+            .rootVisualElement.Q<VisualElement>("root_container");
+        rootWinner = winnerUI.GetComponent<UIDocument>()
+            .rootVisualElement.Q<VisualElement>("root_container");
+        rootLevelStars = levelStarsUI.GetComponent<UIDocument>()
+            .rootVisualElement.Q<VisualElement>("root_container");
+
         rootGameOver.Q<Button>("btn_home").clicked += () => GameOverHomeClick();
         rootWinner.Q<Button>("btn_next").clicked += () => GoNextLevel();
         levelStarProgressBar = rootLevelStars.Q<ProgressBar>("progress");
+    }
+
+    private void Update()
+    {
+        int platformAngle = angleCalculator.GetPlatformAngle();
+        SetLevelStarsByPlatformAngle(platformAngle);
+    }
+
+    private void SetLevelStarsByPlatformAngle(int degree)
+    {
+        var progress = 90 - degree;
+        levelStarProgressBar.value = progress;
     }
 
     void GameOverHomeClick() {
@@ -37,7 +57,8 @@ public class GameUIController : MonoBehaviour
         if(level != null) NavigateSceneByName(level.name);
     }
 
-    public void GameOverUIVisibility(bool visibility) {
+    public void GameOverUIVisibility(bool visibility)
+    {
         rootGameOver.visible = visibility;
     }
 
@@ -46,8 +67,9 @@ public class GameUIController : MonoBehaviour
         rootWinner.visible = visibility;
     }
 
-    public void SetLevelStars(int degree) {
-        levelStarProgressBar.value = degree;
+    public void ShouldActivateLevelStarUI(bool isActive)
+    {
+        levelStarsUI.SetActive(isActive);
     }
 
     public int GetLevelStar() {

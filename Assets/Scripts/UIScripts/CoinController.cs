@@ -33,6 +33,11 @@ public class CoinController : MonoBehaviour
         coinCountLabel.text = coinManager.CoinCount.ToString();
     }
 
+    public void ShouldBeActive(bool isActive)
+    {
+        
+    }
+
     private void UpdateInGameCoinValue()
     {
         coinCountLabel.text = coinManager.CoinCount.ToString();

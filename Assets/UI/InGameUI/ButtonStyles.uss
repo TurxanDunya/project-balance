@@ -1,6 +1,6 @@
 .pause_btn_style {
     background-image: url("project://database/Assets/Graphics/UI/buttons/pause%201.png?fileID=2800000&guid=efff467c930c2469ca253af8c88adea1&type=3#pause 1");
-    height: 100%;
+    height: 73%;
     width: 11%;
     color: rgb(27, 27, 27);
     background-color: rgba(188, 188, 188, 0);
@@ -8,7 +8,7 @@
     padding-right: 0;
     padding-bottom: 0;
     padding-left: 0;
-    margin-top: 0;
+    margin-top: 5%;
     margin-right: 5%;
     margin-bottom: 0;
     margin-left: 5%;
@@ -118,4 +118,17 @@
     text-overflow: clip;
     display: flex;
     -unity-font-definition: url("project://database/Assets/Fonts/rowdies/Rowdies-Bold%20SDF.asset?fileID=11400000&guid=5f0d2986a06c348d4893b7d3f4c688d5&type=2#Rowdies-Bold SDF");
+}
+
+.topVE_style {
+    flex-grow: 1;
+    align-self: flex-start;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 8%;
+    max-height: 8%;
+    min-height: 8%;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
 }
