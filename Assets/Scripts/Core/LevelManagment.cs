@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,10 +9,9 @@ public class LevelManagment
     public LevelList levelList;
     public Level currentLevel;
 
-
     public LevelManagment()
     {
-        String levelsStatus = FileUtil.LoadFromFile(levelFile);
+        string levelsStatus = FileUtil.LoadFromFile(levelFile);
 
         var folderLevels = GetLevelNamesFromBuildSettings();
 
@@ -37,7 +35,7 @@ public class LevelManagment
         foreach (string level in levels)
         {
             Level newLevel = new Level();
-            if (level.Equals("Level 1"))
+            if (level.Equals(LevelNameConstants.LEVEL_1_NAME))
             {
                 newLevel.status = LevelStatus.Open;
             }
@@ -102,13 +100,14 @@ public class LevelManagment
 
    public Level FindNextLevel() {
         var index = levelList.levels.IndexOf(currentLevel);
-        var nextIndex = index + 1;
-        if (nextIndex <= levelList.levels.Count - 1) 
+
+        if ((index + 1) <= levelList.levels.Count - 1) 
         {
+            var nextIndex = index++;
             return levelList.levels[nextIndex];
         }
         
-        return null;
+        return levelList.levels[index];
    }
 
     public void SaveLevels()
