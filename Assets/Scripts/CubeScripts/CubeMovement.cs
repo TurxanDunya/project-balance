@@ -3,7 +3,7 @@ using UnityEngine;
 public class CubeMovement : MonoBehaviour
 {
     private InputManager inputManager;
-    private CubeRayCastScript cubeRayCastScript;
+    private CubeRayCast cubeRayCastScript;
 
     private Vector3 previousPosition;
 
@@ -14,7 +14,7 @@ public class CubeMovement : MonoBehaviour
 
     private void Start()
     {
-        cubeRayCastScript = GetComponent<CubeRayCastScript>();
+        cubeRayCastScript = GetComponent<CubeRayCast>();
 
         // Since the camera is static, calculating only once should be enough
         forwardDirection = Vector3.ProjectOnPlane(
@@ -41,7 +41,7 @@ public class CubeMovement : MonoBehaviour
     private void Update()
     {
         KeepCubeInPlatformArea();
-        cubeRayCastScript.UpdateLineRendererStatus();
+        cubeRayCastScript.UpdateLineRendererPosition();
     }
 
     public void Move(Vector2 delta)

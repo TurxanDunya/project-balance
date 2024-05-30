@@ -1,19 +1,21 @@
 using UnityEngine;
 
-public class CubeRayCastScript : MonoBehaviour
+public class CubeRayCast : MonoBehaviour
 {
     public float raycastDistance = 50f;
+
     private LineRenderer lineRenderer;
+    private LineRendererAnimator lineRendererAnimator;
 
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
+        lineRendererAnimator = GetComponent<LineRendererAnimator>();
     }
 
     public bool IsHittingPlatform()
-    { 
-        RaycastHit hit;
-        if (!Physics.Raycast(transform.position, -transform.up, out hit, raycastDistance))
+    {
+        if (!Physics.Raycast(transform.position, -transform.up, out RaycastHit hit, raycastDistance))
         {
             return false;
         }
@@ -27,25 +29,34 @@ public class CubeRayCastScript : MonoBehaviour
         return true;
     }
 
-    public void UpdateLineRendererStatus()
+    public void UpdateLineRendererPosition()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, -transform.up, out hit, raycastDistance))
+        if (Physics.Raycast(transform.position, -transform.up, out RaycastHit hit, raycastDistance))
         {
-            if (lineRenderer != null)
+            lineRenderer.enabled = true;
+
+            if (!lineRendererAnimator.isAnimateToDownCoroutineFinished)
             {
-                lineRenderer.enabled = true;
-                lineRenderer.SetPosition(0, transform.position);
-                lineRenderer.SetPosition(1, hit.point);
+                StartCoroutine(lineRendererAnimator.AnimateToDown(transform.position, hit.point));
             }
+
+            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(1, hit.point);
         }
         else
         {
-            if (lineRenderer != null)
-            {
-                lineRenderer.enabled = false;
-            }
+            lineRenderer.enabled = false;
         }
+    }
+
+    public Vector3 GetLineRendererHitPosition()
+    {
+        if (Physics.Raycast(transform.position, -transform.up, out RaycastHit hit, raycastDistance))
+        {
+            return hit.point;
+        }
+
+        return new Vector3(0, 0, 0);
     }
 
 }

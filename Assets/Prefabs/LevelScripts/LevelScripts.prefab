@@ -60,10 +60,6 @@ MonoBehaviour:
   - {fileID: 6952216098058104629, guid: e23a02ddbb378475da8ccfea50d9cdbc, type: 3}
   icePrefab:
   - {fileID: 5071768890011235142, guid: 19e324afcb2c044388bb8ac792449de3, type: 3}
-  - {fileID: 8072608672851164821, guid: dff96a32cc0a54236a5aee8573992a5f, type: 3}
-  - {fileID: 4901238947634773416, guid: 8c2734f2c1e4b44baa0c7be78f496082, type: 3}
-  - {fileID: 5635464872523103959, guid: 88f5d9e1756ce40dabbc53074b001151, type: 3}
-  - {fileID: 7669513964060160737, guid: cd3643d37d7424b5ebcade172e13b46e, type: 3}
   magnetPrefab: {fileID: 2708798959611058759, guid: 59723707e6b1b4a00b2da459135987ed, type: 3}
   bombPrefab: {fileID: 2708798959611058759, guid: f790c60f0a2e14f988e625e78f297070, type: 3}
 --- !u!1 &121233217796708331
