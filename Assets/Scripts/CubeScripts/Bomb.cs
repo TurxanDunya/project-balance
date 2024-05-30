@@ -38,7 +38,7 @@ public class Bomb : MonoBehaviour
         GetComponent<Rigidbody>().useGravity = true;
 
         Destroy(GetComponent<CubeMovement>());
-        Destroy(GetComponent<CubeRayCastScript>());
+        Destroy(GetComponent<CubeRayCast>());
         Destroy(GetComponent<LineRenderer>());
     }
 }

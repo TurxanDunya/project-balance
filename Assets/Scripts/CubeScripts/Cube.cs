@@ -10,8 +10,10 @@ public class Cube : MonoBehaviour
         GetComponent<Rigidbody>().useGravity = true;
 
         Destroy(GetComponent<CubeMovement>());
-        Destroy(GetComponent<CubeRayCastScript>());
+        Destroy(GetComponent<CubeRayCast>());
         Destroy(GetComponent<LineRenderer>());
+
+        Destroy(GameObject.Find("ProjectionIcon"));
     }
 
     public CubeData.CubeMaterialType GetCubeMaterialType()
