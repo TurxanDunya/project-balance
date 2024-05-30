@@ -257,11 +257,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubes:
-  - cubeCount: 0
+  - cubeCount: 2
     cubeMaterialType: 0
-  - cubeCount: 1
+  - cubeCount: 3
     cubeMaterialType: 2
-  - cubeCount: 0
+  - cubeCount: 4
     cubeMaterialType: 1
 --- !u!1 &5510904409009977195
 GameObject:

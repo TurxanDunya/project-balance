@@ -31,6 +31,11 @@ public class CubeRayCast : MonoBehaviour
 
     public void UpdateLineRendererPosition()
     {
+        if (lineRenderer == null)
+        {
+            return;
+        }
+
         if (Physics.Raycast(transform.position, -transform.up, out RaycastHit hit, raycastDistance))
         {
             lineRenderer.enabled = true;
@@ -57,6 +62,16 @@ public class CubeRayCast : MonoBehaviour
         }
 
         return new Vector3(0, 0, 0);
+    }
+
+    public Quaternion GetLineRendererHitRotation()
+    {
+        if (Physics.Raycast(transform.position, -transform.up, out RaycastHit hit, raycastDistance))
+        {
+            return hit.transform.rotation;
+        }
+
+        return Quaternion.identity;
     }
 
 }
