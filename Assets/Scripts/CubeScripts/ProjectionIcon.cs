@@ -10,9 +10,7 @@ public class ProjectionIcon : MonoBehaviour
     [SerializeField] private float scaleFactor = 1.5f;
     [SerializeField] private float duration = 1.0f;
 
-    private GameObject platform;
-
-    public Vector3 initialScale = new(0.03f, 0.03f, 0.03f);
+    public Vector3 initialScale = new(0.001f, 0.001f, 0.001f);
 
     private void Start()
     {
@@ -21,18 +19,11 @@ public class ProjectionIcon : MonoBehaviour
 
     private void Update()
     {
-        if (platform == null)
-        {
-            platform = GameObject.FindWithTag(Constants.MAIN_PLATFORM);
-        }
-        else if(platform != null && cubeRayCast != null)
-        {
-            transform.position = cubeRayCast.GetLineRendererHitPosition();
-            transform.position += new Vector3(0, gapWithPlatform, 0);
+        transform.position = cubeRayCast.GetLineRendererHitPosition();
+        transform.position += new Vector3(0, gapWithPlatform, 0);
 
-            transform.rotation = platform.transform.rotation;
-            transform.eulerAngles += new Vector3(90, 0, 0);
-        }
+        transform.rotation = cubeRayCast.GetLineRendererHitRotation();
+        transform.eulerAngles += new Vector3(90, 0, 0);
     }
 
     private IEnumerator ScaleIcon()
