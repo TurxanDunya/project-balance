@@ -497,7 +497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverUI: {fileID: 5715331772997791880}
   winnerUI: {fileID: 2299487983283890040}
-  levelStarsUI: {fileID: 6973379358230488474}
+  gameUI: {fileID: 6973379358230488474}
 --- !u!114 &6376478351113902647
 MonoBehaviour:
   m_ObjectHideFlags: 0

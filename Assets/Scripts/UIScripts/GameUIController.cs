@@ -16,8 +16,8 @@ public class GameUIController : MonoBehaviour
     private Label winnerLabel;
     private Button buttonNext;
 
-    [Header("LevelStars UI")]
-    [SerializeField] private GameObject levelStarsUI;
+    [Header("Game UI")]
+    [SerializeField] private GameObject gameUI;
     private VisualElement rootLevelStars;
     private ProgressBar levelStarProgressBar;
 
@@ -31,7 +31,7 @@ public class GameUIController : MonoBehaviour
             .rootVisualElement.Q<VisualElement>("root_container");
         rootWinner = winnerUI.GetComponent<UIDocument>()
             .rootVisualElement.Q<VisualElement>("root_container");
-        rootLevelStars = levelStarsUI.GetComponent<UIDocument>()
+        rootLevelStars = gameUI.GetComponent<UIDocument>()
             .rootVisualElement.Q<VisualElement>("root_container");
 
         rootGameOver.Q<Button>("btn_home").clicked += () => GameOverHomeClick();
@@ -61,7 +61,7 @@ public class GameUIController : MonoBehaviour
 
     public void ShouldActivateLevelStarUI(bool isActive)
     {
-        levelStarsUI.SetActive(isActive);
+        gameUI.SetActive(isActive);
     }
 
     public int GetLevelStar()
