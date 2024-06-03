@@ -5,6 +5,9 @@ public class CubeCounter : MonoBehaviour
 {
     [SerializeField] List<CubeCountData> cubes;
 
+    public delegate void UpdateCubeCountEvent(int woodCount, int metalCount, int iceCount);
+    public event UpdateCubeCountEvent OnUpdateCubeCount;
+
     private int totalCubeCount;
 
     private int woodCount;
@@ -13,6 +16,7 @@ public class CubeCounter : MonoBehaviour
 
     private void Awake() {
         DefineCubeCounts();
+        OnUpdateCubeCount?.Invoke(woodCount, metalCount, iceCount);
     }
 
     public CubeData.CubeMaterialType? GetAvailableCube()
@@ -32,6 +36,7 @@ public class CubeCounter : MonoBehaviour
         {
             totalCubeCount--;
             DecreaseCount(cube.cubeMaterialType);
+            OnUpdateCubeCount?.Invoke(woodCount, metalCount, iceCount);
             return cube.cubeMaterialType;
         }
     }

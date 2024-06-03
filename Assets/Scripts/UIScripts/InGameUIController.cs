@@ -11,7 +11,10 @@ public class InGameUIController : MonoBehaviour
     [SerializeField] private CubeSpawnManagement cubeSpawnManagement;
     [SerializeField] private TimeLevelFinish timeLevelFinish;
 
+    private CubeCounter cubeCounter;
+
     private VisualElement rootElement;
+
     private VisualElement powerUpsVE;
     private Button firstPowerUpButton;
     private Button secondPowerUpButton;
@@ -22,13 +25,36 @@ public class InGameUIController : MonoBehaviour
     private Button pauseButton;
     private Button levelsButton;
 
+    private VisualElement leftCubesCountVE;
+    private VisualElement woodVE;
+    private Label woodCountLabel;
+    private VisualElement metalVE;
+    private Label metalCountLabel;
+    private VisualElement iceVE;
+    private Label iceCountLabel;
+
     // VE coord fields
     float leftBorder;
     float rightBorder;
     float bottomBorder;
     float upBorder;
 
-    void Start()
+    private void Awake()
+    {
+        cubeCounter = FindAnyObjectByType<CubeCounter>();
+    }
+
+    private void OnEnable()
+    {
+        cubeCounter.OnUpdateCubeCount += UpdateCubeCounts;
+    }
+
+    private void OnDisable()
+    {
+        cubeCounter.OnUpdateCubeCount -= UpdateCubeCounts;
+    }
+
+    private void Start()
     {
         rootElement = GetComponent<UIDocument>().rootVisualElement;
 
@@ -41,6 +67,14 @@ public class InGameUIController : MonoBehaviour
         topVE = rootElement.Q<VisualElement>("topVE");
         pauseButton = topVE.Q<Button>("Pause");
         levelsButton = topVE.Q<Button>("Levels");
+
+        leftCubesCountVE = rootElement.Q<VisualElement>("left_cubes_count_VE");
+        woodVE = leftCubesCountVE.Q<VisualElement>("wood_VE");
+        woodCountLabel = woodVE.Q<Label>("wood_count_lbl");
+        metalVE = leftCubesCountVE.Q<VisualElement>("metal_VE");
+        metalCountLabel = metalVE.Q<Label>("metal_count_lbl");
+        iceVE = leftCubesCountVE.Q<VisualElement>("ice_VE");
+        iceCountLabel = iceVE.Q<Label>("ice_count_lbl");
 
         BindEventsWithFunctions();
     }
@@ -110,6 +144,13 @@ public class InGameUIController : MonoBehaviour
     private void ShowLevels()
     {
         SceneManager.LoadScene(LevelNameConstants.LEVEL_SCENE_NAME);
+    }
+
+    private void UpdateCubeCounts(int woodCount, int metalCount, int iceCount)
+    {
+        woodCountLabel.text = woodCount.ToString();
+        metalCountLabel.text = metalCount.ToString();
+        iceCountLabel.text = iceCount.ToString();
     }
 
 }

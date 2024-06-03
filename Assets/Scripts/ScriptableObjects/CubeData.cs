@@ -12,7 +12,9 @@ public class CubeData : ScriptableObject
     {
         CUBE,
         T_SHAPE,
-        ROMB
+        L_SHAPE,
+        U_SHAPE,
+        Z_SHAPE
     }
 
     public enum CubeMaterialType
