@@ -4,7 +4,7 @@ using UnityEngine;
 public class ProjectionIcon : MonoBehaviour
 {
     [SerializeField] private CubeRayCast cubeRayCast;
-    [SerializeField] private float gapWithPlatform = 0.01f;
+    [SerializeField] private float gapWithPlatform = 0.05f;
 
     [Header("Animation")]
     [SerializeField] private float scaleFactor = 1.5f;
