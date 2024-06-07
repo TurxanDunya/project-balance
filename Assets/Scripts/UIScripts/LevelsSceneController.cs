@@ -11,19 +11,21 @@ public class LevelsSceneController : MonoBehaviour
 
     void Start()
     {
-        rootContainer = GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("root_container");
+        rootContainer = GetComponent<UIDocument>()
+            .rootVisualElement.Q<VisualElement>("root_container");
         scrollView = rootContainer.Q<ScrollView>("ScrollView");
+
         foreach (Level level in LevelManager.INSTANCE.levelManagment.levelList.levels) {
             var levelView = levelItem.Instantiate();
 
-            var rootContainer = levelView.Q<VisualElement>("root_container");
-            var item = rootContainer.Q<VisualElement>("item");
-            var levelName = rootContainer.Q<Label>("name");
+            var item = levelView.Q<VisualElement>("item");
+            var background = item.Q<VisualElement>("background");
+            var levelName = background.Q<Label>("name");
             levelName.text = level.name;
 
-            var stars = rootContainer.Q<VisualElement>("stars");
-            var starsLocked = rootContainer.Q<VisualElement>("stars_locked");
-            var statusLocked = rootContainer.Q<VisualElement>("status");
+            var stars = item.Q<VisualElement>("stars");
+            var starsLocked = item.Q<VisualElement>("stars_locked");
+            var statusLocked = item.Q<VisualElement>("status");
 
             if (level.star == 0) {
                 starsLocked.style.display = DisplayStyle.Flex;
@@ -35,23 +37,18 @@ public class LevelsSceneController : MonoBehaviour
                 var star3 = stars.Q<VisualElement>("star3");
 
                 switch (level.star) {
-                    case 1: {
+                    case 1:
                         star1.style.display = DisplayStyle.Flex;
-                        }
                         break;
                     case 2:
-                        {
                         star1.style.display = DisplayStyle.Flex;
                         star2.style.display = DisplayStyle.Flex;
-                        }
                         break;
                     case 3:
-                         {
-                         star1.style.display = DisplayStyle.Flex;
-                         star2.style.display = DisplayStyle.Flex;
-                         star3.style.display = DisplayStyle.Flex;
-                        }
-                         break;
+                        star1.style.display = DisplayStyle.Flex;
+                        star2.style.display = DisplayStyle.Flex;
+                        star3.style.display = DisplayStyle.Flex;
+                        break;
                 }
 
                 stars.style.display = DisplayStyle.Flex;
@@ -66,7 +63,7 @@ public class LevelsSceneController : MonoBehaviour
                 if (level.status == LevelStatus.Open) {
 
                     LevelManager.INSTANCE.levelManagment.currentLevel = level;
-                    SceneManager.LoadScene(level.name);
+                    SceneManager.LoadScene(level.name); // TODO: use our loader class
                 }
             }));
 

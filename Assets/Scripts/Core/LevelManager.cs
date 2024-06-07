@@ -7,6 +7,8 @@ public class LevelManager : MonoBehaviour
 
     private void Awake()
     {
+        levelManagment = new LevelManagment();
+
         if (INSTANCE == null)
         {
             INSTANCE = this;
@@ -17,8 +19,4 @@ public class LevelManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-    void Start()
-    {
-        levelManagment = new LevelManagment();
-    }
 }
