@@ -1,9 +1,9 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/Meshes/UI/InGameUI/ButtonStyles.uss?fileID=7433441132597879392&amp;guid=a7847a2045c9046f68fb9fc1c8d4c6d3&amp;type=3#ButtonStyles" />
-    <Style src="project://database/Assets/Meshes/UI/InGameUI/PowerUpsStyle.uss?fileID=7433441132597879392&amp;guid=1028d42204b184f93be764d1519b58ba&amp;type=3#PowerUpsStyle" />
+    <Style src="project://database/Assets/UI/InGameUI/ButtonStyles.uss?fileID=7433441132597879392&amp;guid=a7847a2045c9046f68fb9fc1c8d4c6d3&amp;type=3#ButtonStyles" />
+    <Style src="project://database/Assets/UI/InGameUI/PowerUpsStyle.uss?fileID=7433441132597879392&amp;guid=1028d42204b184f93be764d1519b58ba&amp;type=3#PowerUpsStyle" />
     <ui:VisualElement name="rootVE" style="flex-grow: 1; align-items: stretch; justify-content: flex-start; align-self: stretch; overflow: hidden; visibility: visible;">
         <ui:VisualElement name="topVE" class="topVE_style">
-            <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Pause" class="pause_btn_style" style="overflow: visible; margin-top: 4%; height: 70%;" />
+            <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="Pause" class="pause_btn_style" style="overflow: visible; margin-top: 4%; height: 70%; background-image: url(&quot;project://database/Assets/Graphics/UI/buttons/pause%201.png?fileID=2800000&amp;guid=efff467c930c2469ca253af8c88adea1&amp;type=3#pause 1&quot;); width: 12%;" />
             <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="Levels" class="levels_btn_style" style="justify-content: flex-end; margin-top: 5%; margin-right: 0; margin-bottom: 0; margin-left: 9%; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; align-items: stretch; font-size: 0; -unity-text-align: upper-center;">
                 <ui:Label tabindex="-1" text="Level 1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Level" class="level_lbl_style" style="margin-top: 0; margin-left: 0; margin-right: 0; margin-bottom: 0; -unity-font-style: normal; font-size: 86%;" />
             </ui:Button>

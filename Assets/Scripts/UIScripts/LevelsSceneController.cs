@@ -4,26 +4,32 @@ using UnityEngine.UIElements;
 
 public class LevelsSceneController : MonoBehaviour
 {
+    [SerializeField] private VisualTreeAsset levelItem;
+    [SerializeField] private StateChanger stateChanger;
+
     private VisualElement rootContainer;
     private ScrollView scrollView;
-
-    [SerializeField] private VisualTreeAsset levelItem;
+    private Button resumeBtn;
 
     void Start()
     {
-        rootContainer = GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("root_container");
+        rootContainer = GetComponent<UIDocument>()
+            .rootVisualElement.Q<VisualElement>("root_container");
         scrollView = rootContainer.Q<ScrollView>("ScrollView");
+        resumeBtn = rootContainer.Q<Button>("resume_btn");
+        resumeBtn.clicked += () => HideLevelMenu();
+
         foreach (Level level in LevelManager.INSTANCE.levelManagment.levelList.levels) {
             var levelView = levelItem.Instantiate();
 
-            var rootContainer = levelView.Q<VisualElement>("root_container");
-            var item = rootContainer.Q<VisualElement>("item");
-            var levelName = rootContainer.Q<Label>("name");
-            levelName.text = level.name;
+            var item = levelView.Q<VisualElement>("item");
+            var background = item.Q<VisualElement>("background");
+            var levelName = background.Q<Label>("name");
+            var stars = background.Q<VisualElement>("stars");
+            var starsLocked = background.Q<VisualElement>("stars_locked");
+            var statusLocked = background.Q<VisualElement>("status");
 
-            var stars = rootContainer.Q<VisualElement>("stars");
-            var starsLocked = rootContainer.Q<VisualElement>("stars_locked");
-            var statusLocked = rootContainer.Q<VisualElement>("status");
+            levelName.text = level.name;
 
             if (level.star == 0) {
                 starsLocked.style.display = DisplayStyle.Flex;
@@ -35,23 +41,18 @@ public class LevelsSceneController : MonoBehaviour
                 var star3 = stars.Q<VisualElement>("star3");
 
                 switch (level.star) {
-                    case 1: {
+                    case 1:
                         star1.style.display = DisplayStyle.Flex;
-                        }
                         break;
                     case 2:
-                        {
                         star1.style.display = DisplayStyle.Flex;
                         star2.style.display = DisplayStyle.Flex;
-                        }
                         break;
                     case 3:
-                         {
-                         star1.style.display = DisplayStyle.Flex;
-                         star2.style.display = DisplayStyle.Flex;
-                         star3.style.display = DisplayStyle.Flex;
-                        }
-                         break;
+                        star1.style.display = DisplayStyle.Flex;
+                        star2.style.display = DisplayStyle.Flex;
+                        star3.style.display = DisplayStyle.Flex;
+                        break;
                 }
 
                 stars.style.display = DisplayStyle.Flex;
@@ -66,12 +67,17 @@ public class LevelsSceneController : MonoBehaviour
                 if (level.status == LevelStatus.Open) {
 
                     LevelManager.INSTANCE.levelManagment.currentLevel = level;
-                    SceneManager.LoadScene(level.name);
+                    SceneManager.LoadScene(level.name); // TODO: use our loader class
                 }
             }));
 
             scrollView.Add(levelView);
         }
+    }
+
+    private void HideLevelMenu()
+    {
+        stateChanger.HideLevelMenu();
     }
 
 }

@@ -34,7 +34,7 @@ public class LevelManagment
         List<Level> initials = new List<Level>();
         foreach (string level in levels)
         {
-            Level newLevel = new Level();
+            Level newLevel = new();
             if (level.Equals(LevelNameConstants.LEVEL_1_NAME))
             {
                 newLevel.status = LevelStatus.Open;
