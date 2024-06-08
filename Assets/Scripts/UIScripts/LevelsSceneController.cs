@@ -4,16 +4,20 @@ using UnityEngine.UIElements;
 
 public class LevelsSceneController : MonoBehaviour
 {
+    [SerializeField] private VisualTreeAsset levelItem;
+    [SerializeField] private StateChanger stateChanger;
+
     private VisualElement rootContainer;
     private ScrollView scrollView;
-
-    [SerializeField] private VisualTreeAsset levelItem;
+    private Button resumeBtn;
 
     void Start()
     {
         rootContainer = GetComponent<UIDocument>()
             .rootVisualElement.Q<VisualElement>("root_container");
         scrollView = rootContainer.Q<ScrollView>("ScrollView");
+        resumeBtn = rootContainer.Q<Button>("resume_btn");
+        resumeBtn.clicked += () => HideLevelMenu();
 
         foreach (Level level in LevelManager.INSTANCE.levelManagment.levelList.levels) {
             var levelView = levelItem.Instantiate();
@@ -21,11 +25,11 @@ public class LevelsSceneController : MonoBehaviour
             var item = levelView.Q<VisualElement>("item");
             var background = item.Q<VisualElement>("background");
             var levelName = background.Q<Label>("name");
-            levelName.text = level.name;
+            var stars = background.Q<VisualElement>("stars");
+            var starsLocked = background.Q<VisualElement>("stars_locked");
+            var statusLocked = background.Q<VisualElement>("status");
 
-            var stars = item.Q<VisualElement>("stars");
-            var starsLocked = item.Q<VisualElement>("stars_locked");
-            var statusLocked = item.Q<VisualElement>("status");
+            levelName.text = level.name;
 
             if (level.star == 0) {
                 starsLocked.style.display = DisplayStyle.Flex;
@@ -69,6 +73,11 @@ public class LevelsSceneController : MonoBehaviour
 
             scrollView.Add(levelView);
         }
+    }
+
+    private void HideLevelMenu()
+    {
+        stateChanger.HideLevelMenu();
     }
 
 }

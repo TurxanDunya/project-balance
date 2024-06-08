@@ -10,6 +10,7 @@ public class StateChanger : MonoBehaviour
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private GameObject winnerUI;
     [SerializeField] private GameObject welcomeTutorialUI;
+    [SerializeField] private GameObject levelMenuUI;
 
     public void ChangeStateToInGameUI()
     {
@@ -24,6 +25,7 @@ public class StateChanger : MonoBehaviour
         CheckWelcomeTutorial();
 
         homeScreenUI.SetActive(false);
+        levelMenuUI.SetActive(false);
     }
 
     public void ChangeStateToMainUI()
@@ -35,6 +37,7 @@ public class StateChanger : MonoBehaviour
         pauseScreenUI.SetActive(false);
         gameOverUI.SetActive(false);
         winnerUI.SetActive(false);
+        levelMenuUI.SetActive(false);
 
         homeScreenUI.SetActive(true);
     }
@@ -48,6 +51,7 @@ public class StateChanger : MonoBehaviour
         gameOverUI.SetActive(false);
         winnerUI.SetActive(false);
         homeScreenUI.SetActive(false);
+        levelMenuUI.SetActive(false);
 
         pauseScreenUI.SetActive(true);
     }
@@ -60,9 +64,39 @@ public class StateChanger : MonoBehaviour
         gameOverUI.SetActive(false);
         winnerUI.SetActive(false);
         homeScreenUI.SetActive(false);
+        levelMenuUI.SetActive(false);
 
         inGameUI.SetActive(true);
         gameUI.SetActive(true);
+    }
+
+    public void ChangeStateToLevelMenu()
+    {
+        Time.timeScale = 0;
+
+        inGameUI.SetActive(false);
+        gameOverUI.SetActive(false);
+        winnerUI.SetActive(false);
+        homeScreenUI.SetActive(false);
+        pauseScreenUI.SetActive(false);
+        gameUI.SetActive(false);
+
+        levelMenuUI.SetActive(true);
+    }
+
+    public void HideLevelMenu()
+    {
+        Time.timeScale = 1;
+
+        gameOverUI.SetActive(false);
+        winnerUI.SetActive(false);
+        homeScreenUI.SetActive(false);
+        pauseScreenUI.SetActive(false);
+
+        inGameUI.SetActive(true);
+        gameUI.SetActive(true);
+
+        levelMenuUI.SetActive(false);
     }
 
     private void CheckWelcomeTutorial()

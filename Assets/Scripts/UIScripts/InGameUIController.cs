@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.UIElements;
-using UnityEngine.SceneManagement;
 
 public class InGameUIController : MonoBehaviour
 {
     [Header("Dependant controllers")]
     [SerializeField] private PauseScreenController pauseScreenController;
+
+    [SerializeField] private StateChanger stateChanger;
 
     [SerializeField] private PowerUps powerUps;
     [SerializeField] private CubeSpawnManagement cubeSpawnManagement;
@@ -143,7 +144,7 @@ public class InGameUIController : MonoBehaviour
 
     private void ShowLevels()
     {
-        SceneManager.LoadScene(LevelNameConstants.LEVEL_SCENE_NAME);
+        stateChanger.ChangeStateToLevelMenu();
     }
 
     private void UpdateCubeCounts(int woodCount, int metalCount, int iceCount)
