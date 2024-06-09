@@ -257,9 +257,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubes:
-  - cubeCount: 2
+  - cubeCount: 0
     cubeMaterialType: 0
-  - cubeCount: 3
+  - cubeCount: 0
     cubeMaterialType: 2
   - cubeCount: 4
     cubeMaterialType: 1
