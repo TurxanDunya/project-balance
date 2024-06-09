@@ -102,7 +102,7 @@ public class LevelManagment
    public Level FindNextLevel() {
         var index = levelList.levels.IndexOf(currentLevel);
 
-        if (index <= levelList.levels.Count - 1) 
+        if (index < levelList.levels.Count - 1) 
         {
             var nextIndex = ++index;
             return levelList.levels[nextIndex];

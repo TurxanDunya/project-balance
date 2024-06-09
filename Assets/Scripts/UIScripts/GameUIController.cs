@@ -52,10 +52,16 @@ public class GameUIController : MonoBehaviour
         SetLevelStarsByPlatformAngle(platformAngle);
     }
 
-    public void GameOverUIVisibility(bool visibility)
+    public void GameOverUIVisibility(bool isVisible)
     {
-        rootGameOver.visible = visibility;
-        gameOverVE.visible = visibility;
+        if(isVisible)
+        {
+            rootGameOver.style.display = DisplayStyle.Flex;
+        }
+        else
+        {
+            rootGameOver.style.display = DisplayStyle.None;
+        }
     }
 
     public void WinnerUIVisibility(bool visibility)
