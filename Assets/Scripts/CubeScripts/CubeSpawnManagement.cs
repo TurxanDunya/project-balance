@@ -15,6 +15,7 @@ public class CubeSpawnManagement : MonoBehaviour
     [SerializeField] private GameObject[] woodPrefab;
     [SerializeField] private GameObject[] metalPrefab;
     [SerializeField] private GameObject[] icePrefab;
+    [SerializeField] private GameObject[] rockPrefab;
 
     [Header("Magnets")]
     [SerializeField] private GameObject magnetPrefab;
@@ -114,6 +115,9 @@ public class CubeSpawnManagement : MonoBehaviour
             case CubeData.CubeMaterialType.ICE:
                 int randomCubeIce = Random.Range(0, icePrefab.Length - 1);
                 return icePrefab[randomCubeIce];
+            case CubeData.CubeMaterialType.ROCK:
+                int randomCubeRock = Random.Range(0, rockPrefab.Length - 1);
+                return rockPrefab[randomCubeRock];
             default:
                 throw new Exception("No such type cube material defined!");
         }

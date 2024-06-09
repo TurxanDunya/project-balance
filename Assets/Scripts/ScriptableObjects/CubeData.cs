@@ -21,7 +21,8 @@ public class CubeData : ScriptableObject
     {
         WOOD,
         METAL,
-        ICE
+        ICE,
+        ROCK
     };
 
 }
