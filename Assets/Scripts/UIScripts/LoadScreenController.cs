@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class LoadScreenController : MonoBehaviour
 {
-    [SerializeField] private string sceneNameToLoad;
     [SerializeField] private float fadeSpeed = 1f;
 
     private VisualElement rootVE;
@@ -16,7 +15,9 @@ public class LoadScreenController : MonoBehaviour
         rootVE = GetComponent<UIDocument>().rootVisualElement;
         progressBar = rootVE.Q<ProgressBar>("progress");
 
-        StartCoroutine(LoadLevelAsync(sceneNameToLoad));
+        string lastPlayedLevelName =
+            LevelManager.INSTANCE.levelManagment.levelList.lastPlayedLevelName;
+        StartCoroutine(LoadLevelAsync(lastPlayedLevelName));
     }
 
     private IEnumerator LoadLevelAsync(string levelName)

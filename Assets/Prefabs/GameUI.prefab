@@ -249,7 +249,6 @@ GameObject:
   - component: {fileID: 5864729361865885754}
   - component: {fileID: 361120415060099246}
   - component: {fileID: 6936001421119730849}
-  - component: {fileID: 5571713293959663250}
   m_Layer: 0
   m_Name: LevelUI
   m_TagString: Untagged
@@ -302,20 +301,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelItem: {fileID: 9197481963319205126, guid: fadf0c0aee5aa4126ac385d90348d808, type: 3}
   stateChanger: {fileID: 4542121699140896450}
---- !u!114 &5571713293959663250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2351172957620347398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a59785fc365241708e6f029ac3d40df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneNameToLoad: 
-  fadeSpeed: 1
 --- !u!1 &2376893904073220104
 GameObject:
   m_ObjectHideFlags: 0
