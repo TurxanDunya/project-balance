@@ -7,6 +7,9 @@ public class LevelsSceneController : MonoBehaviour
     [SerializeField] private VisualTreeAsset levelItem;
     [SerializeField] private StateChanger stateChanger;
 
+    private static StyleColor FADED_COLOR =
+        new(new Color(0.2264151f, 0.2264151f, 0.2264151f, 1.0f));
+
     private VisualElement rootContainer;
     private ScrollView scrollView;
     private Button resumeBtn;
@@ -17,55 +20,63 @@ public class LevelsSceneController : MonoBehaviour
             .rootVisualElement.Q<VisualElement>("root_container");
         scrollView = rootContainer.Q<ScrollView>("ScrollView");
         resumeBtn = rootContainer.Q<Button>("resume_btn");
+
         resumeBtn.clicked += () => HideLevelMenu();
 
-        foreach (Level level in LevelManager.INSTANCE.levelManagment.levelList.levels) {
+        AddItems();
+    }
+
+    private void AddItems()
+    {
+        foreach (Level level in LevelManager.INSTANCE.levelManagment.levelList.levels)
+        {
             var levelView = levelItem.Instantiate();
 
-            var item = levelView.Q<VisualElement>("item");
-            var background = item.Q<VisualElement>("background");
-            var levelName = background.Q<Label>("name");
-            var stars = background.Q<VisualElement>("stars");
-            var starsLocked = background.Q<VisualElement>("stars_locked");
-            var statusLocked = background.Q<VisualElement>("status");
+            var itemVE = levelView.Q<VisualElement>("item");
+            var backgroundVE = itemVE.Q<VisualElement>("background");
+            var levelNameLbl = backgroundVE.Q<Label>("name");
+            var starsVE = backgroundVE.Q<VisualElement>("stars");
+            var statusLockedVE = backgroundVE.Q<VisualElement>("status");
 
-            levelName.text = level.name;
+            levelNameLbl.text = level.name;
 
-            if (level.star == 0) {
-                starsLocked.style.display = DisplayStyle.Flex;
+            var star1 = starsVE.Q<VisualElement>("star1");
+            var star2 = starsVE.Q<VisualElement>("star2");
+            var star3 = starsVE.Q<VisualElement>("star3");
+
+            if(level.status == LevelStatus.Locked)
+            {
+                starsVE.style.display = DisplayStyle.None;
+                statusLockedVE.style.display = DisplayStyle.Flex;
+
+                backgroundVE.style.unityBackgroundImageTintColor = FADED_COLOR;
             }
             else
             {
-                var star1 = stars.Q<VisualElement>("star1");
-                var star2 = stars.Q<VisualElement>("star2");
-                var star3 = stars.Q<VisualElement>("star3");
+                starsVE.style.display = DisplayStyle.Flex;
+                statusLockedVE.style.display = DisplayStyle.None;
 
-                switch (level.star) {
+                switch (level.star)
+                {
+                    case 0:
+                        star1.style.unityBackgroundImageTintColor = FADED_COLOR;
+                        star2.style.unityBackgroundImageTintColor = FADED_COLOR;
+                        star3.style.unityBackgroundImageTintColor = FADED_COLOR;
+                        break;
                     case 1:
-                        star1.style.display = DisplayStyle.Flex;
+                        star2.style.unityBackgroundImageTintColor = FADED_COLOR;
+                        star3.style.unityBackgroundImageTintColor = FADED_COLOR;
                         break;
                     case 2:
-                        star1.style.display = DisplayStyle.Flex;
-                        star2.style.display = DisplayStyle.Flex;
-                        break;
-                    case 3:
-                        star1.style.display = DisplayStyle.Flex;
-                        star2.style.display = DisplayStyle.Flex;
-                        star3.style.display = DisplayStyle.Flex;
+                        star3.style.unityBackgroundImageTintColor = FADED_COLOR;
                         break;
                 }
-
-                stars.style.display = DisplayStyle.Flex;
             }
 
-            if (level.status == LevelStatus.Open) {
-                statusLocked.style.display = DisplayStyle.None;
-            }
-
-            item.AddManipulator(new Clickable(evt =>
+            itemVE.AddManipulator(new Clickable(evt =>
             {
-                if (level.status == LevelStatus.Open) {
-
+                if (level.status == LevelStatus.Open)
+                {
                     LevelManager.INSTANCE.levelManagment.currentLevel = level;
                     SceneManager.LoadScene(level.name); // TODO: use our loader class
                 }

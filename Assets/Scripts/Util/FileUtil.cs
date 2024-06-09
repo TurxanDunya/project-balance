@@ -5,14 +5,14 @@ public class FileUtil
 {
     public static void SaveToFile(string jsonData, string file)
     {
-        var path = Application.persistentDataPath + "/" + file;
+        var path = "/Users/turkhand/Desktop" + "/" + file;
         File.WriteAllText(path, jsonData);
     }
 
     #nullable enable
     public static string? LoadFromFile(string file)
     {
-        var path = Application.persistentDataPath + "/" + file;
+        var path = "/Users/turkhand/Desktop" + "/" + file;
         if (File.Exists(path)) {
             var stringData = File.ReadAllText(path);
             return stringData;
