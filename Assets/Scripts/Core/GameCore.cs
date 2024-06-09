@@ -44,9 +44,12 @@ public class GameCore : MonoBehaviour
     {
         if (!isWin)
         {
+            StopCoroutine(CheckGameWin());
+            Destroy(timeLevelWinner);
+            gameUIController.HideWinnerTimeOnScreen();
+
             isGameEnd = true;
             gameUIController.GameOverUIVisibility(true);
-            Time.timeScale = 0;
         }
     }
 
@@ -58,14 +61,14 @@ public class GameCore : MonoBehaviour
         {
             LevelManagment levelManagment = LevelManager.INSTANCE.levelManagment;
 
-            levelManagment.currentLevel.star = gameUIController.GetLevelStar();
-            levelManagment.SetLevelData(levelManagment.currentLevel);
-
             Level nextLevel = levelManagment.FindNextLevel();
             nextLevel.status = LevelStatus.Open;
-            
-            levelManagment.SetLevelData(nextLevel);
+
+            levelManagment.currentLevel.star = gameUIController.GetLevelStar();
             levelManagment.currentLevel = nextLevel;
+            levelManagment.levelList.lastPlayedLevelName = nextLevel.name;
+
+            levelManagment.SetLevelData(nextLevel);
             levelManagment.SaveLevels();
 
             gameUIController.HideWinnerTimeOnScreen();

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class InGameUIController : MonoBehaviour
 {
@@ -68,6 +69,7 @@ public class InGameUIController : MonoBehaviour
         topVE = rootElement.Q<VisualElement>("topVE");
         pauseButton = topVE.Q<Button>("Pause");
         levelsButton = topVE.Q<Button>("Levels");
+        levelsButton.text = SceneManager.GetActiveScene().name;
 
         leftCubesCountVE = rootElement.Q<VisualElement>("left_cubes_count_VE");
         woodVE = leftCubesCountVE.Q<VisualElement>("wood_VE");

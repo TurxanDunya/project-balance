@@ -7,6 +7,7 @@ public class GameUIController : MonoBehaviour
     [Header("GameOver UI")]
     [SerializeField] private GameObject gameOverUI;
     private VisualElement rootGameOver;
+    private VisualElement gameOverVE;
 
     [Header("Winner UI")]
     [SerializeField] private GameObject winnerUI;
@@ -34,21 +35,29 @@ public class GameUIController : MonoBehaviour
         rootLevelStars = gameUI.GetComponent<UIDocument>()
             .rootVisualElement.Q<VisualElement>("root_container");
 
+        gameOverVE = rootGameOver.Q<VisualElement>("game_over");
         rootGameOver.Q<Button>("btn_home").clicked += () => GameOverHomeClick();
 
         winnerVE = rootWinner.Q<VisualElement>("winner_VE");
-        currentSecondLabel = winnerVE.Q<Label>("CurrentSecondLabel");
+        currentSecondLabel = rootWinner.Q<Label>("CurrentSecondLabel");
         winnerLabel = winnerVE.Q<Label>("winner_label");
-        buttonNext = currentSecondLabel.Q<Button>("btn_next");
+        buttonNext = winnerVE.Q<Button>("btn_next");
         
         levelStarProgressBar = rootLevelStars.Q<ProgressBar>("progress");
 
         buttonNext.clicked += () => GoNextLevel();
     }
 
+    private void Update()
+    {
+        int platformAngle = angleCalculator.GetPlatformAngle();
+        SetLevelStarsByPlatformAngle(platformAngle);
+    }
+
     public void GameOverUIVisibility(bool visibility)
     {
         rootGameOver.visible = visibility;
+        gameOverVE.visible = visibility;
     }
 
     public void WinnerUIVisibility(bool visibility)
@@ -96,12 +105,6 @@ public class GameUIController : MonoBehaviour
     {
         winnerVE.visible = false;
         currentSecondLabel.visible = false;
-    }
-
-    private void Update()
-    {
-        int platformAngle = angleCalculator.GetPlatformAngle();
-        SetLevelStarsByPlatformAngle(platformAngle);
     }
 
     private void SetLevelStarsByPlatformAngle(int degree)

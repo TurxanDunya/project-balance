@@ -1,5 +1,5 @@
 .pause_btn_style {
-    background-image: url("project://database/Assets/Graphics/UI/buttons/pause%201.png?fileID=2800000&guid=efff467c930c2469ca253af8c88adea1&type=3#pause 1");
+    background-image: url("project://database/Assets/Graphics/UI/buttons/pause.png?fileID=2800000&guid=efff467c930c2469ca253af8c88adea1&type=3#pause");
     height: 73%;
     width: 11%;
     color: rgb(27, 27, 27);
@@ -19,7 +19,7 @@
 }
 
 .pause_btn_style:hover {
-    background-image: url("project://database/Assets/Graphics/UI/buttons/pause%201.png?fileID=2800000&guid=efff467c930c2469ca253af8c88adea1&type=3#pause 1");
+    background-image: url("project://database/Assets/Graphics/UI/buttons/pause.png?fileID=2800000&guid=efff467c930c2469ca253af8c88adea1&type=3#pause");
     height: 100%;
     width: 11%;
     color: rgb(27, 27, 27);
@@ -36,7 +36,7 @@
     border-right-width: 0;
     border-bottom-width: 0;
     border-left-width: 0;
-    scale: 0.8 0.8;
+    scale: 0.9 0.9;
 }
 
 .levels_btn_style {
@@ -99,7 +99,7 @@
     border-right-width: 0;
     border-bottom-width: 0;
     border-left-width: 0;
-    scale: 0.8 0.8;
+    scale: 0.95 0.9;
 }
 
 .level_lbl_style {

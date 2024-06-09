@@ -62,6 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseScreenController: {fileID: 7830707259022999204}
+  stateChanger: {fileID: 4542121699140896450}
   powerUps: {fileID: 0}
   cubeSpawnManagement: {fileID: 0}
   timeLevelFinish: {fileID: 0}
@@ -285,7 +286,7 @@ MonoBehaviour:
   m_PanelSettings: {fileID: 11400000, guid: 468278f28d0ac4cd18ca82d7196688b5, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: adb033bf6aa9845d0a81f5bb5cb958bb, type: 3}
-  m_SortingOrder: 1
+  m_SortingOrder: 6
 --- !u!114 &6936001421119730849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,6 +300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelItem: {fileID: 9197481963319205126, guid: fadf0c0aee5aa4126ac385d90348d808, type: 3}
+  stateChanger: {fileID: 4542121699140896450}
 --- !u!1 &2376893904073220104
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,3 +627,4 @@ MonoBehaviour:
   gameOverUI: {fileID: 5715331772997791880}
   winnerUI: {fileID: 2299487983283890040}
   welcomeTutorialUI: {fileID: 0}
+  levelMenuUI: {fileID: 2351172957620347398}
