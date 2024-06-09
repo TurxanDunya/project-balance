@@ -44,9 +44,12 @@ public class GameCore : MonoBehaviour
     {
         if (!isWin)
         {
+            StopCoroutine(CheckGameWin());
+            Destroy(timeLevelWinner);
+            gameUIController.HideWinnerTimeOnScreen();
+
             isGameEnd = true;
             gameUIController.GameOverUIVisibility(true);
-            Time.timeScale = 0;
         }
     }
 
