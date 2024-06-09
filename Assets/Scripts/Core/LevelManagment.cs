@@ -11,13 +11,13 @@ public class LevelManagment
 
     public LevelManagment()
     {
-        string levelsStatus = FileUtil.LoadFromFile(levelFile);
+        string levelsData = FileUtil.LoadFromFile(levelFile);
 
         var folderLevels = GetLevelNamesFromBuildSettings();
 
-        if (levelsStatus != null)
+        if (levelsData != null)
         {
-            levelList = JsonUtility.FromJson<LevelList>(levelsStatus);
+            levelList = JsonUtility.FromJson<LevelList>(levelsData);
         }
         else
         {
@@ -30,8 +30,7 @@ public class LevelManagment
 
     private LevelList MapToInitialLevel(List<string> levels)
     {
-        var levelList = new LevelList();
-        List<Level> initials = new List<Level>();
+        List<Level> initials = new();
         foreach (string level in levels)
         {
             Level newLevel = new();
@@ -44,14 +43,18 @@ public class LevelManagment
             initials.Add(newLevel);
         }
 
-        levelList.levels = initials;
+        var levelList = new LevelList
+        {
+            levels = initials,
+            lastPlayedLevelName = LevelNameConstants.LEVEL_1_NAME
+        };
+
         return levelList;
     }
 
-
     private List<string> GetLevelNamesFromFolder(string folderPath)
     {
-        List<string> levelNames = new List<string>();
+        List<string> levelNames = new();
 
         if (!Directory.Exists(folderPath))
         {
@@ -62,7 +65,6 @@ public class LevelManagment
 
         foreach (string file in files)
         {
-
             if (file.EndsWith(".unity"))
             {
                 string sceneName = Path.GetFileNameWithoutExtension(file);
@@ -73,17 +75,16 @@ public class LevelManagment
         return levelNames;
     }
 
-    public void SetLevelData(Level l)
+    public void SetLevelData(Level level)
     {
-        var cl = levelList.levels.Find(c => c.name == l.name);
-        cl.star = l.star;
-        cl.status = l.status;
-
+        var cl = levelList.levels.Find(c => c.name == level.name);
+        cl.star = level.star;
+        cl.status = level.status;
     }
 
     private List<string> GetLevelNamesFromBuildSettings()
     {
-        List<string> levelNames = new List<string>();
+        List<string> levelNames = new();
         int sceneCount = SceneManager.sceneCountInBuildSettings;
        
         for (int i = 0; i < sceneCount; i++)
@@ -95,15 +96,16 @@ public class LevelManagment
             }
             
         }
+
         return levelNames;
     }
 
    public Level FindNextLevel() {
         var index = levelList.levels.IndexOf(currentLevel);
 
-        if ((index + 1) <= levelList.levels.Count - 1) 
+        if (++index <= levelList.levels.Count - 1) 
         {
-            var nextIndex = index++;
+            var nextIndex = index;
             return levelList.levels[nextIndex];
         }
         

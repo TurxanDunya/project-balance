@@ -78,7 +78,10 @@ public class LevelsSceneController : MonoBehaviour
                 if (level.status == LevelStatus.Open)
                 {
                     LevelManager.INSTANCE.levelManagment.currentLevel = level;
-                    SceneManager.LoadScene(level.name); // TODO: use our loader class
+                    LevelManager.INSTANCE.levelManagment.levelList.lastPlayedLevelName = level.name;
+
+                    LevelManager.INSTANCE.levelManagment.SaveLevels();
+                    SceneManager.LoadScene(LevelNameConstants.START_LOAD_SCREEN);
                 }
             }));
 
