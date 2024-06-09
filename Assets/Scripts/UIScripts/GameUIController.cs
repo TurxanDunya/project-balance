@@ -14,7 +14,6 @@ public class GameUIController : MonoBehaviour
     private VisualElement rootWinner;
     private VisualElement winnerVE;
     private Label currentSecondLabel;
-    private Label winnerLabel;
     private Button buttonNext;
 
     [Header("Game UI")]
@@ -40,7 +39,6 @@ public class GameUIController : MonoBehaviour
 
         winnerVE = rootWinner.Q<VisualElement>("winner_VE");
         currentSecondLabel = rootWinner.Q<Label>("CurrentSecondLabel");
-        winnerLabel = winnerVE.Q<Label>("winner_label");
         buttonNext = winnerVE.Q<Button>("btn_next");
         
         levelStarProgressBar = rootLevelStars.Q<ProgressBar>("progress");
@@ -64,8 +62,6 @@ public class GameUIController : MonoBehaviour
     {
         rootWinner.visible = visibility;
         winnerVE.visible = visibility;
-        winnerLabel.visible = visibility;
-        buttonNext.visible = visibility;
     }
 
     public void ShouldActivateLevelStarUI(bool isActive)
