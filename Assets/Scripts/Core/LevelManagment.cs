@@ -94,7 +94,6 @@ public class LevelManagment
                 var levelName = Path.GetFileNameWithoutExtension(fileName);
                 levelNames.Add(levelName);
             }
-            
         }
 
         return levelNames;
@@ -103,9 +102,9 @@ public class LevelManagment
    public Level FindNextLevel() {
         var index = levelList.levels.IndexOf(currentLevel);
 
-        if (++index <= levelList.levels.Count - 1) 
+        if (index <= levelList.levels.Count - 1) 
         {
-            var nextIndex = index;
+            var nextIndex = ++index;
             return levelList.levels[nextIndex];
         }
         
