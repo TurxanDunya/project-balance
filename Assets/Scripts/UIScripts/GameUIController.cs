@@ -27,23 +27,9 @@ public class GameUIController : MonoBehaviour
     {
         angleCalculator = GetComponent<AngleCalculator>();
 
-        rootGameOver = gameOverUI.GetComponent<UIDocument>()
-            .rootVisualElement.Q<VisualElement>("root_container");
-        rootWinner = winnerUI.GetComponent<UIDocument>()
-            .rootVisualElement.Q<VisualElement>("root_container");
-        rootLevelStars = gameUI.GetComponent<UIDocument>()
-            .rootVisualElement.Q<VisualElement>("root_container");
-
-        gameOverVE = rootGameOver.Q<VisualElement>("game_over");
-        rootGameOver.Q<Button>("btn_home").clicked += () => GameOverHomeClick();
-
-        winnerVE = rootWinner.Q<VisualElement>("winner_VE");
-        currentSecondLabel = rootWinner.Q<Label>("CurrentSecondLabel");
-        buttonNext = winnerVE.Q<Button>("btn_next");
-        
-        levelStarProgressBar = rootLevelStars.Q<ProgressBar>("progress");
-
-        buttonNext.clicked += () => GoNextLevel();
+        ConfigureGameOverUIElements();
+        ConfigureWinnerUIElements();
+        ConfigureLevelStarUIElements();
     }
 
     private void Update()
@@ -107,6 +93,35 @@ public class GameUIController : MonoBehaviour
     {
         winnerVE.visible = false;
         currentSecondLabel.visible = false;
+    }
+
+    private void ConfigureGameOverUIElements()
+    {
+        rootGameOver = gameOverUI.GetComponent<UIDocument>()
+            .rootVisualElement.Q<VisualElement>("root_container");
+
+        gameOverVE = rootGameOver.Q<VisualElement>("game_over");
+        gameOverVE.Q<Button>("btn_home").clicked += () => GameOverHomeClick();
+    }
+
+    private void ConfigureWinnerUIElements()
+    {
+        rootWinner = winnerUI.GetComponent<UIDocument>()
+            .rootVisualElement.Q<VisualElement>("root_container");
+
+        winnerVE = rootWinner.Q<VisualElement>("winner_VE");
+        currentSecondLabel = rootWinner.Q<Label>("CurrentSecondLabel");
+        buttonNext = winnerVE.Q<Button>("btn_next");
+
+        buttonNext.clicked += () => GoNextLevel();
+    }
+
+    private void ConfigureLevelStarUIElements()
+    {
+        rootLevelStars = gameUI.GetComponent<UIDocument>()
+            .rootVisualElement.Q<VisualElement>("root_container");
+
+        levelStarProgressBar = rootLevelStars.Q<ProgressBar>("progress");
     }
 
     private void SetLevelStarsByPlatformAngle(int degree)

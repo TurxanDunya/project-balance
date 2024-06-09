@@ -122,7 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformObj: {fileID: 0}
   coinPrefab: {fileID: 4162693392634624837, guid: d9646e2dcda354d10b204b78227949ca, type: 3}
-  gapWithPlatformY: 0.01
+  gapWithPlatformY: 0
 --- !u!1 &854566181623443387
 GameObject:
   m_ObjectHideFlags: 0
