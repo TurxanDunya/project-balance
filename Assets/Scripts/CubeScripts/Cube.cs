@@ -4,6 +4,8 @@ public class Cube : MonoBehaviour
 {
     [SerializeField] private ParticleSystem rippleEffect;
     [SerializeField] private CubeData.CubeMaterialType cubeMaterialType;
+    [SerializeField] private AudioSource fallSFXPlayer;
+  
 
     public void Release()
     {
@@ -33,6 +35,7 @@ public class Cube : MonoBehaviour
 
     private void CubeLanded() {
         rippleEffect.Play();
+        fallSFXPlayer.Play();
         Platform.CubeLanded -= CubeLanded;
     }
     

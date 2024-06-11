@@ -149,7 +149,7 @@ public class InGameUIController : MonoBehaviour
         stateChanger.ChangeStateToLevelMenu();
     }
 
-    private void UpdateCubeCounts(int woodCount, int metalCount, int iceCount)
+    private void UpdateCubeCounts(int woodCount, int metalCount, int iceCount, int rockCount)
     {
         woodCountLabel.text = woodCount.ToString();
         metalCountLabel.text = metalCount.ToString();
