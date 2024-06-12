@@ -4,24 +4,27 @@ using UnityEngine.UIElements;
 
 public class GameUIController : MonoBehaviour
 {
+    private AngleCalculator angleCalculator;
+
+    [SerializeField] private StateChanger stateChanger;
+
     [Header("GameOver UI")]
     [SerializeField] private GameObject gameOverUI;
     private VisualElement rootGameOver;
     private VisualElement gameOverVE;
+    private VisualElement gameOverButtonLineVE;
 
     [Header("Winner UI")]
     [SerializeField] private GameObject winnerUI;
     private VisualElement rootWinner;
     private VisualElement winnerVE;
     private Label currentSecondLabel;
-    private Button buttonNext;
+    private VisualElement winnerButtonLineVE;
 
     [Header("Game UI")]
     [SerializeField] private GameObject gameUI;
     private VisualElement rootLevelStars;
     private ProgressBar levelStarProgressBar;
-
-    private AngleCalculator angleCalculator;
 
     void Start()
     {
@@ -101,7 +104,11 @@ public class GameUIController : MonoBehaviour
             .rootVisualElement.Q<VisualElement>("root_container");
 
         gameOverVE = rootGameOver.Q<VisualElement>("game_over");
-        gameOverVE.Q<Button>("btn_home").clicked += () => GameOverHomeClick();
+        gameOverButtonLineVE = gameOverVE.Q<VisualElement>("button_line_ve");
+
+        gameOverButtonLineVE.Q<Button>("btn_home").clicked += () => GoHomePage();
+        gameOverButtonLineVE.Q<Button>("btn_replay").clicked += () => ReloadLevel();
+        gameOverButtonLineVE.Q<Button>("btn_levels").clicked += () => OpenLevelMenu();
     }
 
     private void ConfigureWinnerUIElements()
@@ -111,9 +118,11 @@ public class GameUIController : MonoBehaviour
 
         winnerVE = rootWinner.Q<VisualElement>("winner_VE");
         currentSecondLabel = rootWinner.Q<Label>("CurrentSecondLabel");
-        buttonNext = winnerVE.Q<Button>("btn_next");
+        winnerButtonLineVE = winnerVE.Q<VisualElement>("button_line_ve");
 
-        buttonNext.clicked += () => GoNextLevel();
+        winnerButtonLineVE.Q<Button>("btn_home").clicked += () => GoHomePage();
+        winnerButtonLineVE.Q<Button>("btn_next").clicked += () => GoNextLevel();
+        winnerButtonLineVE.Q<Button>("btn_levels").clicked += () => OpenLevelMenu();
     }
 
     private void ConfigureLevelStarUIElements()
@@ -130,24 +139,31 @@ public class GameUIController : MonoBehaviour
         levelStarProgressBar.value = progress;
     }
 
-    void GameOverHomeClick() {
-        NavigateScene(Constants.START_SCENE_INDEX);
+    private void GoHomePage() {
+        ReloadLevel();
+        stateChanger.ChangeStateToMainUI();
+    }
+
+    private void ReloadLevel()
+    {
+        LevelManager.INSTANCE.levelManagment.levelList.lastPlayedLevelName =
+            SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(LevelNameConstants.START_LOAD_SCREEN);
+    }
+
+    private void OpenLevelMenu()
+    {
+        stateChanger.ChangeStateToLevelMenu();
     }
 
     void GoNextLevel()
     {
-        var level = LevelManager.INSTANCE.levelManagment.currentLevel;
-        if(level != null) NavigateSceneByName(level.name);
-    }
+        string[] levelNameParts = SceneManager.GetActiveScene().name.Split(" ");
+        int nextLevelNumber = int.Parse(levelNameParts[1]);
+        string nextLevelName = levelNameParts[0] + " " + (++nextLevelNumber);
 
-    void NavigateScene(int scene)
-    {
-        SceneManager.LoadScene(scene);
-    }
-
-    void NavigateSceneByName(string scene)
-    {
-        SceneManager.LoadScene(scene);
-    }
+        LevelManager.INSTANCE.levelManagment.levelList.lastPlayedLevelName = nextLevelName;
+        SceneManager.LoadScene(LevelNameConstants.START_LOAD_SCREEN);
+    } 
 
 }
