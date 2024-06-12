@@ -12,11 +12,12 @@ public class LevelManager : MonoBehaviour
         if (INSTANCE == null)
         {
             INSTANCE = this;
+            DontDestroyOnLoad(this);
         }
         else if (INSTANCE != this) {
             Destroy(this);
         }
-        DontDestroyOnLoad(this);
+      
     }
 
 }
