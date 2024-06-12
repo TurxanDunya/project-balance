@@ -85,8 +85,8 @@ public class GameUIController : MonoBehaviour
 
     public void ShowAndUpdateWinnerTimeOnScreen(int currentSecond)
     {
-        //currentSecondLabel.visible = true;
-        //currentSecondLabel.text = currentSecond.ToString();
+        currentSecondLabel.visible = true;
+        currentSecondLabel.text = currentSecond.ToString();
     }
 
     public void HideWinnerTimeOnScreen()

@@ -17,7 +17,7 @@ public class LoadScreenController : MonoBehaviour
 
         string lastPlayedLevelName =
             LevelManager.INSTANCE.levelManagment.levelList.lastPlayedLevelName;
-        StartCoroutine(LoadLevelAsync("Level 1"));
+        StartCoroutine(LoadLevelAsync(lastPlayedLevelName));
     }
 
     private IEnumerator LoadLevelAsync(string levelName)
