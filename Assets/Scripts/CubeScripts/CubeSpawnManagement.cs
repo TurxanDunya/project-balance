@@ -55,9 +55,8 @@ public class CubeSpawnManagement : MonoBehaviour
             winGame?.Invoke();
             return;
         }
-
         GameObject cubePrefab = GetCubePrefabFromPool(cubeMaterialType);
-        
+
         if (cubePrefab != null) {
             currentMoveableObject = Instantiate(cubePrefab, spawnPosition.position, Quaternion.identity);
         }
@@ -107,16 +106,16 @@ public class CubeSpawnManagement : MonoBehaviour
         switch (cubeMaterialType)
         {
             case CubeData.CubeMaterialType.WOOD:
-                int randomCubeWood = Random.Range(0, woodPrefab.Length - 1);
+                int randomCubeWood = Random.Range(0, woodPrefab.Length);
                 return woodPrefab[randomCubeWood];
             case CubeData.CubeMaterialType.METAL:
-                int randomCubeMetal = Random.Range(0, metalPrefab.Length - 1);
+                int randomCubeMetal = Random.Range(0, metalPrefab.Length);
                 return metalPrefab[randomCubeMetal];
             case CubeData.CubeMaterialType.ICE:
-                int randomCubeIce = Random.Range(0, icePrefab.Length - 1);
+                int randomCubeIce = Random.Range(0, icePrefab.Length);
                 return icePrefab[randomCubeIce];
             case CubeData.CubeMaterialType.ROCK:
-                int randomCubeRock = Random.Range(0, rockPrefab.Length - 1);
+                int randomCubeRock = Random.Range(0, rockPrefab.Length);
                 return rockPrefab[randomCubeRock];
             default:
                 throw new Exception("No such type cube material defined!");

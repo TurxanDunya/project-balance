@@ -5,7 +5,7 @@ public class CubeCounter : MonoBehaviour
 {
     [SerializeField] List<CubeCountData> cubes;
 
-    public delegate void UpdateCubeCountEvent(int woodCount, int metalCount, int iceCount);
+    public delegate void UpdateCubeCountEvent(int woodCount, int metalCount, int iceCount, int rockCount);
     public event UpdateCubeCountEvent OnUpdateCubeCount;
 
     private int totalCubeCount;
@@ -13,10 +13,11 @@ public class CubeCounter : MonoBehaviour
     private int woodCount;
     private int metalCount;
     private int iceCount;
+    private int rockCount;
 
     private void Awake() {
         DefineCubeCounts();
-        OnUpdateCubeCount?.Invoke(woodCount, metalCount, iceCount);
+        OnUpdateCubeCount?.Invoke(woodCount, metalCount, iceCount, rockCount);
     }
 
     public CubeData.CubeMaterialType? GetAvailableCube()
@@ -36,7 +37,7 @@ public class CubeCounter : MonoBehaviour
         {
             totalCubeCount--;
             DecreaseCount(cube.cubeMaterialType);
-            OnUpdateCubeCount?.Invoke(woodCount, metalCount, iceCount);
+            OnUpdateCubeCount?.Invoke(woodCount, metalCount, iceCount, rockCount);
             return cube.cubeMaterialType;
         }
     }
@@ -76,6 +77,9 @@ public class CubeCounter : MonoBehaviour
             case CubeData.CubeMaterialType.ICE:
                 iceCount--;
                 break;
+            case CubeData.CubeMaterialType.ROCK:
+                rockCount--;
+                break;
         }
     }
 
@@ -99,9 +103,14 @@ public class CubeCounter : MonoBehaviour
             {
                 iceCount += cubeCount;
             }
+            if (cubeMaterialType == CubeData.CubeMaterialType.ROCK)
+            {
+                rockCount += cubeCount;
+            }
         }
 
-        totalCubeCount = woodCount + metalCount + iceCount;
+        totalCubeCount = woodCount + metalCount + iceCount + rockCount;
+        Debug.Log(totalCubeCount);
     }
 
 }
