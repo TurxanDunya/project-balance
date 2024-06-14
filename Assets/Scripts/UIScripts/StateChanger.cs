@@ -18,12 +18,13 @@ public class StateChanger : MonoBehaviour
 
         gameUI.SetActive(true);
         inGameUI.SetActive(true);
-        pauseScreenUI.SetActive(true);
+        
         gameOverUI.SetActive(true);
         winnerUI.SetActive(true);
 
         CheckWelcomeTutorial();
 
+        pauseScreenUI.SetActive(false);
         homeScreenUI.SetActive(false);
         levelMenuUI.SetActive(false);
     }
