@@ -101,7 +101,7 @@ public class MusicPlayer : BaseMusicPlayer
     {
         while (player.isPlaying || !isMusicOn)
         {
-            yield return null;
+            yield return new WaitForSeconds(5);
         }
 
         if (currentPlayingIndex == musics.Length - 1)
