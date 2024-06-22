@@ -7,8 +7,11 @@ public class HomeScreenController : MonoBehaviour
 
     private VisualElement rootElement;
     private VisualElement topVE;
+    private VisualElement leftSideVE;
+    private VisualElement rightSideVE;
     private Button settingsButton;
     private Button tapToPlayButton;
+    private Button aboutUsButton;
 
     private bool isHomePageEnabled = true;
 
@@ -17,13 +20,18 @@ public class HomeScreenController : MonoBehaviour
         rootElement = GetComponent<UIDocument>().rootVisualElement;
 
         topVE = rootElement.Q<VisualElement>("topVE");
-        settingsButton = topVE.Q<Button>("Settings");
+        leftSideVE = topVE.Q<VisualElement>("left_side_ve");
+        settingsButton = leftSideVE.Q<Button>("settings_btn");
+
+        rightSideVE = topVE.Q<VisualElement>("right_side_ve");
+        aboutUsButton = rightSideVE.Q<Button>("about_us_btn");
 
         tapToPlayButton = rootElement.Q<Button>("tapToPlayButton");
 
-        // Will show settings pop up
-        //settingsButton.clicked += () => ;
+        Debug.Log("Reinitialized");
+        settingsButton.clicked += () => ShowSettingsUI();
         tapToPlayButton.clicked += () => ChangeStateForInGameUI();
+        aboutUsButton.clicked += () => ShowAboutUsUI();
     }
 
     public bool IsOverUI(Vector2 touchPosition)
@@ -35,6 +43,17 @@ public class HomeScreenController : MonoBehaviour
     {
         stateChanger.ChangeStateToInGameUI();
         isHomePageEnabled = false;
+    }
+
+    private void ShowSettingsUI()
+    {
+        Debug.Log("settings clicked");
+        stateChanger.ChangeStateFromMainUIToSettingsUI();
+    }
+
+    private void ShowAboutUsUI()
+    {
+
     }
 
 }

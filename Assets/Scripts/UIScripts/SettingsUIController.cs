@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class PauseScreenController : MonoBehaviour
+public class SettingsUIController : MonoBehaviour
 {
     [SerializeField] private StateChanger stateChanger;
 
@@ -10,10 +10,9 @@ public class PauseScreenController : MonoBehaviour
     private VisualElement rootElement;
     private VisualElement topVE;
 
-    private VisualElement pausePopUpVE;
+    private VisualElement settingsPopUpVE;
     private VisualElement buttonsLineVE;
     private VisualElement soundControlVE;
-    private VisualElement resumeVE;
     private VisualElement musicControlVE;
 
     private Button homeButton;
@@ -21,7 +20,6 @@ public class PauseScreenController : MonoBehaviour
     private Button soundOnBtn;
     private Button soundOffBtn;
     private Button musicOnBtn;
-    private Button resumeBtn;
     private Button musicOffBtn;
 
     void Start()
@@ -31,12 +29,11 @@ public class PauseScreenController : MonoBehaviour
 
         topVE = rootElement.Q<VisualElement>("topVE");
         homeButton = topVE.Q<Button>("Home");
-        homeButton.clicked += () => ChangeStateToHomePage();
+        homeButton.clicked += () => stateChanger.ChangeStateFromSettingsUIToMainUI();
 
-        pausePopUpVE = rootElement.Q<VisualElement>("PausePopUpVE");
-        buttonsLineVE = pausePopUpVE.Q<VisualElement>("buttons_line_ve");
+        settingsPopUpVE = rootElement.Q<VisualElement>("SettingsPopUpVE");
+        buttonsLineVE = settingsPopUpVE.Q<VisualElement>("buttons_line_ve");
         soundControlVE = buttonsLineVE.Q<VisualElement>("sound_control_ve");
-        resumeVE = pausePopUpVE.Q<VisualElement>("resume_ve");
         musicControlVE = buttonsLineVE.Q<VisualElement>("music_control_ve");
 
         soundOnBtn = soundControlVE.Q<Button>("sound_on_btn");
@@ -50,9 +47,6 @@ public class PauseScreenController : MonoBehaviour
 
         musicOffBtn = musicControlVE.Q<Button>("music_off_btn");
         musicOffBtn.clicked += () => MakeMusicOn();
-
-        resumeBtn = resumeVE.Q<Button>("resume_btn");
-        resumeBtn.clicked += () => ChangeStateToResume();
 
         DefineSoundButtonsState();
     }
@@ -82,21 +76,6 @@ public class PauseScreenController : MonoBehaviour
             musicOffBtn.style.display = DisplayStyle.Flex;
             musicOnBtn.style.display = DisplayStyle.None;
         }
-    }
-
-    public void ChangeStateToPausePage()
-    {
-        stateChanger.ChangeStateToPause();
-    }
-
-    private void ChangeStateToHomePage()
-    {
-        stateChanger.ChangeStateToMainUI();
-    }
-
-    private void ChangeStateToResume()
-    {
-        stateChanger.ChangeStateToResume();
     }
 
     private void MakeSoundOn()

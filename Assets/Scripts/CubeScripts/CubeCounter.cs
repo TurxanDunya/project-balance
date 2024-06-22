@@ -110,7 +110,6 @@ public class CubeCounter : MonoBehaviour
         }
 
         totalCubeCount = woodCount + metalCount + iceCount + rockCount;
-        Debug.Log(totalCubeCount);
     }
 
 }

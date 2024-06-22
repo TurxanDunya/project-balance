@@ -144,3 +144,144 @@
     max-height: 10%;
     min-height: 10%;
 }
+
+.home_btn_style {
+    overflow: visible;
+    background-image: url("project://database/Assets/Graphics/UI/buttons/home.png?fileID=2800000&guid=6f451b2df50354b1c97e4115318c4072&type=3#home");
+    display: flex;
+    justify-content: center;
+    height: 70%;
+    max-height: none;
+    min-height: auto;
+    margin-bottom: 5%;
+    width: 11%;
+    background-color: rgba(255, 255, 255, 0);
+    margin-top: 5%;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+.home_btn_style:hover {
+    overflow: visible;
+    background-image: url("project://database/Assets/Graphics/UI/buttons/home.png?fileID=2800000&guid=6f451b2df50354b1c97e4115318c4072&type=3#home");
+    display: flex;
+    justify-content: center;
+    height: 70%;
+    max-height: none;
+    min-height: auto;
+    margin-bottom: 5%;
+    width: 11%;
+    background-color: rgba(255, 255, 255, 0);
+    margin-top: 5%;
+    margin-right: 5%;
+    margin-left: 5%;
+    scale: 0.9 0.9;
+}
+
+.resume_btn_style {
+    height: 100%;
+    width: 100%;
+    max-width: none;
+    min-width: auto;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    border-left-color: rgba(149, 149, 149, 0);
+    border-right-color: rgba(149, 149, 149, 0);
+    border-top-color: rgba(149, 149, 149, 0);
+    border-bottom-color: rgba(149, 149, 149, 0);
+    background-color: rgba(188, 188, 188, 0);
+    background-image: url("project://database/Assets/Graphics/UI/buttons/play.png?fileID=2800000&guid=65a27afecf63149ab938abdbc7a3440c&type=3#play");
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    overflow: visible;
+    display: flex;
+}
+
+.resume_btn_style:hover {
+    height: 100%;
+    width: 100%;
+    max-width: none;
+    min-width: auto;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    border-left-color: rgba(149, 149, 149, 0);
+    border-right-color: rgba(149, 149, 149, 0);
+    border-top-color: rgba(149, 149, 149, 0);
+    border-bottom-color: rgba(149, 149, 149, 0);
+    background-color: rgba(188, 188, 188, 0);
+    background-image: url("project://database/Assets/Graphics/UI/buttons/play.png?fileID=2800000&guid=65a27afecf63149ab938abdbc7a3440c&type=3#play");
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    overflow: visible;
+    display: flex;
+    scale: 0.9 0.9;
+}
+
+.sound_btn_style {
+    height: 50%;
+    width: 60%;
+    max-width: none;
+    min-width: auto;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    border-left-color: rgba(149, 149, 149, 0);
+    border-right-color: rgba(149, 149, 149, 0);
+    border-top-color: rgba(149, 149, 149, 0);
+    border-bottom-color: rgba(149, 149, 149, 0);
+    background-color: rgba(188, 188, 188, 0);
+    background-image: url("project://database/Assets/Graphics/UI/buttons/sound_on_icon.png?fileID=2800000&guid=2d44b0b4044e84e08be3dfaa5ce9b001&type=3#sound_on_icon");
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    overflow: visible;
+}
+
+.sound_btn_style:hover {
+    height: 50%;
+    width: 60%;
+    max-width: none;
+    min-width: auto;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    border-left-color: rgba(149, 149, 149, 0);
+    border-right-color: rgba(149, 149, 149, 0);
+    border-top-color: rgba(149, 149, 149, 0);
+    border-bottom-color: rgba(149, 149, 149, 0);
+    background-color: rgba(188, 188, 188, 0);
+    background-image: url("project://database/Assets/Graphics/UI/buttons/sound_on_icon.png?fileID=2800000&guid=2d44b0b4044e84e08be3dfaa5ce9b001&type=3#sound_on_icon");
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    overflow: visible;
+    scale: 0.9 0.9;
+}
