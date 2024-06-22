@@ -11,6 +11,7 @@ public class StateChanger : MonoBehaviour
     [SerializeField] private GameObject winnerUI;
     [SerializeField] private GameObject welcomeTutorialUI;
     [SerializeField] private GameObject levelMenuUI;
+    [SerializeField] private GameObject settingsUI;
 
     public void ChangeStateToInGameUI()
     {
@@ -27,6 +28,7 @@ public class StateChanger : MonoBehaviour
         pauseScreenUI.SetActive(false);
         homeScreenUI.SetActive(false);
         levelMenuUI.SetActive(false);
+        settingsUI.SetActive(false);
     }
 
     public void ChangeStateToMainUI()
@@ -39,6 +41,7 @@ public class StateChanger : MonoBehaviour
         gameOverUI.SetActive(false);
         winnerUI.SetActive(false);
         levelMenuUI.SetActive(false);
+        settingsUI.SetActive(false);
 
         homeScreenUI.SetActive(true);
     }
@@ -53,6 +56,7 @@ public class StateChanger : MonoBehaviour
         winnerUI.SetActive(false);
         homeScreenUI.SetActive(false);
         levelMenuUI.SetActive(false);
+        settingsUI.SetActive(false);
 
         pauseScreenUI.SetActive(true);
     }
@@ -66,6 +70,7 @@ public class StateChanger : MonoBehaviour
         winnerUI.SetActive(false);
         homeScreenUI.SetActive(false);
         levelMenuUI.SetActive(false);
+        settingsUI.SetActive(false);
 
         inGameUI.SetActive(true);
         gameUI.SetActive(true);
@@ -81,6 +86,7 @@ public class StateChanger : MonoBehaviour
         homeScreenUI.SetActive(false);
         pauseScreenUI.SetActive(false);
         gameUI.SetActive(false);
+        settingsUI.SetActive(false);
 
         levelMenuUI.SetActive(true);
     }
@@ -93,11 +99,38 @@ public class StateChanger : MonoBehaviour
         winnerUI.SetActive(false);
         homeScreenUI.SetActive(false);
         pauseScreenUI.SetActive(false);
+        settingsUI.SetActive(false);
 
         inGameUI.SetActive(true);
         gameUI.SetActive(true);
 
         levelMenuUI.SetActive(false);
+    }
+
+    public void ChangeStateFromMainUIToSettingsUI()
+    {
+        //gameUI.SetActive(false);
+        //inGameUI.SetActive(false);
+        //pauseScreenUI.SetActive(false);
+        //gameOverUI.SetActive(false);
+        //winnerUI.SetActive(false);
+        //levelMenuUI.SetActive(false);
+        homeScreenUI.SetActive(false);
+
+        settingsUI.SetActive(true);
+    }
+
+    public void ChangeStateFromSettingsUIToMainUI()
+    {
+        //gameUI.SetActive(false);
+        //inGameUI.SetActive(false);
+        //pauseScreenUI.SetActive(false);
+        //gameOverUI.SetActive(false);
+        //winnerUI.SetActive(false);
+        //levelMenuUI.SetActive(false);
+        settingsUI.SetActive(false);
+
+        homeScreenUI.SetActive(true);
     }
 
     private void CheckWelcomeTutorial()
