@@ -23,13 +23,9 @@ public class FileUtil
         }
     }
 
-    public void RemoveMyFiles() {
-        var file1 = Application.persistentDataPath + "/lvl.dat";
-        var file2 = Application.persistentDataPath + "/level.dat";
-        var file3 = Application.persistentDataPath + "/levels.dat";
-
-        File.Delete(file1);
-        File.Delete(file2);
-        File.Delete(file3);
+    public void RemoveFileByName(string fileName) {
+        var filePath = Application.persistentDataPath + "/" + fileName;
+        File.Delete(filePath);
     }
+
 }

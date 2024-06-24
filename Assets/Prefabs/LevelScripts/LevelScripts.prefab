@@ -47,20 +47,25 @@ MonoBehaviour:
   spawnPosition: {fileID: 0}
   cubeCounter: {fileID: 8430131813013168004}
   woodPrefab:
-  - {fileID: 4215768327705963075, guid: 7487398be8db7422ba9d9443e8bcd783, type: 3}
-  - {fileID: 7805877774157115388, guid: 03b2696721d4148da9f54baeb3ebde4e, type: 3}
-  - {fileID: 6510062974684312886, guid: 5a085a4a07e74498690affa1ec643a84, type: 3}
-  - {fileID: 6823254313166080480, guid: 841ca15abb10040d985a0f8198862b7e, type: 3}
-  - {fileID: 7987359458253000858, guid: 728dd13f358da4f22a7a10f2238a3154, type: 3}
+  - {fileID: 1276504291833794482, guid: c6033109afa6e49eba2e937d5ab0ba03, type: 3}
+  - {fileID: 6455784016782959165, guid: 2679c0fb29dd04d35a981d63db7343ad, type: 3}
+  - {fileID: 7152317461909062366, guid: 001d2d12b092144adaa9fb63e4d11bde, type: 3}
+  - {fileID: 2925181345278573110, guid: 98f4678a3740f426d85aebff00ec7fbc, type: 3}
+  - {fileID: 8047010925567596979, guid: 6bce1dc6fd5c34337a6870311eee1652, type: 3}
   metalPrefab:
-  - {fileID: 6689451754444416363, guid: a5eb3c16c43f0426daa78f0d6cd5a4aa, type: 3}
-  - {fileID: 2970044414984183106, guid: ab65166269a914cdda585a9ab34ac8aa, type: 3}
-  - {fileID: 1132448493818197097, guid: 92fca9a9b20624c0390d7972e92b2e31, type: 3}
-  - {fileID: 8511100117672263497, guid: 22ee98efdc0594f14b743cdfa3c12fd5, type: 3}
-  - {fileID: 6952216098058104629, guid: e23a02ddbb378475da8ccfea50d9cdbc, type: 3}
+  - {fileID: 8047010925567596979, guid: 4b066a3c143414055acdc4ea9b63fc84, type: 3}
+  - {fileID: 2925181345278573110, guid: 1ffa5c78828084863a428b488f5338a8, type: 3}
+  - {fileID: 7152317461909062366, guid: 8afbc3c2bd7fb4c06b0e287afd99504f, type: 3}
+  - {fileID: 1276504291833794482, guid: 5e9005107c18a4d2ab1e30ec91aaf072, type: 3}
+  - {fileID: 6455784016782959165, guid: 2f1066882f9c8400d9aea5d5c2052e1d, type: 3}
   icePrefab:
-  - {fileID: 5071768890011235142, guid: 19e324afcb2c044388bb8ac792449de3, type: 3}
-  rockPrefab: []
+  - {fileID: 1276504291833794482, guid: 095e16b0db41e401eae358a9cf2a2384, type: 3}
+  - {fileID: 8047010925567596979, guid: c052b17dbd12f442f9a15663ea5b66c3, type: 3}
+  - {fileID: 2925181345278573110, guid: f87a0e423505b480694cd5208c3cea06, type: 3}
+  - {fileID: 7152317461909062366, guid: 6994245672e9c441d9f5ebee8bc6f657, type: 3}
+  - {fileID: 6455784016782959165, guid: 54ed8b842176d4962b70683ebd8861fd, type: 3}
+  rockPrefab:
+  - {fileID: 8615007189095644940, guid: 40f44bc35ec684638945fe2b40344391, type: 3}
   magnetPrefab: {fileID: 2708798959611058759, guid: 59723707e6b1b4a00b2da459135987ed, type: 3}
   bombPrefab: {fileID: 2708798959611058759, guid: f790c60f0a2e14f988e625e78f297070, type: 3}
 --- !u!1 &121233217796708331
@@ -260,10 +265,12 @@ MonoBehaviour:
   cubes:
   - cubeCount: 0
     cubeMaterialType: 0
-  - cubeCount: 0
-    cubeMaterialType: 2
   - cubeCount: 1
+    cubeMaterialType: 2
+  - cubeCount: 0
     cubeMaterialType: 1
+  - cubeCount: 0
+    cubeMaterialType: 3
 --- !u!1 &5510904409009977195
 GameObject:
   m_ObjectHideFlags: 0
