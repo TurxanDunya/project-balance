@@ -446,10 +446,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musics:
-  - {fileID: 8300000, guid: 1deb45a3f9d9044468ba8bb476be1236, type: 3}
-  - {fileID: 8300000, guid: 26f1140384630413bbb6da66993874d4, type: 3}
-  - {fileID: 8300000, guid: 3005dd12c0f0543bdb79f228b8ca339a, type: 3}
-  - {fileID: 8300000, guid: ee39c80e23ead4fcaa146e771cadb92a, type: 3}
+  - {fileID: 8300000, guid: a05619a54c91f4ffe97bd48af1faf52e, type: 3}
+  - {fileID: 8300000, guid: 43b75c9a1e91d4b25a7577340b1418be, type: 3}
+  - {fileID: 8300000, guid: f5047503157f54d0898987c6ee990ae6, type: 3}
   player: {fileID: 636098948}
 --- !u!114 &636098951
 MonoBehaviour:
