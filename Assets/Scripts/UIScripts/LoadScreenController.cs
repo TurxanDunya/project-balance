@@ -17,7 +17,7 @@ public class LoadScreenController : MonoBehaviour
 
         string lastPlayedLevelName =
             LevelManager.INSTANCE.levelManagment.levelList.lastPlayedLevelName;
-        StartLoad("Level 1");
+        StartLoad(lastPlayedLevelName);
     }
 
     public void StartLoad(string levelName)
