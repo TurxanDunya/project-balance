@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static Unity.VisualScripting.Member;
 
 public class MusicPlayer : BaseMusicPlayer
 {
@@ -10,16 +8,95 @@ public class MusicPlayer : BaseMusicPlayer
     [SerializeField] AudioSource player;
     private int currentPlayingIndex;
 
+    private SoundSaveSystem soundSaveSystem;
+
+    private bool isMusicOn;
+    private bool isSoundOn;
 
     void Start()
     {
+        InitializeVolumeSettings();
+
         currentPlayingIndex = Random.Range(0, musics.Length);
         player.clip = musics[currentPlayingIndex];
-        player.Play();
 
         StartCoroutine(MusicQueue());
     }
 
+    public bool GetIsMusicOn()
+    {
+        return isMusicOn;
+    }
+
+    public bool GetIsSoundOn()
+    {
+        return isSoundOn;
+    }
+
+    public void PauseMusic()
+    {
+        isMusicOn = false;
+
+        SoundSettingsData soundSettingsData = new();
+        soundSettingsData.isMusicOn = isMusicOn;
+        soundSaveSystem.SetSoundSettingsData(soundSettingsData);
+        soundSaveSystem.SaveSoundSettingsData();
+
+        player.Pause();
+    }
+
+    public void PlayMusic()
+    {
+        isMusicOn = true;
+
+        SoundSettingsData soundSettingsData = new();
+        soundSettingsData.isMusicOn = isMusicOn;
+        soundSaveSystem.SetSoundSettingsData(soundSettingsData);
+        soundSaveSystem.SaveSoundSettingsData();
+
+        player.Play();
+    }
+
+    public void MakeSoundsOn()
+    {
+        AudioListener.volume = 1;
+
+        SoundSettingsData soundSettingsData = new();
+        soundSettingsData.isSoundOn = true;
+        soundSaveSystem.SetSoundSettingsData(soundSettingsData);
+        soundSaveSystem.SaveSoundSettingsData();
+    }
+
+    public void MakeSoundsOff()
+    {
+        AudioListener.volume = 0;
+
+        SoundSettingsData soundSettingsData = new();
+        soundSettingsData.isSoundOn = false;
+        soundSaveSystem.SetSoundSettingsData(soundSettingsData);
+        soundSaveSystem.SaveSoundSettingsData();
+    }
+
+    private void InitializeVolumeSettings()
+    {
+        soundSaveSystem = GetComponent<SoundSaveSystem>();
+        isMusicOn = soundSaveSystem.GetSoundSettingsData().isMusicOn;
+        isSoundOn = soundSaveSystem.GetSoundSettingsData().isSoundOn;
+
+        if (isSoundOn)
+        {
+            AudioListener.volume = 1;
+        }
+        else
+        {
+            AudioListener.volume = 0;
+        }
+
+        if (isMusicOn)
+        {
+            player.Play();
+        }
+    }
 
     IEnumerator MusicQueue()
     {
