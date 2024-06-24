@@ -3,12 +3,13 @@ using UnityEngine;
 
 public class MusicPlayer : BaseMusicPlayer
 {
+
     [SerializeField] AudioClip[] musics;
     [SerializeField] AudioSource player;
+    private int currentPlayingIndex;
 
     private SoundSaveSystem soundSaveSystem;
 
-    private int currentPlayingIndex;
     private bool isMusicOn;
     private bool isSoundOn;
 
@@ -20,27 +21,6 @@ public class MusicPlayer : BaseMusicPlayer
         player.clip = musics[currentPlayingIndex];
 
         StartCoroutine(MusicQueue());
-    }
-
-    private void InitializeVolumeSettings()
-    {
-        soundSaveSystem = GetComponent<SoundSaveSystem>();
-        isMusicOn = soundSaveSystem.GetSoundSettingsData().isMusicOn;
-        isSoundOn = soundSaveSystem.GetSoundSettingsData().isSoundOn;
-
-        if (isSoundOn)
-        {
-            AudioListener.volume = 1;
-        }
-        else
-        {
-            AudioListener.volume = 0;
-        }
-
-        if (isMusicOn)
-        {
-            player.Play();
-        }
     }
 
     public bool GetIsMusicOn()
@@ -97,9 +77,31 @@ public class MusicPlayer : BaseMusicPlayer
         soundSaveSystem.SaveSoundSettingsData();
     }
 
-    private IEnumerator MusicQueue()
+    private void InitializeVolumeSettings()
     {
-        while (player.isPlaying || !isMusicOn)
+        soundSaveSystem = GetComponent<SoundSaveSystem>();
+        isMusicOn = soundSaveSystem.GetSoundSettingsData().isMusicOn;
+        isSoundOn = soundSaveSystem.GetSoundSettingsData().isSoundOn;
+
+        if (isSoundOn)
+        {
+            AudioListener.volume = 1;
+        }
+        else
+        {
+            AudioListener.volume = 0;
+        }
+
+        if (isMusicOn)
+        {
+            player.Play();
+        }
+    }
+
+    IEnumerator MusicQueue()
+    {
+       
+        while (player.isPlaying)
         {
             yield return new WaitForSeconds(5);
         }
@@ -108,14 +110,14 @@ public class MusicPlayer : BaseMusicPlayer
         {
             currentPlayingIndex = 0;
         }
-        else
-        {
+        else {
             currentPlayingIndex += 1;
         }
 
         player.clip = musics[currentPlayingIndex];
         player.Play();
         StartCoroutine(MusicQueue());
+
     }
 
 }

@@ -4,6 +4,8 @@ public class Magnet : MonoBehaviour
 {
     [SerializeField] private float attractDistance;
     [SerializeField] private float attractForce;
+    [SerializeField] private ParticleSystem[] magnetEffect;
+
 
     private void FixedUpdate()
     {
@@ -32,6 +34,13 @@ public class Magnet : MonoBehaviour
         Destroy(GetComponent<CubeMovement>());
         Destroy(GetComponent<CubeRayCast>());
         Destroy(GetComponent<LineRenderer>());
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        foreach (var effect in magnetEffect) {
+            effect.Play();
+        }
     }
 
 }
