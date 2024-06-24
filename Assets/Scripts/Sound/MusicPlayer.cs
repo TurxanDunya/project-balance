@@ -18,16 +18,15 @@ public class MusicPlayer : BaseMusicPlayer
         player.Play();
 
         StartCoroutine(MusicQueue());
-
-
     }
+
 
     IEnumerator MusicQueue()
     {
        
         while (player.isPlaying)
         {
-            yield return null;
+            yield return new WaitForSeconds(5);
         }
 
         if (currentPlayingIndex == musics.Length - 1)

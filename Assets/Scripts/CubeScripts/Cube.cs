@@ -1,4 +1,7 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.VFX;
+
 
 public class Cube : MonoBehaviour
 {
@@ -34,9 +37,12 @@ public class Cube : MonoBehaviour
     }
 
     private void CubeLanded() {
-        rippleEffect.Play();
+        if(rippleEffect != null)
+        {
+            ParticleSystem ripple = Instantiate(rippleEffect, this.transform.position, Quaternion.Euler(90, 0, 0));
+            ripple.Play();
+        };
         fallSFXPlayer.Play();
         Platform.CubeLanded -= CubeLanded;
     }
-    
 }
