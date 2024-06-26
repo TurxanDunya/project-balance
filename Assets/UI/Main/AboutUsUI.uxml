@@ -11,10 +11,12 @@
         <ui:VisualElement name="members_ve" style="flex-grow: 1; width: 70%;">
             <ui:VisualElement name="members_photo" style="flex-grow: 1; width: auto; max-width: 100%; height: 15%; max-height: 15%; min-height: 15%; background-image: resource(&apos;PlaceholderAds/AdImages/480x320&apos;);" />
             <ui:VisualElement name="members_info_ve" style="flex-grow: 1; white-space: nowrap; flex-direction: row; height: 55%; max-height: 55%; min-height: 55%;">
-                <ui:VisualElement name="member_1" style="flex-grow: 1; border-right-color: rgb(255, 255, 255); border-right-width: 10px; -unity-text-align: upper-center; justify-content: center; align-items: center;">
-                    <ui:Label tabindex="-1" text="Akshin Sulxayev" parse-escape-sequences="true" display-tooltip-when-elided="true" name="name_lbl" style="font-size: 60%; color: rgb(245, 245, 245); height: auto; width: auto; align-self: center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-font-definition: url(&quot;project://database/Assets/Fonts/rowdies/Rowdies-Bold%20SDF.asset?fileID=11400000&amp;guid=5f0d2986a06c348d4893b7d3f4c688d5&amp;type=2#Rowdies-Bold SDF&quot;);" />
+                <ui:VisualElement name="member_1" style="flex-grow: 1; border-right-color: rgb(255, 255, 255); border-right-width: 10px; -unity-text-align: upper-center; justify-content: center; align-items: center; white-space: normal; width: 50%;">
+                    <ui:Label tabindex="-1" text="Akshin Sulxayev" parse-escape-sequences="true" display-tooltip-when-elided="true" name="name_lbl" style="font-size: 42%; color: rgb(245, 245, 245); height: auto; width: auto; align-self: center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-font-definition: url(&quot;project://database/Assets/Fonts/rowdies/Rowdies-Bold%20SDF.asset?fileID=11400000&amp;guid=5f0d2986a06c348d4893b7d3f4c688d5&amp;type=2#Rowdies-Bold SDF&quot;); white-space: normal;" />
                 </ui:VisualElement>
-                <ui:VisualElement name="member_2" style="flex-grow: 1;" />
+                <ui:VisualElement name="member_2" style="flex-grow: 1; width: 50%; justify-content: center;">
+                    <ui:Label tabindex="-1" text="Turkhan Dunyamaliyev" parse-escape-sequences="true" display-tooltip-when-elided="true" name="name_lbl" style="font-size: 42%; color: rgb(245, 245, 245); height: auto; width: auto; align-self: center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-font-definition: url(&quot;project://database/Assets/Fonts/rowdies/Rowdies-Bold%20SDF.asset?fileID=11400000&amp;guid=5f0d2986a06c348d4893b7d3f4c688d5&amp;type=2#Rowdies-Bold SDF&quot;); white-space: normal; -unity-text-align: upper-center;" />
+                </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
