@@ -114,7 +114,7 @@ MonoBehaviour:
   m_PanelSettings: {fileID: 11400000, guid: 468278f28d0ac4cd18ca82d7196688b5, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: 0fc0a14911e7d429a8bb32109794c16d, type: 3}
-  m_SortingOrder: 10
+  m_SortingOrder: 5
 --- !u!114 &1901870133191469171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +199,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8675650657165836562}
+  - component: {fileID: 2078459970637071347}
+  - component: {fileID: 9183529347513530654}
   m_Layer: 5
   m_Name: AboutUsUI
   m_TagString: Untagged
@@ -221,6 +223,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5320259708045471241}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2078459970637071347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933027444706891834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: 468278f28d0ac4cd18ca82d7196688b5, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: bf4c1ed5c268b4674b1dada1afc1b707, type: 3}
+  m_SortingOrder: 10
+--- !u!114 &9183529347513530654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933027444706891834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 065eef5306fe34f75b3fae05be1e14b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2299487983283890040
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,7 +457,7 @@ MonoBehaviour:
   m_PanelSettings: {fileID: 11400000, guid: 468278f28d0ac4cd18ca82d7196688b5, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: bc6d873a6b4154e41a8efb4128634723, type: 3}
-  m_SortingOrder: 0
+  m_SortingOrder: 10
 --- !u!114 &4439974479573489929
 MonoBehaviour:
   m_ObjectHideFlags: 0
