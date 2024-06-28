@@ -28,7 +28,6 @@ public class HomeScreenController : MonoBehaviour
 
         tapToPlayButton = rootElement.Q<Button>("tapToPlayButton");
 
-        Debug.Log("Reinitialized");
         settingsButton.clicked += () => ShowSettingsUI();
         tapToPlayButton.clicked += () => ChangeStateForInGameUI();
         aboutUsButton.clicked += () => ShowAboutUsUI();
@@ -47,13 +46,12 @@ public class HomeScreenController : MonoBehaviour
 
     private void ShowSettingsUI()
     {
-        Debug.Log("settings clicked");
         stateChanger.ChangeStateFromMainUIToSettingsUI();
     }
 
     private void ShowAboutUsUI()
     {
-
+        stateChanger.ShowAboutUsUI();
     }
 
 }
