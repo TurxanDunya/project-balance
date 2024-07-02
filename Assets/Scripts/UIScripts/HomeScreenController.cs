@@ -5,6 +5,12 @@ public class HomeScreenController : MonoBehaviour
 {
     [SerializeField] private StateChanger stateChanger;
 
+    [SerializeField] private float buttonAnimationsMoveSpeed = 0.5f;
+
+    // button animation positions
+    private float aboutUsButtonPos = 200f;
+    private bool isForwardDirection = true;
+
     private VisualElement rootElement;
     private VisualElement topVE;
     private VisualElement leftSideVE;
@@ -22,15 +28,20 @@ public class HomeScreenController : MonoBehaviour
         topVE = rootElement.Q<VisualElement>("topVE");
         leftSideVE = topVE.Q<VisualElement>("left_side_ve");
         settingsButton = leftSideVE.Q<Button>("settings_btn");
+        aboutUsButton = leftSideVE.Q<Button>("about_us_btn");
 
         rightSideVE = topVE.Q<VisualElement>("right_side_ve");
-        aboutUsButton = rightSideVE.Q<Button>("about_us_btn");
 
         tapToPlayButton = rootElement.Q<Button>("tapToPlayButton");
 
         settingsButton.clicked += () => ShowSettingsUI();
         tapToPlayButton.clicked += () => ChangeStateForInGameUI();
         aboutUsButton.clicked += () => ShowAboutUsUI();
+    }
+
+    private void FixedUpdate()
+    {
+        DefineAboutUsButtonPosition();
     }
 
     public bool IsOverUI(Vector2 touchPosition)
@@ -52,6 +63,28 @@ public class HomeScreenController : MonoBehaviour
     private void ShowAboutUsUI()
     {
         stateChanger.ShowAboutUsUI();
+    }
+
+    private void DefineAboutUsButtonPosition()
+    {
+        if (isForwardDirection)
+        {
+            aboutUsButtonPos++;
+            aboutUsButton.style.marginLeft = aboutUsButtonPos * buttonAnimationsMoveSpeed;
+            if (aboutUsButton.style.marginLeft.value.value >= 900)
+            {
+                isForwardDirection = false;
+            }
+        }
+        else if (!isForwardDirection)
+        {
+            aboutUsButtonPos--;
+            aboutUsButton.style.marginLeft = aboutUsButtonPos * buttonAnimationsMoveSpeed;
+            if (aboutUsButton.style.marginLeft.value.value <= 100)
+            {
+                isForwardDirection = true;
+            }
+        }
     }
 
 }
