@@ -18,6 +18,7 @@ public class HomeScreenController : MonoBehaviour
     private Button settingsButton;
     private Button tapToPlayButton;
     private Button aboutUsButton;
+    private Button addStarAdsButton;
 
     private bool isHomePageEnabled = true;
 
@@ -31,6 +32,8 @@ public class HomeScreenController : MonoBehaviour
         aboutUsButton = leftSideVE.Q<Button>("about_us_btn");
 
         rightSideVE = topVE.Q<VisualElement>("right_side_ve");
+        addStarAdsButton = rightSideVE.Q<Button>("add_star_ads_btn");
+        addStarAdsButton.clicked += () => ShowAdsAndAddCoin();
 
         tapToPlayButton = rootElement.Q<Button>("tapToPlayButton");
 
@@ -63,6 +66,11 @@ public class HomeScreenController : MonoBehaviour
     private void ShowAboutUsUI()
     {
         stateChanger.ShowAboutUsUI();
+    }
+
+    private void ShowAdsAndAddCoin()
+    {
+
     }
 
     private void DefineAboutUsButtonPosition()
