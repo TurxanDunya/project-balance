@@ -12,6 +12,7 @@ public class StateChanger : MonoBehaviour
     [SerializeField] private GameObject welcomeTutorialUI;
     [SerializeField] private GameObject levelMenuUI;
     [SerializeField] private GameObject settingsUI;
+    [SerializeField] private GameObject aboutUsUI;
 
     public void ChangeStateToInGameUI()
     {
@@ -29,6 +30,7 @@ public class StateChanger : MonoBehaviour
         homeScreenUI.SetActive(false);
         levelMenuUI.SetActive(false);
         settingsUI.SetActive(false);
+        aboutUsUI.SetActive(false);
     }
 
     public void ChangeStateToMainUI()
@@ -42,6 +44,7 @@ public class StateChanger : MonoBehaviour
         winnerUI.SetActive(false);
         levelMenuUI.SetActive(false);
         settingsUI.SetActive(false);
+        aboutUsUI.SetActive(false);
 
         homeScreenUI.SetActive(true);
     }
@@ -57,6 +60,7 @@ public class StateChanger : MonoBehaviour
         homeScreenUI.SetActive(false);
         levelMenuUI.SetActive(false);
         settingsUI.SetActive(false);
+        aboutUsUI.SetActive(false);
 
         pauseScreenUI.SetActive(true);
     }
@@ -71,6 +75,7 @@ public class StateChanger : MonoBehaviour
         homeScreenUI.SetActive(false);
         levelMenuUI.SetActive(false);
         settingsUI.SetActive(false);
+        aboutUsUI.SetActive(false);
 
         inGameUI.SetActive(true);
         gameUI.SetActive(true);
@@ -87,6 +92,7 @@ public class StateChanger : MonoBehaviour
         pauseScreenUI.SetActive(false);
         gameUI.SetActive(false);
         settingsUI.SetActive(false);
+        aboutUsUI.SetActive(false);
 
         levelMenuUI.SetActive(true);
     }
@@ -100,6 +106,7 @@ public class StateChanger : MonoBehaviour
         homeScreenUI.SetActive(false);
         pauseScreenUI.SetActive(false);
         settingsUI.SetActive(false);
+        aboutUsUI.SetActive(false);
 
         inGameUI.SetActive(true);
         gameUI.SetActive(true);
@@ -109,26 +116,57 @@ public class StateChanger : MonoBehaviour
 
     public void ChangeStateFromMainUIToSettingsUI()
     {
-        //gameUI.SetActive(false);
-        //inGameUI.SetActive(false);
-        //pauseScreenUI.SetActive(false);
-        //gameOverUI.SetActive(false);
-        //winnerUI.SetActive(false);
-        //levelMenuUI.SetActive(false);
+        gameUI.SetActive(false);
+        inGameUI.SetActive(false);
+        pauseScreenUI.SetActive(false);
+        gameOverUI.SetActive(false);
+        winnerUI.SetActive(false);
+        levelMenuUI.SetActive(false);
         homeScreenUI.SetActive(false);
+        aboutUsUI.SetActive(false);
 
         settingsUI.SetActive(true);
     }
 
-    public void ChangeStateFromSettingsUIToMainUI()
+    public void ChangeStateToMainUIWithoutLoadPage()
     {
-        //gameUI.SetActive(false);
-        //inGameUI.SetActive(false);
-        //pauseScreenUI.SetActive(false);
-        //gameOverUI.SetActive(false);
-        //winnerUI.SetActive(false);
-        //levelMenuUI.SetActive(false);
+        gameUI.SetActive(false);
+        inGameUI.SetActive(false);
+        pauseScreenUI.SetActive(false);
+        gameOverUI.SetActive(false);
+        winnerUI.SetActive(false);
+        levelMenuUI.SetActive(false);
         settingsUI.SetActive(false);
+        aboutUsUI.SetActive(false);
+
+        homeScreenUI.SetActive(true);
+    }
+
+    public void ShowAboutUsUI()
+    {
+        gameUI.SetActive(false);
+        inGameUI.SetActive(false);
+        pauseScreenUI.SetActive(false);
+        gameOverUI.SetActive(false);
+        winnerUI.SetActive(false);
+        levelMenuUI.SetActive(false);
+        settingsUI.SetActive(false);
+        homeScreenUI.SetActive(false);
+
+        aboutUsUI.SetActive(true);
+    }
+
+    public void CloseAboutUsUI()
+    {
+        gameUI.SetActive(false);
+        inGameUI.SetActive(false);
+        pauseScreenUI.SetActive(false);
+        gameOverUI.SetActive(false);
+        winnerUI.SetActive(false);
+        levelMenuUI.SetActive(false);
+        settingsUI.SetActive(false);
+
+        aboutUsUI.SetActive(false);
 
         homeScreenUI.SetActive(true);
     }

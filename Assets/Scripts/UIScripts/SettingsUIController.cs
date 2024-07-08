@@ -29,7 +29,7 @@ public class SettingsUIController : MonoBehaviour
 
         topVE = rootElement.Q<VisualElement>("topVE");
         homeButton = topVE.Q<Button>("Home");
-        homeButton.clicked += () => stateChanger.ChangeStateFromSettingsUIToMainUI();
+        homeButton.clicked += () => stateChanger.ChangeStateToMainUIWithoutLoadPage();
 
         settingsPopUpVE = rootElement.Q<VisualElement>("SettingsPopUpVE");
         buttonsLineVE = settingsPopUpVE.Q<VisualElement>("buttons_line_ve");

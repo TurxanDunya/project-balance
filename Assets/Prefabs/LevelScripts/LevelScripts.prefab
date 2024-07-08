@@ -59,14 +59,10 @@ MonoBehaviour:
   - {fileID: 1276504291833794482, guid: 5e9005107c18a4d2ab1e30ec91aaf072, type: 3}
   - {fileID: 6455784016782959165, guid: 2f1066882f9c8400d9aea5d5c2052e1d, type: 3}
   icePrefab:
-  - {fileID: 1276504291833794482, guid: 095e16b0db41e401eae358a9cf2a2384, type: 3}
-  - {fileID: 8047010925567596979, guid: c052b17dbd12f442f9a15663ea5b66c3, type: 3}
-  - {fileID: 2925181345278573110, guid: f87a0e423505b480694cd5208c3cea06, type: 3}
-  - {fileID: 7152317461909062366, guid: 6994245672e9c441d9f5ebee8bc6f657, type: 3}
   - {fileID: 6455784016782959165, guid: 54ed8b842176d4962b70683ebd8861fd, type: 3}
   rockPrefab:
   - {fileID: 8615007189095644940, guid: 40f44bc35ec684638945fe2b40344391, type: 3}
-  magnetPrefab: {fileID: 2708798959611058759, guid: 59723707e6b1b4a00b2da459135987ed, type: 3}
+  magnetPrefab: {fileID: 6134999963169008612, guid: 59723707e6b1b4a00b2da459135987ed, type: 3}
   bombPrefab: {fileID: 2708798959611058759, guid: f790c60f0a2e14f988e625e78f297070, type: 3}
 --- !u!1 &121233217796708331
 GameObject:
@@ -79,6 +75,7 @@ GameObject:
   - component: {fileID: 5185592143091511909}
   - component: {fileID: 1439958952294343122}
   - component: {fileID: 4103161789689213281}
+  - component: {fileID: 2027564487013944566}
   m_Layer: 0
   m_Name: CoinManager
   m_TagString: Untagged
@@ -128,6 +125,18 @@ MonoBehaviour:
   platformObj: {fileID: 0}
   coinPrefab: {fileID: 4162693392634624837, guid: d9646e2dcda354d10b204b78227949ca, type: 3}
   gapWithPlatformY: 0
+--- !u!114 &2027564487013944566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121233217796708331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67a777904ad6c49d2ab2a273ac0ace86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &854566181623443387
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,9 +274,9 @@ MonoBehaviour:
   cubes:
   - cubeCount: 0
     cubeMaterialType: 0
-  - cubeCount: 1
-    cubeMaterialType: 2
   - cubeCount: 0
+    cubeMaterialType: 2
+  - cubeCount: 10
     cubeMaterialType: 1
   - cubeCount: 0
     cubeMaterialType: 3

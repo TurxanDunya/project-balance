@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateChanger: {fileID: 4542121699140896450}
+  buttonAnimationsMoveSpeed: 0.5
 --- !u!1 &471164949728130507
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,6 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 065eef5306fe34f75b3fae05be1e14b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateChanger: {fileID: 4542121699140896450}
 --- !u!1 &2299487983283890040
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,3 +757,4 @@ MonoBehaviour:
   welcomeTutorialUI: {fileID: 0}
   levelMenuUI: {fileID: 2351172957620347398}
   settingsUI: {fileID: 4206477802807428289}
+  aboutUsUI: {fileID: 933027444706891834}

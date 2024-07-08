@@ -5,6 +5,12 @@ public class HomeScreenController : MonoBehaviour
 {
     [SerializeField] private StateChanger stateChanger;
 
+    [SerializeField] private float buttonAnimationsMoveSpeed = 0.5f;
+
+    // button animation positions
+    private float aboutUsButtonPos = 200f;
+    private bool isForwardDirection = true;
+
     private VisualElement rootElement;
     private VisualElement topVE;
     private VisualElement leftSideVE;
@@ -12,6 +18,7 @@ public class HomeScreenController : MonoBehaviour
     private Button settingsButton;
     private Button tapToPlayButton;
     private Button aboutUsButton;
+    private Button addStarAdsButton;
 
     private bool isHomePageEnabled = true;
 
@@ -22,16 +29,22 @@ public class HomeScreenController : MonoBehaviour
         topVE = rootElement.Q<VisualElement>("topVE");
         leftSideVE = topVE.Q<VisualElement>("left_side_ve");
         settingsButton = leftSideVE.Q<Button>("settings_btn");
+        aboutUsButton = leftSideVE.Q<Button>("about_us_btn");
 
         rightSideVE = topVE.Q<VisualElement>("right_side_ve");
-        aboutUsButton = rightSideVE.Q<Button>("about_us_btn");
+        addStarAdsButton = rightSideVE.Q<Button>("add_star_ads_btn");
+        addStarAdsButton.clicked += () => ShowAdsAndAddCoin();
 
         tapToPlayButton = rootElement.Q<Button>("tapToPlayButton");
 
-        Debug.Log("Reinitialized");
         settingsButton.clicked += () => ShowSettingsUI();
         tapToPlayButton.clicked += () => ChangeStateForInGameUI();
         aboutUsButton.clicked += () => ShowAboutUsUI();
+    }
+
+    private void FixedUpdate()
+    {
+        DefineAboutUsButtonPosition();
     }
 
     public bool IsOverUI(Vector2 touchPosition)
@@ -47,13 +60,39 @@ public class HomeScreenController : MonoBehaviour
 
     private void ShowSettingsUI()
     {
-        Debug.Log("settings clicked");
         stateChanger.ChangeStateFromMainUIToSettingsUI();
     }
 
     private void ShowAboutUsUI()
     {
+        stateChanger.ShowAboutUsUI();
+    }
 
+    private void ShowAdsAndAddCoin()
+    {
+
+    }
+
+    private void DefineAboutUsButtonPosition()
+    {
+        if (isForwardDirection)
+        {
+            aboutUsButtonPos++;
+            aboutUsButton.style.marginLeft = aboutUsButtonPos * buttonAnimationsMoveSpeed;
+            if (aboutUsButton.style.marginLeft.value.value >= 900)
+            {
+                isForwardDirection = false;
+            }
+        }
+        else if (!isForwardDirection)
+        {
+            aboutUsButtonPos--;
+            aboutUsButton.style.marginLeft = aboutUsButtonPos * buttonAnimationsMoveSpeed;
+            if (aboutUsButton.style.marginLeft.value.value <= 100)
+            {
+                isForwardDirection = true;
+            }
+        }
     }
 
 }
