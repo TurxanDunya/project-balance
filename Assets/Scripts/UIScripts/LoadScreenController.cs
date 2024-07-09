@@ -3,15 +3,19 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 
-public class LoadScreenController : MonoBehaviour
+public class LoadScreenController : MonoBehaviour, AdsEventCallback
 {
     [SerializeField] private float fadeSpeed = 1f;
 
     private VisualElement rootVE;
     private ProgressBar progressBar;
+    private AdmobInterstitialAd interstitialAd;
+    private string navigateLevelAfterAds;
 
     void Start()
     {
+        interstitialAd = new AdmobInterstitialAd();
+        interstitialAd.SetAdsCallback(this);
         rootVE = GetComponent<UIDocument>().rootVisualElement;
         progressBar = rootVE.Q<ProgressBar>("progress");
 
@@ -22,7 +26,10 @@ public class LoadScreenController : MonoBehaviour
 
     public void StartLoad(string levelName)
     {
-        StartCoroutine(LoadLevelAsync(levelName));
+        navigateLevelAfterAds = levelName;
+        if (!interstitialAd.ShowInterstitialAd()) {
+            StartCoroutine(LoadLevelAsync(levelName));
+        }
     }
 
     private IEnumerator LoadLevelAsync(string levelName)
@@ -56,6 +63,16 @@ public class LoadScreenController : MonoBehaviour
             rootVE.style.opacity = alpha;
             yield return null;
         }
+    }
+
+    public void OnStandartAdsClose()
+    {
+        StartCoroutine(LoadLevelAsync(navigateLevelAfterAds));
+    }
+
+    public void OnRewardedAdsClose()
+    {
+       
     }
 
 }

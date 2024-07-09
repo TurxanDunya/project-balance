@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class HomeScreenController : MonoBehaviour
+public class HomeScreenController : MonoBehaviour, AdsEventCallback
 {
     [SerializeField] private StateChanger stateChanger;
 
@@ -19,11 +19,14 @@ public class HomeScreenController : MonoBehaviour
     private Button tapToPlayButton;
     private Button aboutUsButton;
     private Button addStarAdsButton;
+    private AdmobRewardedAd rewardedAd;
 
     private bool isHomePageEnabled = true;
 
     private void Start()
     {
+        rewardedAd = new AdmobRewardedAd();
+        rewardedAd.SetAdsCallback(this);
         rootElement = GetComponent<UIDocument>().rootVisualElement;
 
         topVE = rootElement.Q<VisualElement>("topVE");
@@ -70,7 +73,7 @@ public class HomeScreenController : MonoBehaviour
 
     private void ShowAdsAndAddCoin()
     {
-
+        rewardedAd.ShowRewardedAds();
     }
 
     private void DefineAboutUsButtonPosition()
@@ -95,4 +98,13 @@ public class HomeScreenController : MonoBehaviour
         }
     }
 
+    public void OnStandartAdsClose()
+    {
+       
+    }
+
+    public void OnRewardedAdsClose()
+    {
+        //add coin here
+    }
 }
