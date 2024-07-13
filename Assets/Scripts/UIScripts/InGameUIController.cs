@@ -58,7 +58,8 @@ public class InGameUIController : MonoBehaviour
 
     private void Start()
     {
-        rootElement = GetComponent<UIDocument>().rootVisualElement;
+        rootElement = GetComponent<UIDocument>()
+            .rootVisualElement.Q<VisualElement>("rootVE");
 
         powerUpsVE = rootElement.Q<VisualElement>("power_ups");
         firstPowerUpButton = powerUpsVE.Q<Button>("first_power_up");
@@ -80,14 +81,18 @@ public class InGameUIController : MonoBehaviour
         iceCountLabel = iceVE.Q<Label>("ice_count_lbl");
 
         BindEventsWithFunctions();
+
+        SafeArea.ApplySafeArea(rootElement);
     }
 
     public bool IsOverUI(Vector2 touchPosition)
     {
         CalculateRootVECoords();
 
+        // Because VE position coord and touch coord differs in y axis
+        touchPosition.y = rootElement.layout.height - touchPosition.y;
         if (touchPosition.x >= leftBorder && touchPosition.x <= rightBorder
-            && touchPosition.y >= bottomBorder && touchPosition.y <= upBorder)
+            && touchPosition.y <= bottomBorder && touchPosition.y >= upBorder)
         {
             return true;
         }
@@ -97,10 +102,10 @@ public class InGameUIController : MonoBehaviour
 
     private void CalculateRootVECoords()
     {
-        leftBorder = powerUpsVE.layout.x - powerUpsVE.layout.width / 2;
-        rightBorder = powerUpsVE.layout.x + powerUpsVE.layout.width / 2;
-        bottomBorder = powerUpsVE.layout.y;
-        upBorder = powerUpsVE.layout.y + powerUpsVE.layout.height;
+        leftBorder = powerUpsVE.layout.x;
+        rightBorder = powerUpsVE.layout.x + powerUpsVE.layout.width;
+        bottomBorder = powerUpsVE.layout.y + powerUpsVE.layout.height;
+        upBorder = powerUpsVE.layout.y;
     }
 
     private void BindEventsWithFunctions()
@@ -118,7 +123,7 @@ public class InGameUIController : MonoBehaviour
     {
         bool isCubeChanged = cubeSpawnManagement.ReplaceCubeIfPossible();
 
-        if(!isCubeChanged)
+        if (!isCubeChanged)
         {
             // TODO: Will ignore power-up and will purchase some coin
         }
