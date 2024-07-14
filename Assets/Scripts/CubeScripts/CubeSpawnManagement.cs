@@ -95,17 +95,8 @@ public class CubeSpawnManagement : MonoBehaviour
 
         cubeCounter.AddCube(currentMoveableObject.GetComponent<Cube>().GetCubeMaterialType());
 
-        Debug.Log("Started");
         GameObject magnet = GetCubePrefabFromPool(CubeData.CubeMaterialType.MAGNET);
-
-        if(magnet == null)
-        {
-            Debug.Log("Magnet was null");
-        }
-
         currentMoveableObject = Instantiate(magnet, spawnPosition.position, Quaternion.identity);
-
-        Debug.Log("Magnet initialized!");
     }
 
     public void ReplaceWithBomb()

@@ -11,13 +11,13 @@ public class CoinSaveSystem : MonoBehaviour
     {
         string coinSaveDataAsString = FileUtil.LoadFromFile(coinsSaveFile);
 
-        if (coinSaveData != null)
+        if (coinSaveDataAsString != null)
         {
             coinSaveData = JsonUtility.FromJson<CoinSaveData>(coinSaveDataAsString);
         }
         else
         {
-            CoinSaveData coinSaveData = new();
+            coinSaveData = new();
             coinSaveData.coinCount = INITIAL_COIN_COUNT;
 
             SaveData();
@@ -26,6 +26,11 @@ public class CoinSaveSystem : MonoBehaviour
 
     public long GetCurrentCoinCount()
     {
+        if(coinSaveData == null)
+        {
+            return INITIAL_COIN_COUNT;
+        }
+        
         return coinSaveData.coinCount;
     }
 
