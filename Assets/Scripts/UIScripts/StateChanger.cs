@@ -126,6 +126,7 @@ public class StateChanger : MonoBehaviour
         aboutUsUI.SetActive(false);
 
         settingsUI.SetActive(true);
+        settingsUI.GetComponent<SettingsUIController>().MakeBindings();
     }
 
     public void ChangeStateToMainUIWithoutLoadPage()
@@ -140,6 +141,7 @@ public class StateChanger : MonoBehaviour
         aboutUsUI.SetActive(false);
 
         homeScreenUI.SetActive(true);
+        homeScreenUI.GetComponent<HomeScreenController>().MakeBindings();
     }
 
     public void ShowAboutUsUI()
@@ -154,21 +156,7 @@ public class StateChanger : MonoBehaviour
         homeScreenUI.SetActive(false);
 
         aboutUsUI.SetActive(true);
-    }
-
-    public void CloseAboutUsUI()
-    {
-        gameUI.SetActive(false);
-        inGameUI.SetActive(false);
-        pauseScreenUI.SetActive(false);
-        gameOverUI.SetActive(false);
-        winnerUI.SetActive(false);
-        levelMenuUI.SetActive(false);
-        settingsUI.SetActive(false);
-
-        aboutUsUI.SetActive(false);
-
-        homeScreenUI.SetActive(true);
+        aboutUsUI.GetComponent<AboutUsController>().MakeBindings();
     }
 
     private void CheckWelcomeTutorial()

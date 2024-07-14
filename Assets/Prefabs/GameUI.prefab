@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateChanger: {fileID: 4542121699140896450}
-  buttonAnimationsMoveSpeed: 0.5
+  buttonAnimationsMoveSpeed: 1
 --- !u!1 &471164949728130507
 GameObject:
   m_ObjectHideFlags: 0

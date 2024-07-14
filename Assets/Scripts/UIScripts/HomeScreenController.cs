@@ -25,6 +25,11 @@ public class HomeScreenController : MonoBehaviour, AdsEventCallback
 
     private void Start()
     {
+        MakeBindings();
+    }
+
+    public void MakeBindings()
+    {
         rewardedAd = new AdmobRewardedAd();
         rewardedAd.SetAdsCallback(this);
         rootElement = GetComponent<UIDocument>().rootVisualElement;
