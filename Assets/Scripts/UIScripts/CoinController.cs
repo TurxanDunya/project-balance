@@ -16,12 +16,12 @@ public class CoinController : MonoBehaviour
 
     private void OnEnable()
     {
-        coinManager.OnCoinAddEvent += UpdateInGameCoinValue;
+        coinManager.OnCoinCountChangeEvent += UpdateInGameCoinValue;
     }
 
     private void OnDisable()
     {
-        coinManager.OnCoinAddEvent -= UpdateInGameCoinValue;
+        coinManager.OnCoinCountChangeEvent -= UpdateInGameCoinValue;
     }
 
     void Start()
@@ -30,12 +30,12 @@ public class CoinController : MonoBehaviour
         collectedCoinsVE = rootElement.Q<VisualElement>("CollectedCoins");
         coinCountLabel = collectedCoinsVE.Q<Label>("CoinCount");
 
-        coinCountLabel.text = coinManager.CoinCount.ToString();
+        UpdateInGameCoinValue(coinManager.CoinCount);
     }
 
-    private void UpdateInGameCoinValue()
+    private void UpdateInGameCoinValue(long cointCount)
     {
-        coinCountLabel.text = coinManager.CoinCount.ToString();
+        coinCountLabel.text = cointCount.ToString();
     }
 
 }

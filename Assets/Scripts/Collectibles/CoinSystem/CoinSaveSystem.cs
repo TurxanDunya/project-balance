@@ -30,7 +30,7 @@ public class CoinSaveSystem : MonoBehaviour
         {
             return INITIAL_COIN_COUNT;
         }
-        
+
         return coinSaveData.coinCount;
     }
 

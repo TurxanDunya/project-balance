@@ -62,22 +62,12 @@ public class CubeSpawnManagement : MonoBehaviour
         }
     }
 
-    public bool ReplaceCubeIfPossible()
+    public void ReplaceCube()
     {
-        if(currentMoveableObject == null)
-        {
-            return false;
-        }
-
         CubeData.CubeMaterialType currentCubeMaterialType =
             currentMoveableObject.GetComponent<Cube>().GetCubeMaterialType();
         CubeData.CubeMaterialType? newCubeMaterialType =
             cubeCounter.ChangeAvailableCubeTypeFrom(currentCubeMaterialType);
-
-        if(newCubeMaterialType == null || cubeCounter.GetCubeCount() <= 1)
-        {
-            return false;
-        }
 
         Destroy(currentMoveableObject);
         GameObject cubePrefab = GetCubePrefabFromPool(newCubeMaterialType);
@@ -85,8 +75,6 @@ public class CubeSpawnManagement : MonoBehaviour
         {
             currentMoveableObject = Instantiate(cubePrefab, spawnPosition.position, Quaternion.identity);
         }
-
-        return true;
     }
 
     public void ReplaceWithMagnet()

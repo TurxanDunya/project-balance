@@ -2,41 +2,43 @@ using UnityEngine;
 
 public class CoinManager : MonoBehaviour
 {
-    public delegate void CoinAddEvent();
-    public event CoinAddEvent OnCoinAddEvent;
-
-    public delegate void CoinSubtractEvent();
-    public event CoinSubtractEvent OnCoinSubtractEvent;
+    public delegate void CoinCountChangeEvent(long coinCount);
+    public event CoinCountChangeEvent OnCoinCountChangeEvent;
 
     private CoinSaveSystem coinSaveSystem;
 
-    private long coinCount = 0;
+    private long currentCoinCount = 0;
 
-    private void Start()
+    private void Awake()
     {
         coinSaveSystem = GetComponent<CoinSaveSystem>();
-        coinCount = coinSaveSystem.GetCurrentCoinCount();
+        currentCoinCount = coinSaveSystem.GetCurrentCoinCount();
     }
 
     public long CoinCount
     {
-        get { return coinCount; }
+        get { return currentCoinCount; }
     }
 
     public void AddCoin(long addCount)
     {
-        coinCount += addCount;
+        currentCoinCount += addCount;
         coinSaveSystem.AddCoinAndSave(addCount);
 
-        OnCoinAddEvent?.Invoke();
+        OnCoinCountChangeEvent?.Invoke(currentCoinCount);
     }
 
     public void SubtractCoin(long subtractCount)
     {
-        coinCount -= subtractCount;
+        currentCoinCount -= subtractCount;
         coinSaveSystem.SubtractCoinAndSave(subtractCount);
 
-        OnCoinSubtractEvent?.Invoke();
+        OnCoinCountChangeEvent?.Invoke(currentCoinCount);
+    }
+
+    public bool IsCoinEnough(long countToCompare)
+    {
+        return currentCoinCount >= countToCompare;
     }
 
 }

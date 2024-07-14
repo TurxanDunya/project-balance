@@ -12,6 +12,7 @@ public class InGameUIController : MonoBehaviour
     [SerializeField] private PowerUps powerUps;
     [SerializeField] private CubeSpawnManagement cubeSpawnManagement;
     [SerializeField] private TimeLevelFinish timeLevelFinish;
+    [SerializeField] private CoinManager coinManager;
 
     private CubeCounter cubeCounter;
 
@@ -49,11 +50,13 @@ public class InGameUIController : MonoBehaviour
     private void OnEnable()
     {
         cubeCounter.OnUpdateCubeCount += UpdateCubeCounts;
+        coinManager.OnCoinCountChangeEvent += UpdatePowerUpIconStatusesByCoinCount;
     }
 
     private void OnDisable()
     {
         cubeCounter.OnUpdateCubeCount -= UpdateCubeCounts;
+        coinManager.OnCoinCountChangeEvent -= UpdatePowerUpIconStatusesByCoinCount;
     }
 
     private void Start()
@@ -81,6 +84,7 @@ public class InGameUIController : MonoBehaviour
         iceCountLabel = iceVE.Q<Label>("ice_count_lbl");
 
         BindEventsWithFunctions();
+        UpdatePowerUpIconStatusesByCoinCount(coinManager.CoinCount);
 
         SafeArea.ApplySafeArea(rootElement);
     }
@@ -121,27 +125,38 @@ public class InGameUIController : MonoBehaviour
 
     private void PerformFirstPowerUp()
     {
-        bool isCubeChanged = cubeSpawnManagement.ReplaceCubeIfPossible();
-
-        if (!isCubeChanged)
+        if(coinManager.IsCoinEnough(PowerUpPriceConstants.CHANGE_CUBE))
         {
-            // TODO: Will ignore power-up and will purchase some coin
+            cubeSpawnManagement.ReplaceCube();
+            coinManager.SubtractCoin(PowerUpPriceConstants.CHANGE_CUBE);
         }
     }
 
     private void PerformSecondPowerUp()
     {
-        timeLevelFinish.IncreaseFinishTime(5);
+        if(coinManager.IsCoinEnough(PowerUpPriceConstants.ADD_TIME))
+        {
+            timeLevelFinish.IncreaseFinishTime(10);
+            coinManager.SubtractCoin(PowerUpPriceConstants.ADD_TIME);
+        }
     }
 
     private void PerformThirdPowerUp()
     {
-        cubeSpawnManagement.ReplaceWithMagnet();
+        if(coinManager.IsCoinEnough(PowerUpPriceConstants.MAGNET))
+        {
+            cubeSpawnManagement.ReplaceWithMagnet();
+            coinManager.SubtractCoin(PowerUpPriceConstants.MAGNET);
+        }
     }
 
     private void PerformFourthPowerUp()
     {
-        cubeSpawnManagement.ReplaceWithBomb();
+        if (coinManager.IsCoinEnough(PowerUpPriceConstants.BOMB))
+        {
+            cubeSpawnManagement.ReplaceWithBomb();
+            coinManager.SubtractCoin(PowerUpPriceConstants.BOMB);
+        }
     }
 
     private void PauseGame()
@@ -161,4 +176,38 @@ public class InGameUIController : MonoBehaviour
         iceCountLabel.text = iceCount.ToString();
     }
 
+    private void UpdatePowerUpIconStatusesByCoinCount(long coinCount)
+    {
+        Button[] powerUpButtons = {
+            firstPowerUpButton,
+            secondPowerUpButton,
+            thirdPowerUpButton,
+            fourthPowerUpButton
+        };
+
+        int[] coinThresholds = {
+            PowerUpPriceConstants.CHANGE_CUBE,
+            PowerUpPriceConstants.ADD_TIME,
+            PowerUpPriceConstants.MAGNET,
+            PowerUpPriceConstants.BOMB
+        };
+
+        for (int i = 0; i < powerUpButtons.Length; i++)
+        {
+            if (coinCount < coinThresholds[i])
+            {
+                for (int j = i; j < powerUpButtons.Length; j++)
+                {
+                    powerUpButtons[j].style.opacity = 0.5f;
+                    powerUpButtons[j].SetEnabled(false);
+                }
+                return;
+            }
+            else
+            {
+                powerUpButtons[i].style.opacity = 1.0f;
+                powerUpButtons[i].SetEnabled(true);
+            }
+        }
+    }
 }
