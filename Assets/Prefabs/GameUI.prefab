@@ -66,6 +66,7 @@ MonoBehaviour:
   powerUps: {fileID: 0}
   cubeSpawnManagement: {fileID: 0}
   timeLevelFinish: {fileID: 0}
+  coinManager: {fileID: 0}
 --- !u!1 &331211012847983943
 GameObject:
   m_ObjectHideFlags: 0
