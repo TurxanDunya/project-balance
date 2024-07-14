@@ -6,7 +6,6 @@ public class Magnet : MonoBehaviour
     [SerializeField] private float attractForce;
     [SerializeField] private ParticleSystem[] magnetEffect;
 
-
     private void FixedUpdate()
     {
         GameObject[] attractibleObjects = GameObject.FindGameObjectsWithTag(Constants.PLAYABLE_CUBE);
@@ -34,6 +33,8 @@ public class Magnet : MonoBehaviour
         Destroy(GetComponent<CubeMovement>());
         Destroy(GetComponent<CubeRayCast>());
         Destroy(GetComponent<LineRenderer>());
+
+        Destroy(GameObject.Find("ProjectionIcon"));
     }
 
     private void OnCollisionEnter(Collision collision)

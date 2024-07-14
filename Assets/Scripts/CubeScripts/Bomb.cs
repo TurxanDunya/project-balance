@@ -40,5 +40,7 @@ public class Bomb : MonoBehaviour
         Destroy(GetComponent<CubeMovement>());
         Destroy(GetComponent<CubeRayCast>());
         Destroy(GetComponent<LineRenderer>());
+
+        Destroy(GameObject.Find("ProjectionIcon"));
     }
 }

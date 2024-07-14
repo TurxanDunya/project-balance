@@ -8,7 +8,8 @@ public class Platform : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag(Constants.PLAYABLE_CUBE) || collision.gameObject.CompareTag(Constants.MAGNET))
+        if (collision.gameObject.CompareTag(Constants.PLAYABLE_CUBE)
+            || collision.gameObject.CompareTag(Constants.MAGNET))
         {
             CubeLanded?.Invoke();
             return;

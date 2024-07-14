@@ -62,8 +62,8 @@ MonoBehaviour:
   - {fileID: 6455784016782959165, guid: 54ed8b842176d4962b70683ebd8861fd, type: 3}
   rockPrefab:
   - {fileID: 8615007189095644940, guid: 40f44bc35ec684638945fe2b40344391, type: 3}
-  magnetPrefab: {fileID: 6134999963169008612, guid: 59723707e6b1b4a00b2da459135987ed, type: 3}
-  bombPrefab: {fileID: 2708798959611058759, guid: f790c60f0a2e14f988e625e78f297070, type: 3}
+  magnetPrefab: {fileID: 2299194890538788279, guid: 08970448bd71346f8a08a1af6ebf7e94, type: 3}
+  bombPrefab: {fileID: 5404911544736238597, guid: b0abbfdf3602b41f99b3423b7c2bd9bc, type: 3}
 --- !u!1 &121233217796708331
 GameObject:
   m_ObjectHideFlags: 0

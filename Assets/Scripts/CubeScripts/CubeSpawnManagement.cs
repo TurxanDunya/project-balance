@@ -92,13 +92,30 @@ public class CubeSpawnManagement : MonoBehaviour
     public void ReplaceWithMagnet()
     {
         Destroy(currentMoveableObject);
-        currentMoveableObject = Instantiate(magnetPrefab, spawnPosition.position, Quaternion.identity);
+
+        cubeCounter.AddCube(currentMoveableObject.GetComponent<Cube>().GetCubeMaterialType());
+
+        Debug.Log("Started");
+        GameObject magnet = GetCubePrefabFromPool(CubeData.CubeMaterialType.MAGNET);
+
+        if(magnet == null)
+        {
+            Debug.Log("Magnet was null");
+        }
+
+        currentMoveableObject = Instantiate(magnet, spawnPosition.position, Quaternion.identity);
+
+        Debug.Log("Magnet initialized!");
     }
 
     public void ReplaceWithBomb()
     {
         Destroy(currentMoveableObject);
-        currentMoveableObject = Instantiate(bombPrefab, spawnPosition.position, Quaternion.identity);
+
+        cubeCounter.AddCube(currentMoveableObject.GetComponent<Cube>().GetCubeMaterialType());
+
+        GameObject bomb = GetCubePrefabFromPool(CubeData.CubeMaterialType.BOMB);
+        currentMoveableObject = Instantiate(bomb, spawnPosition.position, Quaternion.identity);
     }
 
     private GameObject GetCubePrefabFromPool(CubeData.CubeMaterialType? cubeMaterialType)
@@ -117,6 +134,10 @@ public class CubeSpawnManagement : MonoBehaviour
             case CubeData.CubeMaterialType.ROCK:
                 int randomCubeRock = Random.Range(0, rockPrefab.Length);
                 return rockPrefab[randomCubeRock];
+            case CubeData.CubeMaterialType.MAGNET:
+                return magnetPrefab;
+            case CubeData.CubeMaterialType.BOMB:
+                return bombPrefab;
             default:
                 throw new Exception("No such type cube material defined!");
         }
