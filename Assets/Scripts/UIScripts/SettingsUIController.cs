@@ -24,6 +24,11 @@ public class SettingsUIController : MonoBehaviour
 
     void Start()
     {
+        MakeBindings();
+    }
+
+    public void MakeBindings()
+    {
         rootElement = GetComponent<UIDocument>()
             .rootVisualElement.Q<VisualElement>("RootVE");
 

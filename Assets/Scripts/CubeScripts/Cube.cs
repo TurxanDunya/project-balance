@@ -1,7 +1,4 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.VFX;
-
 
 public class Cube : MonoBehaviour
 {
@@ -9,7 +6,6 @@ public class Cube : MonoBehaviour
     [SerializeField] private CubeData.CubeMaterialType cubeMaterialType;
     [SerializeField] private AudioSource fallSFXPlayer;
   
-
     public void Release()
     {
         GetComponent<Rigidbody>().useGravity = true;
@@ -45,4 +41,5 @@ public class Cube : MonoBehaviour
         fallSFXPlayer.Play();
         Platform.CubeLanded -= CubeLanded;
     }
+
 }

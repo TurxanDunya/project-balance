@@ -66,6 +66,7 @@ MonoBehaviour:
   powerUps: {fileID: 0}
   cubeSpawnManagement: {fileID: 0}
   timeLevelFinish: {fileID: 0}
+  coinManager: {fileID: 0}
 --- !u!1 &331211012847983943
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateChanger: {fileID: 4542121699140896450}
-  buttonAnimationsMoveSpeed: 0.5
+  buttonAnimationsMoveSpeed: 1
 --- !u!1 &471164949728130507
 GameObject:
   m_ObjectHideFlags: 0

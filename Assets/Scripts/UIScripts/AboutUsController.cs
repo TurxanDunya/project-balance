@@ -35,6 +35,11 @@ public class AboutUsController : MonoBehaviour
 
     private void Start()
     {
+        MakeBindings();
+    }
+
+    public void MakeBindings()
+    {
         rootVE = GetComponent<UIDocument>()
             .rootVisualElement.Q<VisualElement>("rootVE");
 

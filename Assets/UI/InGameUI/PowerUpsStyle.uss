@@ -1,4 +1,22 @@
 .power_up {
+    left: auto;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    width: 16%;
+    height: 40%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 0;
+    margin-bottom: 0;
+    background-image: url('project://database/Assets/Graphics/UI/bonus.png?fileID=2800000&guid=f8620c746efb04be3ab59b83ca4ebc68&type=3#bonus');
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+}
+
+.power_up:hover {
     left: 0;
     top: 0;
     right: 0;
@@ -9,9 +27,10 @@
     margin-right: 2%;
     margin-top: 0;
     margin-bottom: 0;
-    background-image: url("project://database/Assets/Graphics/UI/bonus.png?fileID=2800000&guid=f8620c746efb04be3ab59b83ca4ebc68&type=3#bonus");
+    background-image: url('project://database/Assets/Graphics/UI/bonus.png?fileID=2800000&guid=f8620c746efb04be3ab59b83ca4ebc68&type=3#bonus');
     -unity-background-image-tint-color: rgb(255, 255, 255);
     align-items: center;
     justify-content: center;
     align-self: center;
+    scale: 0.9 0.9;
 }

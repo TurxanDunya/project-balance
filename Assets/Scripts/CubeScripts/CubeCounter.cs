@@ -42,6 +42,13 @@ public class CubeCounter : MonoBehaviour
         }
     }
 
+    public void AddCube(CubeData.CubeMaterialType cubeMaterialType)
+    {
+        totalCubeCount++;
+        IncreaseCount(cubeMaterialType);
+        OnUpdateCubeCount?.Invoke(woodCount, metalCount, iceCount, rockCount);
+    }
+
     public CubeData.CubeMaterialType? ChangeAvailableCubeTypeFrom(CubeData.CubeMaterialType cubeMaterialType)
     {
         if (totalCubeCount <= 0)
@@ -79,6 +86,25 @@ public class CubeCounter : MonoBehaviour
                 break;
             case CubeData.CubeMaterialType.ROCK:
                 rockCount--;
+                break;
+        }
+    }
+
+    private void IncreaseCount(CubeData.CubeMaterialType type)
+    {
+        switch (type)
+        {
+            case CubeData.CubeMaterialType.WOOD:
+                woodCount++;
+                break;
+            case CubeData.CubeMaterialType.METAL:
+                metalCount++;
+                break;
+            case CubeData.CubeMaterialType.ICE:
+                iceCount++;
+                break;
+            case CubeData.CubeMaterialType.ROCK:
+                rockCount++;
                 break;
         }
     }

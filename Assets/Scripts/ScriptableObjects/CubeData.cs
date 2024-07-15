@@ -22,7 +22,9 @@ public class CubeData : ScriptableObject
         WOOD,
         METAL,
         ICE,
-        ROCK
+        ROCK,
+        MAGNET,
+        BOMB
     };
 
 }
