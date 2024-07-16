@@ -8,17 +8,24 @@ public class Platform : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag(Constants.PLAYABLE_CUBE)
-            || collision.gameObject.CompareTag(Constants.MAGNET))
+        foreach (ContactPoint contact in collision.contacts)
         {
-            CubeLanded?.Invoke();
-            return;
-        }
+            Collider colliderHit = contact.thisCollider;
+            if (colliderHit is MeshCollider)
+            {
+                if (collision.gameObject.CompareTag(Constants.PLAYABLE_CUBE)
+                    || collision.gameObject.CompareTag(Constants.MAGNET))
+                {
+                    CubeLanded?.Invoke();
+                    return;
+                }
 
-        if (collision.gameObject.CompareTag(Constants.BOMB))
-        {
-            CubeLanded?.Invoke();
-            BombLanded?.Invoke();
+                if (collision.gameObject.CompareTag(Constants.BOMB))
+                {
+                    CubeLanded?.Invoke();
+                    BombLanded?.Invoke();
+                }
+            }
         }
     }
 }
