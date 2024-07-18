@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
@@ -85,6 +87,12 @@ public class InGameUIController : MonoBehaviour
 
         BindEventsWithFunctions();
         UpdatePowerUpIconStatusesByCoinCount(coinManager.CoinCount);
+
+        UpdateCubeCounts(
+            cubeCounter.WoodCount,
+            cubeCounter.MetalCount,
+            cubeCounter.IceCount,
+            cubeCounter.RockCount);
 
         SafeArea.ApplySafeArea(rootElement);
     }

@@ -15,9 +15,14 @@ public class CubeCounter : MonoBehaviour
     private int iceCount;
     private int rockCount;
 
+    public int WoodCount { get => woodCount; set => woodCount = value; }
+    public int MetalCount { get => metalCount; set => metalCount = value; }
+    public int IceCount { get => iceCount; set => iceCount = value; }
+    public int RockCount { get => rockCount; set => rockCount = value; }
+
     private void Awake() {
         DefineCubeCounts();
-        OnUpdateCubeCount?.Invoke(woodCount, metalCount, iceCount, rockCount);
+        OnUpdateCubeCount?.Invoke(WoodCount, MetalCount, IceCount, RockCount);
     }
 
     public CubeData.CubeMaterialType? GetAvailableCube()
@@ -37,7 +42,7 @@ public class CubeCounter : MonoBehaviour
         {
             totalCubeCount--;
             DecreaseCount(cube.cubeMaterialType);
-            OnUpdateCubeCount?.Invoke(woodCount, metalCount, iceCount, rockCount);
+            OnUpdateCubeCount?.Invoke(WoodCount, MetalCount, IceCount, RockCount);
             return cube.cubeMaterialType;
         }
     }
@@ -46,7 +51,7 @@ public class CubeCounter : MonoBehaviour
     {
         totalCubeCount++;
         IncreaseCount(cubeMaterialType);
-        OnUpdateCubeCount?.Invoke(woodCount, metalCount, iceCount, rockCount);
+        OnUpdateCubeCount?.Invoke(WoodCount, MetalCount, IceCount, RockCount);
     }
 
     public CubeData.CubeMaterialType? ChangeAvailableCubeTypeFrom(CubeData.CubeMaterialType cubeMaterialType)
@@ -66,26 +71,23 @@ public class CubeCounter : MonoBehaviour
         return cube.cubeMaterialType;
     }
 
-    public int GetCubeCount()
-    {
-        return cubes.Count;
-    }
+    
 
     private void DecreaseCount(CubeData.CubeMaterialType type)
     {
         switch(type)
         {
             case CubeData.CubeMaterialType.WOOD:
-                woodCount--;
+                WoodCount--;
                 break;
             case CubeData.CubeMaterialType.METAL:
-                metalCount--;
+                MetalCount--;
                 break;
             case CubeData.CubeMaterialType.ICE:
-                iceCount--;
+                IceCount--;
                 break;
             case CubeData.CubeMaterialType.ROCK:
-                rockCount--;
+                RockCount--;
                 break;
         }
     }
@@ -95,16 +97,16 @@ public class CubeCounter : MonoBehaviour
         switch (type)
         {
             case CubeData.CubeMaterialType.WOOD:
-                woodCount++;
+                WoodCount++;
                 break;
             case CubeData.CubeMaterialType.METAL:
-                metalCount++;
+                MetalCount++;
                 break;
             case CubeData.CubeMaterialType.ICE:
-                iceCount++;
+                IceCount++;
                 break;
             case CubeData.CubeMaterialType.ROCK:
-                rockCount++;
+                RockCount++;
                 break;
         }
     }
@@ -117,25 +119,26 @@ public class CubeCounter : MonoBehaviour
             int cubeCount = cube.cubeCount;
             if (cubeMaterialType == CubeData.CubeMaterialType.WOOD)
             {
-                woodCount += cubeCount;
+                WoodCount += cubeCount;
             }
 
             if (cubeMaterialType == CubeData.CubeMaterialType.METAL)
             {
-                metalCount += cubeCount;
+                MetalCount += cubeCount;
             }
 
             if (cubeMaterialType == CubeData.CubeMaterialType.ICE)
             {
-                iceCount += cubeCount;
+                IceCount += cubeCount;
             }
+
             if (cubeMaterialType == CubeData.CubeMaterialType.ROCK)
             {
-                rockCount += cubeCount;
+                RockCount += cubeCount;
             }
         }
 
-        totalCubeCount = woodCount + metalCount + iceCount + rockCount;
+        totalCubeCount = WoodCount + MetalCount + IceCount + RockCount;
     }
 
 }
