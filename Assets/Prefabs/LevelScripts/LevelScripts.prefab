@@ -278,7 +278,7 @@ MonoBehaviour:
     cubeMaterialType: 2
   - cubeCount: 10
     cubeMaterialType: 1
-  - cubeCount: 0
+  - cubeCount: 5
     cubeMaterialType: 3
 --- !u!1 &5510904409009977195
 GameObject:
