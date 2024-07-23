@@ -35,10 +35,12 @@ public class Cube : MonoBehaviour
     private void CubeLanded() {
         if(rippleEffect != null)
         {
-            ParticleSystem ripple = Instantiate(rippleEffect, this.transform.position, Quaternion.Euler(90, 0, 0));
+            ParticleSystem ripple = Instantiate(rippleEffect, transform.position, Quaternion.Euler(90, 0, 0));
             ripple.Play();
         };
         fallSFXPlayer.Play();
+
+        tag = TagConstants.DROPPED_CUBE;
         Platform.CubeLanded -= CubeLanded;
     }
 

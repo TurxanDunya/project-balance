@@ -7,7 +7,7 @@ public class CubeFallDetector : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == Constants.PLAYABLE_CUBE)
+        if (other.tag == TagConstants.PLAYABLE_CUBE)
         {
             playableCubeDetect?.Invoke();
         }

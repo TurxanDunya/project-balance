@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 2027564487013944566}
   m_Layer: 0
   m_Name: CoinManager
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,8 +123,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformObj: {fileID: 0}
-  coinPrefab: {fileID: 4162693392634624837, guid: d9646e2dcda354d10b204b78227949ca, type: 3}
-  gapWithPlatformY: -0.12
+  coinPrefab: {fileID: 8962746816404994585, guid: 699af29bfe3e343f8a0de8b658628f52, type: 3}
+  gapWithPlatformY: -0.1
+  coinChance: 1
 --- !u!114 &2027564487013944566
 MonoBehaviour:
   m_ObjectHideFlags: 0

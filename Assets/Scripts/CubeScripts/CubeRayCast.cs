@@ -20,8 +20,8 @@ public class CubeRayCast : MonoBehaviour
             return false;
         }
 
-        if (!hit.collider.CompareTag(Constants.MAIN_PLATFORM) &&
-                !hit.collider.CompareTag(Constants.PLAYABLE_CUBE))
+        if (!hit.collider.CompareTag(TagConstants.MAIN_PLATFORM) &&
+                !hit.collider.CompareTag(TagConstants.PLAYABLE_CUBE))
         {
             return false;
         }

@@ -25,7 +25,7 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.CompareTag(Constants.PLAYABLE_CUBE))
+        if (collider.CompareTag(TagConstants.PLAYABLE_CUBE))
         {
             coinManager.AddCoin(addCountOnCubeCollision);
         }
@@ -34,7 +34,7 @@ public class Coin : MonoBehaviour
     private void NewCoin()
     {
         coinSpawnManager.RemoveCurrentCoin();
-        coinSpawnManager.SpawnNewCoin();
+        coinSpawnManager.SpawnNewCoinByChance();
     }
 
 }

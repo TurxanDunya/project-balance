@@ -17,7 +17,7 @@ public class Bomb : MonoBehaviour
 
     public void Blast()
     {
-        GameObject[] affectedObjects = GameObject.FindGameObjectsWithTag(Constants.PLAYABLE_CUBE);
+        GameObject[] affectedObjects = GameObject.FindGameObjectsWithTag(TagConstants.PLAYABLE_CUBE);
 
         foreach (GameObject affectedObject in affectedObjects)
         {
@@ -28,8 +28,9 @@ public class Bomb : MonoBehaviour
             if (distanceBetween <= affectDistance)
             {
                 Destroy(affectedObject);
-                Destroy(self);
             }
+
+            Destroy(self);
         }
     }
 

@@ -8,7 +8,7 @@ public class Magnet : MonoBehaviour
 
     private void FixedUpdate()
     {
-        GameObject[] attractibleObjects = GameObject.FindGameObjectsWithTag(Constants.PLAYABLE_CUBE);
+        GameObject[] attractibleObjects = GameObject.FindGameObjectsWithTag(TagConstants.PLAYABLE_CUBE);
 
         foreach (GameObject attractibleObject in attractibleObjects)
         {

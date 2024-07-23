@@ -13,14 +13,14 @@ public class Platform : MonoBehaviour
             Collider colliderHit = contact.thisCollider;
             if (colliderHit is MeshCollider)
             {
-                if (collision.gameObject.CompareTag(Constants.PLAYABLE_CUBE)
-                    || collision.gameObject.CompareTag(Constants.MAGNET))
+                if (collision.gameObject.CompareTag(TagConstants.PLAYABLE_CUBE)
+                    || collision.gameObject.CompareTag(TagConstants.MAGNET))
                 {
                     CubeLanded?.Invoke();
                     return;
                 }
 
-                if (collision.gameObject.CompareTag(Constants.BOMB))
+                if (collision.gameObject.CompareTag(TagConstants.BOMB))
                 {
                     CubeLanded?.Invoke();
                     BombLanded?.Invoke();

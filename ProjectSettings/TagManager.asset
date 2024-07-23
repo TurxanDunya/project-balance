@@ -9,6 +9,7 @@ TagManager:
   - Coin
   - Magnet
   - Bomb
+  - DroppedCube
   layers:
   - Default
   - TransparentFX

@@ -6,6 +6,7 @@ public class CoinSpawnManager : MonoBehaviour
     [SerializeField] private GameObject coinPrefab;
 
     [SerializeField] private float gapWithPlatformY;
+    [SerializeField] private int coinChance;
 
     private GameObject currentInstantiatedCoin;
 
@@ -17,8 +18,23 @@ public class CoinSpawnManager : MonoBehaviour
     float coinZDistanceFromCenter;
     float coinYDistanceFromCenter;
 
-    public void SpawnNewCoin()
+    private void Start()
     {
+        SpawnNewCoinByChance();
+    }
+
+    private void Update()
+    {
+        UpdateCoinPosition();
+    }
+
+    public void SpawnNewCoinByChance()
+    {
+        if(Random.Range(1, coinChance) != 1)
+        {
+            return;
+        }
+
         DefineCoinSpawnPosition();
 
         currentInstantiatedCoin = Instantiate(
@@ -35,27 +51,17 @@ public class CoinSpawnManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        SpawnNewCoin();
-    }
-
-    private void Update()
-    {
-        UpdateCoinPosition();
-    }
-
     private void DefineCoinSpawnPosition()
     {
         platformScale = platformObj.transform.localScale;
 
-        coinXDistanceFromCenter = Random.Range(-platformScale.x / 2, platformScale.x / 2);
-        coinZDistanceFromCenter = Random.Range(-platformScale.z / 2, platformScale.z / 2);
+        coinXDistanceFromCenter = Random.Range(-platformScale.x, platformScale.x);
+        coinZDistanceFromCenter = Random.Range(-platformScale.z, platformScale.z);
         coinYDistanceFromCenter = platformScale.y;
 
         coinSpawnPosition = platformObj.transform.TransformPoint(
             new(coinXDistanceFromCenter, coinYDistanceFromCenter, coinZDistanceFromCenter));
-
+        
         coinSpawnPosition.y += gapWithPlatformY;
     }
 
