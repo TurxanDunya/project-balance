@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 7515506307312110536}
   - component: {fileID: 5602599511715185602}
   - component: {fileID: 7019145313476854221}
-  - component: {fileID: 1652929233834657262}
   - component: {fileID: -6448013099352122298}
+  - component: {fileID: 4567667598782146061}
+  - component: {fileID: 4389820119529880503}
   m_Layer: 0
   m_Name: Star
   m_TagString: Untagged
@@ -113,7 +114,32 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &1652929233834657262
+--- !u!114 &-6448013099352122298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8962746816404994585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1184d274f4bc24b1ea803e424fbd3cab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4567667598782146061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8962746816404994585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eac2442267f1c4e2bb255c5ef1f07b2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  addCountOnCubeCollision: 5
+--- !u!136 &4389820119529880503
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,19 +158,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.015694197
-  m_Height: 0.031388395
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.0006282497, z: -0.00017865002}
---- !u!114 &-6448013099352122298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8962746816404994585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1184d274f4bc24b1ea803e424fbd3cab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Radius: 0.9510565
+  m_Height: 1.902113
+  m_Direction: 0
+  m_Center: {x: 0.095491484, y: 0.00000009313226, z: 0}

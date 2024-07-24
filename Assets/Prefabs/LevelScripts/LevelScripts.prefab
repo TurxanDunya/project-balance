@@ -116,7 +116,7 @@ MonoBehaviour:
   platformObj: {fileID: 0}
   coinPrefab: {fileID: 8962746816404994585, guid: 699af29bfe3e343f8a0de8b658628f52, type: 3}
   gapWithPlatformY: -0.12
-  coinChance: 3
+  coinChance: 1
 --- !u!114 &2027564487013944566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,7 +141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f5170c038460490c9fda786eafe7313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  addCountOnCubeCollision: 0
 --- !u!1 &854566181623443387
 GameObject:
   m_ObjectHideFlags: 0
