@@ -17,7 +17,7 @@ public class Bomb : MonoBehaviour
 
     public void Blast()
     {
-        GameObject[] affectedObjects = GameObject.FindGameObjectsWithTag(TagConstants.PLAYABLE_CUBE);
+        GameObject[] affectedObjects = GameObject.FindGameObjectsWithTag(TagConstants.DROPPED_CUBE);
 
         foreach (GameObject affectedObject in affectedObjects)
         {

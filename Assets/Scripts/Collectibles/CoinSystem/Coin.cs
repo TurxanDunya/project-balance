@@ -33,6 +33,7 @@ public class Coin : MonoBehaviour
 
     private void NewCoin()
     {
+        Debug.Log("5");
         coinSpawnManager.RemoveCurrentCoin();
         coinSpawnManager.SpawnNewCoinByChance();
     }

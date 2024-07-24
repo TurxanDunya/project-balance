@@ -16,6 +16,7 @@ public class Platform : MonoBehaviour
                 if (collision.gameObject.CompareTag(TagConstants.PLAYABLE_CUBE)
                     || collision.gameObject.CompareTag(TagConstants.MAGNET))
                 {
+                    Debug.Log("4");
                     CubeLanded?.Invoke();
                     return;
                 }
