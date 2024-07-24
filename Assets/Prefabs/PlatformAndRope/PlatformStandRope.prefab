@@ -472,7 +472,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 32
   m_CollisionDetection: 0
 --- !u!64 &4837654549424554855
 MeshCollider:
@@ -875,6 +875,10 @@ PrefabInstance:
     - target: {fileID: 917622530047747941, guid: 53006d384579741c98c1497f87d70e4b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5755381833077598362, guid: 53006d384579741c98c1497f87d70e4b, type: 3}
+      propertyPath: m_Constraints
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 8760422437483114536, guid: 53006d384579741c98c1497f87d70e4b, type: 3}
       propertyPath: m_Name

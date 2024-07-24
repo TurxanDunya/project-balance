@@ -280,7 +280,7 @@ MonoBehaviour:
     cubeMaterialType: 0
   - cubeCount: 0
     cubeMaterialType: 2
-  - cubeCount: 1
+  - cubeCount: 5
     cubeMaterialType: 1
   - cubeCount: 0
     cubeMaterialType: 3

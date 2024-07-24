@@ -21,17 +21,17 @@ public class Bomb : MonoBehaviour
 
         foreach (GameObject affectedObject in affectedObjects)
         {
-            Vector3 magnetPosition = transform.position;
+            Vector3 bombPosition = transform.position;
             Vector3 otherObjectPosition = affectedObject.transform.position;
-            float distanceBetween = Vector3.Distance(magnetPosition, otherObjectPosition);
+            float distanceBetween = Vector3.Distance(bombPosition, otherObjectPosition);
 
             if (distanceBetween <= affectDistance)
             {
                 Destroy(affectedObject);
             }
-
-            Destroy(self);
         }
+
+        Destroy(self);
     }
 
     public void Release()
