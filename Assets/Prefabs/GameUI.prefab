@@ -410,6 +410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inGameUIController: {fileID: 4201346298903201681}
+  gameUIController: {fileID: 231312923564456866}
   welcomeTutorialController: {fileID: 0}
   homeScreenController: {fileID: 1901870133191469171}
 --- !u!1 &4206477802807428289

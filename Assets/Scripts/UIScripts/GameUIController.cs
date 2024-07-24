@@ -98,6 +98,21 @@ public class GameUIController : MonoBehaviour
         currentSecondLabel.visible = false;
     }
 
+    public bool IsOverUI()
+    {
+        if(rootGameOver.style.display == DisplayStyle.Flex)
+        {
+            return true;
+        }
+
+        if(rootWinner.visible)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
     private void ConfigureGameOverUIElements()
     {
         rootGameOver = gameOverUI.GetComponent<UIDocument>()
