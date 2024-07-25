@@ -47,9 +47,8 @@ MonoBehaviour:
   spawnPosition: {fileID: 0}
   cubeCounter: {fileID: 8430131813013168004}
   woodPrefab:
-  - {fileID: 1276504291833794482, guid: c6033109afa6e49eba2e937d5ab0ba03, type: 3}
-  metalPrefab:
-  - {fileID: 8047010925567596979, guid: 4b066a3c143414055acdc4ea9b63fc84, type: 3}
+  - {fileID: 4215768327705963075, guid: 7487398be8db7422ba9d9443e8bcd783, type: 3}
+  metalPrefab: []
   icePrefab: []
   rockPrefab: []
   magnetPrefab: {fileID: 6134999963169008612, guid: 59723707e6b1b4a00b2da459135987ed, type: 3}
@@ -276,11 +275,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubes:
-  - cubeCount: 0
+  - cubeCount: 5
     cubeMaterialType: 0
   - cubeCount: 0
     cubeMaterialType: 2
-  - cubeCount: 5
+  - cubeCount: 0
     cubeMaterialType: 1
   - cubeCount: 0
     cubeMaterialType: 3
