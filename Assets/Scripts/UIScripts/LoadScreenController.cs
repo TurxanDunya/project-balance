@@ -7,8 +7,13 @@ public class LoadScreenController : MonoBehaviour, AdsEventCallback
 {
     [SerializeField] private float fadeSpeed = 1f;
 
+    [Header("AdMob params")]
+    [SerializeField] private int chanceToShowAd;
+
     private VisualElement rootVE;
     private ProgressBar progressBar;
+
+    // admob fields
     private AdmobInterstitialAd interstitialAd;
     private string navigateLevelAfterAds;
 
@@ -16,6 +21,7 @@ public class LoadScreenController : MonoBehaviour, AdsEventCallback
     {
         interstitialAd = new AdmobInterstitialAd();
         interstitialAd.SetAdsCallback(this);
+
         rootVE = GetComponent<UIDocument>().rootVisualElement;
         progressBar = rootVE.Q<ProgressBar>("progress");
 
@@ -27,7 +33,10 @@ public class LoadScreenController : MonoBehaviour, AdsEventCallback
     public void StartLoad(string levelName)
     {
         navigateLevelAfterAds = levelName;
-        if (!interstitialAd.ShowInterstitialAd()) {
+
+        bool shouldShowAd = Random.Range(1, chanceToShowAd) == 1;
+        if (!shouldShowAd || !interstitialAd.ShowInterstitialAd())
+        {
             StartCoroutine(LoadLevelAsync(levelName));
         }
     }
