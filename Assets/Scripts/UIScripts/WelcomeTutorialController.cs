@@ -18,9 +18,9 @@ public class WelcomeTutorialController : MonoBehaviour
         gotItButton.clicked += DisableHowToMoveCubeVE;
     }
 
-    public void MakeRootElementVisible()
+    public void ShowMoveCubeTutorial()
     {
-        rootElement.visible = true;
+        rootElement.style.display = DisplayStyle.Flex;
     }
 
     private void DisableHowToMoveCubeVE()

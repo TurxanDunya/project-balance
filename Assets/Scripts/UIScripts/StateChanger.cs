@@ -164,7 +164,7 @@ public class StateChanger : MonoBehaviour
         if (welcomeTutorialUI != null)
         {
             welcomeTutorialUI.SetActive(true);
-            welcomeTutorialUI.GetComponent<WelcomeTutorialController>().MakeRootElementVisible();
+            welcomeTutorialUI.GetComponent<WelcomeTutorialController>().ShowMoveCubeTutorial();
         }
     }
 

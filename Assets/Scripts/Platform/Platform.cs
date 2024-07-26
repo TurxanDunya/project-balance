@@ -24,6 +24,7 @@ public class Platform : MonoBehaviour
                 {
                     CubeLanded?.Invoke();
                     BombLanded?.Invoke();
+                    return;
                 }
             }
         }

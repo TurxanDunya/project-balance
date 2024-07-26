@@ -78,6 +78,7 @@ GameObject:
   - component: {fileID: 6752976954760435011}
   - component: {fileID: 4737769631446231723}
   - component: {fileID: 1901870133191469171}
+  - component: {fileID: 3455018955299775731}
   m_Layer: 5
   m_Name: HomeUI
   m_TagString: Untagged
@@ -130,6 +131,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateChanger: {fileID: 4542121699140896450}
   buttonAnimationsMoveSpeed: 1
+--- !u!114 &3455018955299775731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331211012847983943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ea8845342d9e4427938240b77799d35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeDuration: 1
+  shakeMagnitude: 10
+  zoomAmount: 1.1
+  interval: 2
 --- !u!1 &471164949728130507
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,6 +427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inGameUIController: {fileID: 4201346298903201681}
+  gameUIController: {fileID: 231312923564456866}
   welcomeTutorialController: {fileID: 0}
   homeScreenController: {fileID: 1901870133191469171}
 --- !u!1 &4206477802807428289

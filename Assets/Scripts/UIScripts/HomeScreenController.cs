@@ -7,6 +7,8 @@ public class HomeScreenController : MonoBehaviour, AdsEventCallback
 
     [SerializeField] private float buttonAnimationsMoveSpeed = 0.5f;
 
+    private ButtonShaker buttonShaker;
+
     // button animation positions
     private float aboutUsButtonPos = 200f;
     private bool isForwardDirection = true;
@@ -25,7 +27,10 @@ public class HomeScreenController : MonoBehaviour, AdsEventCallback
 
     private void Start()
     {
+        buttonShaker = GetComponent<ButtonShaker>();
         MakeBindings();
+
+        ShakeAdsButton(); // Should be at the end because of coroutine
     }
 
     public void MakeBindings()
@@ -58,6 +63,11 @@ public class HomeScreenController : MonoBehaviour, AdsEventCallback
     public bool IsOverUI(Vector2 touchPosition)
     {
         return isHomePageEnabled;
+    }
+
+    private void ShakeAdsButton()
+    {
+        buttonShaker.ShakeButton(addStarAdsButton);
     }
 
     private void ChangeStateForInGameUI()

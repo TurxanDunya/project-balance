@@ -47,23 +47,12 @@ MonoBehaviour:
   spawnPosition: {fileID: 0}
   cubeCounter: {fileID: 8430131813013168004}
   woodPrefab:
-  - {fileID: 1276504291833794482, guid: c6033109afa6e49eba2e937d5ab0ba03, type: 3}
-  - {fileID: 6455784016782959165, guid: 2679c0fb29dd04d35a981d63db7343ad, type: 3}
-  - {fileID: 7152317461909062366, guid: 001d2d12b092144adaa9fb63e4d11bde, type: 3}
-  - {fileID: 2925181345278573110, guid: 98f4678a3740f426d85aebff00ec7fbc, type: 3}
-  - {fileID: 8047010925567596979, guid: 6bce1dc6fd5c34337a6870311eee1652, type: 3}
-  metalPrefab:
-  - {fileID: 8047010925567596979, guid: 4b066a3c143414055acdc4ea9b63fc84, type: 3}
-  - {fileID: 2925181345278573110, guid: 1ffa5c78828084863a428b488f5338a8, type: 3}
-  - {fileID: 7152317461909062366, guid: 8afbc3c2bd7fb4c06b0e287afd99504f, type: 3}
-  - {fileID: 1276504291833794482, guid: 5e9005107c18a4d2ab1e30ec91aaf072, type: 3}
-  - {fileID: 6455784016782959165, guid: 2f1066882f9c8400d9aea5d5c2052e1d, type: 3}
-  icePrefab:
-  - {fileID: 6455784016782959165, guid: 54ed8b842176d4962b70683ebd8861fd, type: 3}
-  rockPrefab:
-  - {fileID: 8615007189095644940, guid: 40f44bc35ec684638945fe2b40344391, type: 3}
+  - {fileID: 4215768327705963075, guid: 7487398be8db7422ba9d9443e8bcd783, type: 3}
+  metalPrefab: []
+  icePrefab: []
+  rockPrefab: []
   magnetPrefab: {fileID: 6134999963169008612, guid: 59723707e6b1b4a00b2da459135987ed, type: 3}
-  bombPrefab: {fileID: 2708798959611058759, guid: f790c60f0a2e14f988e625e78f297070, type: 3}
+  bombPrefab: {fileID: 3865418719315335636, guid: 5993a77098a7f43c29f3c38e8599118a, type: 3}
 --- !u!1 &121233217796708331
 GameObject:
   m_ObjectHideFlags: 0
@@ -76,6 +65,7 @@ GameObject:
   - component: {fileID: 1439958952294343122}
   - component: {fileID: 4103161789689213281}
   - component: {fileID: 2027564487013944566}
+  - component: {fileID: 2778670493432714026}
   m_Layer: 0
   m_Name: CoinManager
   m_TagString: Coin
@@ -124,8 +114,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformObj: {fileID: 0}
   coinPrefab: {fileID: 8962746816404994585, guid: 699af29bfe3e343f8a0de8b658628f52, type: 3}
-  gapWithPlatformY: -0.1
-  coinChance: 1
+  gapWithPlatformY: -0.12
+  coinChance: 3
 --- !u!114 &2027564487013944566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +126,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67a777904ad6c49d2ab2a273ac0ace86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2778670493432714026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121233217796708331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f5170c038460490c9fda786eafe7313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &854566181623443387
@@ -226,8 +228,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8195bb9700ee94bad8f6fa747835e953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableFinishTime: 1
-  timeToFinishLevel: 120
+  enableFinishTime: 0
+  timeToFinishLevel: 60
 --- !u!1 &3347014556053285954
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,13 +275,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubes:
-  - cubeCount: 0
+  - cubeCount: 5
     cubeMaterialType: 0
   - cubeCount: 0
     cubeMaterialType: 2
-  - cubeCount: 10
+  - cubeCount: 0
     cubeMaterialType: 1
-  - cubeCount: 5
+  - cubeCount: 0
     cubeMaterialType: 3
 --- !u!1 &5510904409009977195
 GameObject:

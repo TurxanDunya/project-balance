@@ -30,7 +30,7 @@ public class CoinSpawnManager : MonoBehaviour
 
     public void SpawnNewCoinByChance()
     {
-        if(Random.Range(1, coinChance) != 1)
+        if (Random.Range(1, coinChance) != 1)
         {
             return;
         }
