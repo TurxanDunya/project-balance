@@ -43,6 +43,11 @@ public class GameUIController : MonoBehaviour
 
     public void GameOverUIVisibility(bool isVisible)
     {
+        if(winnerVE.visible)
+        {
+            return;
+        }
+
         if(isVisible)
         {
             rootGameOver.style.display = DisplayStyle.Flex;
@@ -55,6 +60,11 @@ public class GameUIController : MonoBehaviour
 
     public void WinnerUIVisibility(bool visibility)
     {
+        if(rootGameOver.style.display == DisplayStyle.Flex)
+        {
+            return;
+        }
+
         rootWinner.visible = visibility;
         winnerVE.visible = visibility;
     }
