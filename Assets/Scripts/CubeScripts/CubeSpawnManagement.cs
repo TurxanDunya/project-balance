@@ -4,6 +4,8 @@ using Random = UnityEngine.Random;
 
 public class CubeSpawnManagement : MonoBehaviour
 {
+    private static readonly ILogger logger = Debug.unityLogger;
+
     private InputManager inputManager;
 
     public static event Action winGame;
@@ -51,7 +53,7 @@ public class CubeSpawnManagement : MonoBehaviour
     {
         if (currentMoveableObject)
         {
-            Debug.Log("There is already moveable cube, so need to create new one!");
+            logger.Log(LogType.Warning, "There is already moveable cube, so need to create new one!");
             return;
         }
 
