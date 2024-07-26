@@ -10,6 +10,7 @@ TagManager:
   - Magnet
   - Bomb
   - DroppedCube
+  - Star
   layers:
   - Default
   - TransparentFX

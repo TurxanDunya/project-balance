@@ -49,14 +49,20 @@ public class CubeSpawnManagement : MonoBehaviour
 
     public void SpawnCube()
     {
+        if (currentMoveableObject)
+        {
+            Debug.Log("There is already moveable cube, so need to create new one!");
+            return;
+        }
+
         CubeData.CubeMaterialType? cubeMaterialType = cubeCounter.GetAvailableCube();
         if (cubeMaterialType == null)
         {
             winGame?.Invoke();
             return;
         }
-        GameObject cubePrefab = GetCubePrefabFromPool(cubeMaterialType);
 
+        GameObject cubePrefab = GetCubePrefabFromPool(cubeMaterialType);
         if (cubePrefab != null) {
             currentMoveableObject = Instantiate(cubePrefab, spawnPosition.position, Quaternion.identity);
         }

@@ -14,6 +14,7 @@ public class Platform : MonoBehaviour
             if (colliderHit is MeshCollider)
             {
                 if (collision.gameObject.CompareTag(TagConstants.PLAYABLE_CUBE)
+                    || collision.gameObject.CompareTag(TagConstants.DROPPED_CUBE)
                     || collision.gameObject.CompareTag(TagConstants.MAGNET))
                 {
                     CubeLanded?.Invoke();
