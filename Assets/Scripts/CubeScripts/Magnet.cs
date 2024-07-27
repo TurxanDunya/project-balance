@@ -38,6 +38,11 @@ public class Magnet : MonoBehaviour
         }
     }
 
+    public CubeData.CubeMaterialType GetCubeMaterialType()
+    {
+        return CubeData.CubeMaterialType.MAGNET;
+    }
+
     public void Release()
     {
         GetComponent<Rigidbody>().useGravity = true;

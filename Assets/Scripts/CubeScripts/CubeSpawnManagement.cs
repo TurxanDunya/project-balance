@@ -70,12 +70,23 @@ public class CubeSpawnManagement : MonoBehaviour
         }
     }
 
-    public void ReplaceCube()
+    public bool ReplaceCube()
     {
+        Cube cubeComponent = currentMoveableObject.GetComponent<Cube>();
+        if (!cubeComponent)
+        {
+            return false;
+        }
+
         CubeData.CubeMaterialType currentCubeMaterialType =
             currentMoveableObject.GetComponent<Cube>().GetCubeMaterialType();
         CubeData.CubeMaterialType? newCubeMaterialType =
             cubeCounter.ChangeAvailableCubeTypeFrom(currentCubeMaterialType);
+
+        if (newCubeMaterialType == null)
+        {
+            return false;
+        }
 
         Destroy(currentMoveableObject);
         GameObject cubePrefab = GetCubePrefabFromPool(newCubeMaterialType);
@@ -83,26 +94,39 @@ public class CubeSpawnManagement : MonoBehaviour
         {
             currentMoveableObject = Instantiate(cubePrefab, spawnPosition.position, Quaternion.identity);
         }
+        return true;
     }
 
-    public void ReplaceWithMagnet()
+    public bool ReplaceWithMagnet()
     {
-        Destroy(currentMoveableObject);
+        Cube cubeComponent = currentMoveableObject.GetComponent<Cube>();
+        if (!cubeComponent)
+        {
+            return false;
+        }
 
+        Destroy(currentMoveableObject);
         cubeCounter.AddCube(currentMoveableObject.GetComponent<Cube>().GetCubeMaterialType());
 
         GameObject magnet = GetCubePrefabFromPool(CubeData.CubeMaterialType.MAGNET);
         currentMoveableObject = Instantiate(magnet, spawnPosition.position, Quaternion.identity);
+        return true;
     }
 
-    public void ReplaceWithBomb()
+    public bool ReplaceWithBomb()
     {
-        Destroy(currentMoveableObject);
+        Cube cubeComponent = currentMoveableObject.GetComponent<Cube>();
+        if (!cubeComponent)
+        {
+            return false;
+        }
 
+        Destroy(currentMoveableObject);
         cubeCounter.AddCube(currentMoveableObject.GetComponent<Cube>().GetCubeMaterialType());
 
         GameObject bomb = GetCubePrefabFromPool(CubeData.CubeMaterialType.BOMB);
         currentMoveableObject = Instantiate(bomb, spawnPosition.position, Quaternion.identity);
+        return true;
     }
 
     public void DestroyCurrentCube()

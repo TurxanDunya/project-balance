@@ -15,6 +15,11 @@ public class Bomb : MonoBehaviour
         Platform.BombLanded -= Blast;
     }
 
+    public CubeData.CubeMaterialType GetCubeMaterialType()
+    {
+        return CubeData.CubeMaterialType.BOMB;
+    }
+
     public void Blast()
     {
         GameObject[] affectedObjects = GameObject.FindGameObjectsWithTag(TagConstants.DROPPED_CUBE);

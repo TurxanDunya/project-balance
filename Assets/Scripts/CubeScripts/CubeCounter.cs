@@ -8,6 +8,9 @@ public class CubeCounter : MonoBehaviour
     public delegate void UpdateCubeCountEvent(int woodCount, int metalCount, int iceCount, int rockCount);
     public event UpdateCubeCountEvent OnUpdateCubeCount;
 
+    public delegate void CanReplaceCubeEvent(bool canReplace);
+    public event CanReplaceCubeEvent OnCanReplaceCubeEvent;
+
     private int totalCubeCount;
 
     private int woodCount;
@@ -23,6 +26,7 @@ public class CubeCounter : MonoBehaviour
     private void Awake() {
         DefineCubeCounts();
         OnUpdateCubeCount?.Invoke(WoodCount, MetalCount, IceCount, RockCount);
+        OnCanReplaceCubeEvent?.Invoke(IsCubeExistOnDifferentTypes());
     }
 
     public CubeData.CubeMaterialType? GetAvailableCube()
@@ -43,6 +47,7 @@ public class CubeCounter : MonoBehaviour
             totalCubeCount--;
             DecreaseCount(cube.cubeMaterialType);
             OnUpdateCubeCount?.Invoke(WoodCount, MetalCount, IceCount, RockCount);
+            OnCanReplaceCubeEvent?.Invoke(IsCubeExistOnDifferentTypes());
             return cube.cubeMaterialType;
         }
     }
@@ -56,22 +61,46 @@ public class CubeCounter : MonoBehaviour
 
     public CubeData.CubeMaterialType? ChangeAvailableCubeTypeFrom(CubeData.CubeMaterialType cubeMaterialType)
     {
-        if (totalCubeCount <= 0)
+        if (totalCubeCount <= 1 || !IsCubeExistOnDifferentTypes())
         {
             return null;
         }
 
         int index = Random.Range(0, cubes.Count);
         CubeCountData cube = cubes[index];
-        if (cube.cubeMaterialType == cubeMaterialType)
+        if (cube.cubeCount <= 0)
         {
-            ChangeAvailableCubeTypeFrom(cubeMaterialType);
+            return ChangeAvailableCubeTypeFrom(cubeMaterialType);
         }
 
         return cube.cubeMaterialType;
     }
 
-    
+    public bool IsCubeExistOnDifferentTypes()
+    {
+        int differentCubeTypes = 0;
+        if (woodCount > 0)
+        {
+            differentCubeTypes++;
+        }
+
+        if (metalCount > 0)
+        {
+            differentCubeTypes++;
+        }
+
+        if (iceCount > 0)
+        {
+            differentCubeTypes++;
+        }
+
+        if (rockCount > 0)
+        {
+            differentCubeTypes++;
+        }
+
+        return differentCubeTypes >= 2;
+    }
 
     private void DecreaseCount(CubeData.CubeMaterialType type)
     {
