@@ -105,6 +105,11 @@ public class CubeSpawnManagement : MonoBehaviour
         currentMoveableObject = Instantiate(bomb, spawnPosition.position, Quaternion.identity);
     }
 
+    public void DestroyCurrentCube()
+    {
+        currentMoveableObject.SetActive(false);
+    }
+
     private GameObject GetCubePrefabFromPool(CubeData.CubeMaterialType? cubeMaterialType)
     {
         switch (cubeMaterialType)
@@ -141,21 +146,25 @@ public class CubeSpawnManagement : MonoBehaviour
         if (cube != null)
         {
             cube.Release();
+            currentMoveableObject = null;
+            return;
         }
 
         Magnet magnet = currentMoveableObject.GetComponent<Magnet>();
         if (magnet != null)
         {
             magnet.Release();
+            currentMoveableObject = null;
+            return;
         }
 
         Bomb bomb = currentMoveableObject.GetComponent<Bomb>();
         if (bomb != null)
         {
             bomb.Release();
+            currentMoveableObject = null;
+            return;
         }
-
-        currentMoveableObject = null;
     }
 
 }

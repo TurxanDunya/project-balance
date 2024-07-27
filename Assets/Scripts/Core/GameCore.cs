@@ -7,6 +7,7 @@ public class GameCore : MonoBehaviour
     [SerializeField] private int countDownFromForWin;
 
     private TimeLevelWinner timeLevelWinner;
+    private CubeSpawnManagement cubeSpawnManagement;
 
     private bool isGameEnd = false;
     private bool isWin = false;
@@ -14,6 +15,7 @@ public class GameCore : MonoBehaviour
     private void Awake()
     {
         timeLevelWinner = GetComponent<TimeLevelWinner>();
+        cubeSpawnManagement = FindAnyObjectByType<CubeSpawnManagement>();
     }
 
     private void OnEnable()
@@ -50,6 +52,7 @@ public class GameCore : MonoBehaviour
 
             isGameEnd = true;
             gameUIController.GameOverUIVisibility(true);
+            cubeSpawnManagement.DestroyCurrentCube();
         }
     }
 
