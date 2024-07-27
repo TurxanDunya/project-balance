@@ -4,6 +4,7 @@ using UnityEngine;
 public class CubeFallDetector : MonoBehaviour
 {
     public static event Action playableCubeDetect;
+    public static event Action magnetDetect;
 
     private void OnTriggerEnter(Collider cube)
     {
@@ -11,6 +12,12 @@ public class CubeFallDetector : MonoBehaviour
             || cube.CompareTag(TagConstants.DROPPED_CUBE))
         {
             playableCubeDetect?.Invoke();
+            return;
+        }
+
+        if (cube.CompareTag(TagConstants.MAGNET))
+        {
+            magnetDetect?.Invoke();
         }
     }
 

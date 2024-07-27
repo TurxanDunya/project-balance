@@ -5274,6 +5274,7 @@ MonoBehaviour:
   magnetEffect:
   - {fileID: 7173157162527071687}
   - {fileID: 2344847386065001209}
+  selfPrefab: {fileID: 6134999963169008612}
 --- !u!114 &5767341383668985657
 MonoBehaviour:
   m_ObjectHideFlags: 0

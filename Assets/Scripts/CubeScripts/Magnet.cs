@@ -6,6 +6,18 @@ public class Magnet : MonoBehaviour
     [SerializeField] private float attractForce;
     [SerializeField] private ParticleSystem[] magnetEffect;
 
+    [SerializeField] private GameObject selfPrefab;
+
+    private void OnEnable()
+    {
+        CubeFallDetector.magnetDetect += DestroySelfPrefab;
+    }
+
+    private void OnDisable()
+    {
+        CubeFallDetector.magnetDetect -= DestroySelfPrefab;
+    }
+
     private void FixedUpdate()
     {
         GameObject[] attractibleObjects = GameObject.FindGameObjectsWithTag(TagConstants.DROPPED_CUBE);
@@ -26,6 +38,11 @@ public class Magnet : MonoBehaviour
         }
     }
 
+    public CubeData.CubeMaterialType GetCubeMaterialType()
+    {
+        return CubeData.CubeMaterialType.MAGNET;
+    }
+
     public void Release()
     {
         GetComponent<Rigidbody>().useGravity = true;
@@ -42,6 +59,11 @@ public class Magnet : MonoBehaviour
         foreach (var effect in magnetEffect) {
             effect.Play();
         }
+    }
+
+    private void DestroySelfPrefab()
+    {
+        Destroy(selfPrefab);
     }
 
 }

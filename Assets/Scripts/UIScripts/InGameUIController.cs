@@ -52,12 +52,14 @@ public class InGameUIController : MonoBehaviour
     private void OnEnable()
     {
         cubeCounter.OnUpdateCubeCount += UpdateCubeCounts;
+        cubeCounter.OnCanReplaceCubeEvent += UpdateFirstPowerUpIconStatus;
         coinManager.OnCoinCountChangeEvent += UpdatePowerUpIconStatusesByCoinCount;
     }
 
     private void OnDisable()
     {
         cubeCounter.OnUpdateCubeCount -= UpdateCubeCounts;
+        cubeCounter.OnCanReplaceCubeEvent -= UpdateFirstPowerUpIconStatus;
         coinManager.OnCoinCountChangeEvent -= UpdatePowerUpIconStatusesByCoinCount;
     }
 
@@ -93,6 +95,8 @@ public class InGameUIController : MonoBehaviour
             cubeCounter.MetalCount,
             cubeCounter.IceCount,
             cubeCounter.RockCount);
+
+        UpdateFirstPowerUpIconStatus(cubeCounter.IsCubeExistOnDifferentTypes());
 
         SafeArea.ApplySafeArea(rootElement);
     }
@@ -135,8 +139,11 @@ public class InGameUIController : MonoBehaviour
     {
         if(coinManager.IsCoinEnough(PowerUpPriceConstants.CHANGE_CUBE))
         {
-            cubeSpawnManagement.ReplaceCube();
-            coinManager.SubtractCoin(PowerUpPriceConstants.CHANGE_CUBE);
+            bool isSuccess = cubeSpawnManagement.ReplaceCube();
+            if (isSuccess)
+            {
+                coinManager.SubtractCoin(PowerUpPriceConstants.CHANGE_CUBE);
+            }
         }
     }
 
@@ -153,8 +160,11 @@ public class InGameUIController : MonoBehaviour
     {
         if(coinManager.IsCoinEnough(PowerUpPriceConstants.MAGNET))
         {
-            cubeSpawnManagement.ReplaceWithMagnet();
-            coinManager.SubtractCoin(PowerUpPriceConstants.MAGNET);
+            bool isSuccess = cubeSpawnManagement.ReplaceWithMagnet();
+            if (isSuccess)
+            {
+                coinManager.SubtractCoin(PowerUpPriceConstants.MAGNET);
+            }
         }
     }
 
@@ -162,8 +172,11 @@ public class InGameUIController : MonoBehaviour
     {
         if (coinManager.IsCoinEnough(PowerUpPriceConstants.BOMB))
         {
-            cubeSpawnManagement.ReplaceWithBomb();
-            coinManager.SubtractCoin(PowerUpPriceConstants.BOMB);
+            bool isSuccess = cubeSpawnManagement.ReplaceWithBomb();
+            if (isSuccess)
+            {
+                coinManager.SubtractCoin(PowerUpPriceConstants.BOMB);
+            }
         }
     }
 
@@ -216,6 +229,20 @@ public class InGameUIController : MonoBehaviour
                 powerUpButtons[i].style.opacity = 1.0f;
                 powerUpButtons[i].SetEnabled(true);
             }
+        }
+    }
+
+    private void UpdateFirstPowerUpIconStatus(bool shouldEnabled)
+    {
+        if (shouldEnabled)
+        {
+            firstPowerUpButton.style.opacity = 1.0f;
+            firstPowerUpButton.SetEnabled(true);
+        }
+        else
+        {
+            firstPowerUpButton.style.opacity = 0.5f;
+            firstPowerUpButton.SetEnabled(false);
         }
     }
 }
