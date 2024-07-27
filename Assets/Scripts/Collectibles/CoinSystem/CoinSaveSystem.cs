@@ -26,7 +26,7 @@ public class CoinSaveSystem : MonoBehaviour
 
     public long GetCurrentCoinCount()
     {
-        if(coinSaveData == null)
+        if (coinSaveData == null)
         {
             return INITIAL_COIN_COUNT;
         }
