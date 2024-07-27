@@ -3,7 +3,11 @@ using UnityEngine.UIElements;
 
 public class WelcomeTutorialController : MonoBehaviour
 {
+    private static readonly ILogger logger = Debug.unityLogger;
+
     [SerializeField] private GameObject selfPrefab;
+
+    private TutorialSaveSystem tutorialSaveSystem;
 
     private VisualElement rootElement;
     private Button gotItButton;
@@ -11,6 +15,8 @@ public class WelcomeTutorialController : MonoBehaviour
 
     void Start()
     {
+        tutorialSaveSystem = GetComponent<TutorialSaveSystem>();
+
         rootElement = GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("RootVE");
         moveFingerImageVE = rootElement.Q<VisualElement>("MoveFingerImageVE");
         gotItButton = moveFingerImageVE.Q<Button>("GotItButton");
@@ -20,7 +26,15 @@ public class WelcomeTutorialController : MonoBehaviour
 
     public void ShowMoveCubeTutorial()
     {
+        if(tutorialSaveSystem.GetIsWelcomeTutorialWatched())
+        {
+            logger.Log(LogType.Log, "Welcome tutorial already shown, no need to again!");
+            DisableHowToMoveCubeVE();
+            return;
+        }
+
         rootElement.style.display = DisplayStyle.Flex;
+        tutorialSaveSystem.SetWelcomeTutorialWatched();
     }
 
     private void DisableHowToMoveCubeVE()
