@@ -31,6 +31,8 @@ public class HomeScreenController : MonoBehaviour, AdsEventCallback
         MakeBindings();
 
         ShakeAdsButton(); // Should be at the end because of coroutine
+
+        SafeArea.ApplySafeArea(rootElement);
     }
 
     public void MakeBindings()

@@ -32,10 +32,13 @@ public class AboutUsController : MonoBehaviour
     private Button memberTwoFbButton;
     private Button memberTwoInstaButton;
     private Button memberTwoLinkedinButton;
+    private Button memberTwoXButton;
 
     private void Start()
     {
         MakeBindings();
+
+        SafeArea.ApplySafeArea(rootVE);
     }
 
     public void MakeBindings()
@@ -91,10 +94,12 @@ public class AboutUsController : MonoBehaviour
         memberTwoFbButton = memberTwoSocialAccountsVE.Q<Button>("facebook");
         memberTwoInstaButton = memberTwoSocialAccountsVE.Q<Button>("instagram");
         memberTwoLinkedinButton = memberTwoSocialAccountsVE.Q<Button>("linkedin");
+        memberTwoXButton = memberTwoSocialAccountsVE.Q<Button>("x");
 
         memberTwoFbButton.clicked += () => GoToMemberTwoFbAccount();
         memberTwoInstaButton.clicked += () => GoToMemberTwoInstaAccount();
         memberTwoLinkedinButton.clicked += () => GoToMemberTwoLinkedinAccount();
+        memberTwoXButton.clicked += () => GoToMemberTwoXAccount();
 
         homeButton.clicked += () => stateChanger.ChangeStateToMainUIWithoutLoadPage();
     }
@@ -145,6 +150,11 @@ public class AboutUsController : MonoBehaviour
     }
 
     private void GoToMemberTwoLinkedinAccount()
+    {
+        Application.OpenURL("https://www.youtube.com/watch?v=w7l5yU_ZQrE&list=LL&index=32");
+    }
+
+    private void GoToMemberTwoXAccount()
     {
         Application.OpenURL("https://www.youtube.com/watch?v=w7l5yU_ZQrE&list=LL&index=32");
     }

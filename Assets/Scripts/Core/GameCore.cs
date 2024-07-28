@@ -39,14 +39,14 @@ public class GameCore : MonoBehaviour
 
     public void ProcessWinEvent()
     {
-        StartCoroutine(CheckGameWin());
+        StartCoroutine(CheckGameWinAndSaveStar());
     }
 
     public void ProcessEndGame()
     {
         if (!isWin)
         {
-            StopCoroutine(CheckGameWin());
+            StopCoroutine(CheckGameWinAndSaveStar());
             Destroy(timeLevelWinner);
             gameUIController.HideWinnerTimeOnScreen();
 
@@ -56,7 +56,7 @@ public class GameCore : MonoBehaviour
         }
     }
 
-    private IEnumerator CheckGameWin() {
+    private IEnumerator CheckGameWinAndSaveStar() {
         timeLevelWinner.StartCountDownTimer(countDownFromForWin);
         yield return new WaitForSeconds(countDownFromForWin);
 
@@ -67,7 +67,11 @@ public class GameCore : MonoBehaviour
             Level nextLevel = levelManagment.FindNextLevel();
             nextLevel.status = LevelStatus.Open;
 
-            levelManagment.currentLevel.star = gameUIController.GetLevelStar();
+            if(levelManagment.currentLevel.star < gameUIController.GetLevelStar())
+            {
+                levelManagment.currentLevel.star = gameUIController.GetLevelStar();
+            }
+
             levelManagment.currentLevel = nextLevel;
             levelManagment.levelList.lastPlayedLevelName = nextLevel.name;
 
