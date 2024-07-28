@@ -31,6 +31,7 @@ public class CoinController : MonoBehaviour
         coinCountLabel = collectedCoinsVE.Q<Label>("CoinCount");
 
         UpdateInGameCoinValue(coinManager.CoinCount);
+        SafeArea.ApplySafeArea(rootElement);
     }
 
     private void UpdateInGameCoinValue(long cointCount)

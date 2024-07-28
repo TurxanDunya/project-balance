@@ -33,6 +33,10 @@ public class GameUIController : MonoBehaviour
         ConfigureGameOverUIElements();
         ConfigureWinnerUIElements();
         ConfigureLevelStarUIElements();
+
+        SafeArea.ApplySafeArea(rootGameOver);
+        SafeArea.ApplySafeArea(rootWinner);
+        SafeArea.ApplySafeArea(rootLevelStars);
     }
 
     private void Update()

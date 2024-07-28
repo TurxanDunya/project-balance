@@ -25,6 +25,8 @@ public class SettingsUIController : MonoBehaviour
     void Start()
     {
         MakeBindings();
+
+        SafeArea.ApplySafeArea(rootElement);
     }
 
     public void MakeBindings()

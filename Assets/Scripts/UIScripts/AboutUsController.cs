@@ -37,6 +37,8 @@ public class AboutUsController : MonoBehaviour
     private void Start()
     {
         MakeBindings();
+
+        SafeArea.ApplySafeArea(rootVE);
     }
 
     public void MakeBindings()

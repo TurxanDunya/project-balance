@@ -24,6 +24,8 @@ public class LevelsSceneController : MonoBehaviour
         resumeBtn.clicked += () => HideLevelMenu();
 
         AddItems();
+
+        SafeArea.ApplySafeArea(rootContainer);
     }
 
     private void AddItems()

@@ -55,6 +55,8 @@ public class PauseScreenController : MonoBehaviour
         resumeBtn.clicked += () => ChangeStateToResume();
 
         DefineSoundButtonsState();
+
+        SafeArea.ApplySafeArea(rootElement);
     }
 
     private void DefineSoundButtonsState()
