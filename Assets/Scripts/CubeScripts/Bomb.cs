@@ -4,6 +4,7 @@ public class Bomb : MonoBehaviour
 {
     [SerializeField] private GameObject self;
     [SerializeField] private float affectDistance;
+    [SerializeField] private GameObject explosion;
 
     private void OnEnable()
     {
@@ -35,7 +36,7 @@ public class Bomb : MonoBehaviour
                 Destroy(affectedObject);
             }
         }
-
+        Instantiate(explosion, transform.position, Quaternion.identity);
         Destroy(self);
     }
 
