@@ -230,6 +230,8 @@ public class InGameUIController : MonoBehaviour
                 powerUpButtons[i].SetEnabled(true);
             }
         }
+
+        UpdateFirstPowerUpIconStatus(cubeCounter.IsCubeExistOnDifferentTypes());
     }
 
     private void UpdateFirstPowerUpIconStatus(bool shouldEnabled)

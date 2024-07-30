@@ -3,6 +3,8 @@ using UnityEngine.UIElements;
 
 public class PauseScreenController : MonoBehaviour
 {
+    private static readonly ILogger logger = Debug.unityLogger;
+
     [SerializeField] private StateChanger stateChanger;
 
     private MusicPlayer musicPlayer;
@@ -62,6 +64,13 @@ public class PauseScreenController : MonoBehaviour
     private void DefineSoundButtonsState()
     {
         musicPlayer = FindAnyObjectByType<MusicPlayer>();
+
+        if(!musicPlayer)
+        {
+            logger.Log(LogType.Warning,
+                "MusicPlayer object was null, " +
+                "start from LOAD SCREEN to use full functionlity");
+        }
 
         if(musicPlayer.GetIsSoundOn())
         {
