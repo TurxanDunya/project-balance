@@ -99,9 +99,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cubeRayCast: {fileID: 7827640522130715779}
   gapWithPlatform: 0.001
-  scaleFactor: 1.5
+  scaleFactor: 2
   duration: 1
-  initialScale: {x: 0.002, y: 0.002, z: 0.002}
+  initialScale: {x: 0.001, y: 0.001, z: 0.001}
 --- !u!1 &7152317461909062366
 GameObject:
   m_ObjectHideFlags: 0
