@@ -8,6 +8,12 @@ public class GameUIController : MonoBehaviour
 
     [SerializeField] private StateChanger stateChanger;
 
+    [Header("Level star params")]
+    [SerializeField] private float degreeMultiplier = 1;
+    [SerializeField] private short progressForOneStar = 0;
+    [SerializeField] private short progressForTwoStar = 35;
+    [SerializeField] private short progressForThreeStar = 80;
+
     [Header("GameOver UI")]
     [SerializeField] private GameObject gameOverUI;
     private VisualElement rootGameOver;
@@ -25,6 +31,10 @@ public class GameUIController : MonoBehaviour
     [SerializeField] private GameObject gameUI;
     private VisualElement rootLevelStars;
     private ProgressBar levelStarProgressBar;
+    private VisualElement starsVe;
+    private VisualElement starsVe1;
+    private VisualElement starsVe2;
+    private VisualElement starsVe3;
 
     void Start()
     {
@@ -39,9 +49,10 @@ public class GameUIController : MonoBehaviour
         SafeArea.ApplySafeArea(rootLevelStars);
     }
 
+    float platformAngle;
     private void Update()
     {
-        int platformAngle = angleCalculator.GetPlatformAngle();
+        platformAngle = angleCalculator.GetPlatformAngle();
         SetLevelStarsByPlatformAngle(platformAngle);
     }
 
@@ -80,19 +91,18 @@ public class GameUIController : MonoBehaviour
 
     public int GetLevelStar()
     {
-        var progress = (int)levelStarProgressBar.value;
         var star = 0;
         switch (progress)
         {
-            case int n when (n > 80 && n <= 90):
+            case float progress when progress >= progressForThreeStar:
                 star = 3;
                 break;
 
-            case int n when (n > 60 && n <= 80):
+            case float progress when progress > progressForTwoStar:
                 star = 2;
                 break;
 
-            case int n when (n > 0 && n <= 60):
+            case float progress when progress > progressForOneStar:
                 star = 1;
                 break;
         }
@@ -160,12 +170,20 @@ public class GameUIController : MonoBehaviour
             .rootVisualElement.Q<VisualElement>("root_container");
 
         levelStarProgressBar = rootLevelStars.Q<ProgressBar>("progress");
+        starsVe = rootLevelStars.Q<VisualElement>("starsVE");
+
+        starsVe1 = starsVe.Q<VisualElement>("starVE_1");
+        starsVe2 = starsVe.Q<VisualElement>("starVE_2");
+        starsVe3 = starsVe.Q<VisualElement>("starVE_3");
     }
 
-    private void SetLevelStarsByPlatformAngle(int degree)
+    float progress;
+    private void SetLevelStarsByPlatformAngle(float degree)
     {
-        var progress = 90 - degree;
+        progress = 90 - degree * degreeMultiplier;
         levelStarProgressBar.value = progress;
+
+        GetStarStatusByProgress(progress);
     }
 
     private void GoHomePage() {
@@ -193,6 +211,34 @@ public class GameUIController : MonoBehaviour
 
         LevelManager.INSTANCE.levelManagment.levelList.lastPlayedLevelName = nextLevelName;
         SceneManager.LoadScene(LevelNameConstants.START_LOAD_SCREEN);
-    } 
+    }
+
+    private void GetStarStatusByProgress(float progress)
+    {
+        if(progress >= progressForThreeStar)
+        {
+            starsVe1.style.opacity = 1.0f;
+            starsVe2.style.opacity = 1.0f;
+            starsVe3.style.opacity = 1.0f;
+        }
+        else if (progress >= progressForTwoStar)
+        {
+            starsVe1.style.opacity = 1.0f;
+            starsVe2.style.opacity = 1.0f;
+            starsVe3.style.opacity = 0.5f;
+        }
+        else if (progress >= progressForOneStar)
+        {
+            starsVe1.style.opacity = 1.0f;
+            starsVe2.style.opacity = 0.5f;
+            starsVe3.style.opacity = 0.5f;
+        }
+        else
+        {
+            starsVe1.style.opacity = 0.5f;
+            starsVe2.style.opacity = 0.5f;
+            starsVe3.style.opacity = 0.5f;
+        }
+    }
 
 }

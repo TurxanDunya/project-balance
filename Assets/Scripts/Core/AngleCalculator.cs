@@ -13,7 +13,7 @@ public class AngleCalculator : MonoBehaviour
         currentZ = transform.rotation.eulerAngles.z;
     }
 
-    public int GetPlatformAngle()
+    public float GetPlatformAngle()
     {
         var eulerAnglesX = target.rotation.eulerAngles.x;
         var eulerAnglesZ = target.rotation.eulerAngles.z;

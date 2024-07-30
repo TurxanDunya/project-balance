@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateChanger: {fileID: 4542121699140896450}
-  buttonAnimationsMoveSpeed: 1
+  buttonAnimationsMoveSpeed: 0.2
 --- !u!114 &3455018955299775731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -707,6 +707,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateChanger: {fileID: 4542121699140896450}
+  degreeMultiplier: 2.5
+  progressForOneStar: 0
+  progressForTwoStar: 35
+  progressForThreeStar: 80
   gameOverUI: {fileID: 5715331772997791880}
   winnerUI: {fileID: 2299487983283890040}
   gameUI: {fileID: 6973379358230488474}

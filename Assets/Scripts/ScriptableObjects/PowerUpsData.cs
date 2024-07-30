@@ -12,8 +12,8 @@ public class PowerUpsData : ScriptableObject
     public enum PowerUpType
     {
         RANDOM_NEXT,
+        PLUS_5_SECOND,
         MAGNET_CUBE,
-        BOMB_CUBE,
-        PLUS_5_SECOND
+        BOMB_CUBE
     }
 }

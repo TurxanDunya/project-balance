@@ -115,7 +115,7 @@ MonoBehaviour:
   platformObj: {fileID: 0}
   coinPrefab: {fileID: 8962746816404994585, guid: 699af29bfe3e343f8a0de8b658628f52, type: 3}
   gapWithPlatformY: -0.31
-  coinChance: 3
+  coinChance: 5
 --- !u!114 &2027564487013944566
 MonoBehaviour:
   m_ObjectHideFlags: 0
