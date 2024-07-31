@@ -70,6 +70,7 @@ public class PauseScreenController : MonoBehaviour
             logger.Log(LogType.Warning,
                 "MusicPlayer object was null, " +
                 "start from LOAD SCREEN to use full functionlity");
+            return;
         }
 
         if(musicPlayer.GetIsSoundOn())
