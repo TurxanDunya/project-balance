@@ -7,7 +7,7 @@ public class ProjectionIcon : MonoBehaviour
     [SerializeField] private float gapWithPlatform = 0.05f;
 
     [Header("Animation")]
-    [SerializeField] private float scaleFactor = 1.5f;
+    [SerializeField] private float scaleFactor = 2f;
     [SerializeField] private float duration = 1.0f;
 
     public Vector3 initialScale = new(0.001f, 0.001f, 0.001f);
@@ -22,8 +22,7 @@ public class ProjectionIcon : MonoBehaviour
         transform.position = cubeRayCast.GetLineRendererHitPosition();
         transform.position += new Vector3(0, gapWithPlatform, 0);
 
-        transform.rotation = cubeRayCast.GetLineRendererHitRotation();
-        transform.eulerAngles += new Vector3(90, 0, 0);
+        transform.rotation = cubeRayCast.GetLineRendererHitRotation() * Quaternion.Euler(90, 0, 0);
     }
 
     private IEnumerator ScaleIcon()
