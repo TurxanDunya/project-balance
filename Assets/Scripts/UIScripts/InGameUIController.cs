@@ -37,13 +37,7 @@ public class InGameUIController : MonoBehaviour
     private Label metalCountLabel;
     private VisualElement iceVE;
     private Label iceCountLabel;
-
-    // VE coord fields
-    float leftBorder;
-    float rightBorder;
-    float bottomBorder;
-    float upBorder;
-
+   
     private void Awake()
     {
         cubeCounter = FindAnyObjectByType<CubeCounter>();
@@ -101,10 +95,55 @@ public class InGameUIController : MonoBehaviour
         SafeArea.ApplySafeArea(rootElement);
     }
 
+    public void SetDisplayFlex()
+    {
+        rootElement.style.display = DisplayStyle.Flex;
+    }
+
+    public void SetDisplayNone()
+    {
+        rootElement.style.display = DisplayStyle.None;
+    }
+
     public bool IsOverUI(Vector2 touchPosition)
     {
-        CalculateRootVECoords();
+        CalculatePowerUpsVECoords();
+        if (IsOnButton(touchPosition))
+        {
+            return true;
+        }
 
+        CalculateTopVECoords();
+        if (IsOnButton(touchPosition))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    float leftBorder;
+    float rightBorder;
+    float bottomBorder;
+    float upBorder;
+    private void CalculatePowerUpsVECoords()
+    {
+        leftBorder = powerUpsVE.layout.x;
+        rightBorder = powerUpsVE.layout.x + powerUpsVE.layout.width;
+        bottomBorder = powerUpsVE.layout.y + powerUpsVE.layout.height;
+        upBorder = powerUpsVE.layout.y;
+    }
+
+    private void CalculateTopVECoords()
+    {
+        leftBorder = topVE.layout.x;
+        rightBorder = topVE.layout.x + topVE.layout.width;
+        bottomBorder = topVE.layout.y + 530.0f;
+        upBorder = topVE.layout.y;
+    }
+
+    private bool IsOnButton(Vector2 touchPosition)
+    {
         // Because VE position coord and touch coord differs in y axis
         touchPosition.y = rootElement.layout.height - touchPosition.y;
         if (touchPosition.x >= leftBorder && touchPosition.x <= rightBorder
@@ -114,14 +153,6 @@ public class InGameUIController : MonoBehaviour
         }
 
         return false;
-    }
-
-    private void CalculateRootVECoords()
-    {
-        leftBorder = powerUpsVE.layout.x;
-        rightBorder = powerUpsVE.layout.x + powerUpsVE.layout.width;
-        bottomBorder = powerUpsVE.layout.y + powerUpsVE.layout.height;
-        upBorder = powerUpsVE.layout.y;
     }
 
     private void BindEventsWithFunctions()

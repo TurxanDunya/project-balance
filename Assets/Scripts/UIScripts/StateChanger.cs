@@ -54,7 +54,6 @@ public class StateChanger : MonoBehaviour
         Time.timeScale = 0;
 
         gameUI.SetActive(false);
-        inGameUI.SetActive(false);
         gameOverUI.SetActive(false);
         winnerUI.SetActive(false);
         homeScreenUI.SetActive(false);
@@ -62,6 +61,7 @@ public class StateChanger : MonoBehaviour
         settingsUI.SetActive(false);
         aboutUsUI.SetActive(false);
 
+        inGameUI.GetComponent<InGameUIController>().SetDisplayNone();
         pauseScreenUI.SetActive(true);
     }
 
@@ -69,23 +69,24 @@ public class StateChanger : MonoBehaviour
     {
         Time.timeScale = 1;
 
-        pauseScreenUI.SetActive(false);
-        gameOverUI.SetActive(false);
-        winnerUI.SetActive(false);
         homeScreenUI.SetActive(false);
         levelMenuUI.SetActive(false);
         settingsUI.SetActive(false);
         aboutUsUI.SetActive(false);
 
-        inGameUI.SetActive(true);
         gameUI.SetActive(true);
+        gameOverUI.SetActive(true);
+        winnerUI.SetActive(true);
+
+        pauseScreenUI.SetActive(false);
+        inGameUI.GetComponent<InGameUIController>().SetDisplayFlex();
     }
 
     public void ChangeStateToLevelMenu()
     {
         Time.timeScale = 0;
 
-        inGameUI.SetActive(false);
+        inGameUI.GetComponent<InGameUIController>().SetDisplayNone();
         gameOverUI.SetActive(false);
         winnerUI.SetActive(false);
         homeScreenUI.SetActive(false);
@@ -107,9 +108,9 @@ public class StateChanger : MonoBehaviour
         pauseScreenUI.SetActive(false);
         settingsUI.SetActive(false);
         aboutUsUI.SetActive(false);
+        gameUI.SetActive(false);
 
-        inGameUI.SetActive(true);
-        gameUI.SetActive(true);
+        inGameUI.GetComponent<InGameUIController>().SetDisplayFlex();
 
         levelMenuUI.SetActive(false);
     }
