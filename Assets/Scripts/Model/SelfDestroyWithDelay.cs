@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Explosion : MonoBehaviour
+public class SelfDestroyWithDelay : MonoBehaviour
 {
 
     [SerializeField] private int delaySecond = 2;
@@ -10,12 +10,6 @@ public class Explosion : MonoBehaviour
     void Start()
     {
         StartCoroutine(SelfDestroy());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private IEnumerator SelfDestroy()

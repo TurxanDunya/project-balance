@@ -5,6 +5,18 @@ public class Bomb : MonoBehaviour
     [SerializeField] private GameObject self;
     [SerializeField] private float affectDistance;
     [SerializeField] private GameObject explosion;
+    [SerializeField] private GameObject targetLocation;
+    private GameObject target;
+
+
+    private void Start()
+    {
+      target = Instantiate(targetLocation, new Vector3(-0.75f, 0.71f, 0), Quaternion.identity);
+        TargetLocationScale scale = target.GetComponent<TargetLocationScale>();
+        scale.SetParentObject(GetComponent<CubeRayCast>());
+        scale.SetRadius(affectDistance);
+
+    }
 
     private void OnEnable()
     {
@@ -42,6 +54,7 @@ public class Bomb : MonoBehaviour
 
     public void Release()
     {
+        Destroy(target);
         GetComponent<Rigidbody>().useGravity = true;
 
         Destroy(GetComponent<CubeMovement>());
@@ -49,5 +62,7 @@ public class Bomb : MonoBehaviour
         Destroy(GetComponent<LineRenderer>());
 
         Destroy(GameObject.Find("ProjectionIcon"));
+
+
     }
 }
