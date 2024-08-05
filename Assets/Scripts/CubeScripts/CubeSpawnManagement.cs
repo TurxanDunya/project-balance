@@ -135,6 +135,7 @@ public class CubeSpawnManagement : MonoBehaviour
         {
             logger.Log(LogType.Warning,
                "CurrentMoveableObject requested to set active false, but was null!");
+            return;
         }
         
         currentMoveableObject.SetActive(false);
