@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.PlayerSettings;
 
-public class ProjectionSpehere : MonoBehaviour
+public class ProjectionSphere : MonoBehaviour
 {
     [SerializeField] private float radius = 0.2f;
     [SerializeField] private CubeRayCast raycast;
@@ -19,19 +19,15 @@ public class ProjectionSpehere : MonoBehaviour
         transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
     }
 
-
     public void SetParentObject(CubeRayCast raycastObj)
     {
         raycast = raycastObj;
     }
 
-
     public void SetRadius(float rad)
     {
         radius = rad;
     }
-
-
 
     private void Update()
     {
@@ -40,7 +36,6 @@ public class ProjectionSpehere : MonoBehaviour
         }
 
     }
-
 
 }
 

@@ -12,7 +12,7 @@ public class Bomb : MonoBehaviour
     private void Start()
     {
         target = Instantiate(targetLocation, new Vector3(-0.75f, 0.71f, 0), Quaternion.identity);
-        ProjectionSpehere scale = target.GetComponent<ProjectionSpehere>();
+        ProjectionSphere scale = target.GetComponent<ProjectionSphere>();
         scale.SetParentObject(GetComponent<CubeRayCast>());
         scale.SetRadius(affectDistance);
 
