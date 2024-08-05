@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.PlayerSettings;
 
-public class TargetLocationScale : MonoBehaviour
+public class ProjectionSpehere : MonoBehaviour
 {
     [SerializeField] private float radius = 0.2f;
     [SerializeField] private CubeRayCast raycast;

@@ -11,8 +11,8 @@ public class Bomb : MonoBehaviour
 
     private void Start()
     {
-      target = Instantiate(targetLocation, new Vector3(-0.75f, 0.71f, 0), Quaternion.identity);
-        TargetLocationScale scale = target.GetComponent<TargetLocationScale>();
+        target = Instantiate(targetLocation, new Vector3(-0.75f, 0.71f, 0), Quaternion.identity);
+        ProjectionSpehere scale = target.GetComponent<ProjectionSpehere>();
         scale.SetParentObject(GetComponent<CubeRayCast>());
         scale.SetRadius(affectDistance);
 
@@ -60,9 +60,5 @@ public class Bomb : MonoBehaviour
         Destroy(GetComponent<CubeMovement>());
         Destroy(GetComponent<CubeRayCast>());
         Destroy(GetComponent<LineRenderer>());
-
-        Destroy(GameObject.Find("ProjectionIcon"));
-
-
     }
 }
