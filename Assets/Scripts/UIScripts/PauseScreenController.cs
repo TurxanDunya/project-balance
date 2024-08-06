@@ -134,7 +134,7 @@ public class PauseScreenController : MonoBehaviour
 
     private void MakeMusicOff()
     {
-        musicPlayer.PauseMusic();
+        musicPlayer.MuteMusic();
         musicOnBtn.style.display = DisplayStyle.None;
         musicOffBtn.style.display = DisplayStyle.Flex;
     }
