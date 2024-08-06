@@ -17,10 +17,15 @@ public class SettingsUIController : MonoBehaviour
 
     private Button homeButton;
 
+    private VisualElement soundOnVE;
+    private VisualElement soundOffVE;
+    private VisualElement musicMuteVE;
+    private VisualElement musicUnmuteVE;
+
     private Button soundOnBtn;
     private Button soundOffBtn;
-    private Button musicOnBtn;
-    private Button musicOffBtn;
+    private Button musicUnmuteBtn;
+    private Button musicMuteBtn;
 
     void Start()
     {
@@ -43,17 +48,21 @@ public class SettingsUIController : MonoBehaviour
         soundControlVE = buttonsLineVE.Q<VisualElement>("sound_control_ve");
         musicControlVE = buttonsLineVE.Q<VisualElement>("music_control_ve");
 
-        soundOnBtn = soundControlVE.Q<Button>("sound_on_btn");
+        soundOnVE = soundControlVE.Q<VisualElement>("sound_on_ve");
+        soundOnBtn = soundOnVE.Q<Button>("sound_on_btn");
         soundOnBtn.clicked += () => MakeSoundOff();
 
-        soundOffBtn = soundControlVE.Q<Button>("sound_off_btn");
+        soundOffVE = soundControlVE.Q<VisualElement>("sound_off_ve");
+        soundOffBtn = soundOffVE.Q<Button>("sound_off_btn");
         soundOffBtn.clicked += () => MakeSoundOn();
 
-        musicOnBtn = musicControlVE.Q<Button>("music_on_btn");
-        musicOnBtn.clicked += () => MakeMusicOff();
+        musicUnmuteVE = musicControlVE.Q<VisualElement>("music_unmute_ve");
+        musicUnmuteBtn = musicUnmuteVE.Q<Button>("music_unmute_btn");
+        musicUnmuteBtn.clicked += () => MakeMusicOff();
 
-        musicOffBtn = musicControlVE.Q<Button>("music_off_btn");
-        musicOffBtn.clicked += () => MakeMusicOn();
+        musicMuteVE = musicControlVE.Q<VisualElement>("music_mute_ve");
+        musicMuteBtn = musicMuteVE.Q<Button>("music_mute_btn");
+        musicMuteBtn.clicked += () => MakeMusicOn();
 
         DefineSoundButtonsState();
     }
@@ -64,53 +73,53 @@ public class SettingsUIController : MonoBehaviour
 
         if(musicPlayer.GetIsSoundOn())
         {
-            soundOffBtn.style.display = DisplayStyle.None;
-            soundOnBtn.style.display = DisplayStyle.Flex;
+            soundOffVE.style.display = DisplayStyle.None;
+            soundOnVE.style.display = DisplayStyle.Flex;
         }
         else
         {
-            soundOffBtn.style.display = DisplayStyle.Flex;
-            soundOnBtn.style.display = DisplayStyle.None;
+            soundOffVE.style.display = DisplayStyle.Flex;
+            soundOnVE.style.display = DisplayStyle.None;
         }
 
         if (musicPlayer.GetIsMusicOn())
         {
-            musicOffBtn.style.display = DisplayStyle.None;
-            musicOnBtn.style.display = DisplayStyle.Flex;
+            musicMuteVE.style.display = DisplayStyle.None;
+            musicUnmuteVE.style.display = DisplayStyle.Flex;
         }
         else
         {
-            musicOffBtn.style.display = DisplayStyle.Flex;
-            musicOnBtn.style.display = DisplayStyle.None;
+            musicMuteVE.style.display = DisplayStyle.Flex;
+            musicUnmuteVE.style.display = DisplayStyle.None;
         }
     }
 
     private void MakeSoundOn()
     {
         musicPlayer.MakeSoundsOn();
-        soundOffBtn.style.display = DisplayStyle.None;
-        soundOnBtn.style.display = DisplayStyle.Flex;
+        soundOffVE.style.display = DisplayStyle.None;
+        soundOnVE.style.display = DisplayStyle.Flex;
     }
 
     private void MakeSoundOff()
     {
         musicPlayer.MakeSoundsOff();
-        soundOnBtn.style.display = DisplayStyle.None;
-        soundOffBtn.style.display = DisplayStyle.Flex;
+        soundOnVE.style.display = DisplayStyle.None;
+        soundOffVE.style.display = DisplayStyle.Flex;
     }
 
     private void MakeMusicOn()
     {
         musicPlayer.PlayMusic();
-        musicOffBtn.style.display = DisplayStyle.None;
-        musicOnBtn.style.display = DisplayStyle.Flex;
+        musicMuteVE.style.display = DisplayStyle.None;
+        musicUnmuteVE.style.display = DisplayStyle.Flex;
     }
 
     private void MakeMusicOff()
     {
-        musicPlayer.PauseMusic();
-        musicOnBtn.style.display = DisplayStyle.None;
-        musicOffBtn.style.display = DisplayStyle.Flex;
+        musicPlayer.MuteMusic();
+        musicUnmuteVE.style.display = DisplayStyle.None;
+        musicMuteVE.style.display = DisplayStyle.Flex;
     }
 
 }

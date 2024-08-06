@@ -33,7 +33,7 @@ public class MusicPlayer : BaseMusicPlayer
         return isSoundOn;
     }
 
-    public void PauseMusic()
+    public void MuteMusic()
     {
         isMusicOn = false;
 
@@ -42,7 +42,7 @@ public class MusicPlayer : BaseMusicPlayer
         soundSaveSystem.SetSoundSettingsData(soundSettingsData);
         soundSaveSystem.SaveSoundSettingsData();
 
-        player.Pause();
+        player.mute = true;
     }
 
     public void PlayMusic()
@@ -54,7 +54,7 @@ public class MusicPlayer : BaseMusicPlayer
         soundSaveSystem.SetSoundSettingsData(soundSettingsData);
         soundSaveSystem.SaveSoundSettingsData();
 
-        player.Play();
+        player.mute = false;
     }
 
     public void MakeSoundsOn()
