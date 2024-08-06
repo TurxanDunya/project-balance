@@ -17,15 +17,12 @@ public class GameUIController : MonoBehaviour
     [Header("GameOver UI")]
     [SerializeField] private GameObject gameOverUI;
     private VisualElement rootGameOver;
-    private VisualElement gameOverVE;
-    private VisualElement gameOverButtonLineVE;
 
     [Header("Winner UI")]
     [SerializeField] private GameObject winnerUI;
     private VisualElement rootWinner;
     private VisualElement winnerVE;
     private Label currentSecondLabel;
-    private VisualElement winnerButtonLineVE;
 
     [Header("Game UI")]
     [SerializeField] private GameObject gameUI;
@@ -49,16 +46,14 @@ public class GameUIController : MonoBehaviour
         SafeArea.ApplySafeArea(rootLevelStars);
     }
 
-    float platformAngle;
     private void Update()
     {
-        platformAngle = angleCalculator.GetPlatformAngle();
-        SetLevelStarsByPlatformAngle(platformAngle);
+        SetLevelStarsByPlatformAngle(angleCalculator.GetPlatformAngle());
     }
 
     public void GameOverUIVisibility(bool isVisible)
     {
-        if(winnerVE.visible)
+        if(winnerVE.style.display == DisplayStyle.Flex)
         {
             return;
         }
@@ -75,13 +70,24 @@ public class GameUIController : MonoBehaviour
 
     public void WinnerUIVisibility(bool visibility)
     {
-        if(rootGameOver.style.display == DisplayStyle.Flex)
+        if (rootGameOver.style.display == DisplayStyle.Flex)
         {
             return;
         }
 
-        rootWinner.visible = visibility;
-        winnerVE.visible = visibility;
+        if(visibility)
+        {
+            winnerVE.style.display = DisplayStyle.Flex;
+        }
+        else
+        {
+            winnerVE.style.display = DisplayStyle.None;
+        }
+    }
+
+    public bool IsGameWinUIIsVisible()
+    {
+        return rootWinner.style.display == DisplayStyle.Flex;
     }
 
     public void ShouldActivateLevelStarUI(bool isActive)
@@ -112,14 +118,14 @@ public class GameUIController : MonoBehaviour
 
     public void ShowAndUpdateWinnerTimeOnScreen(int currentSecond)
     {
-        currentSecondLabel.visible = true;
+        currentSecondLabel.style.display = DisplayStyle.Flex;
         currentSecondLabel.text = currentSecond.ToString();
     }
 
     public void HideWinnerTimeOnScreen()
     {
-        winnerVE.visible = false;
-        currentSecondLabel.visible = false;
+        winnerVE.style.display = DisplayStyle.None;
+        currentSecondLabel.style.display = DisplayStyle.None;
     }
 
     public bool IsOverUI()
@@ -129,7 +135,7 @@ public class GameUIController : MonoBehaviour
             return true;
         }
 
-        if(rootWinner.visible)
+        if(rootWinner.style.display == DisplayStyle.Flex)
         {
             return true;
         }
@@ -142,12 +148,9 @@ public class GameUIController : MonoBehaviour
         rootGameOver = gameOverUI.GetComponent<UIDocument>()
             .rootVisualElement.Q<VisualElement>("root_container");
 
-        gameOverVE = rootGameOver.Q<VisualElement>("game_over");
-        gameOverButtonLineVE = gameOverVE.Q<VisualElement>("button_line_ve");
-
-        gameOverButtonLineVE.Q<Button>("btn_home").clicked += () => GoHomePage();
-        gameOverButtonLineVE.Q<Button>("btn_replay").clicked += () => ReloadLevel();
-        gameOverButtonLineVE.Q<Button>("btn_levels").clicked += () => OpenLevelMenu();
+        rootGameOver.Q<Button>("btn_home").clicked += () => GoHomePage();
+        rootGameOver.Q<Button>("btn_replay").clicked += () => ReloadLevel();
+        rootGameOver.Q<Button>("btn_levels").clicked += () => OpenLevelMenu();
     }
 
     private void ConfigureWinnerUIElements()
@@ -157,11 +160,11 @@ public class GameUIController : MonoBehaviour
 
         winnerVE = rootWinner.Q<VisualElement>("winner_VE");
         currentSecondLabel = rootWinner.Q<Label>("CurrentSecondLabel");
-        winnerButtonLineVE = winnerVE.Q<VisualElement>("button_line_ve");
 
-        winnerButtonLineVE.Q<Button>("btn_home").clicked += () => GoHomePage();
-        winnerButtonLineVE.Q<Button>("btn_next").clicked += () => GoNextLevel();
-        winnerButtonLineVE.Q<Button>("btn_levels").clicked += () => OpenLevelMenu();
+        rootWinner.Q<Button>("btn_home").clicked += () => GoHomePage();
+        rootWinner.Q<Button>("btn_next").clicked += () => GoNextLevel();
+        rootWinner.Q<Button>("btn_levels").clicked += () => OpenLevelMenu();
+        rootWinner.Q<Button>("btn_replay").clicked += () => ReloadLevel();
     }
 
     private void ConfigureLevelStarUIElements()
@@ -180,6 +183,7 @@ public class GameUIController : MonoBehaviour
     float progress;
     private void SetLevelStarsByPlatformAngle(float degree)
     {
+        
         progress = 90 - degree * degreeMultiplier;
         levelStarProgressBar.value = progress;
 

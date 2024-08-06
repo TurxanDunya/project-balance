@@ -3,6 +3,8 @@ using UnityEngine.UIElements;
 
 public class SettingsUIController : MonoBehaviour
 {
+    private static readonly ILogger logger = Debug.unityLogger;
+
     [SerializeField] private StateChanger stateChanger;
 
     private MusicPlayer musicPlayer;
@@ -71,7 +73,15 @@ public class SettingsUIController : MonoBehaviour
     {
         musicPlayer = FindAnyObjectByType<MusicPlayer>();
 
-        if(musicPlayer.GetIsSoundOn())
+        if (!musicPlayer)
+        {
+            logger.Log(LogType.Warning,
+                "MusicPlayer object was null, " +
+                "start from LOAD SCREEN to use full functionlity");
+            return;
+        }
+
+        if (musicPlayer.GetIsSoundOn())
         {
             soundOffVE.style.display = DisplayStyle.None;
             soundOnVE.style.display = DisplayStyle.Flex;
