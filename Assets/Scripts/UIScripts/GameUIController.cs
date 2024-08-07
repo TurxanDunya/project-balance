@@ -193,9 +193,9 @@ public class GameUIController : MonoBehaviour
         GetStarStatusByProgress(progress);
     }
 
-    private void GoHomePage() {
-        ReloadLevel();
-        stateChanger.ChangeStateToMainUI();
+    private void GoHomePage()
+    {
+        stateChanger.ChangeStateToHome();
     }
 
     private void ReloadLevel()

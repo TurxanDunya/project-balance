@@ -144,9 +144,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shakeDuration: 1
-  shakeMagnitude: 10
+  shakeMagnitude: 3
   zoomAmount: 1.1
-  interval: 2
+  interval: 3
 --- !u!1 &471164949728130507
 GameObject:
   m_ObjectHideFlags: 0

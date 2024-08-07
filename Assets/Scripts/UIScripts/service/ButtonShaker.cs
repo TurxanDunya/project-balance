@@ -40,7 +40,6 @@ public class ButtonShaker : MonoBehaviour
 
                 elapsed += Time.deltaTime;
 
-                new WaitForSeconds(0.1f);
                 yield return null;
             }
 
@@ -60,7 +59,7 @@ public class ButtonShaker : MonoBehaviour
         else
         {
             IsToggleOn = true;
-            return 0;
+            return -1;
         }
     }
 }

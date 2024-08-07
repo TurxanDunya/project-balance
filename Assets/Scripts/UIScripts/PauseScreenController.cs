@@ -112,7 +112,7 @@ public class PauseScreenController : MonoBehaviour
 
     private void ChangeStateToHomePage()
     {
-        stateChanger.ChangeStateToMainUI();
+        stateChanger.ChangeStateToHome();
     }
 
     private void ChangeStateToResume()
