@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class ProjectionSphere : MonoBehaviour
 {
@@ -9,8 +6,7 @@ public class ProjectionSphere : MonoBehaviour
     [SerializeField] private CubeRayCast raycast;
     [SerializeField] private float gapWithPlatform = 0.05f;
 
-
-     private void Start()
+    private void Start()
     {
         float currentRadius = 0.5f * transform.localScale.x;
 
@@ -34,7 +30,6 @@ public class ProjectionSphere : MonoBehaviour
         if(raycast != null) {
             transform.position = raycast.GetLineRendererHitPosition();
         }
-
     }
 
 }

@@ -77,10 +77,12 @@ public class GameUIController : MonoBehaviour
 
         if(visibility)
         {
+            rootWinner.style.display = DisplayStyle.Flex;
             winnerVE.style.display = DisplayStyle.Flex;
         }
         else
         {
+            rootWinner.style.display = DisplayStyle.None;
             winnerVE.style.display = DisplayStyle.None;
         }
     }
@@ -118,12 +120,14 @@ public class GameUIController : MonoBehaviour
 
     public void ShowAndUpdateWinnerTimeOnScreen(int currentSecond)
     {
+        rootWinner.style.display = DisplayStyle.Flex;
         currentSecondLabel.style.display = DisplayStyle.Flex;
         currentSecondLabel.text = currentSecond.ToString();
     }
 
     public void HideWinnerTimeOnScreen()
     {
+        rootWinner.style.display = DisplayStyle.None;
         winnerVE.style.display = DisplayStyle.None;
         currentSecondLabel.style.display = DisplayStyle.None;
     }
@@ -183,7 +187,6 @@ public class GameUIController : MonoBehaviour
     float progress;
     private void SetLevelStarsByPlatformAngle(float degree)
     {
-        
         progress = 90 - degree * degreeMultiplier;
         levelStarProgressBar.value = progress;
 
