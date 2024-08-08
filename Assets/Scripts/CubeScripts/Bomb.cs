@@ -45,7 +45,7 @@ public class Bomb : MonoBehaviour
 
             if (distanceBetween <= affectDistance)
             {
-                Destroy(affectedObject);
+                affectedObject.GetComponent<SpawnDestroyWithAnim>().PlayDestroyAnimation();
             }
         }
         Instantiate(explosion, transform.position, Quaternion.identity);
