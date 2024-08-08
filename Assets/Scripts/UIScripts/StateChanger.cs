@@ -33,20 +33,11 @@ public class StateChanger : MonoBehaviour
         aboutUsUI.SetActive(false);
     }
 
-    public void ChangeStateToMainUI()
+    public void ChangeStateToHome()
     {
+        LevelManager.INSTANCE.levelManagment.levelList.lastPlayedLevelName =
+            SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(LevelNameConstants.START_LOAD_SCREEN);
-
-        gameUI.SetActive(false);
-        inGameUI.SetActive(false);
-        pauseScreenUI.SetActive(false);
-        gameOverUI.SetActive(false);
-        winnerUI.SetActive(false);
-        levelMenuUI.SetActive(false);
-        settingsUI.SetActive(false);
-        aboutUsUI.SetActive(false);
-
-        homeScreenUI.SetActive(true);
     }
 
     public void ChangeStateToPause()

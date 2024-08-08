@@ -82,8 +82,8 @@ public class LevelsSceneController : MonoBehaviour
                     LevelManager.INSTANCE.levelManagment.currentLevel = level;
                     LevelManager.INSTANCE.levelManagment.levelList.lastPlayedLevelName = level.name;
 
-                    LevelManager.INSTANCE.levelManagment.SaveLevels();
                     SceneManager.LoadScene(LevelNameConstants.START_LOAD_SCREEN);
+                    LevelManager.INSTANCE.levelManagment.SaveLevels();
                 }
             }));
 
