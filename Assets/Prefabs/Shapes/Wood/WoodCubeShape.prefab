@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 4995589080737962023}
   - component: {fileID: 464698269264983147}
   - component: {fileID: 1203220057892877577}
+  - component: {fileID: 2757316075733784428}
   m_Layer: 0
   m_Name: WoodCubeShape
   m_TagString: PlayableCube
@@ -546,3 +547,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2757316075733784428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4215768327705963075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a37a0fb6e0946b986f4b4c1144c066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnAnimation: {fileID: 7400000, guid: 5fbaba75cfa9345679809fcf4313d588, type: 2}
+  destroyAnimation: {fileID: 7400000, guid: be6da6fc5b8684e94afef4a2823eb02a, type: 2}
