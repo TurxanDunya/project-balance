@@ -46,6 +46,7 @@ public class CubeMovement : MonoBehaviour
 
     public void Move(Vector2 delta)
     {
+        gameObject.layer = LayerMask.NameToLayer("Outlined");
         moveDirection = forwardDirection * delta.y + rightDirection * delta.x;
         moveDirection *= Time.deltaTime * 0.03f;
 
