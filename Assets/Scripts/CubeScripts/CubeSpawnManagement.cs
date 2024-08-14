@@ -174,8 +174,10 @@ public class CubeSpawnManagement : MonoBehaviour
         }
 
         Cube cube = currentMoveableObject.GetComponent<Cube>();
+
         if (cube != null)
         {
+            cube.gameObject.layer = 0;
             cube.Release();
             currentMoveableObject = null;
             return;
@@ -184,6 +186,7 @@ public class CubeSpawnManagement : MonoBehaviour
         Magnet magnet = currentMoveableObject.GetComponent<Magnet>();
         if (magnet != null)
         {
+            magnet.gameObject.layer = 0;
             magnet.Release();
             currentMoveableObject = null;
             return;
@@ -192,6 +195,7 @@ public class CubeSpawnManagement : MonoBehaviour
         Bomb bomb = currentMoveableObject.GetComponent<Bomb>();
         if (bomb != null)
         {
+            bomb.gameObject.layer = 0;
             bomb.Release();
             currentMoveableObject = null;
             return;
