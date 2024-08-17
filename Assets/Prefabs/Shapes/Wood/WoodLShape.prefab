@@ -122,6 +122,7 @@ GameObject:
   - component: {fileID: 6445575583981349068}
   - component: {fileID: 476948229113893949}
   - component: {fileID: 7771625747479143667}
+  - component: {fileID: 8019534219620211848}
   m_Layer: 0
   m_Name: WoodLShape
   m_TagString: PlayableCube
@@ -449,3 +450,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationDuration: 0.3
   isAnimateToDownCoroutineFinished: 0
+--- !u!114 &8019534219620211848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7805877774157115388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a37a0fb6e0946b986f4b4c1144c066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnAnimation: {fileID: 7400000, guid: 5fbaba75cfa9345679809fcf4313d588, type: 2}
+  destroyAnimation: {fileID: 7400000, guid: be6da6fc5b8684e94afef4a2823eb02a, type: 2}

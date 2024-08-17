@@ -89,7 +89,8 @@ public class GameUIController : MonoBehaviour
 
     public bool IsGameWinUIIsVisible()
     {
-        return rootWinner.style.display == DisplayStyle.Flex;
+        return rootWinner.style.display == DisplayStyle.Flex
+            && currentSecondLabel.style.display == DisplayStyle.Flex;
     }
 
     public void ShouldActivateLevelStarUI(bool isActive)
