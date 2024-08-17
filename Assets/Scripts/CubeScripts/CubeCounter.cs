@@ -46,6 +46,7 @@ public class CubeCounter : MonoBehaviour
         {
             totalCubeCount--;
             DecreaseCount(cube.cubeMaterialType);
+            cubes[index].cubeCount--;
             OnUpdateCubeCount?.Invoke(WoodCount, MetalCount, IceCount, RockCount);
             OnCanReplaceCubeEvent?.Invoke(IsCubeExistOnDifferentTypes());
             return cube.cubeMaterialType;

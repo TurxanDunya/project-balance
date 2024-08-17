@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 1435034404053559536}
   - component: {fileID: 282235720847769817}
   - component: {fileID: -6539039655991376382}
+  - component: {fileID: 6760012127368037070}
   m_Layer: 0
   m_Name: MetalCubeShape
   m_TagString: PlayableCube
@@ -204,7 +205,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6689451754444416363}
   serializedVersion: 4
-  m_Mass: 0.3
+  m_Mass: 0.8
   m_Drag: 7
   m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -546,3 +547,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6760012127368037070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6689451754444416363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a37a0fb6e0946b986f4b4c1144c066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnAnimation: {fileID: 7400000, guid: 5fbaba75cfa9345679809fcf4313d588, type: 2}
+  destroyAnimation: {fileID: 7400000, guid: be6da6fc5b8684e94afef4a2823eb02a, type: 2}

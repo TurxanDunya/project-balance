@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 5909277461353195477}
   - component: {fileID: 2866865580184768144}
   - component: {fileID: 7394392460580762291}
+  - component: {fileID: 119809142071690309}
   m_Layer: 0
   m_Name: WoodCylnderShape
   m_TagString: PlayableCube
@@ -204,8 +205,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2925181345278573110}
   serializedVersion: 4
-  m_Mass: 0.3
-  m_Drag: 7
+  m_Mass: 0.6
+  m_Drag: 0
   m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -547,3 +548,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &119809142071690309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2925181345278573110}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a37a0fb6e0946b986f4b4c1144c066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnAnimation: {fileID: 7400000, guid: 5fbaba75cfa9345679809fcf4313d588, type: 2}
+  destroyAnimation: {fileID: 7400000, guid: be6da6fc5b8684e94afef4a2823eb02a, type: 2}
