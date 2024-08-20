@@ -204,7 +204,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4215768327705963075}
   serializedVersion: 4
-  m_Mass: 0.3
+  m_Mass: 0.8
   m_Drag: 7
   m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -384,7 +384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thickness: 0
   material: {fileID: 0}
-  filter: -65535
+  filter: 459776
   m_SourceCollider: {fileID: 4995589080737962023}
   m_DistanceField: {fileID: 0}
 --- !u!114 &4084280682170908238
@@ -414,7 +414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleEffect: {fileID: 3354640814156343705, guid: 70b48ba4e6495400b8acdb9bf1fa31c8, type: 3}
   cubeMaterialType: 0
-  fallSFXPlayer: {fileID: 0}
+  fallSFXPlayer: {fileID: 1203220057892877577}
 --- !u!65 &4995589080737962023
 BoxCollider:
   m_ObjectHideFlags: 0
