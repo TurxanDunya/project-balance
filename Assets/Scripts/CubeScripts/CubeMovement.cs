@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 public class CubeMovement : MonoBehaviour
 {
     private InputManager inputManager;

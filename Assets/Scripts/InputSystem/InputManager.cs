@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using CandyCoded.HapticFeedback;
 
 [DefaultExecutionOrder(-1)]
 public class InputManager : MonoBehaviour
@@ -70,7 +71,9 @@ public class InputManager : MonoBehaviour
         }
         else
         {
+            HapticFeedback.HeavyFeedback();
             isOverUI = false;
+            
         }
     }
 
@@ -79,6 +82,7 @@ public class InputManager : MonoBehaviour
         if (OnEndTouch != null && !isOverUI)
         {
             OnEndTouch();
+            HapticFeedback.HeavyFeedback();
         }
     }
 

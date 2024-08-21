@@ -29,8 +29,8 @@
       "source": "registry",
       "dependencies": {
         "com.unity.burst": "1.8.8",
-        "com.unity.modules.unityanalytics": "1.0.0",
         "com.unity.nuget.mono-cecil": "1.11.4",
+        "com.unity.modules.unityanalytics": "1.0.0",
         "com.unity.test-framework.performance": "3.0.2"
       },
       "url": "https://packages.unity.com"
@@ -235,9 +235,9 @@
       "depth": 0,
       "source": "registry",
       "dependencies": {
+        "com.unity.modules.audio": "1.0.0",
         "com.unity.modules.director": "1.0.0",
         "com.unity.modules.animation": "1.0.0",
-        "com.unity.modules.audio": "1.0.0",
         "com.unity.modules.particlesystem": "1.0.0"
       },
       "url": "https://packages.unity.com"
@@ -269,6 +269,15 @@
         "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
+    },
+    "xyz.candycoded.hapticfeedback": {
+      "version": "https://github.com/CandyCoded/HapticFeedback.git#v1.0.3",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.modules.androidjni": "1.0.0"
+      },
+      "hash": "4597a0376eafedee647bc3a02c6b574c309f3fa7"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
