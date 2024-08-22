@@ -72,6 +72,11 @@ public class CubeSpawnManagement : MonoBehaviour
 
     public bool ReplaceCube()
     {
+        if (!currentMoveableObject)
+        {
+            return false;
+        }
+
         Cube cubeComponent = currentMoveableObject.GetComponent<Cube>();
         if (!cubeComponent)
         {
@@ -99,6 +104,11 @@ public class CubeSpawnManagement : MonoBehaviour
 
     public bool ReplaceWithMagnet()
     {
+        if (!currentMoveableObject)
+        {
+            return false;
+        }
+
         Cube cubeComponent = currentMoveableObject.GetComponent<Cube>();
         if (!cubeComponent)
         {
@@ -115,6 +125,11 @@ public class CubeSpawnManagement : MonoBehaviour
 
     public bool ReplaceWithBomb()
     {
+        if (!currentMoveableObject)
+        {
+            return false;
+        }
+
         Cube cubeComponent = currentMoveableObject.GetComponent<Cube>();
         if (!cubeComponent)
         {

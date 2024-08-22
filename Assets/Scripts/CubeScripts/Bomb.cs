@@ -8,7 +8,6 @@ public class Bomb : MonoBehaviour
     [SerializeField] private GameObject targetLocation;
     private GameObject target;
 
-
     private void Start()
     {
         target = Instantiate(targetLocation, new Vector3(-0.75f, 0.71f, 0), Quaternion.identity);

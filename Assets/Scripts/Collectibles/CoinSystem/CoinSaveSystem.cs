@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CoinSaveSystem : MonoBehaviour
 {
-    private readonly int INITIAL_COIN_COUNT = 0;
+    private readonly int INITIAL_COIN_COUNT = 1000;
 
     private readonly string coinsSaveFile = "coins.dat";
     private CoinSaveData coinSaveData;
