@@ -10,10 +10,11 @@ public class ProjectionIcon : MonoBehaviour
     [SerializeField] private float scaleFactor = 2f;
     [SerializeField] private float duration = 1.0f;
 
-    public Vector3 initialScale = new(0.001f, 0.001f, 0.001f);
+    private Vector3 initialScale;
 
     private void Start()
     {
+        initialScale = transform.localScale / 2;
         StartCoroutine(ScaleIcon());
     }
 
