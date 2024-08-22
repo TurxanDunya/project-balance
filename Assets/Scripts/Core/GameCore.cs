@@ -44,7 +44,7 @@ public class GameCore : MonoBehaviour
 
     public void ProcessEndGame()
     {
-        if (!isWin && !gameUIController.IsGameWinUIIsVisible())
+        if (!isWin || !gameUIController.IsGameWinUIIsVisible())
         {
             StopCoroutine(CheckGameWinAndSaveStar());
             Destroy(timeLevelWinner);
