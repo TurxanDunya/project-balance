@@ -413,7 +413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1856c66ad8b2d40e8a582576a3621c25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rippleEffect: {fileID: 3945791410709795229, guid: a043a5c8764ac407ea8705e68d08e18e, type: 3}
+  rippleEffect: {fileID: 0}
   cubeMaterialType: 1
   fallSFXPlayer: {fileID: -6539039655991376382}
 --- !u!65 &1435034404053559536

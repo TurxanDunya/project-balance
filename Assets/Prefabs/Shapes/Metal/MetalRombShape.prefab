@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 5374873556296002515}
   - component: {fileID: 7674675967661219992}
   - component: {fileID: 5197328406825881166}
+  - component: {fileID: 5588126592971519551}
   m_Layer: 0
   m_Name: MetalRombShape
   m_TagString: PlayableCube
@@ -324,7 +325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1856c66ad8b2d40e8a582576a3621c25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rippleEffect: {fileID: 3945791410709795229, guid: a043a5c8764ac407ea8705e68d08e18e, type: 3}
+  rippleEffect: {fileID: 0}
   cubeMaterialType: 1
   fallSFXPlayer: {fileID: 7674675967661219992}
 --- !u!82 &7674675967661219992
@@ -445,6 +446,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5719140586207327714, guid: 4f2b1e477436e48f682eec38a4cb2c57, type: 3}
+--- !u!114 &5588126592971519551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276504291833794482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a37a0fb6e0946b986f4b4c1144c066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnAnimation: {fileID: 7400000, guid: 34dd4bb66e5d54b93933e1e0ed08b19c, type: 2}
+  destroyAnimation: {fileID: 7400000, guid: e8ca09f272fa8415ea47ef786a241f84, type: 2}
 --- !u!1 &3164625382320642983
 GameObject:
   m_ObjectHideFlags: 0

@@ -453,13 +453,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1276504291833794482}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c5a37a0fb6e0946b986f4b4c1144c066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnAnimation: {fileID: 7400000, guid: 5fbaba75cfa9345679809fcf4313d588, type: 2}
-  destroyAnimation: {fileID: 7400000, guid: be6da6fc5b8684e94afef4a2823eb02a, type: 2}
+  spawnAnimation: {fileID: 7400000, guid: 34dd4bb66e5d54b93933e1e0ed08b19c, type: 2}
+  destroyAnimation: {fileID: 7400000, guid: e8ca09f272fa8415ea47ef786a241f84, type: 2}
 --- !u!1 &3164625382320642983
 GameObject:
   m_ObjectHideFlags: 0
