@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnDestroyWithAnim : MonoBehaviour
@@ -20,7 +18,6 @@ public class SpawnDestroyWithAnim : MonoBehaviour
         animation.AddClip(spawnAnimation, "spawn");
         animation.AddClip(destroyAnimation, "destroy");
         PlaySpawnAnimation();
-
     }
 
     public void PlaySpawnAnimation()

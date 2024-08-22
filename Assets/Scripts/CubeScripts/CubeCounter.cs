@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CubeCounter : MonoBehaviour
 {
-    [SerializeField] List<CubeCountData> cubes;
+    [SerializeField] List<CubeCountDataByMaterialType> cubeCountDataByMaterialTypeList;
 
     public delegate void UpdateCubeCountEvent(int woodCount, int metalCount, int iceCount, int rockCount);
     public event UpdateCubeCountEvent OnUpdateCubeCount;
@@ -36,20 +36,21 @@ public class CubeCounter : MonoBehaviour
             return null;
         }
 
-        int index = Random.Range(0, cubes.Count);
-        CubeCountData cube = cubes[index];
-        if (cube.cubeCount <= 0)
+        int index = Random.Range(0, cubeCountDataByMaterialTypeList.Count);
+        CubeCountDataByMaterialType cubeCountByType = cubeCountDataByMaterialTypeList[index];
+        if (cubeCountByType.cubeCount <= 0)
         {
+            cubeCountDataByMaterialTypeList.Remove(cubeCountByType);
             return GetAvailableCube();
         }
         else
         {
             totalCubeCount--;
-            DecreaseCount(cube.cubeMaterialType);
-            cubes[index].cubeCount--;
+            DecreaseCount(cubeCountByType.cubeMaterialType);
+            cubeCountDataByMaterialTypeList[index].cubeCount--;
             OnUpdateCubeCount?.Invoke(WoodCount, MetalCount, IceCount, RockCount);
             OnCanReplaceCubeEvent?.Invoke(IsCubeExistOnDifferentTypes());
-            return cube.cubeMaterialType;
+            return cubeCountByType.cubeMaterialType;
         }
     }
 
@@ -67,8 +68,8 @@ public class CubeCounter : MonoBehaviour
             return null;
         }
 
-        int index = Random.Range(0, cubes.Count);
-        CubeCountData cube = cubes[index];
+        int index = Random.Range(0, cubeCountDataByMaterialTypeList.Count);
+        CubeCountDataByMaterialType cube = cubeCountDataByMaterialTypeList[index];
         if (cube.cubeCount <= 0)
         {
             return ChangeAvailableCubeTypeFrom(cubeMaterialType);
@@ -143,7 +144,7 @@ public class CubeCounter : MonoBehaviour
 
     private void DefineCubeCounts()
     {
-        foreach (var cube in cubes)
+        foreach (var cube in cubeCountDataByMaterialTypeList)
         {
             CubeData.CubeMaterialType cubeMaterialType = cube.cubeMaterialType;
             int cubeCount = cube.cubeCount;
@@ -174,7 +175,7 @@ public class CubeCounter : MonoBehaviour
 }
 
 [System.Serializable]
-public class CubeCountData
+public class CubeCountDataByMaterialType
 {
     public int cubeCount;
     public CubeData.CubeMaterialType cubeMaterialType;

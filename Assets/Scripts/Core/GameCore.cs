@@ -62,6 +62,7 @@ public class GameCore : MonoBehaviour
 
         if (!isGameEnd)
         {
+            isWin = true;
             LevelManagment levelManagment = LevelManager.INSTANCE.levelManagment;
 
             Level nextLevel = levelManagment.FindNextLevel();
