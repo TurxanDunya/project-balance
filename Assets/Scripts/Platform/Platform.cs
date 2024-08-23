@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using CandyCoded.HapticFeedback;
 
 public class Platform : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class Platform : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        //HapticFeedback.HeavyFeedback();
+        Handheld.Vibrate();
         foreach (ContactPoint contact in collision.contacts)
         {
             Collider colliderHit = contact.thisCollider;
@@ -17,6 +20,7 @@ public class Platform : MonoBehaviour
                     || collision.gameObject.CompareTag(TagConstants.DROPPED_CUBE)
                     || collision.gameObject.CompareTag(TagConstants.MAGNET))
                 {
+                    
                     CubeLanded?.Invoke();
                     return;
                 }

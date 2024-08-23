@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 2157119853688586906}
   - component: {fileID: 1938925977049973329}
   - component: {fileID: 2482244780212473831}
-  - component: {fileID: 7852089825465104457}
+  - component: {fileID: 2471399182632022526}
   m_Layer: 0
   m_Name: WoodSphereShape
   m_TagString: PlayableCube
@@ -548,17 +548,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7852089825465104457
+--- !u!114 &2471399182632022526
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6455784016782959165}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5a37a0fb6e0946b986f4b4c1144c066, type: 3}
+  m_Script: {fileID: 11500000, guid: 811fe86f0efe64490a04e3d976295cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnAnimation: {fileID: 7400000, guid: 5fbaba75cfa9345679809fcf4313d588, type: 2}
-  destroyAnimation: {fileID: 7400000, guid: be6da6fc5b8684e94afef4a2823eb02a, type: 2}
+  startFadeInScale: {x: 0.01, y: 0.01, z: 0.01}
+  endFadeOutScale: {x: 0.01, y: 0.01, z: 0.01}
+  fadeInAnimationDuration: 0.2
+  fadeOutAnimationDuration: 0.2

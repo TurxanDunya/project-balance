@@ -122,6 +122,7 @@ GameObject:
   - component: {fileID: 7462435126613098115}
   - component: {fileID: 5943824581061212464}
   - component: {fileID: 4204153005692188703}
+  - component: {fileID: 7373151557829649479}
   m_Layer: 0
   m_Name: MetalConusShape
   m_TagString: PlayableCube
@@ -412,7 +413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1856c66ad8b2d40e8a582576a3621c25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rippleEffect: {fileID: 3945791410709795229, guid: a043a5c8764ac407ea8705e68d08e18e, type: 3}
+  rippleEffect: {fileID: 0}
   cubeMaterialType: 1
   fallSFXPlayer: {fileID: 5943824581061212464}
 --- !u!114 &7462435126613098115
@@ -547,3 +548,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8976931198798728843, guid: 05a6b5b541f1f4cec9cf8e95824d2cbf, type: 3}
+--- !u!114 &7373151557829649479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8047010925567596979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 811fe86f0efe64490a04e3d976295cb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startFadeInScale: {x: 0.01, y: 0.01, z: 0.01}
+  endFadeInScale: {x: 0, y: 0, z: 0}
+  endFadeOutScale: {x: 0.01, y: 0.01, z: 0.01}
+  fadeInAnimationDuration: 0.2
+  fadeOutAnimationDuration: 0.2
