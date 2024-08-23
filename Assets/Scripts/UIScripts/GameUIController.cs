@@ -87,7 +87,7 @@ public class GameUIController : MonoBehaviour
         }
     }
 
-    public bool IsGameWinUIIsVisible()
+    public bool IsGameWinUIVisible()
     {
         return rootWinner.style.display == DisplayStyle.Flex
             && currentSecondLabel.style.display == DisplayStyle.Flex;
