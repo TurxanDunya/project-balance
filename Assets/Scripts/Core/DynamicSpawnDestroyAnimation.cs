@@ -16,10 +16,6 @@ public class DynamicSpawnDestroyAnimation : MonoBehaviour
     [SerializeField] private Vector3 endDestroyScale = new Vector3(0.01f, 0.01f, 0.01f);
     [SerializeField] private Vector3 startDestoryRotation = new Vector3(0, -220, 0);
     [SerializeField] private float destroyAnimationDuration = 0.2f;
-
-
-
-   
   
     void Start()
     {
@@ -28,7 +24,6 @@ public class DynamicSpawnDestroyAnimation : MonoBehaviour
         PlaySpawnAnimation();
     }
 
-   
     private System.Collections.IEnumerator ScaleAndRotate(Vector3 targetScale, Vector3 targetRotation, float duration, bool destroy = false)
     {
         Vector3 initialScale = transform.localScale;
@@ -50,8 +45,6 @@ public class DynamicSpawnDestroyAnimation : MonoBehaviour
         if (destroy) Destroy(gameObject);
 
     }
-
-
 
     public void PlaySpawnAnimation()
     {
