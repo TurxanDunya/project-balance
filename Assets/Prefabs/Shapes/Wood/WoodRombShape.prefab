@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 5374873556296002515}
   - component: {fileID: 7674675967661219992}
   - component: {fileID: 2656358290562940117}
-  - component: {fileID: 7266719817946036113}
+  - component: {fileID: 8155481725837212666}
   m_Layer: 0
   m_Name: WoodRombShape
   m_TagString: PlayableCube
@@ -446,7 +446,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5719140586207327714, guid: 4f2b1e477436e48f682eec38a4cb2c57, type: 3}
---- !u!114 &7266719817946036113
+--- !u!114 &8155481725837212666
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -455,11 +455,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1276504291833794482}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5a37a0fb6e0946b986f4b4c1144c066, type: 3}
+  m_Script: {fileID: 11500000, guid: 811fe86f0efe64490a04e3d976295cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnAnimation: {fileID: 7400000, guid: 34dd4bb66e5d54b93933e1e0ed08b19c, type: 2}
-  destroyAnimation: {fileID: 7400000, guid: e8ca09f272fa8415ea47ef786a241f84, type: 2}
+  startFadeInScale: {x: 0.01, y: 0.01, z: 0.01}
+  endFadeOutScale: {x: 0.01, y: 0.01, z: 0.01}
+  fadeInAnimationDuration: 0.2
+  fadeOutAnimationDuration: 0.2
 --- !u!1 &3164625382320642983
 GameObject:
   m_ObjectHideFlags: 0

@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 5909277461353195477}
   - component: {fileID: 2866865580184768144}
   - component: {fileID: 7394392460580762291}
-  - component: {fileID: 2724510641229069597}
+  - component: {fileID: 8833523222419666034}
   m_Layer: 0
   m_Name: MetalCylnderShape
   m_TagString: PlayableCube
@@ -548,7 +548,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2724510641229069597
+--- !u!114 &8833523222419666034
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -557,8 +557,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2925181345278573110}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5a37a0fb6e0946b986f4b4c1144c066, type: 3}
+  m_Script: {fileID: 11500000, guid: 811fe86f0efe64490a04e3d976295cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnAnimation: {fileID: 7400000, guid: c5b78ad49129e4b338365ab301a0f77a, type: 2}
-  destroyAnimation: {fileID: 7400000, guid: 1adb30bd5357444ebabe8ce4d0dce111, type: 2}
+  startFadeInScale: {x: 0.01, y: 0.01, z: 0.01}
+  endFadeInScale: {x: 0, y: 0, z: 0}
+  endFadeOutScale: {x: 0.01, y: 0.01, z: 0.01}
+  fadeInAnimationDuration: 0.2
+  fadeOutAnimationDuration: 0.2
