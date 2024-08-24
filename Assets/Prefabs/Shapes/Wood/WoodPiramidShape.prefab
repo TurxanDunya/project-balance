@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 2855529556640314507}
   - component: {fileID: 5855287404822156412}
   - component: {fileID: 6826492118806640253}
+  - component: {fileID: 5716864827784039889}
   - component: {fileID: 8323927998998900728}
   - component: {fileID: 3829526879597369213}
   m_Layer: 0
@@ -415,7 +416,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleEffect: {fileID: 3354640814156343705, guid: 70b48ba4e6495400b8acdb9bf1fa31c8, type: 3}
   cubeMaterialType: 0
-  fallSFXPlayer: {fileID: 8323927998998900728}
 --- !u!114 &5855287404822156412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,6 +452,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3871285555887020547, guid: 7f6d6a8d800a74713a3842493929d0f7, type: 3}
+--- !u!114 &5716864827784039889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7152317461909062366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ee8c3e2270f34af0a233caf40bcf141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platformCollisionSounds:
+  - {fileID: 8300000, guid: d6705983969e34a9fb5698f63ba841c1, type: 3}
+  - {fileID: 8300000, guid: bd13df47cd33749b3888b24e75cb5973, type: 3}
+  - {fileID: 8300000, guid: 5c529c7a4265d4a35aac95fa7f7cdd2b, type: 3}
+  droppedCubeCollisionSounds:
+  - {fileID: 8300000, guid: 3ba04c891c9e24c93badba6b6dd67aca, type: 3}
 --- !u!82 &8323927998998900728
 AudioSource:
   m_ObjectHideFlags: 0
@@ -560,7 +578,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 811fe86f0efe64490a04e3d976295cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startFadeInScale: {x: 0.01, y: 0.01, z: 0.01}
-  endFadeOutScale: {x: 0.01, y: 0.01, z: 0.01}
-  fadeInAnimationDuration: 0.2
-  fadeOutAnimationDuration: 0.2
+  startSpawnScale: {x: 0.01, y: 0.01, z: 0.01}
+  startSpawnRotation: {x: 0, y: 220, z: 0}
+  spawnAnimationDuration: 0.2
+  endDestroyScale: {x: 0.01, y: 0.01, z: 0.01}
+  startDestoryRotation: {x: 0, y: -220, z: 0}
+  destroyAnimationDuration: 0.2

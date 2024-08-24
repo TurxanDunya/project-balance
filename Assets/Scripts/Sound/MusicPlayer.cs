@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class MusicPlayer : BaseMusicPlayer
 {
-
     [SerializeField] AudioClip[] musics;
     [SerializeField] AudioSource player;
     private int currentPlayingIndex;
@@ -117,7 +116,6 @@ public class MusicPlayer : BaseMusicPlayer
         player.clip = musics[currentPlayingIndex];
         player.Play();
         StartCoroutine(MusicQueue());
-
     }
 
 }
