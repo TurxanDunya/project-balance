@@ -15,8 +15,11 @@ public class SoundSystem : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         bool isPlayableCube = CompareTag(TagConstants.PLAYABLE_CUBE);
+        bool isMagnet = CompareTag(TagConstants.MAGNET);
+        bool isMainPlatform = collision.collider.CompareTag(TagConstants.MAIN_PLATFORM);
+        bool isDroppedCube = CompareTag(TagConstants.DROPPED_CUBE);
 
-        if (isPlayableCube && collision.collider.CompareTag(TagConstants.MAIN_PLATFORM))
+        if ((isPlayableCube || isMagnet) && isMainPlatform)
         {
             int soundIndex = Random.Range(0, platformCollisionSounds.Length);
             fallSFXPlayer.clip = platformCollisionSounds[soundIndex];
@@ -24,28 +27,21 @@ public class SoundSystem : MonoBehaviour
 
             tag = TagConstants.DROPPED_CUBE;
         }
-        else if (!isPlayableCube && collision.collider.CompareTag(TagConstants.MAIN_PLATFORM))
+        else if (isDroppedCube && isMainPlatform)
         {
             int soundIndex = Random.Range(0, platformCollisionSounds.Length);
             fallSFXPlayer.clip = platformCollisionSounds[soundIndex];
-            fallSFXPlayer.volume = 0.25f;
+            fallSFXPlayer.volume = 0.1f;
             PlayFallSfx();
         }
 
-        if (isPlayableCube && collision.collider.CompareTag(TagConstants.DROPPED_CUBE))
+        if (isPlayableCube && isDroppedCube)
         {
             int soundIndex = Random.Range(0, droppedCubeCollisionSounds.Length);
             fallSFXPlayer.clip = droppedCubeCollisionSounds[soundIndex];
             PlayFallSfx();
 
             tag = TagConstants.DROPPED_CUBE;
-        }
-        else if (!isPlayableCube && collision.collider.CompareTag(TagConstants.MAIN_PLATFORM))
-        {
-            int soundIndex = Random.Range(0, droppedCubeCollisionSounds.Length);
-            fallSFXPlayer.clip = droppedCubeCollisionSounds[soundIndex];
-            fallSFXPlayer.volume = 0.25f;
-            PlayFallSfx();
         }
     }
 

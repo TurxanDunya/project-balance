@@ -467,7 +467,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5c1ff6c41e24643f8a0feb1d1e7e46f4, type: 3}
   droppedCubeCollisionSounds:
   - {fileID: 8300000, guid: 3ba04c891c9e24c93badba6b6dd67aca, type: 3}
-  - {fileID: 8300000, guid: 03f06f4889dd7496aa799d2ef54025a1, type: 3}
 --- !u!82 &-6539039655991376382
 AudioSource:
   m_ObjectHideFlags: 0
