@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 2082574812507381322}
   - component: {fileID: 3890708747178022172}
   - component: {fileID: 5374873556296002515}
+  - component: {fileID: -1317245278344042240}
   - component: {fileID: 7674675967661219992}
   - component: {fileID: 4119110456886458155}
   m_Layer: 0
@@ -134,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thickness: 0
+  inverted: 0
   material: {fileID: 0}
   filter: -65535
   m_SourceCollider: {fileID: 4119110456886458155}
@@ -326,7 +328,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleEffect: {fileID: 6439707999742107142, guid: 88e65b5d396b843df9d127c1c01c7b36, type: 3}
   cubeMaterialType: 2
-  fallSFXPlayer: {fileID: 7674675967661219992}
+--- !u!114 &-1317245278344042240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276504291833794482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ee8c3e2270f34af0a233caf40bcf141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platformCollisionSounds:
+  - {fileID: 8300000, guid: 387c70be5faae4ac782475d398485c70, type: 3}
+  droppedCubeCollisionSounds:
+  - {fileID: 8300000, guid: 3ba04c891c9e24c93badba6b6dd67aca, type: 3}
+  - {fileID: 8300000, guid: 387c70be5faae4ac782475d398485c70, type: 3}
 --- !u!82 &7674675967661219992
 AudioSource:
   m_ObjectHideFlags: 0
@@ -546,4 +564,3 @@ MonoBehaviour:
   gapWithPlatform: 0.001
   scaleFactor: 2
   duration: 1
-  initialScale: {x: 0.001, y: 0.001, z: 0.001}

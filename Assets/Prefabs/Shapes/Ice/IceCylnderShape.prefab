@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 1184156985783015487}
   - component: {fileID: 5909277461353195477}
   - component: {fileID: 2866865580184768144}
+  - component: {fileID: -649897046743226484}
   - component: {fileID: 7394392460580762291}
   m_Layer: 0
   m_Name: IceCylnderShape
@@ -414,7 +415,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleEffect: {fileID: 6439707999742107142, guid: 88e65b5d396b843df9d127c1c01c7b36, type: 3}
   cubeMaterialType: 2
-  fallSFXPlayer: {fileID: 7394392460580762291}
 --- !u!114 &5909277461353195477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -451,6 +451,23 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: cb812220847184461b92e23ef3cd8cfd, type: 3}
+--- !u!114 &-649897046743226484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2925181345278573110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ee8c3e2270f34af0a233caf40bcf141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platformCollisionSounds:
+  - {fileID: 8300000, guid: 387c70be5faae4ac782475d398485c70, type: 3}
+  droppedCubeCollisionSounds:
+  - {fileID: 8300000, guid: 3ba04c891c9e24c93badba6b6dd67aca, type: 3}
+  - {fileID: 8300000, guid: 387c70be5faae4ac782475d398485c70, type: 3}
 --- !u!82 &7394392460580762291
 AudioSource:
   m_ObjectHideFlags: 0
