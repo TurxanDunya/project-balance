@@ -42,4 +42,13 @@ public class Cube : MonoBehaviour
         Platform.CubeLanded -= CubeLanded;
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag(TagConstants.DROPPED_CUBE)
+            || collision.collider.CompareTag(TagConstants.PLAYABLE_CUBE))
+        {
+            Platform.CallCubeLandedEvent();
+        }
+    }
+
 }
