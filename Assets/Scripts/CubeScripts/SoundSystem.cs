@@ -14,12 +14,14 @@ public class SoundSystem : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        bool isPlayableCube = CompareTag(TagConstants.PLAYABLE_CUBE);
-        bool isMagnet = CompareTag(TagConstants.MAGNET);
-        bool isMainPlatform = collision.collider.CompareTag(TagConstants.MAIN_PLATFORM);
-        bool isDroppedCube = CompareTag(TagConstants.DROPPED_CUBE);
+        bool isThisPlayableCube = CompareTag(TagConstants.PLAYABLE_CUBE);
+        bool isThisMagnet = CompareTag(TagConstants.MAGNET);
+        bool isThisDroppedCube = CompareTag(TagConstants.DROPPED_CUBE);
 
-        if ((isPlayableCube || isMagnet) && isMainPlatform)
+        bool isOtherMainPlatform = collision.collider.CompareTag(TagConstants.MAIN_PLATFORM);
+        bool isOtherDroppedCube = collision.collider.CompareTag(TagConstants.DROPPED_CUBE);
+
+        if ((isThisPlayableCube || isThisMagnet) && isOtherMainPlatform)
         {
             int soundIndex = Random.Range(0, platformCollisionSounds.Length);
             fallSFXPlayer.clip = platformCollisionSounds[soundIndex];
@@ -27,7 +29,7 @@ public class SoundSystem : MonoBehaviour
 
             tag = TagConstants.DROPPED_CUBE;
         }
-        else if (isDroppedCube && isMainPlatform)
+        else if (isThisDroppedCube && isOtherMainPlatform)
         {
             int soundIndex = Random.Range(0, platformCollisionSounds.Length);
             fallSFXPlayer.clip = platformCollisionSounds[soundIndex];
@@ -35,10 +37,20 @@ public class SoundSystem : MonoBehaviour
             PlayFallSfx();
         }
 
-        if (isPlayableCube && isDroppedCube)
+        if (isThisPlayableCube && isOtherDroppedCube)
+        {
+            int soundIndex = Random.Range(0, platformCollisionSounds.Length);
+            fallSFXPlayer.clip = platformCollisionSounds[soundIndex];
+            PlayFallSfx();
+
+            tag = TagConstants.DROPPED_CUBE;
+        }
+
+        if (isThisDroppedCube && isOtherDroppedCube)
         {
             int soundIndex = Random.Range(0, droppedCubeCollisionSounds.Length);
             fallSFXPlayer.clip = droppedCubeCollisionSounds[soundIndex];
+            fallSFXPlayer.volume = 0.1f;
             PlayFallSfx();
 
             tag = TagConstants.DROPPED_CUBE;

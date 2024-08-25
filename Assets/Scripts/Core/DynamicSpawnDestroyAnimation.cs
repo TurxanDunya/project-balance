@@ -40,7 +40,6 @@ public class DynamicSpawnDestroyAnimation : MonoBehaviour
         transform.eulerAngles = targetRotation;
 
         if (destroy) Destroy(gameObject);
-
     }
 
     public void PlaySpawnAnimation()

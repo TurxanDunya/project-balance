@@ -106,37 +106,37 @@ public class AboutUsController : MonoBehaviour
 
     private void GoToStudioFbAccount()
     {
-        Application.OpenURL("/mock");
+        Application.OpenURL("https://www.facebook.com/profile.php?id=61563914828343");
     }
 
     private void GoToStudioInstaAccount()
     {
-        Application.OpenURL("/mock");
+        Application.OpenURL("https://www.instagram.com/massivedreamersstudio");
     }
 
     private void GoToStudioYoutubeAccount()
     {
-        Application.OpenURL("/mock");
+        Application.OpenURL("/not_yet_initialized");
     }
 
     private void GoToMemberOneFbAccount()
     {
-        Application.OpenURL("https://www.youtube.com/watch?v=w7l5yU_ZQrE&list=LL&index=32");
+        Application.OpenURL("https://www.facebook.com/aqsins");
     }
 
     private void GoToMemberOneInstaAccount()
     {
-        Application.OpenURL("https://www.youtube.com/watch?v=w7l5yU_ZQrE&list=LL&index=32");
+        Application.OpenURL("https://www.instagram.com/aqsin.sulxayev/");
     }
 
     private void GoToMemberOneLinkedinAccount()
     {
-        Application.OpenURL("https://www.youtube.com/watch?v=w7l5yU_ZQrE&list=LL&index=32");
+        Application.OpenURL("https://www.linkedin.com/in/agshin-sulkhayev-427a27106");
     }
 
     private void GoToMemberOneYoutubeAccount()
     {
-        Application.OpenURL("https://www.youtube.com/watch?v=w7l5yU_ZQrE&list=LL&index=32");
+        Application.OpenURL("https://www.youtube.com/@aqsinsulxayev");
     }
 
     private void GoToMemberTwoFbAccount()
@@ -151,12 +151,12 @@ public class AboutUsController : MonoBehaviour
 
     private void GoToMemberTwoLinkedinAccount()
     {
-        Application.OpenURL("https://www.youtube.com/watch?v=w7l5yU_ZQrE&list=LL&index=32");
+        Application.OpenURL("https://www.linkedin.com/in/turxan-dunyamal%C4%B1yev-753339154/");
     }
 
     private void GoToMemberTwoXAccount()
     {
-        Application.OpenURL("https://www.youtube.com/watch?v=w7l5yU_ZQrE&list=LL&index=32");
+        Application.OpenURL("https://x.com/TurxanDunya");
     }
 
 }

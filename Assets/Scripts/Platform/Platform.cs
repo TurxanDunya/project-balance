@@ -6,6 +6,11 @@ public class Platform : MonoBehaviour
     public static event Action CubeLanded;
     public static event Action BombLanded;
 
+    public static void CallCubeLandedEvent()
+    {
+        CubeLanded?.Invoke();
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         Handheld.Vibrate();
