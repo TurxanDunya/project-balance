@@ -145,7 +145,7 @@ PrefabInstance:
     - target: {fileID: 431547344754842001, guid: d5923e079c0f24774a058aa61b19623e, type: 3}
       propertyPath: welcomeTutorialController
       value: 
-      objectReference: {fileID: 1405537473}
+      objectReference: {fileID: 0}
     - target: {fileID: 4201346298903201681, guid: d5923e079c0f24774a058aa61b19623e, type: 3}
       propertyPath: powerUps
       value: 
@@ -286,7 +286,7 @@ GameObject:
   m_Component:
   - component: {fileID: 789708642}
   m_Layer: 0
-  m_Name: LevelOneSpecific
+  m_Name: LevelFourSpecific
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -318,10 +318,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1405537471}
   - component: {fileID: 1405537472}
-  - component: {fileID: 1405537473}
   - component: {fileID: 1405537474}
   m_Layer: 5
-  m_Name: WelcomeTutorialUI
+  m_Name: MeetMetalAndMagnet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -358,19 +357,6 @@ MonoBehaviour:
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: a907d66a3ca4e4afcb13574b912e31b9, type: 3}
   m_SortingOrder: 5
---- !u!114 &1405537473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1405537470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef050860f27c14a99addc8f11458842e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selfPrefab: {fileID: 1405537470}
 --- !u!114 &1405537474
 MonoBehaviour:
   m_ObjectHideFlags: 0
