@@ -50,6 +50,7 @@ public class LoadScreenController : MonoBehaviour, AdsEventCallback
         {
             float progressValue = Mathf.Clamp01(loadOperation.progress / 0.9f);
             progressBar.value = progressValue * 100;
+            progressBar.title = (progressValue * 100).ToString() + '%';
 
             if (loadOperation.progress >= 0.9f)
             {

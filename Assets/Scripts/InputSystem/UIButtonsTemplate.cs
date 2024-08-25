@@ -4,7 +4,7 @@ public class UIButtonsTemplate : MonoBehaviour
 {
     [SerializeField] private InGameUIController inGameUIController;
     [SerializeField] private GameUIController gameUIController;
-    [SerializeField] private WelcomeTutorialController welcomeTutorialController;
+    [SerializeField] private TutorialController tutorialController;
     [SerializeField] private HomeScreenController homeScreenController;
     [SerializeField] private LevelsSceneController levelsSceneController;
     [SerializeField] private PauseScreenController pauseScreenController;
@@ -18,8 +18,7 @@ public class UIButtonsTemplate : MonoBehaviour
             return true;
         }
 
-        if (welcomeTutorialController &&
-            welcomeTutorialController.isActiveAndEnabled)
+        if (tutorialController && tutorialController.isActiveAndEnabled)
         {
             return true;
         }
