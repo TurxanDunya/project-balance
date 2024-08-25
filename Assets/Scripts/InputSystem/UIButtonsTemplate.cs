@@ -8,6 +8,8 @@ public class UIButtonsTemplate : MonoBehaviour
     [SerializeField] private HomeScreenController homeScreenController;
     [SerializeField] private LevelsSceneController levelsSceneController;
     [SerializeField] private PauseScreenController pauseScreenController;
+    [SerializeField] private AboutUsController aboutUsController;
+    [SerializeField] private SettingsUIController settingsUIController;
 
     public bool IsOverlappingAnyUI(Vector2 touchPosition)
     {
@@ -23,8 +25,7 @@ public class UIButtonsTemplate : MonoBehaviour
             return true;
         }
 
-        if (homeScreenController &&
-            homeScreenController.isActiveAndEnabled)
+        if (homeScreenController && homeScreenController.isActiveAndEnabled)
         {
             return true;
         }
@@ -36,14 +37,22 @@ public class UIButtonsTemplate : MonoBehaviour
             return true;
         }
 
-        if (levelsSceneController &&
-            levelsSceneController.isActiveAndEnabled)
+        if (levelsSceneController && levelsSceneController.isActiveAndEnabled)
         {
             return true;
         }
 
-        if (pauseScreenController &&
-            pauseScreenController.isActiveAndEnabled)
+        if (pauseScreenController && pauseScreenController.isActiveAndEnabled)
+        {
+            return true;
+        }
+
+        if (aboutUsController && aboutUsController.isActiveAndEnabled)
+        {
+            return true;
+        }
+
+        if (settingsUIController && settingsUIController.isActiveAndEnabled)
         {
             return true;
         }
