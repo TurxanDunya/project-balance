@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,10 +10,11 @@ public class StateChanger : MonoBehaviour
     [SerializeField] private GameObject pauseScreenUI;
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private GameObject winnerUI;
-    [SerializeField] private GameObject welcomeTutorialUI;
     [SerializeField] private GameObject levelMenuUI;
     [SerializeField] private GameObject settingsUI;
     [SerializeField] private GameObject aboutUsUI;
+
+    public static event Action CheckTutorialsStatus;
 
     public void ChangeStateToInGameUI()
     {
@@ -24,7 +26,7 @@ public class StateChanger : MonoBehaviour
         gameOverUI.SetActive(true);
         winnerUI.SetActive(true);
 
-        CheckWelcomeTutorial();
+        CheckTutorialsStatus?.Invoke();
 
         pauseScreenUI.SetActive(false);
         homeScreenUI.SetActive(false);
@@ -149,15 +151,6 @@ public class StateChanger : MonoBehaviour
 
         aboutUsUI.SetActive(true);
         aboutUsUI.GetComponent<AboutUsController>().MakeBindings();
-    }
-
-    private void CheckWelcomeTutorial()
-    {
-        if (welcomeTutorialUI != null)
-        {
-            welcomeTutorialUI.SetActive(true);
-            welcomeTutorialUI.GetComponent<WelcomeTutorialController>().ShowMoveCubeTutorial();
-        }
     }
 
 }

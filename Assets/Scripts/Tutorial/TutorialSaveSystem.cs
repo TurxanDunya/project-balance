@@ -17,6 +17,8 @@ public class TutorialSaveSystem : MonoBehaviour
         {
             tutorialSaveData = new();
             tutorialSaveData.isWelcomeTutorialWatched = false;
+            tutorialSaveData.isMeetWoodAndChangerTutorialWatched = false;
+            tutorialSaveData.isMeetMetalAndMagnetTutorialWatched = false;
             SaveData();
         }
     }
@@ -26,9 +28,31 @@ public class TutorialSaveSystem : MonoBehaviour
         return tutorialSaveData.isWelcomeTutorialWatched;
     }
 
+    public bool GetMeetWoodAndChangerTutorialWatched()
+    {
+        return tutorialSaveData.isMeetWoodAndChangerTutorialWatched;
+    }
+
+    public bool GetMeetMetalAndMagnetTutorialWatched()
+    {
+        return tutorialSaveData.isMeetMetalAndMagnetTutorialWatched;
+    }
+
     public void SetWelcomeTutorialWatched()
     {
         tutorialSaveData.isWelcomeTutorialWatched = true;
+        SaveData();
+    }
+
+    public void SetMeetWoodAndChangerTutorialWatched()
+    {
+        tutorialSaveData.isMeetWoodAndChangerTutorialWatched = true;
+        SaveData();
+    }
+
+    public void SetMeetMetalAndMagnetTutorialWatched()
+    {
+        tutorialSaveData.isMeetMetalAndMagnetTutorialWatched = true;
         SaveData();
     }
 
