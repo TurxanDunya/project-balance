@@ -428,10 +428,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inGameUIController: {fileID: 4201346298903201681}
   gameUIController: {fileID: 231312923564456866}
-  welcomeTutorialController: {fileID: 0}
+  tutorialController: {fileID: 0}
   homeScreenController: {fileID: 1901870133191469171}
   levelsSceneController: {fileID: 6936001421119730849}
   pauseScreenController: {fileID: 7830707259022999204}
+  aboutUsController: {fileID: 9183529347513530654}
+  settingsUIController: {fileID: 4439974479573489929}
 --- !u!1 &4206477802807428289
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,7 +781,6 @@ MonoBehaviour:
   pauseScreenUI: {fileID: 471164949728130507}
   gameOverUI: {fileID: 5715331772997791880}
   winnerUI: {fileID: 2299487983283890040}
-  welcomeTutorialUI: {fileID: 0}
   levelMenuUI: {fileID: 2351172957620347398}
   settingsUI: {fileID: 4206477802807428289}
   aboutUsUI: {fileID: 933027444706891834}
