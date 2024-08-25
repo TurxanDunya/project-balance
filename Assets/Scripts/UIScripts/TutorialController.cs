@@ -7,6 +7,7 @@ public class TutorialController : MonoBehaviour
     private static readonly ILogger logger = Debug.unityLogger;
 
     [SerializeField] private GameObject[] tutorials;
+    [SerializeField] private GameObject levelSpecificObjectSelf;
 
     private TutorialSaveSystem tutorialSaveSystem;
 
@@ -15,6 +16,9 @@ public class TutorialController : MonoBehaviour
 
     private void OnEnable()
     {
+        tutorialSaveSystem = GetComponent<TutorialSaveSystem>();
+
+        CheckStatuses();
         StateChanger.CheckTutorialsStatus += CheckStatuses;
     }
 
@@ -23,16 +27,12 @@ public class TutorialController : MonoBehaviour
         StateChanger.CheckTutorialsStatus += CheckStatuses;
     }
 
-    void Start()
-    {
-        tutorialSaveSystem = GetComponent<TutorialSaveSystem>();
-    }
-
     private void CheckStatuses()
     {
         if (tutorials == null || tutorials.Length == 0)
         {
             logger.Log(LogType.Log, "There is no any tutorial to show!");
+            Destroy(levelSpecificObjectSelf);
             return;
         }
 
@@ -41,12 +41,19 @@ public class TutorialController : MonoBehaviour
 
     private IEnumerator CheckStatusesCoroutine()
     {
+        int tutorialCountOnLevel = tutorials.Length;
+        int currentTutorialNumber = 0;
+
         foreach (GameObject tutorial in tutorials)
         {
-            rootElement = tutorial.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("RootVE");
-            continueBtn = rootElement.Q<Button>("continue_btn");
+            currentTutorialNumber++;
 
-            CheckTutorialWatchedOrShow(tutorial);
+            if (CheckTutorialWatchedOrShow(tutorial))
+            {
+                continue;
+            }
+
+            continueBtn = rootElement.Q<Button>("continue_btn");
 
             bool isBtnClicked = false;
             continueBtn.clicked += () =>
@@ -56,11 +63,17 @@ public class TutorialController : MonoBehaviour
             };
 
             yield return new WaitUntil(() => isBtnClicked);
-            yield return new WaitForSeconds(3);
+
+            if (currentTutorialNumber < tutorialCountOnLevel)
+            {
+                yield return new WaitForSeconds(3);
+            }
         }
+
+        Destroy(levelSpecificObjectSelf);
     }
 
-    private void CheckTutorialWatchedOrShow(GameObject tutorial)
+    private bool CheckTutorialWatchedOrShow(GameObject tutorial)
     {
         if (tutorial.name == "WelcomeTutorialUI")
         {
@@ -68,11 +81,15 @@ public class TutorialController : MonoBehaviour
             {
                 logger.Log(LogType.Log, "WelcomeTutorialUI already shown, no need to again!");
                 DismissUIPanel(tutorial);
+                return true;
             }
             else
             {
+                tutorial.SetActive(true);
+                rootElement = tutorial.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("RootVE");
                 rootElement.style.display = DisplayStyle.Flex;
                 tutorialSaveSystem.SetWelcomeTutorialWatched();
+                return false;
             }
         }
 
@@ -82,11 +99,15 @@ public class TutorialController : MonoBehaviour
             {
                 logger.Log(LogType.Log, "MeetWoodAndChanger already shown, no need to again!");
                 DismissUIPanel(tutorial);
+                return true;
             }
             else
             {
+                tutorial.SetActive(true);
+                rootElement = tutorial.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("RootVE");
                 rootElement.style.display = DisplayStyle.Flex;
                 tutorialSaveSystem.SetMeetWoodAndChangerTutorialWatched();
+                return false;
             }
         }
 
@@ -96,17 +117,28 @@ public class TutorialController : MonoBehaviour
             {
                 logger.Log(LogType.Log, "MeetMetalAndMagnet already shown, no need to again!");
                 DismissUIPanel(tutorial);
+                return true;
             }
             else
             {
+                tutorial.SetActive(true);
+                rootElement = tutorial.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("RootVE");
                 rootElement.style.display = DisplayStyle.Flex;
                 tutorialSaveSystem.SetMeetMetalAndMagnetTutorialWatched();
+                return false;
             }
         }
+
+        return false;
     }
 
     private void DismissUIPanel(GameObject tutorial)
     {
+        if (rootElement == null)
+        {
+            return;
+        }
+
         rootElement.style.display = DisplayStyle.None;
         Destroy(tutorial);
     }

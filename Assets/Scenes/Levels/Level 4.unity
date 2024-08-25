@@ -143,6 +143,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 431547344754842001, guid: d5923e079c0f24774a058aa61b19623e, type: 3}
+      propertyPath: tutorialController
+      value: 
+      objectReference: {fileID: 2041674630}
+    - target: {fileID: 431547344754842001, guid: d5923e079c0f24774a058aa61b19623e, type: 3}
       propertyPath: welcomeTutorialController
       value: 
       objectReference: {fileID: 0}
@@ -166,6 +170,10 @@ PrefabInstance:
       propertyPath: welcomeTutorialUI
       value: 
       objectReference: {fileID: 1405537470}
+    - target: {fileID: 4542121699140896450, guid: d5923e079c0f24774a058aa61b19623e, type: 3}
+      propertyPath: levelSpecificObject
+      value: 
+      objectReference: {fileID: 789708641}
     - target: {fileID: 4981585557895238111, guid: d5923e079c0f24774a058aa61b19623e, type: 3}
       propertyPath: m_Name
       value: UI
@@ -325,7 +333,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1405537471
 Transform:
   m_ObjectHideFlags: 0
@@ -484,6 +492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorials:
   - {fileID: 1405537470}
+  levelSpecificObjectSelf: {fileID: 789708641}
 --- !u!114 &2065624188 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6762653154033847079, guid: 7f3e224445bba4c8f838c2ca32164068, type: 3}

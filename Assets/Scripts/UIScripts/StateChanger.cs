@@ -26,7 +26,14 @@ public class StateChanger : MonoBehaviour
         gameOverUI.SetActive(true);
         winnerUI.SetActive(true);
 
-        CheckTutorialsStatus?.Invoke();
+        try
+        {
+            CheckTutorialsStatus?.Invoke();
+        }
+        catch (Exception)
+        {
+            // Just ignore error
+        }
 
         pauseScreenUI.SetActive(false);
         homeScreenUI.SetActive(false);
