@@ -71,9 +71,8 @@ public class InputManager : MonoBehaviour
         }
         else
         {
-            // HapticFeedback.HeavyFeedback();
-            Handheld.Vibrate();
-            isOverUI = false;
+           HapticFeedback.HeavyFeedback();
+           isOverUI = false;
             
         }
     }

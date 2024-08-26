@@ -13,7 +13,6 @@ public class Platform : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Handheld.Vibrate();
         foreach (ContactPoint contact in collision.contacts)
         {
             Collider colliderHit = contact.thisCollider;
