@@ -17,19 +17,15 @@ public class Bomb : MonoBehaviour
 
     }
 
-    private void OnEnable()
-    {
-        Platform.BombLanded += Blast;
-    }
-
-    private void OnDisable()
-    {
-        Platform.BombLanded -= Blast;
-    }
-
     public CubeData.CubeMaterialType GetCubeMaterialType()
     {
         return CubeData.CubeMaterialType.BOMB;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Blast();
+        Platform.CallCubeLandedEvent();
     }
 
     public void Blast()

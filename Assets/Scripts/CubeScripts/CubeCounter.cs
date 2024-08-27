@@ -58,6 +58,16 @@ public class CubeCounter : MonoBehaviour
     {
         totalCubeCount++;
         IncreaseCount(cubeMaterialType);
+
+        foreach (CubeCountDataByMaterialType element in cubeCountDataByMaterialTypeList)
+        {
+            if (element.cubeMaterialType == cubeMaterialType)
+            {
+                element.cubeCount++;
+                break;
+            }
+        }
+
         OnUpdateCubeCount?.Invoke(WoodCount, MetalCount, IceCount, RockCount);
     }
 
