@@ -39,6 +39,12 @@ public class GameCore : MonoBehaviour
 
     public void ProcessWinEvent()
     {
+        if (isWin)
+        {
+            // Win event already started
+            return;
+        }
+
         StartCoroutine(CheckGameWinAndSaveStar());
     }
 

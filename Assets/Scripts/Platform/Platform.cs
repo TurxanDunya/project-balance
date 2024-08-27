@@ -26,13 +26,6 @@ public class Platform : MonoBehaviour
                     CubeLanded?.Invoke();
                     return;
                 }
-
-                if (collision.gameObject.CompareTag(TagConstants.BOMB))
-                {
-                    CubeLanded?.Invoke();
-                    BombLanded?.Invoke();
-                    return;
-                }
             }
         }
     }
