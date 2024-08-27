@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
@@ -189,25 +187,31 @@ public class InGameUIController : MonoBehaviour
 
     private void PerformThirdPowerUp()
     {
-        if(coinManager.IsCoinEnough(PowerUpPriceConstants.MAGNET))
+        if(!coinManager.IsCoinEnough(PowerUpPriceConstants.MAGNET)
+            || thirdPowerUpButton.style.opacity != 1.0f)
         {
-            bool isSuccess = cubeSpawnManagement.ReplaceWithMagnet();
-            if (isSuccess)
-            {
-                coinManager.SubtractCoin(PowerUpPriceConstants.MAGNET);
-            }
+            return;
+        }
+
+        bool isSuccess = cubeSpawnManagement.ReplaceWithMagnet();
+        if (isSuccess)
+        {
+            DisableThirdPowerUp();
+            coinManager.SubtractCoin(PowerUpPriceConstants.MAGNET);
         }
     }
 
     private void PerformFourthPowerUp()
     {
-        if (coinManager.IsCoinEnough(PowerUpPriceConstants.BOMB))
+        if (!coinManager.IsCoinEnough(PowerUpPriceConstants.BOMB))
         {
-            bool isSuccess = cubeSpawnManagement.ReplaceWithBomb();
-            if (isSuccess)
-            {
-                coinManager.SubtractCoin(PowerUpPriceConstants.BOMB);
-            }
+            return;
+        }
+
+        bool isSuccess = cubeSpawnManagement.ReplaceWithBomb();
+        if (isSuccess)
+        {
+            coinManager.SubtractCoin(PowerUpPriceConstants.BOMB);
         }
     }
 
@@ -246,6 +250,11 @@ public class InGameUIController : MonoBehaviour
 
         for (int i = 0; i < powerUpButtons.Length; i++)
         {
+            if (powerUpButtons[i].style.opacity == 0.2f)
+            {
+                continue;
+            }
+            
             if (coinCount < coinThresholds[i])
             {
                 for (int j = i; j < powerUpButtons.Length; j++)
@@ -277,5 +286,11 @@ public class InGameUIController : MonoBehaviour
             firstPowerUpButton.style.opacity = 0.5f;
             firstPowerUpButton.SetEnabled(false);
         }
+    }
+
+    private void DisableThirdPowerUp()
+    {
+        thirdPowerUpButton.style.opacity = 0.2f;
+        thirdPowerUpButton.SetEnabled(false);
     }
 }
