@@ -21,7 +21,7 @@ public class SoundSystem : MonoBehaviour
         bool isOtherMainPlatform = collision.collider.CompareTag(TagConstants.MAIN_PLATFORM);
         bool isOtherDroppedCube = collision.collider.CompareTag(TagConstants.DROPPED_CUBE);
 
-        if ((isThisPlayableCube || isThisMagnet) && isOtherMainPlatform)
+        if (isThisPlayableCube && isOtherMainPlatform)
         {
             int soundIndex = Random.Range(0, platformCollisionSounds.Length);
             fallSFXPlayer.clip = platformCollisionSounds[soundIndex];
@@ -54,6 +54,13 @@ public class SoundSystem : MonoBehaviour
             PlayFallSfx();
 
             tag = TagConstants.DROPPED_CUBE;
+        }
+
+        if (isThisMagnet && isOtherMainPlatform)
+        {
+            int soundIndex = Random.Range(0, platformCollisionSounds.Length);
+            fallSFXPlayer.clip = platformCollisionSounds[soundIndex];
+            PlayFallSfx();
         }
     }
 

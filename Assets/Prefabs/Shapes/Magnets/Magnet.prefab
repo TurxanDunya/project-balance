@@ -5044,8 +5044,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 231838281893c4ffaa7826b4f8d3e02c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attractDistance: 0.15
-  attractForce: 400
+  attractDistance: 0.1
+  attractForce: 200
   magnetEffect:
   - {fileID: 7173157162527071687}
   - {fileID: 2344847386065001209}
