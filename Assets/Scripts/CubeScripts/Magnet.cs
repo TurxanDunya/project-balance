@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Magnet : MonoBehaviour
 {
+    private static readonly ILogger logger = Debug.unityLogger;
+
     [SerializeField] private float attractDistance;
     [SerializeField] private float attractForce;
     [SerializeField] private ParticleSystem[] magnetEffect;
@@ -38,8 +40,18 @@ public class Magnet : MonoBehaviour
 
     private void UpdateAttractibleObjectList()
     {
-        attractibleObjects = new List<GameObject>(
-           GameObject.FindGameObjectsWithTag(TagConstants.DROPPED_CUBE));
+        attractibleObjects = new();
+
+        List<GameObject> droppedCubes =
+            new(GameObject.FindGameObjectsWithTag(TagConstants.DROPPED_CUBE));
+
+        foreach (GameObject droppedCube in droppedCubes)
+        {
+            if (droppedCube.GetComponent<Cube>().GetCubeMaterialType() == CubeData.CubeMaterialType.METAL)
+            {
+                attractibleObjects.Add(droppedCube);
+            }
+        }
     }    
 
     private void FixedUpdate()
@@ -92,6 +104,19 @@ public class Magnet : MonoBehaviour
 
     private void AddLandedCubeToAttractibles(GameObject newLandedCube)
     {
+        Cube cubeScript = newLandedCube.GetComponent<Cube>();
+        if (!cubeScript)
+        {
+            logger.Log(LogType.Warning,
+                "Object does not have cube script, so it is not added to Attractible objects list");
+            return;
+        }
+
+        if (newLandedCube.GetComponent<Cube>().GetCubeMaterialType() != CubeData.CubeMaterialType.METAL)
+        {
+            return;
+        }
+
         attractibleObjects.Add(newLandedCube);
     }
 

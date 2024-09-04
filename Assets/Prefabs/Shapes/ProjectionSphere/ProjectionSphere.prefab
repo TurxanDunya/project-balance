@@ -96,6 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78c8cc5c761f943ffae329e409e65c45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  desiredRadius: 0.1
-  bomb: {fileID: 5954122764084355653, guid: 5993a77098a7f43c29f3c38e8599118a, type: 3}
+  radius: 0.1
+  raycast: {fileID: 0}
   gapWithPlatform: 0.05

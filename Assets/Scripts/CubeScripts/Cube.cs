@@ -38,7 +38,11 @@ public class Cube : MonoBehaviour
             ripple.Play();
         };
 
-        tag = TagConstants.DROPPED_CUBE;
+        if(CompareTag(TagConstants.PLAYABLE_CUBE))
+        {
+            tag = TagConstants.DROPPED_CUBE;
+        }
+
         Platform.CubeLanded -= CubeLanded;
     }
 
