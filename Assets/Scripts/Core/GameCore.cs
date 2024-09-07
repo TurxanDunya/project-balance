@@ -11,6 +11,7 @@ public class GameCore : MonoBehaviour
 
     private bool isGameEnd = false;
     private bool isWin = false;
+    private bool isAboutToWin = false;
 
     private void Awake()
     {
@@ -39,7 +40,7 @@ public class GameCore : MonoBehaviour
 
     public void ProcessWinEvent()
     {
-        if (isWin)
+        if (isWin || isAboutToWin)
         {
             // Win event already started
             return;
@@ -63,6 +64,7 @@ public class GameCore : MonoBehaviour
     }
 
     private IEnumerator CheckGameWinAndSaveStar() {
+        isAboutToWin = true;
         timeLevelWinner.StartCountDownTimer(countDownFromForWin);
         yield return new WaitForSeconds(countDownFromForWin);
 
