@@ -4,7 +4,14 @@ public class Cube : MonoBehaviour
 {
     [SerializeField] private ParticleSystem rippleEffect;
     [SerializeField] private CubeData.CubeMaterialType cubeMaterialType;
-  
+
+    private SoundSystem soundSystem;
+
+    private void Start()
+    {
+        soundSystem = GetComponent<SoundSystem>();
+    }
+
     public void Release()
     {
         GetComponent<Rigidbody>().useGravity = true;
@@ -32,27 +39,36 @@ public class Cube : MonoBehaviour
     }
 
     private void CubeLanded() {
-        if(rippleEffect != null)
-        {
-            ParticleSystem ripple = Instantiate(rippleEffect, transform.position, Quaternion.Euler(90, 0, 0));
-            ripple.Play();
-        };
-
-        if(CompareTag(TagConstants.PLAYABLE_CUBE))
-        {
-            tag = TagConstants.DROPPED_CUBE;
-        }
-
         Platform.CubeLanded -= CubeLanded;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag(TagConstants.DROPPED_CUBE)
-            || collision.collider.CompareTag(TagConstants.PLAYABLE_CUBE))
+        Collider collider = collision.collider;
+        if (collider.CompareTag(TagConstants.DROPPED_CUBE)
+            || collider.CompareTag(TagConstants.PLAYABLE_CUBE))
         {
             Platform.CallCubeLandedEvent();
+            return;
         }
+
+        if (collider.CompareTag(TagConstants.MAIN_PLATFORM))
+        {
+            PlayParticleEffect();
+        }
+
+        soundSystem.MakeSound(collision);
+        tag = TagConstants.DROPPED_CUBE;
+    }
+
+    private void PlayParticleEffect()
+    {
+        if (rippleEffect != null)
+        {
+            ParticleSystem ripple = Instantiate(
+                rippleEffect, transform.position, Quaternion.Euler(90, 0, 0));
+            ripple.Play();
+        };
     }
 
 }
