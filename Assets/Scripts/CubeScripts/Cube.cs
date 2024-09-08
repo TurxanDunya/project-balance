@@ -4,7 +4,14 @@ public class Cube : MonoBehaviour
 {
     [SerializeField] private ParticleSystem rippleEffect;
     [SerializeField] private CubeData.CubeMaterialType cubeMaterialType;
-  
+
+    private SoundSystem soundSystem;
+
+    private void Start()
+    {
+        soundSystem = GetComponent<SoundSystem>();
+    }
+
     public void Release()
     {
         GetComponent<Rigidbody>().useGravity = true;
@@ -32,11 +39,6 @@ public class Cube : MonoBehaviour
     }
 
     private void CubeLanded() {
-        if(CompareTag(TagConstants.PLAYABLE_CUBE))
-        {
-            tag = TagConstants.DROPPED_CUBE;
-        }
-
         Platform.CubeLanded -= CubeLanded;
     }
 
@@ -54,6 +56,9 @@ public class Cube : MonoBehaviour
         {
             PlayParticleEffect();
         }
+
+        soundSystem.MakeSound(collision);
+        tag = TagConstants.DROPPED_CUBE;
     }
 
     private void PlayParticleEffect()
