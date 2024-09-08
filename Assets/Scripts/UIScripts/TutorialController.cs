@@ -75,6 +75,11 @@ public class TutorialController : MonoBehaviour
 
     private bool CheckTutorialWatchedOrShow(GameObject tutorial)
     {
+        if (!tutorial)
+        {
+            return false;
+        }    
+
         if (tutorial.name == "WelcomeTutorialUI")
         {
             if (tutorialSaveSystem.GetIsWelcomeTutorialWatched())
