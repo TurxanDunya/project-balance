@@ -6,6 +6,7 @@ public class CoinSpawnManager : MonoBehaviour
     [SerializeField] private GameObject coinPrefab;
 
     [SerializeField] private float gapWithPlatformY;
+    [SerializeField] private float gapFromPlatformEdge = 0.1f;
     [SerializeField] private int coinChance;
 
     private GameObject currentInstantiatedCoin;
@@ -53,16 +54,24 @@ public class CoinSpawnManager : MonoBehaviour
 
     private void DefineCoinSpawnPosition()
     {
+        ResetCoinPositions();
+
         platformScale = platformObj.transform.localScale;
 
-        coinXDistanceFromCenter = Random.Range(-platformScale.x, platformScale.x);
-        coinZDistanceFromCenter = Random.Range(-platformScale.z, platformScale.z);
-        coinYDistanceFromCenter = platformScale.y;
+        coinXDistanceFromCenter = Random.Range(
+            -platformScale.x / 2 + gapFromPlatformEdge, platformScale.x / 2 - gapFromPlatformEdge);
+        coinZDistanceFromCenter = Random.Range(
+            -platformScale.z / 2 + gapFromPlatformEdge, platformScale.z / 2 - gapFromPlatformEdge);
+
+        Vector3 platformUpDirection = platformObj.transform.up;
+        Vector3 platformSurfacePosition =
+            platformObj.transform.position + platformUpDirection * (platformScale.y / 2);
 
         coinSpawnPosition = platformObj.transform.TransformPoint(
-            new(coinXDistanceFromCenter, coinYDistanceFromCenter, coinZDistanceFromCenter));
-        
-        coinSpawnPosition.y += gapWithPlatformY;
+            new(coinXDistanceFromCenter, 0, coinZDistanceFromCenter));
+
+        coinSpawnPosition = new Vector3(
+            coinSpawnPosition.x, platformSurfacePosition.y + gapWithPlatformY, coinSpawnPosition.z);
     }
 
     private void UpdateCoinPosition()
@@ -72,13 +81,18 @@ public class CoinSpawnManager : MonoBehaviour
             return;
         }
 
-        platformScale = platformObj.transform.localScale;
-
         coinNewPosition = platformObj.transform.TransformPoint(
             new(coinXDistanceFromCenter, coinYDistanceFromCenter, coinZDistanceFromCenter));
 
         coinNewPosition.y += gapWithPlatformY;
         currentInstantiatedCoin.transform.position = coinNewPosition;
+    }
+
+    private void ResetCoinPositions()
+    {
+        coinXDistanceFromCenter = 0;
+        coinZDistanceFromCenter = 0;
+        coinYDistanceFromCenter = 0;
     }
 
 }

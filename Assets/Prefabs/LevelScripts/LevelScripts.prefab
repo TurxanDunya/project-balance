@@ -114,7 +114,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformObj: {fileID: 0}
   coinPrefab: {fileID: 8962746816404994585, guid: 699af29bfe3e343f8a0de8b658628f52, type: 3}
-  gapWithPlatformY: -0.31
+  gapWithPlatformY: 0.06
+  gapFromPlatformEdge: 0.01
   coinChance: 5
 --- !u!114 &2027564487013944566
 MonoBehaviour:
@@ -274,10 +275,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ab79238320e4b44aa2aa45587fb68d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubes:
-  - cubeCount: 10
+  cubeCountDataByMaterialTypeList:
+  - cubeCount: 5
     cubeMaterialType: 0
-  reqem: 1
 --- !u!1 &5510904409009977195
 GameObject:
   m_ObjectHideFlags: 0
