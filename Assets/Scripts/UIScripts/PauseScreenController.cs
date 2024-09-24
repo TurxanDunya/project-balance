@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class PauseScreenController : MonoBehaviour
@@ -16,6 +17,7 @@ public class PauseScreenController : MonoBehaviour
     private VisualElement buttonsLineVE;
     private VisualElement soundControlVE;
     private VisualElement resumeVE;
+    private VisualElement restartVE;
     private VisualElement musicControlVE;
 
     private Button homeButton;
@@ -29,6 +31,7 @@ public class PauseScreenController : MonoBehaviour
     private Button soundOffBtn;
     private Button musicUnmuteBtn;
     private Button resumeBtn;
+    private Button restartBtn;
     private Button musicMuteBtn;
 
     void Start()
@@ -44,6 +47,7 @@ public class PauseScreenController : MonoBehaviour
         buttonsLineVE = pausePopUpVE.Q<VisualElement>("buttons_line_ve");
         soundControlVE = buttonsLineVE.Q<VisualElement>("sound_control_ve");
         resumeVE = pausePopUpVE.Q<VisualElement>("resume_ve");
+        restartVE = pausePopUpVE.Q<VisualElement>("restart_ve");
         musicControlVE = buttonsLineVE.Q<VisualElement>("music_control_ve");
 
         soundOnVE = soundControlVE.Q<VisualElement>("sound_on_ve");
@@ -64,6 +68,9 @@ public class PauseScreenController : MonoBehaviour
 
         resumeBtn = resumeVE.Q<Button>("resume_btn");
         resumeBtn.clicked += () => ChangeStateToResume();
+
+        restartBtn = restartVE.Q<Button>("restart_btn");
+        restartBtn.clicked += () => ReloadLevel();
 
         DefineSoundButtonsState();
 
@@ -118,6 +125,13 @@ public class PauseScreenController : MonoBehaviour
     private void ChangeStateToResume()
     {
         stateChanger.ChangeStateToResume();
+    }
+
+    private void ReloadLevel()
+    {
+        LevelManager.INSTANCE.levelManagment.levelList.lastPlayedLevelName =
+            SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(LevelNameConstants.START_LOAD_SCREEN);
     }
 
     private void MakeSoundOn()
