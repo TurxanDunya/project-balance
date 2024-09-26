@@ -4,7 +4,6 @@ using UnityEngine;
 public class LineRendererAnimator : MonoBehaviour
 {
     [SerializeField] private float animationDuration = 0.3f;
-    [HideInInspector] public bool isAnimateToDownCoroutineFinished = false;
 
     private LineRenderer lineRenderer;
     private Gradient gradient;
@@ -17,22 +16,6 @@ public class LineRendererAnimator : MonoBehaviour
         gradient = new Gradient();
 
         SetGradient();
-    }
-
-    public IEnumerator AnimateToDown(Vector3 startPosition, Vector3 endPosition)
-    {
-        float startTime = Time.time;
-
-        Vector3 currentPosition = startPosition;
-        while (currentPosition != endPosition)
-        {
-            float lerpTime = (Time.time - startTime) / animationDuration;
-            currentPosition = Vector3.Lerp(startPosition, endPosition, lerpTime);
-            lineRenderer.SetPosition(1, currentPosition);
-            yield return null;
-        }
-
-        isAnimateToDownCoroutineFinished = true;
     }
 
     private void SetGradient()

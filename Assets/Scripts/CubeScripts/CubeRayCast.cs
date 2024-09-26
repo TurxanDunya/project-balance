@@ -43,11 +43,6 @@ public class CubeRayCast : MonoBehaviour
         {
             lineRenderer.enabled = true;
 
-            if (!lineRendererAnimator.isAnimateToDownCoroutineFinished)
-            {
-                StartCoroutine(lineRendererAnimator.AnimateToDown(transform.position, hit.point));
-            }
-
             lineRenderer.SetPosition(0, transform.position);
             lineRenderer.SetPosition(1, hit.point);
         }
