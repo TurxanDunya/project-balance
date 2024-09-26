@@ -5,12 +5,10 @@ public class CubeRayCast : MonoBehaviour
     public float raycastDistance = 50f;
 
     private LineRenderer lineRenderer;
-    private LineRendererAnimator lineRendererAnimator;
 
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
-        lineRendererAnimator = GetComponent<LineRendererAnimator>();
     }
 
     public bool IsHittingPlatform()
