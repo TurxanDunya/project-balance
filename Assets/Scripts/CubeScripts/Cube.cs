@@ -10,10 +10,12 @@ public class Cube : MonoBehaviour
     private void Start()
     {
         soundSystem = GetComponent<SoundSystem>();
+        GetComponent<Rigidbody>().isKinematic = true;
     }
 
     public void Release()
     {
+        GetComponent<Rigidbody>().isKinematic = false;
         GetComponent<Rigidbody>().useGravity = true;
 
         Destroy(GetComponent<CubeMovement>());
