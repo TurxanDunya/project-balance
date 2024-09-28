@@ -22,6 +22,7 @@ public class CoinCollider : MonoBehaviour
         else
         {
             coinSpawnManager.RemoveCurrentCoin();
+            coinSpawnManager.SpawnCoin();
         }
     }
 

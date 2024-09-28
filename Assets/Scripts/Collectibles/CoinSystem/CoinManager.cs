@@ -5,12 +5,14 @@ public class CoinManager : MonoBehaviour
     public delegate void CoinCountChangeEvent(long coinCount);
     public event CoinCountChangeEvent OnCoinCountChangeEvent;
 
+    private AudioSource coinPickUpSfx;
     private CoinSaveSystem coinSaveSystem;
 
     private long currentCoinCount = 0;
 
     private void Awake()
     {
+        coinPickUpSfx = GetComponent<AudioSource>();
         coinSaveSystem = GetComponent<CoinSaveSystem>();
         currentCoinCount = coinSaveSystem.GetCurrentCoinCount();
     }
@@ -22,6 +24,7 @@ public class CoinManager : MonoBehaviour
 
     public void AddCoin(long addCount)
     {
+        coinPickUpSfx.Play();
         currentCoinCount += addCount;
         coinSaveSystem.AddCoinAndSave(addCount);
 
