@@ -129,9 +129,7 @@ public class PauseScreenController : MonoBehaviour
 
     private void ReloadLevel()
     {
-        LevelManager.INSTANCE.levelManagment.levelList.lastPlayedLevelName =
-            SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(LevelNameConstants.START_LOAD_SCREEN);
+        stateChanger.ChangeStateToHome();
     }
 
     private void MakeSoundOn()

@@ -12,6 +12,11 @@ public class SoundSystem : MonoBehaviour
         fallSFXPlayer = GetComponent<AudioSource>();
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        MakeSound(collision);
+    }
+
     public void MakeSound(Collision collision)
     {
         bool isThisPlayableCube = CompareTag(TagConstants.PLAYABLE_CUBE);
@@ -28,7 +33,6 @@ public class SoundSystem : MonoBehaviour
             PlayFallSfx();
 
             tag = TagConstants.DROPPED_CUBE;
-            return;
         }
         else if (isThisDroppedCube && isOtherMainPlatform)
         {
@@ -36,7 +40,6 @@ public class SoundSystem : MonoBehaviour
             fallSFXPlayer.clip = platformCollisionSounds[soundIndex];
             fallSFXPlayer.volume = 0.1f;
             PlayFallSfx();
-            return;
         }
 
         if (isThisPlayableCube && isOtherDroppedCube)
@@ -46,7 +49,6 @@ public class SoundSystem : MonoBehaviour
             PlayFallSfx();
 
             tag = TagConstants.DROPPED_CUBE;
-            return;
         }
 
         if (isThisDroppedCube && isOtherDroppedCube)
@@ -57,7 +59,6 @@ public class SoundSystem : MonoBehaviour
             PlayFallSfx();
 
             tag = TagConstants.DROPPED_CUBE;
-            return;
         }
 
         if (isThisMagnet && isOtherMainPlatform)
@@ -65,7 +66,6 @@ public class SoundSystem : MonoBehaviour
             int soundIndex = Random.Range(0, platformCollisionSounds.Length);
             fallSFXPlayer.clip = platformCollisionSounds[soundIndex];
             PlayFallSfx();
-            return;
         }
     }
 

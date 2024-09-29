@@ -36,6 +36,11 @@ public class CoinSpawnManager : MonoBehaviour
             return;
         }
 
+        SpawnCoin();
+    }
+
+    public void SpawnCoin()
+    {
         DefineCoinSpawnPosition();
 
         currentInstantiatedCoin = Instantiate(

@@ -429,7 +429,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationDuration: 0.3
-  isAnimateToDownCoroutineFinished: 0
 --- !u!64 &2866865580184768144
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -467,7 +466,7 @@ MonoBehaviour:
   platformCollisionSounds:
   - {fileID: 8300000, guid: 5c1ff6c41e24643f8a0feb1d1e7e46f4, type: 3}
   droppedCubeCollisionSounds:
-  - {fileID: 8300000, guid: 3ba04c891c9e24c93badba6b6dd67aca, type: 3}
+  - {fileID: 8300000, guid: 5c1ff6c41e24643f8a0feb1d1e7e46f4, type: 3}
 --- !u!82 &7394392460580762291
 AudioSource:
   m_ObjectHideFlags: 0
