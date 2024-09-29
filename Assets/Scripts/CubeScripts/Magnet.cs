@@ -28,13 +28,11 @@ public class Magnet : MonoBehaviour
 
     private void OnEnable()
     {
-        CubeFallDetector.magnetDetect += DestroySelfPrefab;
         Platform.CubeLanded += UpdateAttractibleObjectList;
     }
 
     private void OnDisable()
     {
-        CubeFallDetector.magnetDetect -= DestroySelfPrefab;
         Platform.CubeLanded -= UpdateAttractibleObjectList;
     }
 
@@ -123,11 +121,6 @@ public class Magnet : MonoBehaviour
     private void RemoveLandedCubeFromAttractibles(GameObject newLandedCube)
     {
         attractibleObjects.Remove(newLandedCube);
-    }
-
-    private void DestroySelfPrefab()
-    {
-        Destroy(selfPrefab);
     }
 
 }

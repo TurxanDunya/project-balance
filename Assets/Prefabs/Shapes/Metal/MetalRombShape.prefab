@@ -167,7 +167,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationDuration: 0.3
-  isAnimateToDownCoroutineFinished: 0
 --- !u!120 &6835557020190211945
 LineRenderer:
   serializedVersion: 2
@@ -344,7 +343,7 @@ MonoBehaviour:
   platformCollisionSounds:
   - {fileID: 8300000, guid: 5c1ff6c41e24643f8a0feb1d1e7e46f4, type: 3}
   droppedCubeCollisionSounds:
-  - {fileID: 8300000, guid: 3ba04c891c9e24c93badba6b6dd67aca, type: 3}
+  - {fileID: 8300000, guid: 5c1ff6c41e24643f8a0feb1d1e7e46f4, type: 3}
 --- !u!82 &7674675967661219992
 AudioSource:
   m_ObjectHideFlags: 0

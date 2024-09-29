@@ -5,11 +5,8 @@ public class Cube : MonoBehaviour
     [SerializeField] private ParticleSystem rippleEffect;
     [SerializeField] private CubeData.CubeMaterialType cubeMaterialType;
 
-    private SoundSystem soundSystem;
-
     private void Start()
     {
-        soundSystem = GetComponent<SoundSystem>();
         GetComponent<Rigidbody>().isKinematic = true;
     }
 
@@ -59,7 +56,6 @@ public class Cube : MonoBehaviour
             PlayParticleEffect();
         }
 
-        soundSystem.MakeSound(collision);
         tag = TagConstants.DROPPED_CUBE;
     }
 
