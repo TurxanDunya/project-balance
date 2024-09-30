@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class AboutUsController : MonoBehaviour
+public class AboutUsController : MonoBehaviour, IControllerTemplate
 {
     [SerializeField] private StateChanger stateChanger;
 
@@ -157,6 +157,21 @@ public class AboutUsController : MonoBehaviour
     private void GoToMemberTwoXAccount()
     {
         Application.OpenURL("https://x.com/TurxanDunya");
+    }
+
+    public void SetDisplayFlex()
+    {
+        rootVE.style.display = DisplayStyle.Flex;
+    }
+
+    public void SetDisplayNone()
+    {
+        rootVE.style.display = DisplayStyle.None;
+    }
+
+    public bool IsOverUI()
+    {
+        return rootVE.style.display == DisplayStyle.Flex;
     }
 
 }

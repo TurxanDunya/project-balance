@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class CoinController : MonoBehaviour
+public class CoinController : MonoBehaviour, IControllerTemplate
 {
     private CoinManager coinManager;
 
@@ -37,6 +37,21 @@ public class CoinController : MonoBehaviour
     private void UpdateInGameCoinValue(long cointCount)
     {
         coinCountLabel.text = cointCount.ToString();
+    }
+
+    public void SetDisplayFlex()
+    {
+        rootElement.style.display = DisplayStyle.Flex;
+    }
+
+    public void SetDisplayNone()
+    {
+        rootElement.style.display = DisplayStyle.None;
+    }
+
+    public bool IsOverUI()
+    {
+        return rootElement.style.display == DisplayStyle.Flex;
     }
 
 }

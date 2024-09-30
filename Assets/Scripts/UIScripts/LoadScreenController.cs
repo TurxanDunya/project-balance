@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 
-public class LoadScreenController : MonoBehaviour, AdsEventCallback
+public class LoadScreenController : MonoBehaviour, AdsEventCallback, IControllerTemplate
 {
     [SerializeField] private float fadeSpeed = 1f;
 
@@ -83,6 +83,21 @@ public class LoadScreenController : MonoBehaviour, AdsEventCallback
     public void OnRewardedAdsClose()
     {
        
+    }
+
+    public void SetDisplayFlex()
+    {
+        rootVE.style.display = DisplayStyle.Flex;
+    }
+
+    public void SetDisplayNone()
+    {
+        rootVE.style.display = DisplayStyle.None;
+    }
+
+    public bool IsOverUI()
+    {
+        return rootVE.style.display == DisplayStyle.Flex;
     }
 
 }

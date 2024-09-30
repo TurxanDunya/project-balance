@@ -2,17 +2,34 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[DefaultExecutionOrder(1)]
 public class StateChanger : MonoBehaviour
 {
-    [SerializeField] private GameObject gameUI;
-    [SerializeField] private GameObject inGameUI;
-    [SerializeField] private GameObject homeScreenUI;
-    [SerializeField] private GameObject pauseScreenUI;
-    [SerializeField] private GameObject gameOverUI;
-    [SerializeField] private GameObject winnerUI;
-    [SerializeField] private GameObject levelMenuUI;
-    [SerializeField] private GameObject settingsUI;
-    [SerializeField] private GameObject aboutUsUI;
+    [SerializeField] private GameUIController starUI;
+    [SerializeField] private InGameUIController inGameUI;
+    [SerializeField] private HomeScreenController homeScreenUI;
+    [SerializeField] private PauseScreenController pauseScreenUI;
+    [SerializeField] private GameUIController gameOverUI;
+    [SerializeField] private GameUIController winnerUI;
+    [SerializeField] private LevelsSceneController levelMenuUI;
+    [SerializeField] private SettingsUIController settingsUI;
+    [SerializeField] private AboutUsController aboutUsUI;
+    [SerializeField] private CoinController coinUI;
+
+    private void Start()
+    {
+        starUI.SetLevelStarDisplayNone();
+        inGameUI.SetDisplayNone();
+        pauseScreenUI.SetDisplayNone();
+        gameOverUI.SetGameOverDisplayNone();
+        winnerUI.SetWinnerDisplayNone();
+        levelMenuUI.SetDisplayNone();
+        settingsUI.SetDisplayNone();
+        aboutUsUI.SetDisplayNone();
+
+        coinUI.SetDisplayFlex();
+        homeScreenUI.SetDisplayFlex();
+    }
 
     public static event Action CheckTutorialsStatus;
 
@@ -20,12 +37,9 @@ public class StateChanger : MonoBehaviour
     {
         Time.timeScale = 1;
 
-        gameUI.SetActive(true);
-        inGameUI.SetActive(true);
+        starUI.SetLevelStarDisplayFlex();
+        inGameUI.SetDisplayFlex();
         
-        gameOverUI.SetActive(true);
-        winnerUI.SetActive(true);
-
         try
         {
             CheckTutorialsStatus?.Invoke();
@@ -35,11 +49,13 @@ public class StateChanger : MonoBehaviour
             // Just ignore error
         }
 
-        pauseScreenUI.SetActive(false);
-        homeScreenUI.SetActive(false);
-        levelMenuUI.SetActive(false);
-        settingsUI.SetActive(false);
-        aboutUsUI.SetActive(false);
+        gameOverUI.SetGameOverDisplayNone();
+        winnerUI.SetWinnerDisplayNone();
+        pauseScreenUI.SetDisplayNone();
+        homeScreenUI.SetDisplayNone();
+        levelMenuUI.SetDisplayNone();
+        settingsUI.SetDisplayNone();
+        aboutUsUI.SetDisplayNone();
     }
 
     public void ChangeStateToHome()
@@ -53,111 +69,106 @@ public class StateChanger : MonoBehaviour
     {
         Time.timeScale = 0;
 
-        gameUI.SetActive(false);
-        gameOverUI.SetActive(false);
-        winnerUI.SetActive(false);
-        homeScreenUI.SetActive(false);
-        levelMenuUI.SetActive(false);
-        settingsUI.SetActive(false);
-        aboutUsUI.SetActive(false);
+        starUI.SetLevelStarDisplayNone();
+        gameOverUI.SetGameOverDisplayNone();
+        winnerUI.SetWinnerDisplayNone();
+        homeScreenUI.SetDisplayNone();
+        levelMenuUI.SetDisplayNone();
+        settingsUI.SetDisplayNone();
+        aboutUsUI.SetDisplayNone();
+        inGameUI.SetDisplayNone();
 
-        inGameUI.GetComponent<InGameUIController>().SetDisplayNone();
-        pauseScreenUI.SetActive(true);
+        pauseScreenUI.SetDisplayFlex();
     }
 
     public void ChangeStateToResume()
     {
         Time.timeScale = 1;
 
-        homeScreenUI.SetActive(false);
-        levelMenuUI.SetActive(false);
-        settingsUI.SetActive(false);
-        aboutUsUI.SetActive(false);
+        homeScreenUI.SetDisplayNone();
+        levelMenuUI.SetDisplayNone();
+        settingsUI.SetDisplayNone();
+        aboutUsUI.SetDisplayNone();
+        pauseScreenUI.SetDisplayNone();
+        gameOverUI.SetGameOverDisplayNone();
+        winnerUI.SetGameOverDisplayNone();
 
-        gameUI.SetActive(true);
-        gameOverUI.SetActive(true);
-        winnerUI.SetActive(true);
-
-        pauseScreenUI.SetActive(false);
-        inGameUI.GetComponent<InGameUIController>().SetDisplayFlex();
+        starUI.SetLevelStarDisplayFlex();
+        inGameUI.SetDisplayFlex();
     }
 
     public void ChangeStateToLevelMenu()
     {
         Time.timeScale = 0;
 
-        inGameUI.GetComponent<InGameUIController>().SetDisplayNone();
-        gameOverUI.SetActive(false);
-        winnerUI.SetActive(false);
-        homeScreenUI.SetActive(false);
-        pauseScreenUI.SetActive(false);
-        gameUI.SetActive(false);
-        settingsUI.SetActive(false);
-        aboutUsUI.SetActive(false);
+        inGameUI.SetDisplayNone();
+        gameOverUI.SetGameOverDisplayNone();
+        winnerUI.SetWinnerDisplayNone();
+        homeScreenUI.SetDisplayNone();
+        pauseScreenUI.SetDisplayNone();
+        starUI.SetLevelStarDisplayNone();
+        settingsUI.SetDisplayNone();
+        aboutUsUI.SetDisplayNone();
 
-        levelMenuUI.SetActive(true);
+        levelMenuUI.SetDisplayFlex();
     }
 
     public void HideLevelMenu()
     {
         Time.timeScale = 1;
 
-        gameOverUI.SetActive(false);
-        winnerUI.SetActive(false);
-        homeScreenUI.SetActive(false);
-        pauseScreenUI.SetActive(false);
-        settingsUI.SetActive(false);
-        aboutUsUI.SetActive(false);
-        gameUI.SetActive(false);
+        gameOverUI.SetGameOverDisplayNone();
+        winnerUI.SetWinnerDisplayNone();
+        homeScreenUI.SetDisplayNone();
+        pauseScreenUI.SetDisplayNone();
+        settingsUI.SetDisplayNone();
+        aboutUsUI.SetDisplayNone();
+        starUI.SetLevelStarDisplayNone();
+        levelMenuUI.SetDisplayNone();
 
-        inGameUI.GetComponent<InGameUIController>().SetDisplayFlex();
-
-        levelMenuUI.SetActive(false);
+        inGameUI.SetDisplayFlex();
     }
 
     public void ChangeStateFromMainUIToSettingsUI()
     {
-        gameUI.SetActive(false);
-        inGameUI.SetActive(false);
-        pauseScreenUI.SetActive(false);
-        gameOverUI.SetActive(false);
-        winnerUI.SetActive(false);
-        levelMenuUI.SetActive(false);
-        homeScreenUI.SetActive(false);
-        aboutUsUI.SetActive(false);
+        starUI.SetLevelStarDisplayNone();
+        inGameUI.SetDisplayNone();
+        pauseScreenUI.SetDisplayNone();
+        gameOverUI.SetGameOverDisplayNone();
+        winnerUI.SetGameOverDisplayNone();
+        levelMenuUI.SetDisplayNone();
+        homeScreenUI.SetDisplayNone();
+        aboutUsUI.SetDisplayNone();
 
-        settingsUI.SetActive(true);
-        settingsUI.GetComponent<SettingsUIController>().MakeBindings();
+        settingsUI.SetDisplayFlex();
     }
 
     public void ChangeStateToMainUIWithoutLoadPage()
     {
-        gameUI.SetActive(false);
-        inGameUI.SetActive(false);
-        pauseScreenUI.SetActive(false);
-        gameOverUI.SetActive(false);
-        winnerUI.SetActive(false);
-        levelMenuUI.SetActive(false);
-        settingsUI.SetActive(false);
-        aboutUsUI.SetActive(false);
+        starUI.SetLevelStarDisplayNone();
+        inGameUI.SetDisplayNone();
+        pauseScreenUI.SetDisplayNone();
+        gameOverUI.SetGameOverDisplayNone();
+        winnerUI.SetWinnerDisplayNone();
+        levelMenuUI.SetDisplayNone();
+        settingsUI.SetDisplayNone();
+        aboutUsUI.SetDisplayNone();
 
-        homeScreenUI.SetActive(true);
-        homeScreenUI.GetComponent<HomeScreenController>().MakeBindings();
+        homeScreenUI.SetDisplayFlex();
     }
 
     public void ShowAboutUsUI()
     {
-        gameUI.SetActive(false);
-        inGameUI.SetActive(false);
-        pauseScreenUI.SetActive(false);
-        gameOverUI.SetActive(false);
-        winnerUI.SetActive(false);
-        levelMenuUI.SetActive(false);
-        settingsUI.SetActive(false);
-        homeScreenUI.SetActive(false);
+        starUI.SetLevelStarDisplayNone();
+        inGameUI.SetDisplayNone();
+        pauseScreenUI.SetDisplayNone();
+        gameOverUI.SetGameOverDisplayNone();
+        winnerUI.SetWinnerDisplayNone();
+        levelMenuUI.SetDisplayNone();
+        settingsUI.SetDisplayNone();
+        homeScreenUI.SetDisplayNone();
 
-        aboutUsUI.SetActive(true);
-        aboutUsUI.GetComponent<AboutUsController>().MakeBindings();
+        aboutUsUI.SetDisplayFlex();
     }
 
 }

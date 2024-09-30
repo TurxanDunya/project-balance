@@ -65,17 +65,22 @@ public class InputManager : MonoBehaviour
     {
         Vector2 touchPosition = touchContext.ReadValue<Vector2>();
 
+        if (!uIButtonsTemplate)
+        {
+            isOverUI = true;
+            return;
+        }
+
         if (uIButtonsTemplate.IsOverlappingAnyUI(touchPosition))
         {
             isOverUI = true;
         }
         else
         {
-           HapticFeedback.HeavyFeedback();
+            HapticFeedback.HeavyFeedback();
            isOverUI = false;
-            
         }
-    }
+}
 
     private void EndTouch()
     {

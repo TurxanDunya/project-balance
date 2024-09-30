@@ -13,46 +13,42 @@ public class UIButtonsTemplate : MonoBehaviour
 
     public bool IsOverlappingAnyUI(Vector2 touchPosition)
     {
-        if (inGameUIController &&
-            inGameUIController.isActiveAndEnabled &&
-            inGameUIController.IsOverUI(touchPosition))
+        if (inGameUIController && inGameUIController.IsOverUI(touchPosition))
         {
             return true;
         }
 
-        if (tutorialController && tutorialController.isActiveAndEnabled)
+        if (tutorialController && tutorialController.IsOverUI())
         {
             return true;
         }
 
-        if (homeScreenController && homeScreenController.isActiveAndEnabled)
+        if (gameUIController && gameUIController.IsOverUI())
         {
             return true;
         }
 
-        if (gameUIController &&
-            gameUIController.isActiveAndEnabled &&
-            gameUIController.IsOverUI())
+        if (homeScreenController && homeScreenController.IsOverUI())
         {
             return true;
         }
 
-        if (levelsSceneController && levelsSceneController.isActiveAndEnabled)
+        if (levelsSceneController && levelsSceneController.IsOverUI())
         {
             return true;
         }
 
-        if (pauseScreenController && pauseScreenController.isActiveAndEnabled)
+        if (pauseScreenController && pauseScreenController.IsOverUI())
         {
             return true;
         }
 
-        if (aboutUsController && aboutUsController.isActiveAndEnabled)
+        if (aboutUsController && aboutUsController.IsOverUI())
         {
             return true;
         }
 
-        if (settingsUIController && settingsUIController.isActiveAndEnabled)
+        if (settingsUIController && settingsUIController.IsOverUI())
         {
             return true;
         }
