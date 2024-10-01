@@ -15,6 +15,7 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
     [SerializeField] private CoinManager coinManager;
 
     private CubeCounter cubeCounter;
+    private UIElementEnabler uiElementEnabler;
 
     private VisualElement rootElement;
 
@@ -39,6 +40,7 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
     private void Awake()
     {
         cubeCounter = FindAnyObjectByType<CubeCounter>();
+        uiElementEnabler = FindAnyObjectByType<UIElementEnabler>();
     }
 
     private void OnEnable()
@@ -79,6 +81,7 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         iceVE = leftCubesCountVE.Q<VisualElement>("ice_VE");
         iceCountLabel = iceVE.Q<Label>("ice_count_lbl");
 
+        DefineUIElementsVisibility();
         BindEventsWithFunctions();
         UpdatePowerUpIconStatusesByCoinCount(coinManager.CoinCount);
 
@@ -202,6 +205,102 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         if (isSuccess)
         {
             coinManager.SubtractCoin(PowerUpPriceConstants.BOMB);
+        }
+    }
+
+    private void DefineUIElementsVisibility()
+    {
+        ShouldShowFirstPowerUp(uiElementEnabler.isCubeChangerEnabled);
+        ShouldShowSecondPowerUp(uiElementEnabler.isTimerEnabled);
+        ShouldShowThirdPowerUp(uiElementEnabler.isMagnetEnabled);
+        ShouldShowFourthPowerUp(uiElementEnabler.isBombEnabled);
+
+        ShouldShowWoodCounter(uiElementEnabler.isWoodCubeEnabled);
+        ShouldShowMetalCounter(uiElementEnabler.isMetalCubeEnabled);
+        ShouldShowIceCounter(uiElementEnabler.isIceCubeEnabled);
+    }
+
+    private void ShouldShowFirstPowerUp(bool isVisible)
+    {
+        if (isVisible)
+        {
+            firstPowerUpButton.style.display = DisplayStyle.Flex;
+        }
+        else
+        {
+            firstPowerUpButton.style.display = DisplayStyle.None;
+        }
+    }
+
+    private void ShouldShowSecondPowerUp(bool isVisible)
+    {
+        if (isVisible)
+        {
+            secondPowerUpButton.style.display = DisplayStyle.Flex;
+        }
+        else
+        {
+            secondPowerUpButton.style.display = DisplayStyle.None;
+        }
+    }
+
+    private void ShouldShowThirdPowerUp(bool isVisible)
+    {
+        if (isVisible)
+        {
+            thirdPowerUpButton.style.display = DisplayStyle.Flex;
+        }
+        else
+        {
+            thirdPowerUpButton.style.display = DisplayStyle.None;
+        }
+    }
+
+    private void ShouldShowFourthPowerUp(bool isVisible)
+    {
+        if (isVisible)
+        {
+            fourthPowerUpButton.style.display = DisplayStyle.Flex;
+        }
+        else
+        {
+            fourthPowerUpButton.style.display = DisplayStyle.None;
+        }
+    }
+
+    private void ShouldShowWoodCounter(bool isVisible)
+    {
+        if (isVisible)
+        {
+            woodVE.style.display = DisplayStyle.Flex;
+        }
+        else
+        {
+            woodVE.style.display = DisplayStyle.None;
+        }
+    }
+
+    private void ShouldShowMetalCounter(bool isVisible)
+    {
+        if (isVisible)
+        {
+            metalVE.style.display = DisplayStyle.Flex;
+        }
+        else
+        {
+            metalVE.style.display = DisplayStyle.None;
+        }
+    }
+
+    private void ShouldShowIceCounter(bool isVisible)
+    {
+        if (isVisible)
+        {
+            iceVE.style.display = DisplayStyle.Flex;
+        }
+        else
+        {
+            iceVE.style.display = DisplayStyle.None;
         }
     }
 
