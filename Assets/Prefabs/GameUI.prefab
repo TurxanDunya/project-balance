@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8681164093472688090
 Transform:
   m_ObjectHideFlags: 0
@@ -164,7 +164,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6295839369286795132
 Transform:
   m_ObjectHideFlags: 0
@@ -226,7 +226,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8675650657165836562
 Transform:
   m_ObjectHideFlags: 0
@@ -287,7 +287,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2341419557921409428
 Transform:
   m_ObjectHideFlags: 0
@@ -336,7 +336,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5864729361865885754
 Transform:
   m_ObjectHideFlags: 0
@@ -451,7 +451,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4512766686670214807
 Transform:
   m_ObjectHideFlags: 0
@@ -511,7 +511,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5320259708045471241
 Transform:
   m_ObjectHideFlags: 0
@@ -555,7 +555,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1845998657033733588
 Transform:
   m_ObjectHideFlags: 0
@@ -666,7 +666,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2042761371791577540
 Transform:
   m_ObjectHideFlags: 0
@@ -775,12 +775,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59d7760749f242f1844a46612d0b0ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameUI: {fileID: 6973379358230488474}
-  inGameUI: {fileID: 235646756320863911}
-  homeScreenUI: {fileID: 331211012847983943}
-  pauseScreenUI: {fileID: 471164949728130507}
-  gameOverUI: {fileID: 5715331772997791880}
-  winnerUI: {fileID: 2299487983283890040}
-  levelMenuUI: {fileID: 2351172957620347398}
-  settingsUI: {fileID: 4206477802807428289}
-  aboutUsUI: {fileID: 933027444706891834}
+  starUI: {fileID: 231312923564456866}
+  inGameUI: {fileID: 4201346298903201681}
+  homeScreenUI: {fileID: 1901870133191469171}
+  pauseScreenUI: {fileID: 7830707259022999204}
+  gameOverUI: {fileID: 231312923564456866}
+  winnerUI: {fileID: 231312923564456866}
+  levelMenuUI: {fileID: 6936001421119730849}
+  settingsUI: {fileID: 4439974479573489929}
+  aboutUsUI: {fileID: 9183529347513530654}
+  coinUI: {fileID: 7890366589865422788}

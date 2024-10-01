@@ -25,6 +25,10 @@ public class CubeCounter : MonoBehaviour
 
     private void Awake() {
         DefineCubeCounts();
+    }
+
+    private void Start()
+    {
         OnUpdateCubeCount?.Invoke(WoodCount, MetalCount, IceCount, RockCount);
         OnCanReplaceCubeEvent?.Invoke(IsCubeExistOnDifferentTypes());
     }

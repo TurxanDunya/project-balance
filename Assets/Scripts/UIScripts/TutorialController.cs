@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class TutorialController : MonoBehaviour
+public class TutorialController : MonoBehaviour, IControllerTemplate
 {
     private static readonly ILogger logger = Debug.unityLogger;
 
@@ -146,6 +146,21 @@ public class TutorialController : MonoBehaviour
 
         rootElement.style.display = DisplayStyle.None;
         Destroy(tutorial);
+    }
+
+    public void SetDisplayFlex()
+    {
+        rootElement.style.display = DisplayStyle.Flex;
+    }
+
+    public void SetDisplayNone()
+    {
+        rootElement.style.display = DisplayStyle.None;
+    }
+
+    public bool IsOverUI()
+    {
+        return rootElement.style.display == DisplayStyle.Flex;
     }
 
 }

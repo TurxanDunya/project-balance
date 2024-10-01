@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 
-public class InGameUIController : MonoBehaviour
+public class InGameUIController : MonoBehaviour, IControllerTemplate
 {
     [Header("Dependant controllers")]
     [SerializeField] private PauseScreenController pauseScreenController;
@@ -91,16 +91,6 @@ public class InGameUIController : MonoBehaviour
         UpdateFirstPowerUpIconStatus(cubeCounter.IsCubeExistOnDifferentTypes());
 
         SafeArea.ApplySafeArea(rootElement);
-    }
-
-    public void SetDisplayFlex()
-    {
-        rootElement.style.display = DisplayStyle.Flex;
-    }
-
-    public void SetDisplayNone()
-    {
-        rootElement.style.display = DisplayStyle.None;
     }
 
     public bool IsOverUI(Vector2 touchPosition)
@@ -293,4 +283,21 @@ public class InGameUIController : MonoBehaviour
         thirdPowerUpButton.style.opacity = 0.2f;
         thirdPowerUpButton.SetEnabled(false);
     }
+
+    public void SetDisplayFlex()
+    {
+        rootElement.style.display = DisplayStyle.Flex;
+    }
+
+    public void SetDisplayNone()
+    {
+        rootElement.style.display = DisplayStyle.None;
+    }
+
+    public bool IsOverUI()
+    {
+        // Already implemented another way, use another one
+        return true;
+    }
+
 }

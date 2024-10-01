@@ -1,8 +1,7 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-public class PauseScreenController : MonoBehaviour
+public class PauseScreenController : MonoBehaviour, IControllerTemplate
 {
     private static readonly ILogger logger = Debug.unityLogger;
 
@@ -158,6 +157,21 @@ public class PauseScreenController : MonoBehaviour
         musicPlayer.MuteMusic();
         musicUnmuteVE.style.display = DisplayStyle.None;
         musicMuteVE.style.display = DisplayStyle.Flex;
+    }
+
+    public void SetDisplayFlex()
+    {
+        rootElement.style.display = DisplayStyle.Flex;
+    }
+
+    public void SetDisplayNone()
+    {
+        rootElement.style.display = DisplayStyle.None;
+    }
+
+    public bool IsOverUI()
+    {
+        return rootElement.style.display == DisplayStyle.Flex;
     }
 
 }

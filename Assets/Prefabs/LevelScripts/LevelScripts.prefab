@@ -154,7 +154,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -4325905103595765412, guid: 5db2c097404e24dbfb1299303a8a5c31, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5c46a95cc194349f4bace3c67135ba86, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -505,6 +505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70844f9347559444080a147ef0fdbdca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiPrefab: {fileID: 0}
   gameUIController: {fileID: 0}
   countDownFromForWin: 5
 --- !u!114 &9029604983764929049

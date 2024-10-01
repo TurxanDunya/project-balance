@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-public class LevelsSceneController : MonoBehaviour
+public class LevelsSceneController : MonoBehaviour, IControllerTemplate
 {
     [SerializeField] private VisualTreeAsset levelItem;
     [SerializeField] private StateChanger stateChanger;
@@ -94,6 +94,21 @@ public class LevelsSceneController : MonoBehaviour
     private void HideLevelMenu()
     {
         stateChanger.HideLevelMenu();
+    }
+
+    public void SetDisplayFlex()
+    {
+        rootContainer.style.display = DisplayStyle.Flex;
+    }
+
+    public void SetDisplayNone()
+    {
+        rootContainer.style.display = DisplayStyle.None;
+    }
+
+    public bool IsOverUI()
+    {
+        return rootContainer.style.display == DisplayStyle.Flex;
     }
 
 }

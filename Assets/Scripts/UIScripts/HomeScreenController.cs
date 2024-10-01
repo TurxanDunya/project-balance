@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class HomeScreenController : MonoBehaviour, AdsEventCallback
+public class HomeScreenController : MonoBehaviour, AdsEventCallback, IControllerTemplate
 {
     [SerializeField] private StateChanger stateChanger;
 
@@ -124,4 +124,20 @@ public class HomeScreenController : MonoBehaviour, AdsEventCallback
     {
         //add coin here
     }
+
+    public void SetDisplayFlex()
+    {
+        rootElement.style.display = DisplayStyle.Flex;
+    }
+
+    public void SetDisplayNone()
+    {
+        rootElement.style.display = DisplayStyle.None;
+    }
+
+    public bool IsOverUI()
+    {
+        return rootElement.style.display == DisplayStyle.Flex;
+    }
+
 }

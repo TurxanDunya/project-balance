@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class GameCore : MonoBehaviour
 {
+    [SerializeField] private GameObject uiPrefab;
+
     [SerializeField] private GameUIController gameUIController;
     [SerializeField] private int countDownFromForWin;
 
@@ -17,6 +19,8 @@ public class GameCore : MonoBehaviour
     {
         timeLevelWinner = GetComponent<TimeLevelWinner>();
         cubeSpawnManagement = FindAnyObjectByType<CubeSpawnManagement>();
+
+        uiPrefab.SetActive(true);
     }
 
     private void OnEnable()

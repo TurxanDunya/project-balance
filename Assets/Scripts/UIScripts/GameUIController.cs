@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-public class GameUIController : MonoBehaviour
+public class GameUIController : MonoBehaviour, IControllerTemplate
 {
     private AngleCalculator angleCalculator;
 
@@ -245,6 +245,46 @@ public class GameUIController : MonoBehaviour
             starsVe2.style.opacity = 0.5f;
             starsVe3.style.opacity = 0.5f;
         }
+    }
+
+    public void SetGameOverDisplayFlex()
+    {
+        rootGameOver.style.display = DisplayStyle.Flex;
+    }
+
+    public void SetGameOverDisplayNone()
+    {
+        rootGameOver.style.display = DisplayStyle.None;
+    }
+
+    public void SetLevelStarDisplayFlex()
+    {
+        rootLevelStars.style.display = DisplayStyle.Flex;
+    }
+
+    public void SetLevelStarDisplayNone()
+    {
+        rootLevelStars.style.display = DisplayStyle.None;
+    }
+
+    public void SetWinnerDisplayFlex()
+    {
+        rootWinner.style.display = DisplayStyle.Flex;
+    }
+
+    public void SetWinnerDisplayNone()
+    {
+        rootWinner.style.display = DisplayStyle.None;
+    }
+
+    public void SetDisplayNone()
+    {
+        // Should be implemented when we refactor class
+    }
+
+    public void SetDisplayFlex()
+    {
+        // Should be implemented when we refactor class
     }
 
 }
