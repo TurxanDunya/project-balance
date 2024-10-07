@@ -205,7 +205,7 @@ Rigidbody:
   m_GameObject: {fileID: 6455784016782959165}
   serializedVersion: 4
   m_Mass: 0.3
-  m_Drag: 7
+  m_Drag: 0
   m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -383,7 +383,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thickness: 0
-  inverted: 0
   material: {fileID: 0}
   filter: -65535
   m_SourceCollider: {fileID: 1938925977049973329}
@@ -415,7 +414,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleEffect: {fileID: 0}
   cubeMaterialType: 1
-  fallSFXPlayer: {fileID: 2482244780212473831}
 --- !u!114 &2157119853688586906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,7 +427,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationDuration: 0.3
-  isAnimateToDownCoroutineFinished: 0
 --- !u!64 &1938925977049973329
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -560,8 +557,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 811fe86f0efe64490a04e3d976295cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startFadeInScale: {x: 0.01, y: 0.01, z: 0.01}
-  endFadeInScale: {x: 0, y: 0, z: 0}
-  endFadeOutScale: {x: 0.01, y: 0.01, z: 0.01}
-  fadeInAnimationDuration: 0.2
-  fadeOutAnimationDuration: 0.2
+  startSpawnScale: {x: 0.01, y: 0.01, z: 0.01}
+  startSpawnRotation: {x: 0, y: 220, z: 0}
+  spawnAnimationDuration: 0.2
+  endDestroyScale: {x: 0.01, y: 0.01, z: 0.01}
+  startDestoryRotation: {x: 0, y: -220, z: 0}
+  destroyAnimationDuration: 0.2
