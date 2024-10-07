@@ -206,7 +206,7 @@ Rigidbody:
   m_GameObject: {fileID: 7152317461909062366}
   serializedVersion: 4
   m_Mass: 0.75
-  m_Drag: 7
+  m_Drag: 0
   m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -383,10 +383,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thickness: 0
-  inverted: 0
+  thickness: 0.009
   material: {fileID: 0}
-  filter: -65535
+  filter: -65520
   m_SourceCollider: {fileID: 6826492118806640253}
   m_DistanceField: {fileID: 0}
 --- !u!114 &2075326975772988910

@@ -382,10 +382,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thickness: 0
-  inverted: 0
+  thickness: 0.009
   material: {fileID: 0}
-  filter: -65535
+  filter: -65520
   m_SourceCollider: {fileID: 4681251494279563762}
   m_DistanceField: {fileID: 0}
 --- !u!114 &6596238129897128713
