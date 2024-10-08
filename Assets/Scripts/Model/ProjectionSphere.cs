@@ -4,7 +4,6 @@ public class ProjectionSphere : MonoBehaviour
 {
     [SerializeField] private float radius = 0.2f;
     [SerializeField] private CubeRayCast raycast;
-    [SerializeField] private float gapWithPlatform = 0.05f;
 
     private void Start()
     {

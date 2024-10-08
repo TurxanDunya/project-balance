@@ -2,44 +2,51 @@ using UnityEngine;
 
 public class SoundSystem : MonoBehaviour
 {
+    [SerializeField] float volumeAfterDrop = 0.2f;
+
+    [SerializeField] AudioClip[] rollingSounds;
     [SerializeField] AudioClip[] platformCollisionSounds;
     [SerializeField] AudioClip[] droppedCubeCollisionSounds;
 
-    private AudioSource fallSFXPlayer;
+    private AudioSource sfxPlayer;
+    private Rigidbody rb;
 
     private void Start()
     {
-        fallSFXPlayer = GetComponent<AudioSource>();
+        sfxPlayer = GetComponent<AudioSource>();
+        rb = GetComponent<Rigidbody>();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        MakeSound(collision);
+        MakeInitialSound(collision);
     }
 
-    private Quaternion lastRotation;
-    private float rotationThreshold = 90f;
     private void OnCollisionStay(Collision collision)
+    {
+        MakeRollingSound(collision);
+    }
+
+    private float velocityThreshold = 0.3f;
+
+    public void MakeRollingSound(Collision collision)
     {
         bool isOtherMainPlatform = collision.collider.CompareTag(TagConstants.MAIN_PLATFORM);
 
-        float angleDifference = Quaternion.Angle(lastRotation, transform.rotation);
-
-        if (isOtherMainPlatform && angleDifference >= rotationThreshold)
+        if (isOtherMainPlatform && rb.velocity.magnitude >= velocityThreshold && !sfxPlayer.isPlaying)
         {
-            lastRotation = transform.rotation;
-
-            int soundIndex = Random.Range(0, platformCollisionSounds.Length);
-            fallSFXPlayer.clip = platformCollisionSounds[soundIndex];
-            fallSFXPlayer.volume = 0.1f;
-            PlayFallSfx();
+            Debug.Log("rb.velocity.magnitude: " + rb.velocity.magnitude);
+            PlaySfx(rollingSounds, volumeAfterDrop);
+        }
+        else if (rb.velocity.magnitude < velocityThreshold && sfxPlayer.isPlaying) // Confuses sounds
+        {
+            Debug.Log("Stopped");
+            sfxPlayer.Stop();
         }
     }
 
-    public void MakeSound(Collision collision)
+    public void MakeInitialSound(Collision collision)
     {
-        lastRotation = transform.rotation;
-
         bool isThisPlayableCube = CompareTag(TagConstants.PLAYABLE_CUBE);
         bool isThisMagnet = CompareTag(TagConstants.MAGNET);
         bool isThisDroppedCube = CompareTag(TagConstants.DROPPED_CUBE);
@@ -49,46 +56,37 @@ public class SoundSystem : MonoBehaviour
 
         if (isThisPlayableCube && isOtherMainPlatform)
         {
-            int soundIndex = Random.Range(0, platformCollisionSounds.Length);
-            fallSFXPlayer.clip = platformCollisionSounds[soundIndex];
-            PlayFallSfx();
+            PlaySfx(platformCollisionSounds, volumeAfterDrop);
         }
         else if (isThisDroppedCube && isOtherMainPlatform)
         {
-            int soundIndex = Random.Range(0, platformCollisionSounds.Length);
-            fallSFXPlayer.clip = platformCollisionSounds[soundIndex];
-            fallSFXPlayer.volume = 0.1f;
-            PlayFallSfx();
+            PlaySfx(platformCollisionSounds, volumeAfterDrop);
         }
 
         if (isThisPlayableCube && isOtherDroppedCube)
         {
-            int soundIndex = Random.Range(0, platformCollisionSounds.Length);
-            fallSFXPlayer.clip = platformCollisionSounds[soundIndex];
-            PlayFallSfx();
+            PlaySfx(platformCollisionSounds, 1.0f);
         }
 
         if (isThisDroppedCube && isOtherDroppedCube)
         {
-            int soundIndex = Random.Range(0, droppedCubeCollisionSounds.Length);
-            fallSFXPlayer.clip = droppedCubeCollisionSounds[soundIndex];
-            fallSFXPlayer.volume = 0.1f;
-            PlayFallSfx();
+            PlaySfx(droppedCubeCollisionSounds, volumeAfterDrop);
         }
 
         if (isThisMagnet && isOtherMainPlatform)
         {
-            int soundIndex = Random.Range(0, platformCollisionSounds.Length);
-            fallSFXPlayer.clip = platformCollisionSounds[soundIndex];
-            PlayFallSfx();
+            PlaySfx(platformCollisionSounds, 1.0f);
         }
 
         tag = TagConstants.DROPPED_CUBE;
     }
 
-    private void PlayFallSfx()
+    private void PlaySfx(AudioClip[] soundArray, float volume)
     {
-        fallSFXPlayer.Play();
+        int soundIndex = Random.Range(0, soundArray.Length);
+        sfxPlayer.clip = soundArray[soundIndex];
+        sfxPlayer.volume = volume;
+        sfxPlayer.Play();
     }
 
 }
