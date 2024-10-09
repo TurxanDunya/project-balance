@@ -15,7 +15,7 @@ public class Platform : MonoBehaviour
         foreach (ContactPoint contact in collision.contacts)
         {
             Collider colliderHit = contact.thisCollider;
-            if (colliderHit is MeshCollider)
+            if (colliderHit is MeshCollider || colliderHit is BoxCollider)
             {
                 if (collision.gameObject.CompareTag(TagConstants.PLAYABLE_CUBE)
                     || collision.gameObject.CompareTag(TagConstants.DROPPED_CUBE)
