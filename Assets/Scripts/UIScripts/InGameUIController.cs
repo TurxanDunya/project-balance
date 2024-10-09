@@ -316,9 +316,9 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
 
     private void UpdateCubeCounts(int woodCount, int metalCount, int iceCount, int rockCount)
     {
-        //woodCountLabel.text = woodCount.ToString();
-        //metalCountLabel.text = metalCount.ToString();
-        //iceCountLabel.text = iceCount.ToString();
+        woodCountLabel.text = woodCount.ToString();
+        metalCountLabel.text = metalCount.ToString();
+        iceCountLabel.text = iceCount.ToString();
     }
 
     private void UpdatePowerUpIconStatusesByCoinCount(long coinCount)
@@ -367,13 +367,13 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
     {
         if (shouldEnabled)
         {
-            //firstPowerUpButton.style.opacity = 1.0f;
-            //firstPowerUpButton.SetEnabled(true);
+            firstPowerUpButton.style.opacity = 1.0f;
+            firstPowerUpButton.SetEnabled(true);
         }
         else
         {
-            //firstPowerUpButton.style.opacity = 0.5f;
-            //firstPowerUpButton.SetEnabled(false);
+            firstPowerUpButton.style.opacity = 0.5f;
+            firstPowerUpButton.SetEnabled(false);
         }
     }
 
