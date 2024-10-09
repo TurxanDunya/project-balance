@@ -12,17 +12,14 @@ public class Platform : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        foreach (ContactPoint contact in collision.contacts)
+        Collider collider = collision.collider;
+        if (collider is MeshCollider || collider is BoxCollider)
         {
-            Collider colliderHit = contact.thisCollider;
-            if (colliderHit is MeshCollider || colliderHit is BoxCollider)
+            if (collision.gameObject.CompareTag(TagConstants.PLAYABLE_CUBE)
+                || collision.gameObject.CompareTag(TagConstants.DROPPED_CUBE)
+                || collision.gameObject.CompareTag(TagConstants.MAGNET))
             {
-                if (collision.gameObject.CompareTag(TagConstants.PLAYABLE_CUBE)
-                    || collision.gameObject.CompareTag(TagConstants.DROPPED_CUBE)
-                    || collision.gameObject.CompareTag(TagConstants.MAGNET))
-                {
-                    CubeLanded?.Invoke();
-                }
+                CubeLanded?.Invoke();
             }
         }
     }
