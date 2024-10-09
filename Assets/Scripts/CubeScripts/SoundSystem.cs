@@ -2,7 +2,10 @@ using UnityEngine;
 
 public class SoundSystem : MonoBehaviour
 {
-    [SerializeField] float volumeAfterDrop = 0.2f;
+    [Header("After drop properties")]
+    [SerializeField] float volumeAfterDrop = 0.1f;
+    private readonly float velocityThreshold = 0.1f;
+    private readonly float angularVelocityThreshold = 5f;
 
     [SerializeField] AudioClip[] rollingSounds;
     [SerializeField] AudioClip[] platformCollisionSounds;
@@ -19,7 +22,7 @@ public class SoundSystem : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        MakeInitialSound(collision);
+        MakeInstantSound(collision);
     }
 
     private void OnCollisionStay(Collision collision)
@@ -27,25 +30,30 @@ public class SoundSystem : MonoBehaviour
         MakeRollingSound(collision);
     }
 
-    private float velocityThreshold = 0.3f;
-
+    bool isPlayingRollingSound = false;
     public void MakeRollingSound(Collision collision)
     {
         bool isOtherMainPlatform = collision.collider.CompareTag(TagConstants.MAIN_PLATFORM);
 
-        if (isOtherMainPlatform && rb.velocity.magnitude >= velocityThreshold && !sfxPlayer.isPlaying)
+        if (isOtherMainPlatform
+            && rb.velocity.magnitude >= velocityThreshold
+            && rb.angularVelocity.magnitude >= angularVelocityThreshold
+            && !sfxPlayer.isPlaying)
         {
-            Debug.Log("rb.velocity.magnitude: " + rb.velocity.magnitude);
+            isPlayingRollingSound = true;
             PlaySfx(rollingSounds, volumeAfterDrop);
         }
-        else if (rb.velocity.magnitude < velocityThreshold && sfxPlayer.isPlaying) // Confuses sounds
+        else if (rb.velocity.magnitude <= velocityThreshold
+            && rb.angularVelocity.magnitude <= angularVelocityThreshold
+            && sfxPlayer.isPlaying
+            && isPlayingRollingSound)
         {
-            Debug.Log("Stopped");
             sfxPlayer.Stop();
+            isPlayingRollingSound = false;
         }
     }
 
-    public void MakeInitialSound(Collision collision)
+    public void MakeInstantSound(Collision collision)
     {
         bool isThisPlayableCube = CompareTag(TagConstants.PLAYABLE_CUBE);
         bool isThisMagnet = CompareTag(TagConstants.MAGNET);
