@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class LineRendererAnimator : MonoBehaviour
 {
-    [SerializeField] private float animationDuration = 0.3f;
-
     private LineRenderer lineRenderer;
     private Gradient gradient;
 

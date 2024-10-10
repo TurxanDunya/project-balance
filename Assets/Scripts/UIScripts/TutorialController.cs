@@ -7,7 +7,7 @@ public class TutorialController : MonoBehaviour, IControllerTemplate
     private static readonly ILogger logger = Debug.unityLogger;
 
     [SerializeField] private GameObject[] tutorials;
-    [SerializeField] private GameObject levelSpecificObjectSelf;
+    [SerializeField] private GameObject rootTutorialObject;
 
     private TutorialSaveSystem tutorialSaveSystem;
 
@@ -32,7 +32,7 @@ public class TutorialController : MonoBehaviour, IControllerTemplate
         if (tutorials == null || tutorials.Length == 0)
         {
             logger.Log(LogType.Log, "There is no any tutorial to show!");
-            Destroy(levelSpecificObjectSelf);
+            Destroy(rootTutorialObject);
             return;
         }
 
@@ -70,7 +70,7 @@ public class TutorialController : MonoBehaviour, IControllerTemplate
             }
         }
 
-        Destroy(levelSpecificObjectSelf);
+        Destroy(rootTutorialObject);
     }
 
     private bool CheckTutorialWatchedOrShow(GameObject tutorial)

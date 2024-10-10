@@ -136,6 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thickness: 0.009
+  inverted: 0
   material: {fileID: 0}
   filter: -65520
   m_SourceCollider: {fileID: 2656358290562940117}
@@ -339,6 +340,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ee8c3e2270f34af0a233caf40bcf141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  volumeAfterDrop: 0.2
+  rollingSounds:
+  - {fileID: 8300000, guid: bd13df47cd33749b3888b24e75cb5973, type: 3}
   platformCollisionSounds:
   - {fileID: 8300000, guid: d6705983969e34a9fb5698f63ba841c1, type: 3}
   - {fileID: 8300000, guid: bd13df47cd33749b3888b24e75cb5973, type: 3}

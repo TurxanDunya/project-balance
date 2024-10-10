@@ -27,12 +27,6 @@ public class CubeCounter : MonoBehaviour
         DefineCubeCounts();
     }
 
-    private void Start()
-    {
-        OnUpdateCubeCount?.Invoke(WoodCount, MetalCount, IceCount, RockCount);
-        OnCanReplaceCubeEvent?.Invoke(IsCubeExistOnDifferentTypes());
-    }
-
     public CubeData.CubeMaterialType? GetAvailableCube()
     {
         if (totalCubeCount <= 0)
