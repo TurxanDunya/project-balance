@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9107862557411337938}
   - component: {fileID: 1513616887853925798}
-  - component: {fileID: 7864387217507394049}
+  - component: {fileID: 2477244730148830103}
   m_Layer: 0
   m_Name: Obi Solver
   m_TagString: Untagged
@@ -145,7 +145,7 @@ MonoBehaviour:
     iterations: 1
     SORFactor: 1
     enabled: 0
---- !u!114 &7864387217507394049
+--- !u!114 &2477244730148830103
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
