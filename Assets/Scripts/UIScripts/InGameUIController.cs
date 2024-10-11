@@ -29,6 +29,7 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
     private Button pauseButton;
     private Button levelsButton;
 
+    // left pane icons
     private VisualElement leftCubesCountVE;
     private VisualElement woodVE;
     private Label woodCountLabel;
@@ -36,6 +37,10 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
     private Label metalCountLabel;
     private VisualElement iceVE;
     private Label iceCountLabel;
+
+    // right pane icons
+    private VisualElement rightVE;
+    private VisualElement ghostCubeVE;
    
     private void Awake()
     {
@@ -80,6 +85,9 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         metalCountLabel = metalVE.Q<Label>("metal_count_lbl");
         iceVE = leftCubesCountVE.Q<VisualElement>("ice_VE");
         iceCountLabel = iceVE.Q<Label>("ice_count_lbl");
+
+        rightVE = rootElement.Q<VisualElement>("right_ve");
+        ghostCubeVE = rightVE.Q<VisualElement>("ghost_cube_ve");
 
         DefineUIElementsVisibility();
         BindEventsWithFunctions();
@@ -218,6 +226,8 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         ShouldShowWoodCounter(uiElementEnabler.isWoodCubeEnabled);
         ShouldShowMetalCounter(uiElementEnabler.isMetalCubeEnabled);
         ShouldShowIceCounter(uiElementEnabler.isIceCubeEnabled);
+
+        ShouldShowGhostMode(uiElementEnabler.isGhostModeEnabled);
     }
 
     private void ShouldShowFirstPowerUp(bool isVisible)
@@ -301,6 +311,19 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         else
         {
             iceVE.style.display = DisplayStyle.None;
+        }
+    }
+
+    private void ShouldShowGhostMode(bool isVisible)
+    {
+        Debug.Log("is:" + isVisible);
+        if (isVisible)
+        {
+            ghostCubeVE.style.display = DisplayStyle.Flex;
+        }
+        else
+        {
+            ghostCubeVE.style.display = DisplayStyle.None;
         }
     }
 

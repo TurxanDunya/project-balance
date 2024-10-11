@@ -134,6 +134,24 @@ public class TutorialController : MonoBehaviour, IControllerTemplate
             }
         }
 
+        if (tutorial.name == "GhostCubeTutorial")
+        {
+            if (tutorialSaveSystem.GetGhostCubeTutorialWatched())
+            {
+                logger.Log(LogType.Log, "GhostCubeTutorial already shown, no need to again!");
+                DismissUIPanel(tutorial);
+                return true;
+            }
+            else
+            {
+                tutorial.SetActive(true);
+                rootElement = tutorial.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("RootVE");
+                rootElement.style.display = DisplayStyle.Flex;
+                tutorialSaveSystem.SetGhostCubeTutorialWatched();
+                return false;
+            }
+        }
+
         return false;
     }
 

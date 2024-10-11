@@ -13,4 +13,7 @@ public class UIElementEnabler : MonoBehaviour
     [SerializeField] public bool isMetalCubeEnabled;
     [SerializeField] public bool isIceCubeEnabled;
 
+    [Header("Level Spesific Modes")]
+    [SerializeField] public bool isGhostModeEnabled;
+
 }
