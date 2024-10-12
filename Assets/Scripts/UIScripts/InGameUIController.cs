@@ -42,6 +42,8 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
     private VisualElement rightVE;
     private VisualElement ghostCubeVE;
     private VisualElement lightOnOffVE;
+    private VisualElement timerVE;
+    private Label currentTimeLbl;
    
     private void Awake()
     {
@@ -54,6 +56,7 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         cubeCounter.OnUpdateCubeCount += UpdateCubeCounts;
         cubeCounter.OnCanReplaceCubeEvent += UpdateFirstPowerUpIconStatus;
         coinManager.OnCoinCountChangeEvent += UpdatePowerUpIconStatusesByCoinCount;
+        timeLevelFinish.OnUpdateSecondEvent += UpdateTimerModeIconLabel;
     }
 
     private void OnDisable()
@@ -61,6 +64,7 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         cubeCounter.OnUpdateCubeCount -= UpdateCubeCounts;
         cubeCounter.OnCanReplaceCubeEvent -= UpdateFirstPowerUpIconStatus;
         coinManager.OnCoinCountChangeEvent -= UpdatePowerUpIconStatusesByCoinCount;
+        timeLevelFinish.OnUpdateSecondEvent -= UpdateTimerModeIconLabel;
     }
 
     private void Start()
@@ -90,6 +94,8 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         rightVE = rootElement.Q<VisualElement>("right_ve");
         ghostCubeVE = rightVE.Q<VisualElement>("ghost_cube_ve");
         lightOnOffVE = rightVE.Q<VisualElement>("light_on_off_ve");
+        timerVE = rightVE.Q<VisualElement>("timer_ve");
+        currentTimeLbl = timerVE.Q<Label>("current_time_lbl");
 
         DefineUIElementsVisibility();
         BindEventsWithFunctions();
@@ -121,6 +127,25 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         }
 
         return false;
+    }
+
+    private void UpdateTimerModeIconLabel(int second)
+    {
+        if (currentTimeLbl == null)
+        {
+            return;
+        }
+
+        currentTimeLbl.text = second.ToString();
+
+        if (second <= 10 && second % 2 == 0)
+        {
+            currentTimeLbl.style.color = new Color(255, 0, 0);
+        }
+        else
+        {
+            currentTimeLbl.style.color = new Color(255, 255, 255);
+        }
     }
 
     float leftBorder;
@@ -231,6 +256,7 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
 
         ShouldShowGhostMode(uiElementEnabler.isGhostModeEnabled);
         ShouldShowLightOnOffMode(uiElementEnabler.isLightBlinkModeEnabled);
+        ShouldShowTimerMode(uiElementEnabler.isTimeModeEnabled);
     }
 
     private void ShouldShowFirstPowerUp(bool isVisible)
@@ -338,6 +364,18 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         else
         {
             lightOnOffVE.style.display = DisplayStyle.None;
+        }
+    }
+
+    private void ShouldShowTimerMode(bool isVisible)
+    {
+        if (isVisible)
+        {
+            timerVE.style.display = DisplayStyle.Flex;
+        }
+        else
+        {
+            timerVE.style.display = DisplayStyle.None;
         }
     }
 
