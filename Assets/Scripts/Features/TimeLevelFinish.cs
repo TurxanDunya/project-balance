@@ -12,10 +12,14 @@ public class TimeLevelFinish : MonoBehaviour
     [Header("Dependencies")]
     [SerializeField] private HomeScreenController homeScreenController;
 
+    [Header("Sound")]
+    [SerializeField] private AudioClip clockTickSound;
+
     public delegate void UpdateSecondEvent(int second);
     public event UpdateSecondEvent OnUpdateSecondEvent;
 
     private GameCore gameCore;
+    private AudioSource audioSource;
 
     public void IncreaseFinishTime(int duration)
     {
@@ -25,6 +29,9 @@ public class TimeLevelFinish : MonoBehaviour
     private void Start()
     {
         gameCore = FindAnyObjectByType<GameCore>();
+        audioSource = GetComponent<AudioSource>();
+
+        audioSource.clip = clockTickSound;
 
         StartCoroutine(UpdateSecond());
     }
@@ -42,10 +49,23 @@ public class TimeLevelFinish : MonoBehaviour
                 OnUpdateSecondEvent(timeToFinishLevel);
                 timeToFinishLevel--;
                 yield return new WaitForSeconds(1);
+                StartClockTickSound(timeToFinishLevel);
             }
         }
 
         gameCore.ProcessEndGame();
+    }
+
+    private void StartClockTickSound(int second)
+    {
+        if (second <= 10 && second > 0 && !audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
+        else if ((second > 10 || second <= 0) && audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
     }
 
 }
