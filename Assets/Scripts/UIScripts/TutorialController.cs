@@ -152,6 +152,24 @@ public class TutorialController : MonoBehaviour, IControllerTemplate
             }
         }
 
+        if (tutorial.name == "LightOnOffTutorial")
+        {
+            if (tutorialSaveSystem.GetLightOnOffTutorialWatched())
+            {
+                logger.Log(LogType.Log, "LightOnOffTutorial already shown, no need to again!");
+                DismissUIPanel(tutorial);
+                return true;
+            }
+            else
+            {
+                tutorial.SetActive(true);
+                rootElement = tutorial.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("RootVE");
+                rootElement.style.display = DisplayStyle.Flex;
+                tutorialSaveSystem.SetLightOnOffTutorialWatched();
+                return false;
+            }
+        }
+
         return false;
     }
 

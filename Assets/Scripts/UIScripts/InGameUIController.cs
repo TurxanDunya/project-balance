@@ -41,6 +41,7 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
     // right pane icons
     private VisualElement rightVE;
     private VisualElement ghostCubeVE;
+    private VisualElement lightOnOffVE;
    
     private void Awake()
     {
@@ -88,6 +89,7 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
 
         rightVE = rootElement.Q<VisualElement>("right_ve");
         ghostCubeVE = rightVE.Q<VisualElement>("ghost_cube_ve");
+        lightOnOffVE = rightVE.Q<VisualElement>("light_on_off_ve");
 
         DefineUIElementsVisibility();
         BindEventsWithFunctions();
@@ -228,6 +230,7 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         ShouldShowIceCounter(uiElementEnabler.isIceCubeEnabled);
 
         ShouldShowGhostMode(uiElementEnabler.isGhostModeEnabled);
+        ShouldShowLightOnOffMode(uiElementEnabler.isLightBlinkModeEnabled);
     }
 
     private void ShouldShowFirstPowerUp(bool isVisible)
@@ -316,7 +319,6 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
 
     private void ShouldShowGhostMode(bool isVisible)
     {
-        Debug.Log("is:" + isVisible);
         if (isVisible)
         {
             ghostCubeVE.style.display = DisplayStyle.Flex;
@@ -324,6 +326,18 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         else
         {
             ghostCubeVE.style.display = DisplayStyle.None;
+        }
+    }
+
+    private void ShouldShowLightOnOffMode(bool isVisible)
+    {
+        if (isVisible)
+        {
+            lightOnOffVE.style.display = DisplayStyle.Flex;
+        }
+        else
+        {
+            lightOnOffVE.style.display = DisplayStyle.None;
         }
     }
 
