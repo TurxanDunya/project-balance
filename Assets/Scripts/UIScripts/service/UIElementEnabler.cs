@@ -3,17 +3,18 @@ using UnityEngine;
 public class UIElementEnabler : MonoBehaviour
 {
     [Header("Power Ups")]
-    [SerializeField] public bool isCubeChangerEnabled;
-    [SerializeField] public bool isTimerEnabled;
-    [SerializeField] public bool isMagnetEnabled;
-    [SerializeField] public bool isBombEnabled;
+    public bool isCubeChangerEnabled;
+    public bool isTimerEnabled;
+    public bool isMagnetEnabled;
+    public bool isBombEnabled;
 
     [Header("Cube Counters")]
-    [SerializeField] public bool isWoodCubeEnabled;
-    [SerializeField] public bool isMetalCubeEnabled;
-    [SerializeField] public bool isIceCubeEnabled;
+    public bool isWoodCubeEnabled;
+    public bool isMetalCubeEnabled;
+    public bool isIceCubeEnabled;
 
     [Header("Level Spesific Modes")]
-    [SerializeField] public bool isGhostModeEnabled;
+    public bool isGhostModeEnabled;
+    public bool isLightBlinkModeEnabled;
 
 }
