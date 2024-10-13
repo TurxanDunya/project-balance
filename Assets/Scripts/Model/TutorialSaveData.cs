@@ -6,4 +6,5 @@ public class TutorialSaveData
     public bool isMeetMetalAndMagnetTutorialWatched;
     public bool isGhostCubeTutorialWatched;
     public bool isLightOnOffTutorialWatched;
+    public bool isTimerTutorialWatched;
 }

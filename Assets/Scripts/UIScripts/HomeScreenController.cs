@@ -125,6 +125,16 @@ public class HomeScreenController : MonoBehaviour, AdsEventCallback, IController
         //add coin here
     }
 
+    public bool IsDisplayFlex()
+    {
+        if (rootElement == null)
+        {
+            return true;
+        }
+
+        return rootElement.style.display == DisplayStyle.Flex;
+    }
+
     public void SetDisplayFlex()
     {
         rootElement.style.display = DisplayStyle.Flex;
