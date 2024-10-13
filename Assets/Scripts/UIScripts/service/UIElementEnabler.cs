@@ -16,5 +16,6 @@ public class UIElementEnabler : MonoBehaviour
     [Header("Level Spesific Modes")]
     public bool isGhostModeEnabled;
     public bool isLightBlinkModeEnabled;
+    public bool isTimeModeEnabled;
 
 }

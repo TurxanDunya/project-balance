@@ -84,7 +84,6 @@ public class TutorialController : MonoBehaviour, IControllerTemplate
         {
             if (tutorialSaveSystem.GetIsWelcomeTutorialWatched())
             {
-                logger.Log(LogType.Log, "WelcomeTutorialUI already shown, no need to again!");
                 DismissUIPanel(tutorial);
                 return true;
             }
@@ -102,7 +101,6 @@ public class TutorialController : MonoBehaviour, IControllerTemplate
         {
             if (tutorialSaveSystem.GetMeetWoodAndChangerTutorialWatched())
             {
-                logger.Log(LogType.Log, "MeetWoodAndChanger already shown, no need to again!");
                 DismissUIPanel(tutorial);
                 return true;
             }
@@ -120,7 +118,6 @@ public class TutorialController : MonoBehaviour, IControllerTemplate
         {
             if (tutorialSaveSystem.GetMeetMetalAndMagnetTutorialWatched())
             {
-                logger.Log(LogType.Log, "MeetMetalAndMagnet already shown, no need to again!");
                 DismissUIPanel(tutorial);
                 return true;
             }
@@ -138,7 +135,6 @@ public class TutorialController : MonoBehaviour, IControllerTemplate
         {
             if (tutorialSaveSystem.GetGhostCubeTutorialWatched())
             {
-                logger.Log(LogType.Log, "GhostCubeTutorial already shown, no need to again!");
                 DismissUIPanel(tutorial);
                 return true;
             }
@@ -156,7 +152,6 @@ public class TutorialController : MonoBehaviour, IControllerTemplate
         {
             if (tutorialSaveSystem.GetLightOnOffTutorialWatched())
             {
-                logger.Log(LogType.Log, "LightOnOffTutorial already shown, no need to again!");
                 DismissUIPanel(tutorial);
                 return true;
             }
@@ -166,6 +161,23 @@ public class TutorialController : MonoBehaviour, IControllerTemplate
                 rootElement = tutorial.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("RootVE");
                 rootElement.style.display = DisplayStyle.Flex;
                 tutorialSaveSystem.SetLightOnOffTutorialWatched();
+                return false;
+            }
+        }
+
+        if (tutorial.name == "TimerTutorial")
+        {
+            if (tutorialSaveSystem.GetTimerTutorialWatched())
+            {
+                DismissUIPanel(tutorial);
+                return true;
+            }
+            else
+            {
+                tutorial.SetActive(true);
+                rootElement = tutorial.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("RootVE");
+                rootElement.style.display = DisplayStyle.Flex;
+                tutorialSaveSystem.SetTimerTutorialWatched();
                 return false;
             }
         }
