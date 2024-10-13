@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 
 public class CubeMovement : MonoBehaviour
 {
     private InputManager inputManager;
     private CubeRayCast cubeRayCastScript;
+    private InvertMovement invertMovement;
 
     private Vector3 previousPosition;
 
@@ -27,6 +29,7 @@ public class CubeMovement : MonoBehaviour
     private void Awake()
     {
         inputManager = gameObject.AddComponent<InputManager>();
+        invertMovement = FindAnyObjectByType<InvertMovement>();
     }
 
     private void OnEnable()
@@ -51,6 +54,7 @@ public class CubeMovement : MonoBehaviour
         moveDirection = forwardDirection * delta.y + rightDirection * delta.x;
         moveDirection *= Time.deltaTime * 0.03f;
 
+        moveDirection = invertMovement != null ? invertMovement.invertVector(moveDirection) : moveDirection;
         moveDirection.y = 0;
         transform.position += moveDirection;
     }

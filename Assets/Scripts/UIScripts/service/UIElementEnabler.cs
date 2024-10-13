@@ -17,5 +17,6 @@ public class UIElementEnabler : MonoBehaviour
     public bool isGhostModeEnabled;
     public bool isLightBlinkModeEnabled;
     public bool isTimeModeEnabled;
+    public bool isInvertModeEnabled;
 
 }
