@@ -7,4 +7,7 @@ public class TutorialSaveData
     public bool isGhostCubeTutorialWatched;
     public bool isLightOnOffTutorialWatched;
     public bool isTimerTutorialWatched;
+    public bool isInvertModeTutorialWatched;
+    public bool isFallingShapesModeTutorialWatched;
+    public bool isWindModeTutorialWatched;
 }

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FallingShapesController : MonoBehaviour
@@ -14,13 +13,11 @@ public class FallingShapesController : MonoBehaviour
 
     void Start()
     {
-        
         StartCoroutine(FallShape());
     }
 
     private void DefineCoinSpawnPosition()
     {
-     
         platformScale = platformObj.transform.localScale;
 
         var fallXDistanceFromCenter = Random.Range(
@@ -37,7 +34,6 @@ public class FallingShapesController : MonoBehaviour
 
         fallPosition = new Vector3(
             fallPosition.x, platformSurfacePosition.y + gapFromPlatformEdge, fallPosition.z);
-       
     }
 
     private IEnumerator FallShape()
@@ -48,6 +44,5 @@ public class FallingShapesController : MonoBehaviour
             GameObject fallingShape = FallingObjects[Random.Range(0, FallingObjects.Length)];
             Instantiate(fallingShape, fallPosition, Quaternion.identity);
         }
-       
     }
 }

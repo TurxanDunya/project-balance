@@ -18,6 +18,7 @@ public class UIElementEnabler : MonoBehaviour
     public bool isLightBlinkModeEnabled;
     public bool isTimeModeEnabled;
     public bool isInvertModeEnabled;
-    public bool isFallingShapes;
+    public bool isFallingShapesModeEnabled;
+    public bool isWindModeEnabled;
 
 }

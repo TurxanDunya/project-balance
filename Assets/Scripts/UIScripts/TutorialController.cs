@@ -182,6 +182,57 @@ public class TutorialController : MonoBehaviour, IControllerTemplate
             }
         }
 
+        if (tutorial.name == "InvertModeTutorial")
+        {
+            if (tutorialSaveSystem.GetInvertModeTutorialWatched())
+            {
+                DismissUIPanel(tutorial);
+                return true;
+            }
+            else
+            {
+                tutorial.SetActive(true);
+                rootElement = tutorial.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("RootVE");
+                rootElement.style.display = DisplayStyle.Flex;
+                tutorialSaveSystem.SetInvertModeTutorialWatched();
+                return false;
+            }
+        }
+
+        if (tutorial.name == "FallingShapesTutorial")
+        {
+            if (tutorialSaveSystem.GetFallingShapesTutorialWatched())
+            {
+                DismissUIPanel(tutorial);
+                return true;
+            }
+            else
+            {
+                tutorial.SetActive(true);
+                rootElement = tutorial.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("RootVE");
+                rootElement.style.display = DisplayStyle.Flex;
+                tutorialSaveSystem.SetInvertModeTutorialWatched();
+                return false;
+            }
+        }
+
+        if (tutorial.name == "WindModeTutorial")
+        {
+            if (tutorialSaveSystem.GetWindModeTutorialWatched())
+            {
+                DismissUIPanel(tutorial);
+                return true;
+            }
+            else
+            {
+                tutorial.SetActive(true);
+                rootElement = tutorial.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("RootVE");
+                rootElement.style.display = DisplayStyle.Flex;
+                tutorialSaveSystem.SetWindModeTutorialWatched();
+                return false;
+            }
+        }
+
         return false;
     }
 
