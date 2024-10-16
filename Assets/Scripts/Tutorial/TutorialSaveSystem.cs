@@ -22,6 +22,9 @@ public class TutorialSaveSystem : MonoBehaviour
             tutorialSaveData.isGhostCubeTutorialWatched = false;
             tutorialSaveData.isLightOnOffTutorialWatched = false;
             tutorialSaveData.isTimerTutorialWatched = false;
+            tutorialSaveData.isInvertModeTutorialWatched = false;
+            tutorialSaveData.isFallingShapesModeTutorialWatched = false;
+            tutorialSaveData.isWindModeTutorialWatched = false;
             SaveData();
         }
     }
@@ -54,6 +57,21 @@ public class TutorialSaveSystem : MonoBehaviour
     public bool GetTimerTutorialWatched()
     {
         return tutorialSaveData.isTimerTutorialWatched;
+    }
+
+    public bool GetInvertModeTutorialWatched()
+    {
+        return tutorialSaveData.isInvertModeTutorialWatched;
+    }
+
+    public bool GetFallingShapesTutorialWatched()
+    {
+        return tutorialSaveData.isFallingShapesModeTutorialWatched;
+    }
+
+    public bool GetWindModeTutorialWatched()
+    {
+        return tutorialSaveData.isWindModeTutorialWatched;
     }
 
     public void SetWelcomeTutorialWatched()
@@ -89,6 +107,24 @@ public class TutorialSaveSystem : MonoBehaviour
     public void SetTimerTutorialWatched()
     {
         tutorialSaveData.isTimerTutorialWatched = true;
+        SaveData();
+    }
+
+    public void SetInvertModeTutorialWatched()
+    {
+        tutorialSaveData.isInvertModeTutorialWatched = true;
+        SaveData();
+    }
+
+    public void SetFallingShapesTutorialWatched()
+    {
+        tutorialSaveData.isFallingShapesModeTutorialWatched = true;
+        SaveData();
+    }
+
+    public void SetWindModeTutorialWatched()
+    {
+        tutorialSaveData.isWindModeTutorialWatched = true;
         SaveData();
     }
 

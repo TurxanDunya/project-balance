@@ -44,6 +44,9 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
     private VisualElement lightOnOffVE;
     private VisualElement timerVE;
     private Label currentTimeLbl;
+    private VisualElement invertModeVE;
+    private VisualElement fallingShapeVE;
+    private VisualElement windModeVE;
    
     private void Awake()
     {
@@ -96,6 +99,9 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         lightOnOffVE = rightVE.Q<VisualElement>("light_on_off_ve");
         timerVE = rightVE.Q<VisualElement>("timer_ve");
         currentTimeLbl = timerVE.Q<Label>("current_time_lbl");
+        invertModeVE = rightVE.Q<VisualElement>("invert_mode_ve");
+        fallingShapeVE = rightVE.Q<VisualElement>("falling_shape_ve");
+        windModeVE = rightVE.Q<VisualElement>("wind_mode_ve");
 
         DefineUIElementsVisibility();
         BindEventsWithFunctions();
@@ -257,6 +263,9 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         ShouldShowGhostMode(uiElementEnabler.isGhostModeEnabled);
         ShouldShowLightOnOffMode(uiElementEnabler.isLightBlinkModeEnabled);
         ShouldShowTimerMode(uiElementEnabler.isTimeModeEnabled);
+        ShouldShowInvertMode(uiElementEnabler.isInvertModeEnabled);
+        ShouldShowFallingShapeMode(uiElementEnabler.isFallingShapesModeEnabled);
+        ShouldShowWindMode(uiElementEnabler.isWindModeEnabled);
     }
 
     private void ShouldShowFirstPowerUp(bool isVisible)
@@ -376,6 +385,42 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         else
         {
             timerVE.style.display = DisplayStyle.None;
+        }
+    }
+
+    private void ShouldShowInvertMode(bool isVisible)
+    {
+        if (isVisible)
+        {
+            invertModeVE.style.display = DisplayStyle.Flex;
+        }
+        else
+        {
+            invertModeVE.style.display = DisplayStyle.None;
+        }
+    }
+
+    private void ShouldShowFallingShapeMode(bool isVisible)
+    {
+        if (isVisible)
+        {
+            fallingShapeVE.style.display = DisplayStyle.Flex;
+        }
+        else
+        {
+            fallingShapeVE.style.display = DisplayStyle.None;
+        }
+    }
+
+    private void ShouldShowWindMode(bool isVisible)
+    {
+        if (isVisible)
+        {
+            windModeVE.style.display = DisplayStyle.Flex;
+        }
+        else
+        {
+            windModeVE.style.display = DisplayStyle.None;
         }
     }
 
