@@ -20,5 +20,6 @@ public class UIElementEnabler : MonoBehaviour
     public bool isInvertModeEnabled;
     public bool isFallingShapesModeEnabled;
     public bool isWindModeEnabled;
+    public bool isRandonFallSpeed;
 
 }

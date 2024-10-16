@@ -15,6 +15,12 @@ public class Cube : MonoBehaviour
         GetComponent<Rigidbody>().isKinematic = false;
         GetComponent<Rigidbody>().useGravity = true;
 
+        RandomFallSpeed randonFallSpeed = GetComponent<RandomFallSpeed>();
+        if (randonFallSpeed != null)
+        {
+            randonFallSpeed.RestoreDefaultSpeed();
+        }
+
         Destroy(GetComponent<CubeMovement>());
         Destroy(GetComponent<CubeRayCast>());
         Destroy(GetComponent<LineRenderer>());
