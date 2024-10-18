@@ -211,7 +211,7 @@ public class TutorialController : MonoBehaviour, IControllerTemplate
                 tutorial.SetActive(true);
                 rootElement = tutorial.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("RootVE");
                 rootElement.style.display = DisplayStyle.Flex;
-                tutorialSaveSystem.SetInvertModeTutorialWatched();
+                tutorialSaveSystem.SetFallingShapesTutorialWatched();
                 return false;
             }
         }
