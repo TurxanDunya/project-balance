@@ -25,6 +25,8 @@ public class CubeSpawnManagement : MonoBehaviour
     [Header("Bombs")]
     [SerializeField] private GameObject bombPrefab;
 
+    private UIElementEnabler uIElementEnabler;
+
     private GameObject currentMoveableObject;
 
     private void Awake()
@@ -34,6 +36,7 @@ public class CubeSpawnManagement : MonoBehaviour
 
     void Start()
     {
+        uIElementEnabler = FindAnyObjectByType<UIElementEnabler>();
         SpawnCube();
     }
 
@@ -67,6 +70,7 @@ public class CubeSpawnManagement : MonoBehaviour
         GameObject cubePrefab = GetCubePrefabFromPool(cubeMaterialType);
         if (cubePrefab != null) {
             currentMoveableObject = Instantiate(cubePrefab, spawnPosition.position, Quaternion.identity);
+            if (uIElementEnabler.isRandonFallSpeed) currentMoveableObject.AddComponent<RandomFallSpeed>();
         }
     }
 
@@ -195,6 +199,7 @@ public class CubeSpawnManagement : MonoBehaviour
             cube.gameObject.layer = 0;
             cube.Release();
             currentMoveableObject = null;
+            SpawnCube();
             return;
         }
 
