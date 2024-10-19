@@ -5,6 +5,9 @@ public class WindEffect : MonoBehaviour
 {
     [SerializeField] private Rigidbody affectedMeshRb;
 
+    [Header("Sound Params")]
+    [SerializeField] private AudioClip audioClip;
+
     [Header("Params")]
     [SerializeField] private float initialDelay = 5f;
     [SerializeField] private float maxWindForce = 5f;     
@@ -12,11 +15,15 @@ public class WindEffect : MonoBehaviour
     [SerializeField] private float windInterval = 4f;
     [SerializeField] private float windDuration = 2f;
 
+    private AudioSource player;
+
     private Vector3 windDirection;
     private float currentWindForce = 0f;
 
     void Start()
     {
+        player = GetComponent<AudioSource>();
+
         StartCoroutine(WindCycle());
     }
 
@@ -36,8 +43,12 @@ public class WindEffect : MonoBehaviour
 
     private IEnumerator ApplyWind()
     {
+        PlaySfxByState(true);
+
         yield return StartCoroutine(RampWindForce(0f, maxWindForce));
         yield return new WaitForSeconds(windDuration);
+
+        PlaySfxByState(false);
     }
 
     private IEnumerator RampWindForce(float startForce, float endForce)
@@ -61,6 +72,20 @@ public class WindEffect : MonoBehaviour
         float z = Mathf.Sin(randomAngle * Mathf.Deg2Rad);
 
         return new Vector3(x, 0, z).normalized;
+    }
+
+    private void PlaySfxByState(bool state)
+    {
+        if (state && !player.isPlaying)
+        {
+            player.clip = audioClip;
+            player.Play();
+        }
+        else if (!state && player.isPlaying)
+        {
+            player.Stop();
+        }
+        
     }
 
 }

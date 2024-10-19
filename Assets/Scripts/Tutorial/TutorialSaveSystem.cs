@@ -25,6 +25,7 @@ public class TutorialSaveSystem : MonoBehaviour
             tutorialSaveData.isInvertModeTutorialWatched = false;
             tutorialSaveData.isFallingShapesModeTutorialWatched = false;
             tutorialSaveData.isWindModeTutorialWatched = false;
+            tutorialSaveData.isCubeLateFallTutorialWatched = false;
             SaveData();
         }
     }
@@ -72,6 +73,11 @@ public class TutorialSaveSystem : MonoBehaviour
     public bool GetWindModeTutorialWatched()
     {
         return tutorialSaveData.isWindModeTutorialWatched;
+    }
+
+    public bool GetCubeLateFallTutorialWatched()
+    {
+        return tutorialSaveData.isCubeLateFallTutorialWatched;
     }
 
     public void SetWelcomeTutorialWatched()
@@ -125,6 +131,12 @@ public class TutorialSaveSystem : MonoBehaviour
     public void SetWindModeTutorialWatched()
     {
         tutorialSaveData.isWindModeTutorialWatched = true;
+        SaveData();
+    }
+
+    public void SetCubeLateFallTutorialWatched()
+    {
+        tutorialSaveData.isCubeLateFallTutorialWatched = true;
         SaveData();
     }
 

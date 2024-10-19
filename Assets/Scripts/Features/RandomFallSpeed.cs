@@ -11,6 +11,7 @@ public class RandomFallSpeed : MonoBehaviour
     [SerializeField] float restoreSpeedTime = 1.5f;
     [SerializeField] bool randomlyActive = true;
     [SerializeField] int randomActiveFactor = 1;
+
     private float defaultDrag;
 
     private Rigidbody rigidbody;
@@ -27,16 +28,17 @@ public class RandomFallSpeed : MonoBehaviour
         {
             rigidbody.drag = Random.Range(minFallDrag, maxFallDrag);
         }
-
-
     }
+
     public void RestoreDefaultSpeed()
     {
         StartCoroutine(RestoreSpeed());
     }
+
     IEnumerator RestoreSpeed()
     {
         yield return new WaitForSeconds(restoreSpeedTime);
         rigidbody.drag = defaultDrag;
     }
+
 }

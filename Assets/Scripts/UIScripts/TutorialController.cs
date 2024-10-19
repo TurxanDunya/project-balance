@@ -211,7 +211,7 @@ public class TutorialController : MonoBehaviour, IControllerTemplate
                 tutorial.SetActive(true);
                 rootElement = tutorial.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("RootVE");
                 rootElement.style.display = DisplayStyle.Flex;
-                tutorialSaveSystem.SetInvertModeTutorialWatched();
+                tutorialSaveSystem.SetFallingShapesTutorialWatched();
                 return false;
             }
         }
@@ -229,6 +229,23 @@ public class TutorialController : MonoBehaviour, IControllerTemplate
                 rootElement = tutorial.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("RootVE");
                 rootElement.style.display = DisplayStyle.Flex;
                 tutorialSaveSystem.SetWindModeTutorialWatched();
+                return false;
+            }
+        }
+
+        if (tutorial.name == "CubeLateFall")
+        {
+            if (tutorialSaveSystem.GetCubeLateFallTutorialWatched())
+            {
+                DismissUIPanel(tutorial);
+                return true;
+            }
+            else
+            {
+                tutorial.SetActive(true);
+                rootElement = tutorial.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("RootVE");
+                rootElement.style.display = DisplayStyle.Flex;
+                tutorialSaveSystem.SetCubeLateFallTutorialWatched();
                 return false;
             }
         }
