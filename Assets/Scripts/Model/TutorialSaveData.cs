@@ -10,4 +10,5 @@ public class TutorialSaveData
     public bool isInvertModeTutorialWatched;
     public bool isFallingShapesModeTutorialWatched;
     public bool isWindModeTutorialWatched;
+    public bool isCubeLateFallTutorialWatched;
 }
