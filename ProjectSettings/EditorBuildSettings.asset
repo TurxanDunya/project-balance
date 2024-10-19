@@ -30,4 +30,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Level 7.unity
     guid: da6fa05d9fd8244318fea7c1b7c7052d
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 96c8d66af4a4541b7a6f5c0813298196, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: b2fdb9834cde942c5b100457c16eb652, type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: 316a20fd1205544fbbbabac61650df8d, type: 2}

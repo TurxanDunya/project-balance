@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 
 public class AboutUsController : MonoBehaviour, IControllerTemplate
 {
@@ -17,6 +19,7 @@ public class AboutUsController : MonoBehaviour, IControllerTemplate
     private Button studioFbButton;
     private Button studioInstaButton;
     private Button studioYoutubeButton;
+    private Label aboutUs;
 
     // member one
     private VisualElement memberOneVE;
@@ -34,11 +37,18 @@ public class AboutUsController : MonoBehaviour, IControllerTemplate
     private Button memberTwoLinkedinButton;
     private Button memberTwoXButton;
 
+   
+
     private void Start()
     {
+        LocalizationSettings.SelectedLocaleChanged += ChangeLocale;
+        //locale index 0,1,2,3
+        // LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[0];
         MakeBindings();
 
         SafeArea.ApplySafeArea(rootVE);
+
+        
     }
 
     public void MakeBindings()
@@ -56,9 +66,11 @@ public class AboutUsController : MonoBehaviour, IControllerTemplate
         DefineMemberTwoUIElements();
     }
 
+
     private void DefineStudioUIElements()
     {
         studioInfoVE = rootVE.Q<VisualElement>("studio_info_ve");
+        aboutUs = studioInfoVE.Q<Label>("studio_info_lbl");
         studioSocialAccountsVE = studioInfoVE.Q<VisualElement>("social_accounts_ve");
 
         studioFbButton = studioSocialAccountsVE.Q<Button>("facebook");
@@ -68,6 +80,18 @@ public class AboutUsController : MonoBehaviour, IControllerTemplate
         studioFbButton.clicked += () => GoToStudioFbAccount();
         studioInstaButton.clicked += () => GoToStudioInstaAccount();
         studioYoutubeButton.clicked += () => GoToStudioYoutubeAccount();
+
+        UpdateLocalizaedText();
+    }
+
+    private void ChangeLocale(Locale newLocale)
+    {
+        UpdateLocalizaedText();
+    }
+
+    private void UpdateLocalizaedText()
+    {
+        aboutUs.text = LocalizationSettings.StringDatabase.GetLocalizedString("GameText", "about_us");
     }
 
     private void DefineMemberOneUIElements()
