@@ -61,7 +61,11 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         cubeCounter.OnUpdateCubeCount += UpdateCubeCounts;
         cubeCounter.OnCanReplaceCubeEvent += UpdateFirstPowerUpIconStatus;
         coinManager.OnCoinCountChangeEvent += UpdatePowerUpIconStatusesByCoinCount;
-        timeLevelFinish.OnUpdateSecondEvent += UpdateTimerModeIconLabel;
+
+        if (timeLevelFinish != null)
+        {
+            timeLevelFinish.OnUpdateSecondEvent += UpdateTimerModeIconLabel;
+        }
     }
 
     private void OnDisable()
@@ -69,7 +73,11 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         cubeCounter.OnUpdateCubeCount -= UpdateCubeCounts;
         cubeCounter.OnCanReplaceCubeEvent -= UpdateFirstPowerUpIconStatus;
         coinManager.OnCoinCountChangeEvent -= UpdatePowerUpIconStatusesByCoinCount;
-        timeLevelFinish.OnUpdateSecondEvent -= UpdateTimerModeIconLabel;
+
+        if (timeLevelFinish != null)
+        {
+            timeLevelFinish.OnUpdateSecondEvent -= UpdateTimerModeIconLabel;
+        }
     }
 
     private void Start()

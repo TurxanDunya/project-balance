@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.15114066, g: 0.13001332, b: 0.44663942, a: 1}
+  m_IndirectSpecularColor: {r: 0.15114066, g: 0.13001329, b: 0.44663936, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -214,7 +214,7 @@ PrefabInstance:
     - target: {fileID: 4201346298903201681, guid: d5923e079c0f24774a058aa61b19623e, type: 3}
       propertyPath: timeLevelFinish
       value: 
-      objectReference: {fileID: 1655422147}
+      objectReference: {fileID: 0}
     - target: {fileID: 4201346298903201681, guid: d5923e079c0f24774a058aa61b19623e, type: 3}
       propertyPath: cubeSpawnManagement
       value: 
@@ -641,6 +641,13 @@ MonoBehaviour:
   isWoodCubeEnabled: 1
   isMetalCubeEnabled: 1
   isIceCubeEnabled: 0
+  isGhostModeEnabled: 0
+  isLightBlinkModeEnabled: 0
+  isTimeModeEnabled: 0
+  isInvertModeEnabled: 0
+  isFallingShapesModeEnabled: 0
+  isWindModeEnabled: 0
+  isCubeLateFallEnabled: 0
 --- !u!1 &1615177990
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,17 +694,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1655422147 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7454388596297837352, guid: 7f3e224445bba4c8f838c2ca32164068, type: 3}
-  m_PrefabInstance: {fileID: 4484884394408053838}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8195bb9700ee94bad8f6fa747835e953, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1750575680
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,31 +751,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6294272877836790699, guid: 3da7ffc36d1f743cbbcef56c0dfd8dd9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.135
+      value: -1.098
       objectReference: {fileID: 0}
     - target: {fileID: 6294272877836790699, guid: 3da7ffc36d1f743cbbcef56c0dfd8dd9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.414
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 6294272877836790699, guid: 3da7ffc36d1f743cbbcef56c0dfd8dd9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.516
+      value: -0.48
       objectReference: {fileID: 0}
     - target: {fileID: 6294272877836790699, guid: 3da7ffc36d1f743cbbcef56c0dfd8dd9, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.90314007
+      value: 0.9062389
       objectReference: {fileID: 0}
     - target: {fileID: 6294272877836790699, guid: 3da7ffc36d1f743cbbcef56c0dfd8dd9, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.3265759
+      value: 0.32782957
       objectReference: {fileID: 0}
     - target: {fileID: 6294272877836790699, guid: 3da7ffc36d1f743cbbcef56c0dfd8dd9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.25846097
+      value: 0.24737655
       objectReference: {fileID: 0}
     - target: {fileID: 6294272877836790699, guid: 3da7ffc36d1f743cbbcef56c0dfd8dd9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.10432702
+      value: -0.100318074
       objectReference: {fileID: 0}
     - target: {fileID: 6294272877836790699, guid: 3da7ffc36d1f743cbbcef56c0dfd8dd9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

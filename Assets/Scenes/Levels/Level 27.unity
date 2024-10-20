@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: d8d2bac3ccd444cd79b162944e1249d4, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: a10ba76cac1ce4b53979ebf6a25b07a4, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.15114066, g: 0.13001332, b: 0.44663942, a: 1}
+  m_IndirectSpecularColor: {r: 0.44162565, g: 0.068990126, b: 0.19486088, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -214,7 +214,7 @@ PrefabInstance:
     - target: {fileID: 4201346298903201681, guid: d5923e079c0f24774a058aa61b19623e, type: 3}
       propertyPath: timeLevelFinish
       value: 
-      objectReference: {fileID: 1655422147}
+      objectReference: {fileID: 0}
     - target: {fileID: 4201346298903201681, guid: d5923e079c0f24774a058aa61b19623e, type: 3}
       propertyPath: cubeSpawnManagement
       value: 
@@ -334,6 +334,11 @@ MonoBehaviour:
   isIceCubeEnabled: 0
   isGhostModeEnabled: 0
   isLightBlinkModeEnabled: 0
+  isTimeModeEnabled: 0
+  isInvertModeEnabled: 0
+  isFallingShapesModeEnabled: 0
+  isWindModeEnabled: 0
+  isCubeLateFallEnabled: 0
 --- !u!1 &430208846
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,17 +616,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 417115ba13dda43b2ac792b79a7e721f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1655422147 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7454388596297837352, guid: 7f3e224445bba4c8f838c2ca32164068, type: 3}
-  m_PrefabInstance: {fileID: 4484884394408053838}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8195bb9700ee94bad8f6fa747835e953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1764416063
