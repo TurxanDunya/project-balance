@@ -202,7 +202,9 @@ public class CubeSpawnManagement : MonoBehaviour
             cube.gameObject.layer = 0;
             cube.Release();
             currentMoveableObject = null;
-            SpawnCube();
+            if (uIElementEnabler.isCubeLateFallEnabled) {
+                SpawnCube();
+            }
             return;
         }
 
