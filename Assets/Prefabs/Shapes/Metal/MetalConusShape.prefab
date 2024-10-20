@@ -384,7 +384,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thickness: 0.009
-  inverted: 0
   material: {fileID: 0}
   filter: -65520
   m_SourceCollider: {fileID: 4204153005692188703}
@@ -428,7 +427,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ebd5a2809aab4dc79b969fb3178e302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationDuration: 0.3
 --- !u!114 &6319817533282248740
 MonoBehaviour:
   m_ObjectHideFlags: 0

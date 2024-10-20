@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: -3348376530071915521}
   - component: {fileID: 2608745991579047933}
   - component: {fileID: 439087687877823312}
+  - component: {fileID: -7797548668982437883}
   m_Layer: 0
   m_Name: IceConusShape
   m_TagString: PlayableCube
@@ -282,7 +283,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thickness: 0.009
-  inverted: 0
   material: {fileID: 0}
   filter: -65520
   m_SourceCollider: {fileID: 439087687877823312}
@@ -326,7 +326,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ebd5a2809aab4dc79b969fb3178e302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationDuration: 0.3
 --- !u!114 &-3348376530071915521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,6 +464,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8976931198798728843, guid: 05a6b5b541f1f4cec9cf8e95824d2cbf, type: 3}
+--- !u!114 &-7797548668982437883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12397468204615794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 811fe86f0efe64490a04e3d976295cb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startSpawnScale: {x: 0.01, y: 0.01, z: 0.01}
+  startSpawnRotation: {x: 0, y: 220, z: 0}
+  spawnAnimationDuration: 0.2
+  endDestroyScale: {x: 0.01, y: 0.01, z: 0.01}
+  startDestoryRotation: {x: 0, y: -220, z: 0}
+  destroyAnimationDuration: 0.2
 --- !u!1 &1471194557908083630
 GameObject:
   m_ObjectHideFlags: 0
