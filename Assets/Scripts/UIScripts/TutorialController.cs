@@ -267,6 +267,40 @@ public class TutorialController : MonoBehaviour, IControllerTemplate
             }
         }
 
+        if (tutorial.name == "MeetBombTutorial")
+        {
+            if (tutorialSaveSystem.GetMeetBombTutorialWatched())
+            {
+                DismissUIPanel(tutorial);
+                return true;
+            }
+            else
+            {
+                tutorial.SetActive(true);
+                rootElement = tutorial.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("RootVE");
+                rootElement.style.display = DisplayStyle.Flex;
+                tutorialSaveSystem.SetMeetBombTutorialWatched();
+                return false;
+            }
+        }
+
+        if (tutorial.name == "CubeChangerActiveTutorial")
+        {
+            if (tutorialSaveSystem.GetCubeChangerEnabledTutorialWatched())
+            {
+                DismissUIPanel(tutorial);
+                return true;
+            }
+            else
+            {
+                tutorial.SetActive(true);
+                rootElement = tutorial.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("RootVE");
+                rootElement.style.display = DisplayStyle.Flex;
+                tutorialSaveSystem.SetCubeChangerActiveTutorialWatched();
+                return false;
+            }
+        }
+
         return false;
     }
 

@@ -27,6 +27,7 @@ public class TutorialSaveSystem : MonoBehaviour
             tutorialSaveData.isWindModeTutorialWatched = false;
             tutorialSaveData.isCubeLateFallTutorialWatched = false;
             tutorialSaveData.isMeetIceCubeTutorialWatched = false;
+            tutorialSaveData.isMeetBombTutorialWatched = false;
             SaveData();
         }
     }
@@ -49,6 +50,16 @@ public class TutorialSaveSystem : MonoBehaviour
     public bool GetMeetIceCubeTutorialWatched()
     {
         return tutorialSaveData.isMeetIceCubeTutorialWatched;
+    }
+
+    public bool GetMeetBombTutorialWatched()
+    {
+        return tutorialSaveData.isMeetBombTutorialWatched;
+    }
+
+    public bool GetCubeChangerEnabledTutorialWatched()
+    {
+        return tutorialSaveData.isCubeChangerActiveTutorialWatched;
     }
 
     public bool GetGhostCubeTutorialWatched()
@@ -107,6 +118,18 @@ public class TutorialSaveSystem : MonoBehaviour
     public void SetMeetIceCubeTutorialWatched()
     {
         tutorialSaveData.isMeetIceCubeTutorialWatched = true;
+        SaveData();
+    }
+
+    public void SetMeetBombTutorialWatched()
+    {
+        tutorialSaveData.isMeetBombTutorialWatched = true;
+        SaveData();
+    }
+
+    public void SetCubeChangerActiveTutorialWatched()
+    {
+        tutorialSaveData.isCubeChangerActiveTutorialWatched = true;
         SaveData();
     }
 
