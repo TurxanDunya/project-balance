@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEngine.VFX;
 using UnityEngine;
 
 public class WindEffect : MonoBehaviour
@@ -12,17 +13,28 @@ public class WindEffect : MonoBehaviour
     [SerializeField] private float initialDelay = 5f;
     [SerializeField] private float maxWindForce = 5f;     
     [SerializeField] private float windRampTime = 2f;
-    [SerializeField] private float windInterval = 4f;
+    [SerializeField] private float minWindInterval = 5f;
+    [SerializeField] private float maxWindInterval = 15f;
     [SerializeField] private float windDuration = 2f;
 
+    [Header("Fade")]
+    [SerializeField] private float fadeInDuration = 1f;
+    [SerializeField] private float fadeOutDuration = 3f;
+
     private AudioSource player;
+    private VisualEffect windVFX;
 
     private Vector3 windDirection;
     private float currentWindForce = 0f;
+    private float currentAlpha = 0f;
 
     void Start()
     {
         player = GetComponent<AudioSource>();
+
+        windVFX = GetComponent<VisualEffect>();
+        windVFX.Stop();
+        windVFX.SetFloat("Alpha", currentAlpha);
 
         StartCoroutine(WindCycle());
     }
@@ -34,20 +46,27 @@ public class WindEffect : MonoBehaviour
         while (true)
         {
             windDirection = GetRandomDirection();
+            windVFX.SetVector2("WindDirection", new(windDirection.y, windDirection.x));
 
             StartCoroutine(ApplyWind());
             yield return new WaitForSeconds(windRampTime + windDuration + windRampTime);
+
+            float windInterval = Random.Range(minWindInterval, maxWindInterval);
             yield return new WaitForSeconds(windInterval);
         }
     }
 
     private IEnumerator ApplyWind()
     {
+        PlayVfxByState(true);
         PlaySfxByState(true);
 
         yield return StartCoroutine(RampWindForce(0f, maxWindForce));
-        yield return new WaitForSeconds(windDuration);
+        yield return new WaitForSeconds(windDuration - fadeOutDuration);
 
+        PlayVfxByState(false);
+
+        yield return new WaitForSeconds(fadeOutDuration);
         PlaySfxByState(false);
     }
 
@@ -85,7 +104,50 @@ public class WindEffect : MonoBehaviour
         {
             player.Stop();
         }
-        
+    }
+
+    private void PlayVfxByState(bool state)
+    {
+        if (state)
+        {
+            StartCoroutine(FadeInVfx());
+        }
+        else
+        {
+            StartCoroutine(FadeOutVfx());
+        }
+    }
+
+    public IEnumerator FadeInVfx()
+    {
+        windVFX.Play();
+        float elapsedTime = 0f;
+
+        while (elapsedTime < fadeInDuration)
+        {
+            currentAlpha = Mathf.Lerp(0f, 1f, elapsedTime / fadeInDuration);
+            windVFX.SetFloat("Alpha", currentAlpha);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        windVFX.SetFloat("Alpha", 1f);
+    }
+
+    public IEnumerator FadeOutVfx()
+    {
+        float elapsedTime = 0f;
+
+        while (elapsedTime < fadeOutDuration)
+        {
+            currentAlpha = Mathf.Lerp(1f, 0f, elapsedTime / fadeOutDuration);
+            windVFX.SetFloat("Alpha", currentAlpha);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        windVFX.SetFloat("Alpha", 0f);
+        windVFX.Stop();
     }
 
 }
