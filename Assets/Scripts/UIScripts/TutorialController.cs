@@ -250,6 +250,23 @@ public class TutorialController : MonoBehaviour, IControllerTemplate
             }
         }
 
+        if (tutorial.name == "MeetIceCubeTutorial")
+        {
+            if (tutorialSaveSystem.GetMeetIceCubeTutorialWatched())
+            {
+                DismissUIPanel(tutorial);
+                return true;
+            }
+            else
+            {
+                tutorial.SetActive(true);
+                rootElement = tutorial.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("RootVE");
+                rootElement.style.display = DisplayStyle.Flex;
+                tutorialSaveSystem.SetMeetIceCubeTutorialWatched();
+                return false;
+            }
+        }
+
         return false;
     }
 

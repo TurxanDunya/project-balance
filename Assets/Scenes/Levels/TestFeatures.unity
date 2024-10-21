@@ -402,6 +402,7 @@ Transform:
   - {fileID: 1824914311}
   - {fileID: 424373192}
   - {fileID: 910599551}
+  - {fileID: 426486475}
   - {fileID: 1954633242}
   m_Father: {fileID: 789708642}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -457,6 +458,54 @@ MonoBehaviour:
   m_PanelSettings: {fileID: 11400000, guid: 468278f28d0ac4cd18ca82d7196688b5, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: 91f101e1baad34661abdd902cd0e8926, type: 3}
+  m_SortingOrder: 6
+--- !u!1 &426486474
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 426486475}
+  - component: {fileID: 426486476}
+  m_Layer: 0
+  m_Name: MeetIceCubeTutorial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &426486475
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426486474}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 360259155}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &426486476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426486474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: 468278f28d0ac4cd18ca82d7196688b5, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: aa694200b7b514d0189b73eb3456b1c9, type: 3}
   m_SortingOrder: 6
 --- !u!1 &582396020
 GameObject:
@@ -1297,7 +1346,7 @@ MonoBehaviour:
   isInvertModeEnabled: 0
   isFallingShapesModeEnabled: 0
   isWindModeEnabled: 0
-  isCubeLateFallEnabled: 0
+  isCubeLateFallEnabled: 1
 --- !u!114 &1408442762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1684,6 +1733,7 @@ MonoBehaviour:
   - {fileID: 1824914310}
   - {fileID: 424373191}
   - {fileID: 910599550}
+  - {fileID: 426486474}
   rootTutorialObject: {fileID: 360259154}
 --- !u!114 &1957314861 stripped
 MonoBehaviour:
