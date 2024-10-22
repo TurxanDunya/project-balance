@@ -5300,6 +5300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thickness: 0.009
+  inverted: 0
   material: {fileID: 0}
   filter: -65520
   m_SourceCollider: {fileID: 7316057242121168763}

@@ -38,6 +38,8 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
     private Label metalCountLabel;
     private VisualElement iceVE;
     private Label iceCountLabel;
+    private VisualElement rockVE;
+    private Label rockCountLabel;
 
     // right pane icons
     private VisualElement rightVE;
@@ -103,6 +105,8 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         metalCountLabel = metalVE.Q<Label>("metal_count_lbl");
         iceVE = leftCubesCountVE.Q<VisualElement>("ice_VE");
         iceCountLabel = iceVE.Q<Label>("ice_count_lbl");
+        rockVE = leftCubesCountVE.Q<VisualElement>("rock_VE");
+        rockCountLabel = rockVE.Q<Label>("rock_count_lbl");
 
         rightVE = rootElement.Q<VisualElement>("right_ve");
         ghostCubeVE = rightVE.Q<VisualElement>("ghost_cube_ve");
@@ -270,6 +274,7 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         ShouldShowWoodCounter(uiElementEnabler.isWoodCubeEnabled);
         ShouldShowMetalCounter(uiElementEnabler.isMetalCubeEnabled);
         ShouldShowIceCounter(uiElementEnabler.isIceCubeEnabled);
+        ShouldShowRockCounter(uiElementEnabler.isRockEnabled);
 
         ShouldShowGhostMode(uiElementEnabler.isGhostModeEnabled);
         ShouldShowLightOnOffMode(uiElementEnabler.isLightBlinkModeEnabled);
@@ -361,6 +366,18 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         else
         {
             iceVE.style.display = DisplayStyle.None;
+        }
+    }
+
+    private void ShouldShowRockCounter(bool isVisible)
+    {
+        if (isVisible)
+        {
+            rockVE.style.display = DisplayStyle.Flex;
+        }
+        else
+        {
+            rockVE.style.display = DisplayStyle.None;
         }
     }
 
@@ -463,6 +480,7 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         woodCountLabel.text = woodCount.ToString();
         metalCountLabel.text = metalCount.ToString();
         iceCountLabel.text = iceCount.ToString();
+        rockCountLabel.text = rockCount.ToString();
     }
 
     private void UpdatePowerUpIconStatusesByCoinCount(long coinCount)
