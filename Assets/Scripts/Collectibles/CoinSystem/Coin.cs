@@ -11,12 +11,12 @@ public class Coin : MonoBehaviour
 
     private void OnEnable()
     {
-        Platform.CubeLanded += NewCoin;
+        Platform.PlayableCubeLanded += NewCoin;
     }
 
     private void OnDisable()
     {
-        Platform.CubeLanded -= NewCoin;
+        Platform.PlayableCubeLanded -= NewCoin;
     }
 
     private void NewCoin()
