@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 541506b0198ab43fb89802eb281b1f45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubeRayCast: {fileID: 4960755701250840356}
+  cubeRayCast: {fileID: 7306169480152196219}
   gapWithPlatform: 0.001
   scaleFactor: 2
   duration: 1
@@ -114,11 +114,11 @@ GameObject:
   - component: {fileID: 7854373775210996828}
   - component: {fileID: 2499916654870264877}
   - component: {fileID: 4200349050197215909}
-  - component: {fileID: 4960755701250840356}
   - component: {fileID: 85738554425330403}
   - component: {fileID: 6189694052931988893}
   - component: {fileID: 6356983150323828552}
   - component: {fileID: 8259594956053333266}
+  - component: {fileID: 7306169480152196219}
   - component: {fileID: 7462435126613098115}
   - component: {fileID: 6319817533282248740}
   - component: {fileID: 5943824581061212464}
@@ -335,8 +335,8 @@ LineRenderer:
       m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 10
-    numCapVertices: 10
+    numCornerVertices: 4
+    numCapVertices: 4
     alignment: 0
     textureMode: 0
     textureScale: {x: 1, y: 1}
@@ -346,19 +346,6 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &4960755701250840356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8047010925567596979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e633dca4970d4e3998e07065d12f222, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  raycastDistance: 50
 --- !u!114 &85738554425330403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,6 +402,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleEffect: {fileID: 0}
   cubeMaterialType: 1
+--- !u!114 &7306169480152196219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8047010925567596979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e633dca4970d4e3998e07065d12f222, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raycastDistance: 50
 --- !u!114 &7462435126613098115
 MonoBehaviour:
   m_ObjectHideFlags: 0
