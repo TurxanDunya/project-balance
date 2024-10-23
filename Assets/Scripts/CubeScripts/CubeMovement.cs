@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
-
 
 public class CubeMovement : MonoBehaviour
 {
@@ -61,7 +59,7 @@ public class CubeMovement : MonoBehaviour
 
     private void KeepCubeInPlatformArea()
     {
-        if (cubeRayCastScript.IsHittingPlatform())
+        if (cubeRayCastScript.IsHittingPlayables())
         {
             previousPosition = transform.position;
             return;
