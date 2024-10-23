@@ -12,6 +12,7 @@ public class UIElementEnabler : MonoBehaviour
     public bool isWoodCubeEnabled;
     public bool isMetalCubeEnabled;
     public bool isIceCubeEnabled;
+    public bool isRockEnabled;
 
     [Header("Level Spesific Modes")]
     public bool isGhostModeEnabled;

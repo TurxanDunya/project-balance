@@ -13,7 +13,7 @@
                 <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="youtube" style="background-image: url(&quot;project://database/Assets/Graphics/UI/aboutus/youtube.png?fileID=2800000&amp;guid=c5e852e96ed3a444e83543c50b557f4e&amp;type=3#youtube&quot;); border-left-color: rgba(255, 255, 255, 0); border-right-color: rgba(255, 255, 255, 0); border-top-color: rgba(255, 255, 255, 0); border-bottom-color: rgba(255, 255, 255, 0); background-color: rgba(188, 188, 188, 0); width: 15%; height: 60%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; display: none;" />
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="members_ve" style="flex-grow: 1; width: 70%; height: 70%; max-height: 70%; min-height: 70%; margin-top: 4%;">
+        <ui:VisualElement name="members_ve" style="flex-grow: 1; width: 70%; height: 30%; max-height: 70%; min-height: 70%; margin-top: 4%;">
             <ui:VisualElement name="members_info_ve" style="flex-grow: 1; white-space: nowrap; flex-direction: row; height: 55%; max-height: 55%; min-height: 55%;">
                 <ui:VisualElement name="member_one" style="flex-grow: 1; border-right-color: rgb(255, 255, 255); border-right-width: 10px; -unity-text-align: upper-center; justify-content: center; align-items: center; white-space: normal; width: 50%;">
                     <ui:VisualElement name="member_1_photo" style="flex-grow: 1; align-self: center; height: 20%; max-height: 20%; min-height: 20%; width: 50%; max-width: 50%; min-width: 50%; margin-bottom: 10%; background-image: url(&quot;project://database/Assets/Graphics/UI/aboutus/akshin.jpeg?fileID=2800000&amp;guid=4f0a0f556608f4b8fa76be6e66e6097f&amp;type=3#akshin&quot;);" />
@@ -37,6 +37,9 @@
                         <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="x" style="background-image: url(&quot;project://database/Assets/Graphics/UI/aboutus/x_logo.png?fileID=2800000&amp;guid=0eece1ade4f1a42818fc75d98544b981&amp;type=3#x_logo&quot;); border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0); background-color: rgba(255, 255, 255, 0); width: 104px; height: 20%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
                     </ui:VisualElement>
                 </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="attribution_ve" style="flex-grow: 1;">
+                <ui:Label tabindex="-1" text="Some elements in game&#10;Designed by Freepik" parse-escape-sequences="true" display-tooltip-when-elided="true" name="attribution_lbl" style="-unity-font: url(&quot;project://database/Assets/Fonts/rowdies/Rowdies-Light.ttf?fileID=12800000&amp;guid=6e686382b3b9a4ffa9fbffd842d8d5be&amp;type=3#Rowdies-Light&quot;); font-size: 40%; color: rgb(255, 255, 255); -unity-font-definition: initial; -unity-text-align: upper-center; padding-top: 22%; -unity-font-style: normal;" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Platform : MonoBehaviour
 {
+    public static event Action PlayableCubeLanded;
     public static event Action CubeLanded;
 
     public static void CallCubeLandedEvent()
@@ -20,6 +21,11 @@ public class Platform : MonoBehaviour
                 || collision.gameObject.CompareTag(TagConstants.MAGNET))
             {
                 CubeLanded?.Invoke();
+            }
+
+            if (collision.gameObject.CompareTag(TagConstants.PLAYABLE_CUBE))
+            {
+                PlayableCubeLanded?.Invoke();
             }
         }
     }

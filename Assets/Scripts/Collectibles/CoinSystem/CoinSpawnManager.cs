@@ -31,6 +31,11 @@ public class CoinSpawnManager : MonoBehaviour
 
     public void SpawnNewCoinByChance()
     {
+        if (currentInstantiatedCoin)
+        {
+            return;
+        }
+
         if (Random.Range(1, coinChance) != 1)
         {
             return;
@@ -41,6 +46,11 @@ public class CoinSpawnManager : MonoBehaviour
 
     public void SpawnCoin()
     {
+        if (currentInstantiatedCoin)
+        {
+            return;
+        }
+
         DefineCoinSpawnPosition();
 
         currentInstantiatedCoin = Instantiate(

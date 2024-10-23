@@ -5036,6 +5036,7 @@ GameObject:
   - component: {fileID: 3124256438299270407}
   - component: {fileID: 1388326259502627236}
   - component: {fileID: 7897407983074141222}
+  - component: {fileID: 1512804045575698369}
   - component: {fileID: 6096031918469397141}
   - component: {fileID: 7757306705207882463}
   - component: {fileID: 3353040960847177899}
@@ -5322,6 +5323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thickness: 0.009
+  inverted: 0
   material: {fileID: 0}
   filter: -65520
   m_SourceCollider: {fileID: 7034992082425343241}
@@ -5353,6 +5355,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleEffect: {fileID: 8505012180933239506}
   cubeMaterialType: 3
+--- !u!114 &1512804045575698369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8697824765435087142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ee8c3e2270f34af0a233caf40bcf141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeAfterDrop: 0.2
+  rollingSounds:
+  - {fileID: 8300000, guid: 5c1ff6c41e24643f8a0feb1d1e7e46f4, type: 3}
+  platformCollisionSounds:
+  - {fileID: 8300000, guid: 5c1ff6c41e24643f8a0feb1d1e7e46f4, type: 3}
+  droppedCubeCollisionSounds:
+  - {fileID: 8300000, guid: 5c1ff6c41e24643f8a0feb1d1e7e46f4, type: 3}
 --- !u!82 &6096031918469397141
 AudioSource:
   m_ObjectHideFlags: 0

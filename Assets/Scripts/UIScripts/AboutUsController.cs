@@ -34,6 +34,10 @@ public class AboutUsController : MonoBehaviour, IControllerTemplate
     private Button memberTwoLinkedinButton;
     private Button memberTwoXButton;
 
+    // attribution
+    private VisualElement attributionVE;
+    private Label attributionLbl;
+
     private void Start()
     {
         MakeBindings();
@@ -54,6 +58,7 @@ public class AboutUsController : MonoBehaviour, IControllerTemplate
         DefineStudioUIElements();
         DefineMemberOneUIElements();
         DefineMemberTwoUIElements();
+        DefineAttributionElements();
     }
 
     private void DefineStudioUIElements()
@@ -102,6 +107,17 @@ public class AboutUsController : MonoBehaviour, IControllerTemplate
         memberTwoXButton.clicked += () => GoToMemberTwoXAccount();
 
         homeButton.clicked += () => stateChanger.ChangeStateToMainUIWithoutLoadPage();
+    }
+
+    private void DefineAttributionElements()
+    {
+        attributionVE = membersVE.Q<VisualElement>("attribution_ve");
+        attributionLbl = attributionVE.Q<Label>("attribution_lbl");
+
+        attributionLbl.RegisterCallback<ClickEvent>(ev =>
+        {
+            GoToFreepik();
+        });
     }
 
     private void GoToStudioFbAccount()
@@ -157,6 +173,11 @@ public class AboutUsController : MonoBehaviour, IControllerTemplate
     private void GoToMemberTwoXAccount()
     {
         Application.OpenURL("https://x.com/TurxanDunya");
+    }
+
+    private void GoToFreepik()
+    {
+        Application.OpenURL("https://www.freepik.com/");
     }
 
     public void SetDisplayFlex()
