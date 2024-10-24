@@ -72,6 +72,7 @@ public class Cube : MonoBehaviour
             ParticleSystem ripple = Instantiate(
                 rippleEffect, transform.position, Quaternion.Euler(90, 0, 0));
             ripple.Play();
+            rippleEffect = null;
         };
     }
 

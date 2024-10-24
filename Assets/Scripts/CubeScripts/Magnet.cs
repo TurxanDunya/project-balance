@@ -17,6 +17,7 @@ public class Magnet : MonoBehaviour
 
     private void Start()
     {
+        GetComponent<Rigidbody>().isKinematic = true;
         target = Instantiate(targetLocation, new Vector3(-0.75f, 0.71f, 0), Quaternion.identity);
 
         ProjectionSphere scale = target.GetComponent<ProjectionSphere>();
@@ -79,6 +80,7 @@ public class Magnet : MonoBehaviour
     {
         Destroy(target);
         GetComponent<Rigidbody>().useGravity = true;
+        GetComponent<Rigidbody>().isKinematic = false;
 
         Destroy(GetComponent<CubeMovement>());
         Destroy(GetComponent<CubeRayCast>());

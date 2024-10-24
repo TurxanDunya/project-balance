@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 6826492118806640253}
   - component: {fileID: 7200275181016021011}
   - component: {fileID: 8323927998998900728}
+  - component: {fileID: 8246846580946558500}
   m_Layer: 0
   m_Name: IcePiramidShape
   m_TagString: PlayableCube
@@ -334,8 +335,8 @@ LineRenderer:
       m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 10
-    numCapVertices: 10
+    numCornerVertices: 4
+    numCapVertices: 4
     alignment: 0
     textureMode: 0
     textureScale: {x: 1, y: 1}
@@ -383,7 +384,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thickness: 0.009
-  inverted: 0
   material: {fileID: 0}
   filter: -65520
   m_SourceCollider: {fileID: 6826492118806640253}
@@ -427,7 +427,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ebd5a2809aab4dc79b969fb3178e302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationDuration: 0.3
 --- !u!64 &6826492118806640253
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -566,3 +565,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8246846580946558500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7152317461909062366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 811fe86f0efe64490a04e3d976295cb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startSpawnScale: {x: 0.01, y: 0.01, z: 0.01}
+  startSpawnRotation: {x: 0, y: 220, z: 0}
+  spawnAnimationDuration: 0.2
+  endDestroyScale: {x: 0.01, y: 0.01, z: 0.01}
+  startDestoryRotation: {x: 0, y: -220, z: 0}
+  destroyAnimationDuration: 0.2

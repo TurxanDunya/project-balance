@@ -70,7 +70,10 @@ public class CubeSpawnManagement : MonoBehaviour
         GameObject cubePrefab = GetCubePrefabFromPool(cubeMaterialType);
         if (cubePrefab != null) {
             currentMoveableObject = Instantiate(cubePrefab, spawnPosition.position, Quaternion.identity);
-            if (uIElementEnabler.isRandonFallSpeed) currentMoveableObject.AddComponent<RandomFallSpeed>();
+            if (uIElementEnabler.isCubeLateFallEnabled)
+            {
+                currentMoveableObject.AddComponent<RandomFallSpeed>();
+            }
         }
     }
 
@@ -199,7 +202,9 @@ public class CubeSpawnManagement : MonoBehaviour
             cube.gameObject.layer = 0;
             cube.Release();
             currentMoveableObject = null;
-            SpawnCube();
+            if (uIElementEnabler.isCubeLateFallEnabled) {
+                SpawnCube();
+            }
             return;
         }
 

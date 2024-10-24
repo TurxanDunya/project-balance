@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class InGameUIController : MonoBehaviour, IControllerTemplate
 {
@@ -37,6 +38,8 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
     private Label metalCountLabel;
     private VisualElement iceVE;
     private Label iceCountLabel;
+    private VisualElement rockVE;
+    private Label rockCountLabel;
 
     // right pane icons
     private VisualElement rightVE;
@@ -47,6 +50,7 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
     private VisualElement invertModeVE;
     private VisualElement fallingShapeVE;
     private VisualElement windModeVE;
+    private VisualElement cubeLateFallVE;
    
     private void Awake()
     {
@@ -59,7 +63,11 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         cubeCounter.OnUpdateCubeCount += UpdateCubeCounts;
         cubeCounter.OnCanReplaceCubeEvent += UpdateFirstPowerUpIconStatus;
         coinManager.OnCoinCountChangeEvent += UpdatePowerUpIconStatusesByCoinCount;
-        timeLevelFinish.OnUpdateSecondEvent += UpdateTimerModeIconLabel;
+
+        if (timeLevelFinish != null)
+        {
+            timeLevelFinish.OnUpdateSecondEvent += UpdateTimerModeIconLabel;
+        }
     }
 
     private void OnDisable()
@@ -67,7 +75,11 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         cubeCounter.OnUpdateCubeCount -= UpdateCubeCounts;
         cubeCounter.OnCanReplaceCubeEvent -= UpdateFirstPowerUpIconStatus;
         coinManager.OnCoinCountChangeEvent -= UpdatePowerUpIconStatusesByCoinCount;
-        timeLevelFinish.OnUpdateSecondEvent -= UpdateTimerModeIconLabel;
+
+        if (timeLevelFinish != null)
+        {
+            timeLevelFinish.OnUpdateSecondEvent -= UpdateTimerModeIconLabel;
+        }
     }
 
     private void Start()
@@ -93,6 +105,8 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         metalCountLabel = metalVE.Q<Label>("metal_count_lbl");
         iceVE = leftCubesCountVE.Q<VisualElement>("ice_VE");
         iceCountLabel = iceVE.Q<Label>("ice_count_lbl");
+        rockVE = leftCubesCountVE.Q<VisualElement>("rock_VE");
+        rockCountLabel = rockVE.Q<Label>("rock_count_lbl");
 
         rightVE = rootElement.Q<VisualElement>("right_ve");
         ghostCubeVE = rightVE.Q<VisualElement>("ghost_cube_ve");
@@ -102,6 +116,7 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         invertModeVE = rightVE.Q<VisualElement>("invert_mode_ve");
         fallingShapeVE = rightVE.Q<VisualElement>("falling_shape_ve");
         windModeVE = rightVE.Q<VisualElement>("wind_mode_ve");
+        cubeLateFallVE = rightVE.Q<VisualElement>("cube_late_fall_ve");
 
         DefineUIElementsVisibility();
         BindEventsWithFunctions();
@@ -259,6 +274,7 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         ShouldShowWoodCounter(uiElementEnabler.isWoodCubeEnabled);
         ShouldShowMetalCounter(uiElementEnabler.isMetalCubeEnabled);
         ShouldShowIceCounter(uiElementEnabler.isIceCubeEnabled);
+        ShouldShowRockCounter(uiElementEnabler.isRockEnabled);
 
         ShouldShowGhostMode(uiElementEnabler.isGhostModeEnabled);
         ShouldShowLightOnOffMode(uiElementEnabler.isLightBlinkModeEnabled);
@@ -266,6 +282,7 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         ShouldShowInvertMode(uiElementEnabler.isInvertModeEnabled);
         ShouldShowFallingShapeMode(uiElementEnabler.isFallingShapesModeEnabled);
         ShouldShowWindMode(uiElementEnabler.isWindModeEnabled);
+        ShouldShowCubeLateFall(uiElementEnabler.isCubeLateFallEnabled);
     }
 
     private void ShouldShowFirstPowerUp(bool isVisible)
@@ -352,6 +369,18 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         }
     }
 
+    private void ShouldShowRockCounter(bool isVisible)
+    {
+        if (isVisible)
+        {
+            rockVE.style.display = DisplayStyle.Flex;
+        }
+        else
+        {
+            rockVE.style.display = DisplayStyle.None;
+        }
+    }
+
     private void ShouldShowGhostMode(bool isVisible)
     {
         if (isVisible)
@@ -424,6 +453,18 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         }
     }
 
+    private void ShouldShowCubeLateFall(bool isVisible)
+    {
+        if (isVisible)
+        {
+            cubeLateFallVE.style.display = DisplayStyle.Flex;
+        }
+        else
+        {
+            cubeLateFallVE.style.display = DisplayStyle.None;
+        }
+    }
+
     private void PauseGame()
     {
         pauseScreenController.ChangeStateToPausePage();
@@ -439,6 +480,7 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         woodCountLabel.text = woodCount.ToString();
         metalCountLabel.text = metalCount.ToString();
         iceCountLabel.text = iceCount.ToString();
+        rockCountLabel.text = rockCount.ToString();
     }
 
     private void UpdatePowerUpIconStatusesByCoinCount(long coinCount)

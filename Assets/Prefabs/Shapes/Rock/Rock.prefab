@@ -5017,7 +5017,6 @@ MonoBehaviour:
   gapWithPlatform: 0.001
   scaleFactor: 2
   duration: 1
-  initialScale: {x: 0.001, y: 0.001, z: 0.001}
 --- !u!1 &8615007189095644940
 GameObject:
   m_ObjectHideFlags: 0
@@ -5039,6 +5038,7 @@ GameObject:
   - component: {fileID: 3179300480775420995}
   - component: {fileID: 7316057242121168763}
   - component: {fileID: 460979899122644557}
+  - component: {fileID: -7483534774836905299}
   m_Layer: 0
   m_Name: Rock
   m_TagString: PlayableCube
@@ -5299,9 +5299,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thickness: 0
+  thickness: 0.009
+  inverted: 0
   material: {fileID: 0}
-  filter: -65535
+  filter: -65520
   m_SourceCollider: {fileID: 7316057242121168763}
   m_DistanceField: {fileID: 0}
 --- !u!114 &6095323857330315481
@@ -5329,9 +5330,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1856c66ad8b2d40e8a582576a3621c25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rippleEffect: {fileID: 1905312393242035404}
+  rippleEffect: {fileID: 0}
   cubeMaterialType: 3
-  fallSFXPlayer: {fileID: 3179300480775420995}
 --- !u!82 &3179300480775420995
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5462,5 +5462,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ebd5a2809aab4dc79b969fb3178e302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationDuration: 0.3
-  isAnimateToDownCoroutineFinished: 0
+--- !u!114 &-7483534774836905299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8615007189095644940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 811fe86f0efe64490a04e3d976295cb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startSpawnScale: {x: 0.01, y: 0.01, z: 0.01}
+  startSpawnRotation: {x: 0, y: 220, z: 0}
+  spawnAnimationDuration: 0.2
+  endDestroyScale: {x: 0.01, y: 0.01, z: 0.01}
+  startDestoryRotation: {x: 0, y: -220, z: 0}
+  destroyAnimationDuration: 0.2

@@ -10,11 +10,12 @@ public class Bomb : MonoBehaviour
 
     private void Start()
     {
+        GetComponent<Rigidbody>().isKinematic = true;
+
         target = Instantiate(targetLocation, new Vector3(-0.75f, 0.71f, 0), Quaternion.identity);
         ProjectionSphere scale = target.GetComponent<ProjectionSphere>();
         scale.SetParentObject(GetComponent<CubeRayCast>());
         scale.SetRadius(affectDistance);
-
     }
 
     public CubeData.CubeMaterialType GetCubeMaterialType()
@@ -51,6 +52,7 @@ public class Bomb : MonoBehaviour
     {
         Destroy(target);
         GetComponent<Rigidbody>().useGravity = true;
+        GetComponent<Rigidbody>().isKinematic = false;
 
         Destroy(GetComponent<CubeMovement>());
         Destroy(GetComponent<CubeRayCast>());

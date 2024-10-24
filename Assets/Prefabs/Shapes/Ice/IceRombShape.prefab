@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: -1317245278344042240}
   - component: {fileID: 7674675967661219992}
   - component: {fileID: 4119110456886458155}
+  - component: {fileID: 5368926111459768086}
   m_Layer: 0
   m_Name: IceRombShape
   m_TagString: PlayableCube
@@ -135,7 +136,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thickness: 0.009
-  inverted: 0
   material: {fileID: 0}
   filter: -65520
   m_SourceCollider: {fileID: 4119110456886458155}
@@ -165,7 +165,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ebd5a2809aab4dc79b969fb3178e302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationDuration: 0.3
 --- !u!120 &6835557020190211945
 LineRenderer:
   serializedVersion: 2
@@ -277,8 +276,8 @@ LineRenderer:
       m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 10
-    numCapVertices: 10
+    numCornerVertices: 4
+    numCapVertices: 4
     alignment: 0
     textureMode: 0
     textureScale: {x: 1, y: 1}
@@ -465,6 +464,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5719140586207327714, guid: 4f2b1e477436e48f682eec38a4cb2c57, type: 3}
+--- !u!114 &5368926111459768086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276504291833794482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 811fe86f0efe64490a04e3d976295cb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startSpawnScale: {x: 0.01, y: 0.01, z: 0.01}
+  startSpawnRotation: {x: 0, y: 220, z: 0}
+  spawnAnimationDuration: 0.2
+  endDestroyScale: {x: 0.01, y: 0.01, z: 0.01}
+  startDestoryRotation: {x: 0, y: -220, z: 0}
+  destroyAnimationDuration: 0.2
 --- !u!1 &3164625382320642983
 GameObject:
   m_ObjectHideFlags: 0

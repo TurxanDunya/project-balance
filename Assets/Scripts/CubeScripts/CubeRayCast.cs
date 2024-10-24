@@ -5,13 +5,20 @@ public class CubeRayCast : MonoBehaviour
     public float raycastDistance = 50f;
 
     private LineRenderer lineRenderer;
+    private Vector3 hitPosition;
+    private float minDistance = 0.05f;
 
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
     }
 
-    public bool IsHittingPlatform()
+    public Vector3 GetLineRendererHitPosition()
+    {
+        return hitPosition;
+    }
+
+    public bool IsHittingPlayables()
     {
         if (!Physics.Raycast(transform.position, -transform.up, out RaycastHit hit, raycastDistance))
         {
@@ -39,25 +46,21 @@ public class CubeRayCast : MonoBehaviour
 
         if (Physics.Raycast(transform.position, -transform.up, out RaycastHit hit, raycastDistance))
         {
+            if (hit.distance <= minDistance)
+            {
+                return;
+            }
+
             lineRenderer.enabled = true;
+            hitPosition = hit.point;
 
             lineRenderer.SetPosition(0, transform.position);
-            lineRenderer.SetPosition(1, hit.point);
+            lineRenderer.SetPosition(1, hitPosition);
         }
         else
         {
             lineRenderer.enabled = false;
         }
-    }
-
-    public Vector3 GetLineRendererHitPosition()
-    {
-        if (Physics.Raycast(transform.position, -transform.up, out RaycastHit hit, raycastDistance))
-        {
-            return hit.point;
-        }
-
-        return new Vector3(0, 0, 0);
     }
 
     public Quaternion GetLineRendererHitRotation()
