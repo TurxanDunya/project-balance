@@ -16,7 +16,7 @@ public class Cube : MonoBehaviour
         GetComponent<Rigidbody>().useGravity = true;
 
         RandomFallSpeed randonFallSpeed = GetComponent<RandomFallSpeed>();
-        if (randonFallSpeed != null)
+        if (randonFallSpeed != null && gameObject.activeInHierarchy)
         {
             randonFallSpeed.RestoreDefaultSpeed();
         }

@@ -41,9 +41,6 @@ public class AboutUsController : MonoBehaviour, IControllerTemplate
 
     private void Start()
     {
-        LocalizationSettings.SelectedLocaleChanged += ChangeLocale;
-        //locale index 0,1,2,3
-        // LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[0];
         MakeBindings();
 
         SafeArea.ApplySafeArea(rootVE);
@@ -81,17 +78,6 @@ public class AboutUsController : MonoBehaviour, IControllerTemplate
         studioInstaButton.clicked += () => GoToStudioInstaAccount();
         studioYoutubeButton.clicked += () => GoToStudioYoutubeAccount();
 
-        UpdateLocalizaedText();
-    }
-
-    private void ChangeLocale(Locale newLocale)
-    {
-        UpdateLocalizaedText();
-    }
-
-    private void UpdateLocalizaedText()
-    {
-        aboutUs.text = LocalizationSettings.StringDatabase.GetLocalizedString("GameText", "about_us");
     }
 
     private void DefineMemberOneUIElements()
