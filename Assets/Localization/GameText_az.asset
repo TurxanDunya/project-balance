@@ -96,6 +96,82 @@ MonoBehaviour:
     m_Localized: "N\xF6vb\u0259ti"
     m_Metadata:
       m_Items: []
+  - m_Id: 2197643018100736
+    m_Localized: Dil
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2199565141794816
+    m_Localized: "Musiqi: A\xE7"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2199544182857728
+    m_Localized: "Musiqi: Ba\u011Fla"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2199508380278784
+    m_Localized: "S\u0259s: Ba\u011Fl\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2199488868376576
+    m_Localized: "S\u0259s: A\xE7\u0131q"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2207949245112320
+    m_Localized: "Y\xFCkl\u0259nir..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2247045590016000
+    m_Localized: "U\u011Furlar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2247208790384640
+    m_Localized: Xos geldin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2247272682217472
+    m_Localized: Davam et
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2247739369840640
+    m_Localized: Izah edim
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2247865278652416
+    m_Localized: Taxta
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2248126789312512
+    m_Localized: Bu taxtadi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2248210536980480
+    m_Localized: "D\u0259yi\u015Fici"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2248562866905088
+    m_Localized: Kublari deyisir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2248995245121536
+    m_Localized: Yeni element
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2249122106040320
+    m_Localized: Metal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2249323780759552
+    m_Localized: Metal agirdi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2249401727705088
+    m_Localized: Maqnit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2249553284685824
+    m_Localized: Maqnit metali cekir
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

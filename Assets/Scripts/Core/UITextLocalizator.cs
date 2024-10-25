@@ -6,19 +6,12 @@ using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 using UnityEngine.Localization.Tables;
 using UnityEngine.UIElements;
-using static UnityEditor.Rendering.FilterWindow;
-using static UnityEngine.Rendering.DebugUI;
 
 public class UITextLocalizator : MonoBehaviour
 {
     [SerializeField] string tableName = "GameText";
     private UIDocument uiDocument;
     private List<KeyValuePair<string, TextElement>> uiElements = new List<KeyValuePair<string, TextElement>>();
-
-    /** set locale
-     *  locale index 0,1,2,3
-        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[0];
-     */
 
     void Start()
     {
@@ -40,7 +33,6 @@ public class UITextLocalizator : MonoBehaviour
     private void ChangeLocale(Locale newLocale)
     {
         UpdateTexts(tableName);
-        uiDocument.rootVisualElement.MarkDirtyRepaint();
     }
 
     void UpdateTexts(string table)

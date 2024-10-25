@@ -1,5 +1,6 @@
 using Assets.Scripts.Model;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UIElements;
 
 public class SettingsUIController : MonoBehaviour, IControllerTemplate
@@ -123,7 +124,7 @@ public class SettingsUIController : MonoBehaviour, IControllerTemplate
         Language lang = settingSaveSystem.GetLanguageSettingData().currentLang;
 
         switch (lang) {
-            case Language.AZE:
+            case Language.AZ:
                 azeRbtn.SetValueWithoutNotify(true);
                 engRbtn.SetValueWithoutNotify(false);
                 break;
@@ -166,16 +167,16 @@ public class SettingsUIController : MonoBehaviour, IControllerTemplate
 
     private void ChangeLanguageToAze()
     {
-        SaveLangSetting(Language.AZE);
+        SaveLangSetting(Language.AZ);
 
-        // Akshin will continue here
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[0];
     }
 
     private void ChangeLanguageToEng()
     {
         SaveLangSetting(Language.ENG);
 
-        // Akshin will continue here
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[1];
     }
 
     private void SaveLangSetting(Language newLang)

@@ -91,6 +91,86 @@ MonoBehaviour:
     m_Key: next
     m_Metadata:
       m_Items: []
+  - m_Id: 2197643018100736
+    m_Key: language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2199488868376576
+    m_Key: sound_on
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2199508380278784
+    m_Key: sound_off
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2199544182857728
+    m_Key: music_mute
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2199565141794816
+    m_Key: music_unmute
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2207949245112320
+    m_Key: loading
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2247045590016000
+    m_Key: good_luck
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2247208790384640
+    m_Key: wellcome_info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2247272682217472
+    m_Key: continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2247739369840640
+    m_Key: introduce_wood
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2247865278652416
+    m_Key: wood
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2248126789312512
+    m_Key: wood_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2248210536980480
+    m_Key: changer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2248562866905088
+    m_Key: changer_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2248995245121536
+    m_Key: introduce_metal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2249122106040320
+    m_Key: metal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2249323780759552
+    m_Key: metal_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2249401727705088
+    m_Key: magnet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2249553284685824
+    m_Key: magnet_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2249649254555648
+    m_Key: New Entry
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
