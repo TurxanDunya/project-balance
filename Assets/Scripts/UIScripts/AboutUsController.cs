@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 
 public class AboutUsController : MonoBehaviour, IControllerTemplate
 {
@@ -17,6 +19,7 @@ public class AboutUsController : MonoBehaviour, IControllerTemplate
     private Button studioFbButton;
     private Button studioInstaButton;
     private Button studioYoutubeButton;
+    private Label aboutUs;
 
     // member one
     private VisualElement memberOneVE;
@@ -34,15 +37,15 @@ public class AboutUsController : MonoBehaviour, IControllerTemplate
     private Button memberTwoLinkedinButton;
     private Button memberTwoXButton;
 
-    // attribution
-    private VisualElement attributionVE;
-    private Label attributionLbl;
+   
 
     private void Start()
     {
         MakeBindings();
 
         SafeArea.ApplySafeArea(rootVE);
+
+        
     }
 
     public void MakeBindings()
@@ -58,12 +61,13 @@ public class AboutUsController : MonoBehaviour, IControllerTemplate
         DefineStudioUIElements();
         DefineMemberOneUIElements();
         DefineMemberTwoUIElements();
-        DefineAttributionElements();
     }
+
 
     private void DefineStudioUIElements()
     {
         studioInfoVE = rootVE.Q<VisualElement>("studio_info_ve");
+        aboutUs = studioInfoVE.Q<Label>("studio_info_lbl");
         studioSocialAccountsVE = studioInfoVE.Q<VisualElement>("social_accounts_ve");
 
         studioFbButton = studioSocialAccountsVE.Q<Button>("facebook");
@@ -73,6 +77,7 @@ public class AboutUsController : MonoBehaviour, IControllerTemplate
         studioFbButton.clicked += () => GoToStudioFbAccount();
         studioInstaButton.clicked += () => GoToStudioInstaAccount();
         studioYoutubeButton.clicked += () => GoToStudioYoutubeAccount();
+
     }
 
     private void DefineMemberOneUIElements()
@@ -107,17 +112,6 @@ public class AboutUsController : MonoBehaviour, IControllerTemplate
         memberTwoXButton.clicked += () => GoToMemberTwoXAccount();
 
         homeButton.clicked += () => stateChanger.ChangeStateToMainUIWithoutLoadPage();
-    }
-
-    private void DefineAttributionElements()
-    {
-        attributionVE = membersVE.Q<VisualElement>("attribution_ve");
-        attributionLbl = attributionVE.Q<Label>("attribution_lbl");
-
-        attributionLbl.RegisterCallback<ClickEvent>(ev =>
-        {
-            GoToFreepik();
-        });
     }
 
     private void GoToStudioFbAccount()
@@ -173,11 +167,6 @@ public class AboutUsController : MonoBehaviour, IControllerTemplate
     private void GoToMemberTwoXAccount()
     {
         Application.OpenURL("https://x.com/TurxanDunya");
-    }
-
-    private void GoToFreepik()
-    {
-        Application.OpenURL("https://www.freepik.com/");
     }
 
     public void SetDisplayFlex()
