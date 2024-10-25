@@ -99,7 +99,6 @@ public class MusicPlayer : BaseMusicPlayer
 
     IEnumerator MusicQueue()
     {
-       
         while (player.isPlaying)
         {
             yield return new WaitForSeconds(5);

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SoundSaveSystem : MonoBehaviour
+public class SettingSaveSystem : MonoBehaviour
 {
     private readonly string settingsSaveFile = "settings.dat";
     private SettingsData settingsData;
@@ -13,34 +13,33 @@ public class SoundSaveSystem : MonoBehaviour
         {
             settingsData = JsonUtility.FromJson<SettingsData>(settingsSaveData);
         }
-        
-        if (settingsData == null || settingsData.soundSettingsData == null)
+
+        if (settingsData == null || settingsData.languageSettingData == null)
         {
-            SoundSettingsData soundSettingsData = new();
-            soundSettingsData.isSoundOn = true;
-            soundSettingsData.isMusicOn = true;
+            LanguageSettingData languageSettingData = new();
+            languageSettingData.currentLang = Assets.Scripts.Model.Language.ENG;
 
             if (settingsData == null)
             {
                 settingsData = new();
             }
 
-            settingsData.soundSettingsData = soundSettingsData;
+            settingsData.languageSettingData = languageSettingData;
             SaveData();
         }
     }
 
-    public SoundSettingsData GetSoundSettingsData()
+    public LanguageSettingData GetLanguageSettingData()
     {
-        return settingsData.soundSettingsData;
+        return settingsData.languageSettingData;
     }
 
-    public void SetSoundSettingsData(SoundSettingsData soundSettingsData)
+    public void SetLanguageSettingData(LanguageSettingData languageSettingData)
     {
-        settingsData.soundSettingsData = soundSettingsData;
+        settingsData.languageSettingData = languageSettingData;
     }
 
-    public void SaveSoundSettingsData()
+    public void SaveLanguageSettingData()
     {
         SaveData();
     }
