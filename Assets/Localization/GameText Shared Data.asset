@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: GameText Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: GameText
+  m_TableCollectionNameGuidString: 5e35f07b876a540d48b26b2ae7cd4973
+  m_Entries:
+  - m_Id: 296880168960
+    m_Key: about_us
+    m_Metadata:
+      m_Items: []
+  - m_Id: 439847215104
+    m_Key: contact_via
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1906258641674240
+    m_Key: settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1906621314752512
+    m_Key: silence_or_music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1907320475869184
+    m_Key: sound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1907392395599872
+    m_Key: music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1911714793644032
+    m_Key: earn_now
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1911825355497472
+    m_Key: tap_to_play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1912261735079936
+    m_Key: pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1913513390891008
+    m_Key: resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1914606409736192
+    m_Key: restart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1915359996141568
+    m_Key: game_over
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1915414580813824
+    m_Key: game_over_message
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1916158931361792
+    m_Key: menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1916217332850688
+    m_Key: replay
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1916638906540032
+    m_Key: levels
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1917900582543360
+    m_Key: winner
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1917943054065664
+    m_Key: winner_message
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1918401088839680
+    m_Key: next
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 6779019588067131392
+  references:
+    version: 2
+    RefIds:
+    - rid: 6779019588067131392
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1729326090062

@@ -69,7 +69,7 @@ public class GameCore : MonoBehaviour
 
     private IEnumerator CheckGameWinAndSaveStar() {
         isAboutToWin = true;
-        timeLevelWinner.StartCountDownTimer(countDownFromForWin);
+        if(timeLevelWinner != null) timeLevelWinner.StartCountDownTimer(countDownFromForWin);
         yield return new WaitForSeconds(countDownFromForWin);
 
         if (!isGameEnd)
