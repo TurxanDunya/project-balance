@@ -2,7 +2,7 @@
 {
     public enum Language
     {
-        AZE,
+        AZ,
         ENG
     }
 }

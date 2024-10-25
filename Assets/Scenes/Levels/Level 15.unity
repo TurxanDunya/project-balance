@@ -385,7 +385,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4981585557895238111, guid: d5923e079c0f24774a058aa61b19623e, type: 3}
   m_PrefabInstance: {fileID: 282231323}
   m_PrefabAsset: {fileID: 0}
---- !u!43 &522956674
+--- !u!43 &588137058
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -650,6 +650,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1120527338}
   - component: {fileID: 1120527339}
+  - component: {fileID: 1120527340}
   m_Layer: 0
   m_Name: MeetWoodAndChanger
   m_TagString: Untagged
@@ -688,6 +689,19 @@ MonoBehaviour:
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: 8afcb1558928e48a58f626ce242fb806, type: 3}
   m_SortingOrder: 6
+--- !u!114 &1120527340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120527337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc0863436bc724c2a9fa7f02e67091ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tableName: GameText
 --- !u!1 &1266393113
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,6 +792,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1405537471}
   - component: {fileID: 1405537472}
+  - component: {fileID: 1405537473}
   m_Layer: 5
   m_Name: WelcomeTutorialUI
   m_TagString: Untagged
@@ -816,6 +831,19 @@ MonoBehaviour:
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: a907d66a3ca4e4afcb13574b912e31b9, type: 3}
   m_SortingOrder: 7
+--- !u!114 &1405537473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405537470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc0863436bc724c2a9fa7f02e67091ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tableName: GameText
 --- !u!1 &1408442759
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,6 +895,7 @@ MonoBehaviour:
   isWoodCubeEnabled: 1
   isMetalCubeEnabled: 1
   isIceCubeEnabled: 1
+  isRockEnabled: 0
   isGhostModeEnabled: 0
   isLightBlinkModeEnabled: 0
   isTimeModeEnabled: 0

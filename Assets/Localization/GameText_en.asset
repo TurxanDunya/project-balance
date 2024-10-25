@@ -95,6 +95,84 @@ MonoBehaviour:
     m_Localized: Next
     m_Metadata:
       m_Items: []
+  - m_Id: 2197643018100736
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2199565141794816
+    m_Localized: 'Music: Unmute'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2199544182857728
+    m_Localized: 'Music: Mute'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2199488868376576
+    m_Localized: 'Sound: On'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2199508380278784
+    m_Localized: 'Sound: Off'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2207949245112320
+    m_Localized: Loading...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2247045590016000
+    m_Localized: Good Luck
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2247208790384640
+    m_Localized: "WELCOME! \nThe purpose is simple. \nJust keep cubes on balance!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2247272682217472
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2247739369840640
+    m_Localized: Let me introduce you!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2247865278652416
+    m_Localized: Wood
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2248126789312512
+    m_Localized: This is Wood! As the name suggests, it was made of wood like a platform
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2248210536980480
+    m_Localized: Changer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2248562866905088
+    m_Localized: "And this is Changer! \nIt will help you in future.\nJust stay close!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2248995245121536
+    m_Localized: Are you ready to meet with new element?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2249122106040320
+    m_Localized: Metal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2249323780759552
+    m_Localized: Da-dam! Of course, metal is heavier than wood. But, do not panic.
+      Meet your new helper!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2249401727705088
+    m_Localized: Magnet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2249553284685824
+    m_Localized: If the metal isn't where you want it, use magnets to attract it.
+      Mmm, it will cost you just 30 star!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
