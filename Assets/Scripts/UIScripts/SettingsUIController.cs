@@ -1,3 +1,4 @@
+using Assets.Scripts.Model;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -7,6 +8,7 @@ public class SettingsUIController : MonoBehaviour, IControllerTemplate
 
     [SerializeField] private StateChanger stateChanger;
 
+    private SettingSaveSystem settingSaveSystem;
     private MusicPlayer musicPlayer;
 
     private VisualElement rootElement;
@@ -14,6 +16,7 @@ public class SettingsUIController : MonoBehaviour, IControllerTemplate
 
     private VisualElement settingsPopUpVE;
     private VisualElement buttonsLineVE;
+    private VisualElement localizationVE;
     private VisualElement soundControlVE;
     private VisualElement musicControlVE;
 
@@ -29,8 +32,12 @@ public class SettingsUIController : MonoBehaviour, IControllerTemplate
     private Button musicUnmuteBtn;
     private Button musicMuteBtn;
 
+    private RadioButton azeRbtn;
+    private RadioButton engRbtn;
+
     void Start()
     {
+        settingSaveSystem = GetComponent<SettingSaveSystem>();
         MakeBindings();
 
         SafeArea.ApplySafeArea(rootElement);
@@ -47,6 +54,7 @@ public class SettingsUIController : MonoBehaviour, IControllerTemplate
 
         settingsPopUpVE = rootElement.Q<VisualElement>("SettingsPopUpVE");
         buttonsLineVE = settingsPopUpVE.Q<VisualElement>("buttons_line_ve");
+        localizationVE = settingsPopUpVE.Q<VisualElement>("localization_ve");
         soundControlVE = buttonsLineVE.Q<VisualElement>("sound_control_ve");
         musicControlVE = buttonsLineVE.Q<VisualElement>("music_control_ve");
 
@@ -66,7 +74,13 @@ public class SettingsUIController : MonoBehaviour, IControllerTemplate
         musicMuteBtn = musicMuteVE.Q<Button>("music_mute_btn");
         musicMuteBtn.clicked += () => MakeMusicOn();
 
+        azeRbtn = localizationVE.Q<RadioButton>("aze_rbtn");
+        engRbtn = localizationVE.Q<RadioButton>("eng_rbtn");
+        azeRbtn.RegisterCallback<ClickEvent>(evt => ChangeLanguageToAze());
+        engRbtn.RegisterCallback<ClickEvent>(evt => ChangeLanguageToEng());
+
         DefineSoundButtonsState();
+        DefineLanguageSettingState();
     }
 
     private void DefineSoundButtonsState()
@@ -104,6 +118,24 @@ public class SettingsUIController : MonoBehaviour, IControllerTemplate
         }
     }
 
+    private void DefineLanguageSettingState()
+    {
+        Language lang = settingSaveSystem.GetLanguageSettingData().currentLang;
+
+        switch (lang) {
+            case Language.AZE:
+                azeRbtn.SetValueWithoutNotify(true);
+                engRbtn.SetValueWithoutNotify(false);
+                break;
+            case Language.ENG:
+                azeRbtn.SetValueWithoutNotify(false);
+                engRbtn.SetValueWithoutNotify(true);
+                break;
+            default:
+                throw new System.Exception("Unsupported lang");
+        }
+    }
+
     private void MakeSoundOn()
     {
         musicPlayer.MakeSoundsOn();
@@ -130,6 +162,28 @@ public class SettingsUIController : MonoBehaviour, IControllerTemplate
         musicPlayer.MuteMusic();
         musicUnmuteVE.style.display = DisplayStyle.None;
         musicMuteVE.style.display = DisplayStyle.Flex;
+    }
+
+    private void ChangeLanguageToAze()
+    {
+        SaveLangSetting(Language.AZE);
+
+        // Akshin will continue here
+    }
+
+    private void ChangeLanguageToEng()
+    {
+        SaveLangSetting(Language.ENG);
+
+        // Akshin will continue here
+    }
+
+    private void SaveLangSetting(Language newLang)
+    {
+        LanguageSettingData languageSettingData = settingSaveSystem.GetLanguageSettingData();
+        languageSettingData.currentLang = newLang;
+        settingSaveSystem.SetLanguageSettingData(languageSettingData);
+        settingSaveSystem.SaveLanguageSettingData();
     }
 
     public void SetDisplayFlex()
