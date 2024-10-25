@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.google.external-dependency-manager": {
+      "version": "https://github.com/google-unity/external-dependency-manager.git#1.2.183",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "d5ff67d7b8fe2aea1ae801aaba2d6f2dbad39917"
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,
