@@ -461,7 +461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ee8c3e2270f34af0a233caf40bcf141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeAfterDrop: 0.2
+  volumeAfterDrop: 0.1
   rollingSounds:
   - {fileID: 8300000, guid: d6705983969e34a9fb5698f63ba841c1, type: 3}
   platformCollisionSounds:

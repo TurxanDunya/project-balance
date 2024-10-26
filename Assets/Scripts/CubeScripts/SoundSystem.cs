@@ -64,7 +64,7 @@ public class SoundSystem : MonoBehaviour
 
         if (isThisPlayableCube && isOtherMainPlatform)
         {
-            PlaySfx(platformCollisionSounds, volumeAfterDrop);
+            PlaySfx(platformCollisionSounds, 1.0f);
         }
         else if (isThisDroppedCube && isOtherMainPlatform)
         {
@@ -85,8 +85,6 @@ public class SoundSystem : MonoBehaviour
         {
             PlaySfx(platformCollisionSounds, 1.0f);
         }
-
-        tag = TagConstants.DROPPED_CUBE;
     }
 
     private void PlaySfx(AudioClip[] soundArray, float volume)

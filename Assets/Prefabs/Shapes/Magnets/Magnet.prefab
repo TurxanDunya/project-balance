@@ -4991,7 +4991,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6134999963169008612}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 5c3978e2414c54c5d9a744bd1a94cd05, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -5045,7 +5045,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attractDistance: 0.1
-  attractForce: 200
+  stopAttractDistance: 0.03
+  attractForce: 300
   magnetEffect:
   - {fileID: 7173157162527071687}
   - {fileID: 2344847386065001209}
@@ -5089,7 +5090,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thickness: 0
-  inverted: 0
   material: {fileID: 0}
   filter: -65535
   m_SourceCollider: {fileID: 7021116763975018581}
@@ -5119,10 +5119,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ee8c3e2270f34af0a233caf40bcf141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  volumeAfterDrop: 0.1
+  rollingSounds: []
   platformCollisionSounds:
-  - {fileID: 8300000, guid: 387c70be5faae4ac782475d398485c70, type: 3}
-  droppedCubeCollisionSounds:
-  - {fileID: 8300000, guid: 3ba04c891c9e24c93badba6b6dd67aca, type: 3}
+  - {fileID: 8300000, guid: 5c1ff6c41e24643f8a0feb1d1e7e46f4, type: 3}
+  droppedCubeCollisionSounds: []
 --- !u!82 &-6908359564844064679
 AudioSource:
   m_ObjectHideFlags: 0

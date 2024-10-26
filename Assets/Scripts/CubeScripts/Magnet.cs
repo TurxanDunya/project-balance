@@ -5,7 +5,8 @@ public class Magnet : MonoBehaviour
 {
     private static readonly ILogger logger = Debug.unityLogger;
 
-    [SerializeField] private float attractDistance;
+    [SerializeField] private float attractDistance = 0.1f;
+    [SerializeField] private float stopAttractDistance = 0.03f;
     [SerializeField] private float attractForce;
     [SerializeField] private ParticleSystem[] magnetEffect;
     [SerializeField] private GameObject selfPrefab;
@@ -46,7 +47,8 @@ public class Magnet : MonoBehaviour
 
         foreach (GameObject droppedCube in droppedCubes)
         {
-            if (droppedCube.GetComponent<Cube>().GetCubeMaterialType() == CubeData.CubeMaterialType.METAL)
+            Cube cube = droppedCube.GetComponent<Cube>();
+            if (cube != null && cube.GetCubeMaterialType() == CubeData.CubeMaterialType.METAL)
             {
                 attractibleObjects.Add(droppedCube);
             }
@@ -57,11 +59,21 @@ public class Magnet : MonoBehaviour
     {
         foreach (GameObject attractibleObject in attractibleObjects)
         {
+            if (attractibleObject == null)
+            {
+                continue;
+            }
+
             Rigidbody rb = attractibleObject.GetComponent<Rigidbody>();
 
             Vector3 magnetPosition = transform.position;
-            Vector3 otherObjectPosition = attractibleObject.transform.position;
+            Vector3 otherObjectPosition = attractibleObject.GetComponent<Collider>().ClosestPoint(magnetPosition);
             float distanceBetween = Vector3.Distance(magnetPosition, otherObjectPosition);
+
+            if (distanceBetween < stopAttractDistance)
+            {
+                continue;
+            }
 
             if (distanceBetween <= attractDistance)
             {

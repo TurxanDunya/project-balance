@@ -43,7 +43,6 @@ public class LevelManager : MonoBehaviour
                 LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[1];
                 break;
         }
-
     }
 
 }

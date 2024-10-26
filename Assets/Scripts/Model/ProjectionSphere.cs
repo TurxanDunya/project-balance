@@ -8,7 +8,6 @@ public class ProjectionSphere : MonoBehaviour
     private void Start()
     {
         float currentRadius = 0.5f * transform.localScale.x;
-
         float scaleFactor = radius / currentRadius;
 
         transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
@@ -26,7 +25,9 @@ public class ProjectionSphere : MonoBehaviour
 
     private void Update()
     {
-        if(raycast != null) {
+        if (raycast != null)
+        {
+            raycast.UpdateRaycastHitPosition();
             transform.position = raycast.GetLineRendererHitPosition();
         }
     }
