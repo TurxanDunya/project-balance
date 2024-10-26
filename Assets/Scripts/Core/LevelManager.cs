@@ -18,10 +18,10 @@ public class LevelManager : MonoBehaviour
             INSTANCE = this;
             DontDestroyOnLoad(this);
         }
-        else if (INSTANCE != this) {
+        else if (INSTANCE != this)
+        {
             Destroy(this);
         }
-      
     }
 
     private void Start()
@@ -29,7 +29,6 @@ public class LevelManager : MonoBehaviour
         settingSaveSystem = GetComponent<SettingSaveSystem>();
         StartCoroutine(SetGameLanguage());
     }
-
 
     IEnumerator SetGameLanguage()
     {
@@ -46,6 +45,5 @@ public class LevelManager : MonoBehaviour
         }
 
     }
-
 
 }
