@@ -27,6 +27,15 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         settingSaveSystem = GetComponent<SettingSaveSystem>();
+        StartLanguageCoroutine();
+    }
+
+    private void StartLanguageCoroutine()
+    {
+        if (settingSaveSystem == null)
+        {
+            return;
+        }
         StartCoroutine(SetGameLanguage());
     }
 
