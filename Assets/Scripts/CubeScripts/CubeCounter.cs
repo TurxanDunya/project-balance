@@ -78,7 +78,7 @@ public class CubeCounter : MonoBehaviour
 
         int index = Random.Range(0, cubeCountDataByMaterialTypeList.Count);
         CubeCountDataByMaterialType cube = cubeCountDataByMaterialTypeList[index];
-        if (cube.cubeCount <= 0)
+        if (cube.cubeCount <= 0 || cube.cubeMaterialType == cubeMaterialType)
         {
             return ChangeAvailableCubeTypeFrom(cubeMaterialType);
         }

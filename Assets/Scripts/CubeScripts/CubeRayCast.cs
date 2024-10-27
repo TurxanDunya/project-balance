@@ -18,6 +18,19 @@ public class CubeRayCast : MonoBehaviour
         return hitPosition;
     }
 
+    public void UpdateRaycastHitPosition()
+    {
+        if (Physics.Raycast(transform.position, -transform.up, out RaycastHit hit, raycastDistance))
+        {
+            if (hit.distance <= minDistance)
+            {
+                return;
+            }
+
+            hitPosition = hit.point;
+        }
+    }
+
     public bool IsHittingPlayables()
     {
         if (!Physics.Raycast(transform.position, -transform.up, out RaycastHit hit, raycastDistance))
