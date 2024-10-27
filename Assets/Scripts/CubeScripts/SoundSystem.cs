@@ -56,7 +56,6 @@ public class SoundSystem : MonoBehaviour
     public void MakeInstantSound(Collision collision)
     {
         bool isThisPlayableCube = CompareTag(TagConstants.PLAYABLE_CUBE);
-        bool isThisMagnet = CompareTag(TagConstants.MAGNET);
         bool isThisDroppedCube = CompareTag(TagConstants.DROPPED_CUBE);
 
         bool isOtherMainPlatform = collision.collider.CompareTag(TagConstants.MAIN_PLATFORM);
@@ -80,15 +79,15 @@ public class SoundSystem : MonoBehaviour
         {
             PlaySfx(droppedCubeCollisionSounds, volumeAfterDrop);
         }
-
-        if (isThisMagnet && isOtherMainPlatform)
-        {
-            PlaySfx(platformCollisionSounds, 1.0f);
-        }
     }
 
     private void PlaySfx(AudioClip[] soundArray, float volume)
     {
+        if (soundArray.Length == 0)
+        {
+            return;
+        }
+
         int soundIndex = Random.Range(0, soundArray.Length);
         sfxPlayer.clip = soundArray[soundIndex];
         sfxPlayer.volume = volume;

@@ -38,6 +38,14 @@ public class Magnet : MonoBehaviour
         Platform.CubeLanded -= UpdateAttractibleObjectList;
     }
 
+    public void PlayVFXEffect()
+    {
+        foreach (var effect in magnetEffect)
+        {
+            effect.Play();
+        }
+    }
+
     private void UpdateAttractibleObjectList()
     {
         attractibleObjects = new();
@@ -101,11 +109,6 @@ public class Magnet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        foreach (var effect in magnetEffect)
-        {
-            effect.Play();
-        }
-
         RemoveLandedCubeFromAttractibles(collision.gameObject);
     }
 
