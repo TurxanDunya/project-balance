@@ -102,8 +102,6 @@ public class StateChanger : MonoBehaviour
         Time.timeScale = 0;
 
         inGameUI.SetDisplayNone();
-        gameOverUI.SetGameOverDisplayNone();
-        winnerUI.SetWinnerDisplayNone();
         homeScreenUI.SetDisplayNone();
         pauseScreenUI.SetDisplayNone();
         starUI.SetLevelStarDisplayNone();
@@ -117,8 +115,6 @@ public class StateChanger : MonoBehaviour
     {
         Time.timeScale = 1;
 
-        gameOverUI.SetGameOverDisplayNone();
-        winnerUI.SetWinnerDisplayNone();
         homeScreenUI.SetDisplayNone();
         pauseScreenUI.SetDisplayNone();
         settingsUI.SetDisplayNone();
