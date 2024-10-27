@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1400720161538054704
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1206858904634255450, guid: 2454e80ae43ee42028c955995ff576a6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a8e1b4f68f1ad42fdaef582d28a23ffc, type: 2}
+    - target: {fileID: 1973811824428935309, guid: 2454e80ae43ee42028c955995ff576a6, type: 3}
+      propertyPath: filter
+      value: -65528
+      objectReference: {fileID: 0}
+    - target: {fileID: 1973811824428935309, guid: 2454e80ae43ee42028c955995ff576a6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437679384336811171, guid: 2454e80ae43ee42028c955995ff576a6, type: 3}
+      propertyPath: m_Target
+      value: 
+      objectReference: {fileID: 575016768047274182}
+    - target: {fileID: 2477244730148830103, guid: 2454e80ae43ee42028c955995ff576a6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063038062537774495, guid: 2454e80ae43ee42028c955995ff576a6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.10205257
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063038062537774495, guid: 2454e80ae43ee42028c955995ff576a6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.043000042
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063038062537774495, guid: 2454e80ae43ee42028c955995ff576a6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.24586985
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063038062537774495, guid: 2454e80ae43ee42028c955995ff576a6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.97629607
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063038062537774495, guid: 2454e80ae43ee42028c955995ff576a6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063038062537774495, guid: 2454e80ae43ee42028c955995ff576a6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.2164396
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063038062537774495, guid: 2454e80ae43ee42028c955995ff576a6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063038062537774495, guid: 2454e80ae43ee42028c955995ff576a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063038062537774495, guid: 2454e80ae43ee42028c955995ff576a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063038062537774495, guid: 2454e80ae43ee42028c955995ff576a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4245193080982164944, guid: 2454e80ae43ee42028c955995ff576a6, type: 3}
+      propertyPath: m_Name
+      value: SquareHolePlatformLeather Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2454e80ae43ee42028c955995ff576a6, type: 3}
+--- !u!4 &575016768047274182 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1480141821461775094, guid: 2454e80ae43ee42028c955995ff576a6, type: 3}
+  m_PrefabInstance: {fileID: 1400720161538054704}
+  m_PrefabAsset: {fileID: 0}
