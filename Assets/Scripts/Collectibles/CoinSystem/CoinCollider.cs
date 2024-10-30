@@ -18,8 +18,9 @@ public class CoinCollider : MonoBehaviour
         if (collider.CompareTag(TagConstants.PLAYABLE_CUBE))
         {
             coinManager.AddCoin(addCountOnCubeCollision);
+            coinSpawnManager.RemoveCurrentCoin();
         }
-        else
+        else if (collider.CompareTag(TagConstants.DROPPED_CUBE))
         {
             coinSpawnManager.RemoveCurrentCoin();
         }

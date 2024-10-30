@@ -10,7 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 37811643120794775, guid: 8774d0d4741104c9c8c5a5728d88e70d, type: 3}
       propertyPath: m_Name
-      value: RoundPlatform Variant
+      value: RoundPlatformCeiling
+      objectReference: {fileID: 0}
+    - target: {fileID: 37811643120794775, guid: 8774d0d4741104c9c8c5a5728d88e70d, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 846592315190982426, guid: 8774d0d4741104c9c8c5a5728d88e70d, type: 3}
       propertyPath: m_Materials.Array.data[0]

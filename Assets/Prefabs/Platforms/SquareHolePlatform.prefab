@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 595690956746218290}
   m_Layer: 0
   m_Name: C1
-  m_TagString: MainPlatform
+  m_TagString: MainPlatformCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 1362086478445209398}
   m_Layer: 0
   m_Name: PlatformMain
-  m_TagString: Untagged
+  m_TagString: MainPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 1973811824428935309}
   m_Layer: 0
   m_Name: C5
-  m_TagString: MainPlatform
+  m_TagString: MainPlatformCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -542,7 +542,7 @@ GameObject:
   - component: {fileID: 6696654500347675421}
   m_Layer: 0
   m_Name: C3
-  m_TagString: MainPlatform
+  m_TagString: MainPlatformCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -615,7 +615,6 @@ Transform:
   - {fileID: 935061655772058098}
   - {fileID: 9107862557411337938}
   - {fileID: 4407026574360907757}
-  - {fileID: 7961981708948153506}
   - {fileID: 4783826144419023442}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 25, z: 0}
@@ -888,7 +887,7 @@ GameObject:
   - component: {fileID: 308817184774355818}
   m_Layer: 0
   m_Name: C2
-  m_TagString: MainPlatform
+  m_TagString: MainPlatformCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1481,7 +1480,7 @@ GameObject:
   - component: {fileID: 243508934580771736}
   m_Layer: 0
   m_Name: C4
-  m_TagString: MainPlatform
+  m_TagString: MainPlatformCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1522,37 +1521,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.9957165, y: 1, z: 0.1474504}
   m_Center: {x: 0.0000039547335, y: 0, z: -0.42626953}
---- !u!1 &7010165107303804544
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7961981708948153506}
-  m_Layer: 0
-  m_Name: CubeSpawnPosition
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
---- !u!4 &7961981708948153506
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7010165107303804544}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.807, y: 1.1, z: 0.007}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3063038062537774495}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8064083604255140315
 GameObject:
   m_ObjectHideFlags: 0
@@ -1631,7 +1599,7 @@ GameObject:
   - component: {fileID: 6967174604953159891}
   m_Layer: 0
   m_Name: C6
-  m_TagString: MainPlatform
+  m_TagString: MainPlatformCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

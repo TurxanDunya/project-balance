@@ -57,7 +57,8 @@ public class Cube : MonoBehaviour
             return;
         }
 
-        if (collider.CompareTag(TagConstants.MAIN_PLATFORM))
+        if (collider.CompareTag(TagConstants.MAIN_PLATFORM)
+            || collider.CompareTag(TagConstants.MAIN_PLATFORM_COLLIDER))
         {
             PlayParticleEffect();
         }

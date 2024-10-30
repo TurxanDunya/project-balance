@@ -7,10 +7,16 @@ public class CubeSpawnManagement : MonoBehaviour
     private static readonly ILogger logger = Debug.unityLogger;
 
     private InputManager inputManager;
+    private UIElementEnabler uIElementEnabler;
+    private Platform platform;
 
     public static event Action winGame;
 
-    [SerializeField] private Transform spawnPosition;
+    [Header("Cube spawn position params")]
+    [SerializeField] private float gapWithPlatformY = 0.11f;
+    [SerializeField] private float gapFromPlatformEdge = 0f;
+    [SerializeField] private float gapFromCenter = 0.1f;
+
     [SerializeField] private CubeCounter cubeCounter;
 
     [Header("Cubes")]
@@ -25,8 +31,7 @@ public class CubeSpawnManagement : MonoBehaviour
     [Header("Bombs")]
     [SerializeField] private GameObject bombPrefab;
 
-    private UIElementEnabler uIElementEnabler;
-
+    private Vector3 spawnPosition;
     private GameObject currentMoveableObject;
 
     private void Awake()
@@ -37,6 +42,7 @@ public class CubeSpawnManagement : MonoBehaviour
     void Start()
     {
         uIElementEnabler = FindAnyObjectByType<UIElementEnabler>();
+        platform = FindAnyObjectByType<Platform>();
         SpawnCube();
     }
 
@@ -69,7 +75,11 @@ public class CubeSpawnManagement : MonoBehaviour
 
         GameObject cubePrefab = GetCubePrefabFromPool(cubeMaterialType);
         if (cubePrefab != null) {
-            currentMoveableObject = Instantiate(cubePrefab, spawnPosition.position, Quaternion.identity);
+            spawnPosition = platform.DefineSpawnablePosition(
+                gapWithPlatformY, gapFromPlatformEdge, gapFromCenter);
+
+            currentMoveableObject = Instantiate(cubePrefab, spawnPosition, Quaternion.identity);
+
             if (uIElementEnabler.isCubeLateFallEnabled)
             {
                 currentMoveableObject.AddComponent<RandomFallSpeed>();
@@ -104,7 +114,7 @@ public class CubeSpawnManagement : MonoBehaviour
         GameObject cubePrefab = GetCubePrefabFromPool(newCubeMaterialType);
         if (cubePrefab != null)
         {
-            currentMoveableObject = Instantiate(cubePrefab, spawnPosition.position, Quaternion.identity);
+            currentMoveableObject = Instantiate(cubePrefab, spawnPosition, Quaternion.identity);
         }
         return true;
     }
@@ -126,7 +136,7 @@ public class CubeSpawnManagement : MonoBehaviour
         cubeCounter.AddCube(currentMoveableObject.GetComponent<Cube>().GetCubeMaterialType());
 
         GameObject magnet = GetCubePrefabFromPool(CubeData.CubeMaterialType.MAGNET);
-        currentMoveableObject = Instantiate(magnet, spawnPosition.position, Quaternion.identity);
+        currentMoveableObject = Instantiate(magnet, spawnPosition, Quaternion.identity);
         return true;
     }
 
@@ -147,7 +157,7 @@ public class CubeSpawnManagement : MonoBehaviour
         cubeCounter.AddCube(currentMoveableObject.GetComponent<Cube>().GetCubeMaterialType());
 
         GameObject bomb = GetCubePrefabFromPool(CubeData.CubeMaterialType.BOMB);
-        currentMoveableObject = Instantiate(bomb, spawnPosition.position, Quaternion.identity);
+        currentMoveableObject = Instantiate(bomb, spawnPosition, Quaternion.identity);
         return true;
     }
 
