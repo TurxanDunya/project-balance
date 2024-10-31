@@ -11,17 +11,16 @@ public class Coin : MonoBehaviour
 
     private void OnEnable()
     {
-        Platform.PlayableCubeLanded += NewCoin;
+        Platform.CubeLanded += NewCoin;
     }
 
     private void OnDisable()
     {
-        Platform.PlayableCubeLanded -= NewCoin;
+        Platform.CubeLanded -= NewCoin;
     }
 
     private void NewCoin()
     {
-        coinSpawnManager.RemoveCurrentCoin();
         coinSpawnManager.SpawnNewCoinByChance();
     }
 

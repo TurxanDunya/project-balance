@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class CoinSpawnManager : MonoBehaviour
 {
-    [SerializeField] private GameObject platformObj;
+    private GameObject platformObj;
+
     [SerializeField] private GameObject coinPrefab;
 
     [SerializeField] private float gapWithPlatformY;
     [SerializeField] private float gapFromPlatformEdge = 0.1f;
-    [SerializeField] private int coinChance;
+    [SerializeField] private int coinChance = 5;
 
     private GameObject currentInstantiatedCoin;
 
@@ -21,6 +22,8 @@ public class CoinSpawnManager : MonoBehaviour
 
     private void Start()
     {
+        platformObj = GameObject.FindGameObjectWithTag(TagConstants.MAIN_PLATFORM);
+
         SpawnNewCoinByChance();
     }
 
@@ -31,10 +34,7 @@ public class CoinSpawnManager : MonoBehaviour
 
     public void SpawnNewCoinByChance()
     {
-        if (currentInstantiatedCoin)
-        {
-            return;
-        }
+        RemoveCurrentCoin();
 
         if (Random.Range(1, coinChance) != 1)
         {
@@ -64,6 +64,7 @@ public class CoinSpawnManager : MonoBehaviour
         if(currentInstantiatedCoin != null)
         {
             Destroy(currentInstantiatedCoin);
+            currentInstantiatedCoin = null;
         }
     }
 

@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 898741612312686353}
   m_Layer: 0
   m_Name: Bottom
-  m_TagString: MainPlatform
+  m_TagString: MainPlatformCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,37 +138,6 @@ MonoBehaviour:
   filter: -65504
   m_SourceCollider: {fileID: 7609488704026299294}
   m_DistanceField: {fileID: 0}
---- !u!1 &3012433111527782504
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1858394051165882692}
-  m_Layer: 0
-  m_Name: CubeSpawnPosition
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
---- !u!4 &1858394051165882692
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3012433111527782504}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.865, y: 1.1, z: -0.017}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3161649981372277246}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3271198584949377166
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,7 +439,7 @@ GameObject:
   - component: {fileID: 7214826830139666435}
   m_Layer: 0
   m_Name: PlatformMain
-  m_TagString: Untagged
+  m_TagString: MainPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -892,7 +861,6 @@ Transform:
   - {fileID: 3239203539423227204}
   - {fileID: 8885393986226958727}
   - {fileID: 2574277633875681026}
-  - {fileID: 1858394051165882692}
   - {fileID: 4462078409753196924}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 25, z: 0}
@@ -1351,7 +1319,7 @@ GameObject:
   - component: {fileID: 7168169309067747735}
   m_Layer: 0
   m_Name: Top
-  m_TagString: MainPlatform
+  m_TagString: MainPlatformCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

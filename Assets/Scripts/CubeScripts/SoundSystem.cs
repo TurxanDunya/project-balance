@@ -33,7 +33,8 @@ public class SoundSystem : MonoBehaviour
     bool isPlayingRollingSound = false;
     public void MakeRollingSound(Collision collision)
     {
-        bool isOtherMainPlatform = collision.collider.CompareTag(TagConstants.MAIN_PLATFORM);
+        bool isOtherMainPlatform = collision.collider.CompareTag(TagConstants.MAIN_PLATFORM) 
+            || collision.collider.CompareTag(TagConstants.MAIN_PLATFORM_COLLIDER);
 
         if (isOtherMainPlatform
             && rb.velocity.magnitude >= velocityThreshold
@@ -58,7 +59,8 @@ public class SoundSystem : MonoBehaviour
         bool isThisPlayableCube = CompareTag(TagConstants.PLAYABLE_CUBE);
         bool isThisDroppedCube = CompareTag(TagConstants.DROPPED_CUBE);
 
-        bool isOtherMainPlatform = collision.collider.CompareTag(TagConstants.MAIN_PLATFORM);
+        bool isOtherMainPlatform = collision.collider.CompareTag(TagConstants.MAIN_PLATFORM)
+            || collision.collider.CompareTag(TagConstants.MAIN_PLATFORM_COLLIDER);
         bool isOtherDroppedCube = collision.collider.CompareTag(TagConstants.DROPPED_CUBE);
 
         if (isThisPlayableCube && isOtherMainPlatform)

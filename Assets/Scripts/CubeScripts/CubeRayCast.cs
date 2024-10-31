@@ -11,6 +11,7 @@ public class CubeRayCast : MonoBehaviour
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
+        UpdateRaycastHitPosition();
     }
 
     public Vector3 GetLineRendererHitPosition()
@@ -39,6 +40,7 @@ public class CubeRayCast : MonoBehaviour
         }
 
         if (!hit.collider.CompareTag(TagConstants.MAIN_PLATFORM) &&
+                !hit.collider.CompareTag(TagConstants.MAIN_PLATFORM_COLLIDER) &&
                 !hit.collider.CompareTag(TagConstants.PLAYABLE_CUBE) &&
                 !hit.collider.CompareTag(TagConstants.DROPPED_CUBE) &&
                 !hit.collider.CompareTag(TagConstants.STAR) &&

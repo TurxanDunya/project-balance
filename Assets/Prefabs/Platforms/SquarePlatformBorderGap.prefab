@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 7830020323962406611}
   m_Layer: 0
   m_Name: C1 (5)
-  m_TagString: MainPlatform
+  m_TagString: MainPlatformCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 5321178604076272630}
   m_Layer: 0
   m_Name: C1 (6)
-  m_TagString: MainPlatform
+  m_TagString: MainPlatformCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 3232141351919236}
   m_Layer: 0
   m_Name: C1 (7)
-  m_TagString: MainPlatform
+  m_TagString: MainPlatformCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 2731975104938029778}
   m_Layer: 0
   m_Name: Bottom
-  m_TagString: MainPlatform
+  m_TagString: MainPlatformCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -629,7 +629,7 @@ GameObject:
   - component: {fileID: 1822317062464620359}
   m_Layer: 0
   m_Name: C1
-  m_TagString: MainPlatform
+  m_TagString: MainPlatformCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -686,7 +686,7 @@ GameObject:
   - component: {fileID: 7447887826677507577}
   m_Layer: 0
   m_Name: PlatformMain
-  m_TagString: Untagged
+  m_TagString: MainPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -833,7 +833,7 @@ GameObject:
   - component: {fileID: 6160065467148576971}
   m_Layer: 0
   m_Name: C1 (3)
-  m_TagString: MainPlatform
+  m_TagString: MainPlatformCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -906,7 +906,6 @@ Transform:
   - {fileID: 4818612507372495566}
   - {fileID: 4970530915855976124}
   - {fileID: 6339339272279556947}
-  - {fileID: 8913693923576868067}
   - {fileID: 5112880383315986903}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 25, z: 0}
@@ -1450,37 +1449,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea6bb5e83bf1d4da0b3e8d551f4b38cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &6339659970884644177
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8913693923576868067}
-  m_Layer: 0
-  m_Name: CubeSpawnPosition
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
---- !u!4 &8913693923576868067
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6339659970884644177}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.865, y: 1.1, z: -0.017}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4153823044031560882}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6359563801291222242
 GameObject:
   m_ObjectHideFlags: 0
@@ -1625,7 +1593,7 @@ GameObject:
   - component: {fileID: 7993941363820269823}
   m_Layer: 0
   m_Name: C (2)
-  m_TagString: Untagged
+  m_TagString: MainPlatformCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1744,7 +1712,7 @@ GameObject:
   - component: {fileID: 4732086964478126993}
   m_Layer: 0
   m_Name: C1 (4)
-  m_TagString: MainPlatform
+  m_TagString: MainPlatformCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1797,7 +1765,7 @@ GameObject:
   - component: {fileID: 1890782075911326719}
   m_Layer: 0
   m_Name: C1 (2)
-  m_TagString: MainPlatform
+  m_TagString: MainPlatformCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1850,7 +1818,7 @@ GameObject:
   - component: {fileID: 6342843108880774757}
   m_Layer: 0
   m_Name: C (3)
-  m_TagString: Untagged
+  m_TagString: MainPlatformCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1903,7 +1871,7 @@ GameObject:
   - component: {fileID: 3765088543762461274}
   m_Layer: 0
   m_Name: C (1)
-  m_TagString: Untagged
+  m_TagString: MainPlatformCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1956,7 +1924,7 @@ GameObject:
   - component: {fileID: 3190693326039760305}
   m_Layer: 0
   m_Name: C1 (1)
-  m_TagString: MainPlatform
+  m_TagString: MainPlatformCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2009,7 +1977,7 @@ GameObject:
   - component: {fileID: 5240168785188422078}
   m_Layer: 0
   m_Name: C
-  m_TagString: Untagged
+  m_TagString: MainPlatformCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -399,22 +399,44 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8774d0d4741104c9c8c5a5728d88e70d, type: 3}
---- !u!4 &681157262 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5076822195162894142, guid: 8774d0d4741104c9c8c5a5728d88e70d, type: 3}
-  m_PrefabInstance: {fileID: 681157261}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &681157263 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6145724357334182229, guid: 8774d0d4741104c9c8c5a5728d88e70d, type: 3}
   m_PrefabInstance: {fileID: 681157261}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &681157264 stripped
+--- !u!1 &949755473
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 2853522857766509024, guid: 8774d0d4741104c9c8c5a5728d88e70d, type: 3}
-  m_PrefabInstance: {fileID: 681157261}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
---- !u!43 &915681668
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 949755474}
+  m_Layer: 0
+  m_Name: LevelSpecific
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &949755474
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949755473}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.39747792, y: 1.1902674, z: -0.016423214}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1596803214}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!43 &1401487133
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -579,38 +601,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &949755473
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 949755474}
-  m_Layer: 0
-  m_Name: LevelSpecific
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &949755474
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 949755473}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.39747792, y: 1.1902674, z: -0.016423214}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1596803214}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1442075612 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1439958952294343122, guid: 7f3e224445bba4c8f838c2ca32164068, type: 3}
@@ -1008,10 +998,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4103161789689213281, guid: 7f3e224445bba4c8f838c2ca32164068, type: 3}
-      propertyPath: platformObj
-      value: 
-      objectReference: {fileID: 681157264}
     - target: {fileID: 4463553861606686543, guid: 7f3e224445bba4c8f838c2ca32164068, type: 3}
       propertyPath: uiPrefab
       value: 
@@ -1023,18 +1009,6 @@ PrefabInstance:
     - target: {fileID: 6328143981375303186, guid: 7f3e224445bba4c8f838c2ca32164068, type: 3}
       propertyPath: m_Name
       value: LevelScripts
-      objectReference: {fileID: 0}
-    - target: {fileID: 6762653154033847079, guid: 7f3e224445bba4c8f838c2ca32164068, type: 3}
-      propertyPath: spawnPosition
-      value: 
-      objectReference: {fileID: 681157262}
-    - target: {fileID: 8430131813013168004, guid: 7f3e224445bba4c8f838c2ca32164068, type: 3}
-      propertyPath: cubeCountDataByMaterialTypeList.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8430131813013168004, guid: 7f3e224445bba4c8f838c2ca32164068, type: 3}
-      propertyPath: cubeCountDataByMaterialTypeList.Array.data[0].cubeCount
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

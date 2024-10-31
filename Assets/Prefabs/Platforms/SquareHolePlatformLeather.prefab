@@ -70,7 +70,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4245193080982164944, guid: 2454e80ae43ee42028c955995ff576a6, type: 3}
       propertyPath: m_Name
-      value: SquareHolePlatformLeather Variant
+      value: SquareHolePlatformLeather
+      objectReference: {fileID: 0}
+    - target: {fileID: 4245193080982164944, guid: 2454e80ae43ee42028c955995ff576a6, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

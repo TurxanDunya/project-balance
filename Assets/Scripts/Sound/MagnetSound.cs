@@ -25,7 +25,8 @@ public class MagnetSound : MonoBehaviour
     public void MakeInstantSound(Collision collision)
     {
         bool isOtherDroppedCube = collision.collider.CompareTag(TagConstants.DROPPED_CUBE);
-        bool isOtherMainPlatform = collision.collider.CompareTag(TagConstants.MAIN_PLATFORM);
+        bool isOtherMainPlatform = collision.collider.CompareTag(TagConstants.MAIN_PLATFORM)
+            || collision.collider.CompareTag(TagConstants.MAIN_PLATFORM_COLLIDER);
 
         if (isOtherMainPlatform)
         {
