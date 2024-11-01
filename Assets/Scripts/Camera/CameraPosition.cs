@@ -6,7 +6,6 @@ public class CameraPosition : MonoBehaviour
     [Header("Params")]
     [SerializeField] private float normalizedDegreeToMoveOppsiteSide = 0.2f;
 
-    private Camera cameraComponent;
     private GameObject platformObj;
     private CubeMovement cubeMovement;
 
@@ -15,11 +14,6 @@ public class CameraPosition : MonoBehaviour
     private Transform oppositeTransform;
 
     private bool isOnOppositeSide = false;
-
-    private void Awake()
-    {
-        cameraComponent = GetComponent<Camera>();
-    }
 
     private void Start()
     {
@@ -44,7 +38,11 @@ public class CameraPosition : MonoBehaviour
                 transform.position = oppositeTransform.position;
                 transform.rotation = oppositeTransform.rotation;
 
-                CheckCubeMovement();
+                FindCubeMovementComponent();
+                if (cubeMovement == null)
+                {
+                    continue;
+                }
                 cubeMovement.InvertAxis();
 
                 isOnOppositeSide = true;
@@ -57,7 +55,11 @@ public class CameraPosition : MonoBehaviour
                 transform.position = initialTransform.position;
                 transform.rotation = initialTransform.rotation;
 
-                CheckCubeMovement();
+                FindCubeMovementComponent();
+                if (cubeMovement == null)
+                {
+                    continue;
+                }
                 cubeMovement.UndoInvertAxis();
 
                 isOnOppositeSide = false;
@@ -74,15 +76,9 @@ public class CameraPosition : MonoBehaviour
      * Because CORE Component is in prefab. Core components should not be in prefab.
      * CUBE PREFAB IS NOT the CORE. But Movement is core mechanism.
      */
-    private CubeMovement CheckCubeMovement()
+    private void FindCubeMovementComponent()
     {
-        if (cubeMovement == null)
-        {
-            cubeMovement = FindAnyObjectByType<CubeMovement>();
-            return cubeMovement;
-        }
-
-        return cubeMovement;
+        cubeMovement = FindAnyObjectByType<CubeMovement>();
     }
 
 }
