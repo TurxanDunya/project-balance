@@ -7,4 +7,5 @@ public class TagConstants
     public const string STAR = "Star";
     public const string MAIN_PLATFORM = "MainPlatform";
     public const string MAIN_PLATFORM_COLLIDER = "MainPlatformCollider";
+    public const string PREDEFINED_POSITIONS = "PredefinedPositions";
 }

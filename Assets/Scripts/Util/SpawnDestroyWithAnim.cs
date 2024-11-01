@@ -4,30 +4,31 @@ public class SpawnDestroyWithAnim : MonoBehaviour
 {
     [SerializeField] AnimationClip spawnAnimation;
     [SerializeField] AnimationClip destroyAnimation;
-    private Animation animation;
+
+    private Animation animationComponent;
 
     void Start()
     {
-        animation = GetComponent<Animation>();
+        animationComponent = GetComponent<Animation>();
 
-        if (animation == null) {
+        if (animationComponent == null) {
             gameObject.AddComponent<Animation>();
-            animation = GetComponent<Animation>();
+            animationComponent = GetComponent<Animation>();
         }
 
-        animation.AddClip(spawnAnimation, "spawn");
-        animation.AddClip(destroyAnimation, "destroy");
+        animationComponent.AddClip(spawnAnimation, "spawn");
+        animationComponent.AddClip(destroyAnimation, "destroy");
         PlaySpawnAnimation();
     }
 
     public void PlaySpawnAnimation()
     {
-        animation.Play("spawn");
+        animationComponent.Play("spawn");
     }
 
     public void PlayDestroyAnimation()
     {
-        animation.Play("destroy");
+        animationComponent.Play("destroy");
     }
 
     public void SpawnAnimationComplete() { }

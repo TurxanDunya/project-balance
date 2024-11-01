@@ -12,6 +12,7 @@ TagManager:
   - DroppedCube
   - Star
   - MainPlatformCollider
+  - PredefinedPositions
   layers:
   - Default
   - TransparentFX
