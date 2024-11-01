@@ -123,52 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &19366606
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 19366608}
-  - component: {fileID: 19366607}
-  m_Layer: 0
-  m_Name: BurstCollisionWorld
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &19366607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 19366606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1a161c4294214a4fbcb7e9e94800494, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cellSpans:
-    m_AlignBytes: 16
---- !u!4 &19366608
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 19366606}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &280985460 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 231312923564456866, guid: d5923e079c0f24774a058aa61b19623e, type: 3}
@@ -261,6 +215,52 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5923e079c0f24774a058aa61b19623e, type: 3}
+--- !u!1 &368845327
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 368845329}
+  - component: {fileID: 368845328}
+  m_Layer: 0
+  m_Name: BurstCollisionWorld
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &368845328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368845327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a161c4294214a4fbcb7e9e94800494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cellSpans:
+    m_AlignBytes: 16
+--- !u!4 &368845329
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368845327}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &423592033 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4981585557895238111, guid: d5923e079c0f24774a058aa61b19623e, type: 3}
@@ -355,7 +355,7 @@ Transform:
   - {fileID: 1408442760}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!43 &804155182
+--- !u!43 &801280038
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -531,7 +531,7 @@ PrefabInstance:
     - target: {fileID: 3017464746234742190, guid: 1f3308e8a15514618b13cd748ce45897, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 804155182}
+      objectReference: {fileID: 801280038}
     - target: {fileID: 6473678685164262808, guid: 1f3308e8a15514618b13cd748ce45897, type: 3}
       propertyPath: m_Name
       value: RoundPlatformCeiling
@@ -581,11 +581,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f3308e8a15514618b13cd748ce45897, type: 3}
---- !u!4 &1200438445 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2244213085964183089, guid: 1f3308e8a15514618b13cd748ce45897, type: 3}
-  m_PrefabInstance: {fileID: 1200438444}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1200438446 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9135774913985786095, guid: 1f3308e8a15514618b13cd748ce45897, type: 3}
@@ -858,7 +853,7 @@ PrefabInstance:
     - target: {fileID: 6762653154033847079, guid: 7f3e224445bba4c8f838c2ca32164068, type: 3}
       propertyPath: spawnPosition
       value: 
-      objectReference: {fileID: 1200438445}
+      objectReference: {fileID: 0}
     - target: {fileID: 6762653154033847079, guid: 7f3e224445bba4c8f838c2ca32164068, type: 3}
       propertyPath: icePrefab.Array.size
       value: 1
@@ -1024,4 +1019,4 @@ SceneRoots:
   - {fileID: 1200438444}
   - {fileID: 5153726917296758479}
   - {fileID: 789708642}
-  - {fileID: 19366608}
+  - {fileID: 368845329}
