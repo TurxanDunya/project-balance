@@ -14,19 +14,20 @@ public class RandomFallSpeed : MonoBehaviour
 
     private float defaultDrag;
 
-    private Rigidbody rigidbody;
+    private Rigidbody rb;
+
     void Start()
     {
-        rigidbody = gameObject.GetComponent<Rigidbody>();
-        if (rigidbody == null) { Destroy(this); return; };
-        defaultDrag = rigidbody.drag;
+        rb = gameObject.GetComponent<Rigidbody>();
+        if (rb == null) { Destroy(this); return; };
+        defaultDrag = rb.drag;
         if (randomlyActive)
         {
-            if (Random.Range(0, randomActiveFactor + 1) == randomActiveFactor) rigidbody.drag = Random.Range(minFallDrag, maxFallDrag);
+            if (Random.Range(0, randomActiveFactor + 1) == randomActiveFactor) rb.drag = Random.Range(minFallDrag, maxFallDrag);
         }
         else
         {
-            rigidbody.drag = Random.Range(minFallDrag, maxFallDrag);
+            rb.drag = Random.Range(minFallDrag, maxFallDrag);
         }
     }
 
@@ -38,7 +39,7 @@ public class RandomFallSpeed : MonoBehaviour
     IEnumerator RestoreSpeed()
     {
         yield return new WaitForSeconds(restoreSpeedTime);
-        rigidbody.drag = defaultDrag;
+        rb.drag = defaultDrag;
     }
 
 }

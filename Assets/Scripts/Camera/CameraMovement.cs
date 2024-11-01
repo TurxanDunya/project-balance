@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
@@ -7,26 +8,28 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private float fovStartValue = 70.0f;
     [SerializeField] private float fovFinishValue = 55.0f;
 
-    private Camera camera;
+    private Camera cameraComponent;
 
     private void Awake()
     {
-        camera = GetComponent<Camera>();
+        cameraComponent = GetComponent<Camera>();
     }
 
     private void Start()
     {
-        camera.fieldOfView = fovStartValue;
+        cameraComponent.fieldOfView = fovStartValue;
+        StartCoroutine(SmoothFOVTransition());
     }
 
-    private void FixedUpdate()
+    private IEnumerator SmoothFOVTransition()
     {
-        if (camera.fieldOfView <= fovFinishValue)
+        while (cameraComponent.fieldOfView > fovFinishValue)
         {
-            return;
+            cameraComponent.fieldOfView -= moveSpeed * Time.deltaTime;
+            yield return null;
         }
 
-        camera.fieldOfView -= moveSpeed * Time.fixedDeltaTime;
+        cameraComponent.fieldOfView = fovFinishValue;
     }
 
 }

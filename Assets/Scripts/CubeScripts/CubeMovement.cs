@@ -1,32 +1,36 @@
-using System.Linq;
 using UnityEngine;
 
 public class CubeMovement : MonoBehaviour
 {
+    [SerializeField] private bool invertAxis = false;
+
     private GameObject platformObj;
     private Platform platform;
 
     private InputManager inputManager;
     private CubeRayCast cubeRayCast;
-    private InvertMovement invertMovement;
 
     private Vector3 cubePosition;
     private Vector3 previousPosition;
 
     // cube movement variables
-    Vector3 forwardDirection;
-    Vector3 rightDirection;
-    Vector3 moveDirection;
+    private Vector3 forwardDirection;
+    private Vector3 rightDirection;
+    private Vector3 moveDirection;
 
     private void Awake()
     {
         inputManager = gameObject.AddComponent<InputManager>();
-        invertMovement = FindAnyObjectByType<InvertMovement>();
     }
 
     private void Start()
     {
         cubePosition = transform.position;
+
+        if (invertAxis)
+        {
+            InvertAxis();
+        }
 
         platformObj = GameObject.FindGameObjectWithTag(TagConstants.MAIN_PLATFORM);
         platform = platformObj.GetComponent<Platform>();
@@ -57,14 +61,27 @@ public class CubeMovement : MonoBehaviour
         cubeRayCast.UpdateLineRendererPosition();
     }
 
+    public void InvertAxis()
+    {
+        invertAxis = true;
+    }
+
+    public void UndoInvertAxis()
+    {
+        invertAxis = false;
+    }
+
     public void Move(Vector2 delta)
     {
         gameObject.layer = LayerMask.NameToLayer("Outlined");
         moveDirection = forwardDirection * delta.y + rightDirection * delta.x;
         moveDirection *= Time.deltaTime * 0.03f;
 
-        moveDirection = invertMovement != null 
-            ? invertMovement.invertVector(moveDirection) : moveDirection;
+        if (invertAxis)
+        {
+            moveDirection = -moveDirection;
+        }
+
         moveDirection.y = 0;
         transform.position += moveDirection;
 
