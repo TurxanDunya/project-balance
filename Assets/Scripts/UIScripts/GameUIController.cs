@@ -211,11 +211,12 @@ public class GameUIController : MonoBehaviour, IControllerTemplate
 
     void GoNextLevel()
     {
-        string[] levelNameParts = SceneManager.GetActiveScene().name.Split(" ");
-        int nextLevelNumber = int.Parse(levelNameParts[1]);
-        string nextLevelName = levelNameParts[0] + " " + (++nextLevelNumber);
+        LevelManagment levelManagment = LevelManager.INSTANCE.levelManagment;
+        Level nextLevel = levelManagment.FindNextLevel();
+        levelManagment.currentLevel = nextLevel;
+        levelManagment.levelList.lastPlayedLevelName = nextLevel.name;
 
-        LevelManager.INSTANCE.levelManagment.levelList.lastPlayedLevelName = nextLevelName;
+        LevelManager.INSTANCE.levelManagment.levelList.lastPlayedLevelName = nextLevel.name;
         SceneManager.LoadScene(LevelNameConstants.START_LOAD_SCREEN);
     }
 
