@@ -85,9 +85,6 @@ public class GameCore : MonoBehaviour
                 levelManagment.currentLevel.star = gameUIController.GetLevelStar();
             }
 
-            levelManagment.currentLevel = nextLevel;
-            levelManagment.levelList.lastPlayedLevelName = nextLevel.name;
-
             levelManagment.SetLevelData(nextLevel);
             levelManagment.SaveLevels();
 
