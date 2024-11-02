@@ -14,8 +14,12 @@ public class CameraPosition : MonoBehaviour
     private Vector3[] positions;
     private int currentTargetIndex = 1;
 
+    private AudioSource cameraChangePositionSFX;
+
     private void Start()
     {
+        cameraChangePositionSFX = GetComponent<AudioSource>();
+
         platformObj = GameObject.FindGameObjectWithTag(TagConstants.MAIN_PLATFORM);
         GameObject predefinedPositions =
             GameObject.FindGameObjectWithTag(TagConstants.PREDEFINED_POSITIONS);
@@ -39,6 +43,7 @@ public class CameraPosition : MonoBehaviour
                 Vector3 targetPosition = positions[targetIndex];
 
                 Tweener moveTween = transform.DOPath(new Vector3[] { targetPosition }, speed, pathType);
+                cameraChangePositionSFX.Play();
 
                 while (moveTween.IsActive() && !moveTween.IsComplete())
                 {
