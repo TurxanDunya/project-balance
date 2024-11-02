@@ -1,84 +1,64 @@
 using System.Collections;
 using UnityEngine;
+using DG.Tweening;
+using System.Linq;
 
 public class CameraPosition : MonoBehaviour
 {
     [Header("Params")]
     [SerializeField] private float normalizedDegreeToMoveOppsiteSide = 0.2f;
+    [SerializeField] private PathType pathType;
 
     private GameObject platformObj;
-    private CubeMovement cubeMovement;
-
-    private GameObject positions;
-    private Transform initialTransform;
-    private Transform oppositeTransform;
-
-    private bool isOnOppositeSide = false;
+    private Vector3[] positions;
+    private int currentTargetIndex = 1;
 
     private void Start()
     {
         platformObj = GameObject.FindGameObjectWithTag(TagConstants.MAIN_PLATFORM);
-        positions = GameObject.FindGameObjectWithTag(TagConstants.PREDEFINED_POSITIONS);
+        GameObject predefinedPositions = GameObject.FindGameObjectWithTag(TagConstants.PREDEFINED_POSITIONS);
+        positions = predefinedPositions.GetComponentsInChildren<Transform>()
+            .Select(position => position.position)
+            .ToArray();
 
-        Transform[] predefinedPositions = positions.GetComponentsInChildren<Transform>();
-        initialTransform = predefinedPositions[1];
-        oppositeTransform = predefinedPositions[2];
-
-        StartCoroutine(ChangePositionOpposite());
+        StartCoroutine(ChangePositionBasedOnPlatform());
     }
 
-    private IEnumerator ChangePositionOpposite()
+    private IEnumerator ChangePositionBasedOnPlatform()
     {
         while (true)
         {
             Quaternion platformRotation = platformObj.transform.rotation;
+            int targetIndex = GetPositionIndexFromRotation(platformRotation);
 
-            if (platformRotation.x >= normalizedDegreeToMoveOppsiteSide && !isOnOppositeSide)
+            if (targetIndex != currentTargetIndex)
             {
-                transform.position = oppositeTransform.position;
-                transform.rotation = oppositeTransform.rotation;
+                currentTargetIndex = targetIndex;
+                Vector3 targetPosition = positions[targetIndex];
 
-                FindCubeMovementComponent();
-                if (cubeMovement == null)
+                Tweener moveTween = transform.DOPath(new Vector3[] { targetPosition }, 3f, pathType);
+
+                while (moveTween.IsActive() && !moveTween.IsComplete())
                 {
-                    continue;
+                    transform.LookAt(platformObj.transform.position);
+                    yield return null;
                 }
-                cubeMovement.InvertAxis();
-
-                isOnOppositeSide = true;
-                yield return new WaitForSeconds(1);
-                continue;
             }
 
-            if (platformRotation.x <= -normalizedDegreeToMoveOppsiteSide && isOnOppositeSide)
-            {
-                transform.position = initialTransform.position;
-                transform.rotation = initialTransform.rotation;
-
-                FindCubeMovementComponent();
-                if (cubeMovement == null)
-                {
-                    continue;
-                }
-                cubeMovement.UndoInvertAxis();
-
-                isOnOppositeSide = false;
-                yield return new WaitForSeconds(1);
-                continue;
-            }
-
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
-    /*
-     * In fact, we should not do it this way, but we do!
-     * Because CORE Component is in prefab. Core components should not be in prefab.
-     * CUBE PREFAB IS NOT the CORE. But Movement is core mechanism.
-     */
-    private void FindCubeMovementComponent()
+    private int GetPositionIndexFromRotation(Quaternion rotation)
     {
-        cubeMovement = FindAnyObjectByType<CubeMovement>();
+        float xRot = rotation.x;
+        float zRot = rotation.z;
+
+        if (xRot > normalizedDegreeToMoveOppsiteSide) return 3;
+        if (zRot > normalizedDegreeToMoveOppsiteSide) return 2;
+        if (xRot < -normalizedDegreeToMoveOppsiteSide) return 1;
+        if (zRot < -normalizedDegreeToMoveOppsiteSide) return 4;
+        return 1;
     }
 
 }
