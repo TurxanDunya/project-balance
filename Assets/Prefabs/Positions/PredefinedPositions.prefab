@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &631148369872662961
+--- !u!1 &472638415211219853
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,29 +8,29 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8430168240294338915}
+  - component: {fileID: 4278023573815634925}
   m_Layer: 0
-  m_Name: CameraOppositePosition
+  m_Name: Camera_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
---- !u!4 &8430168240294338915
+--- !u!4 &4278023573815634925
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 631148369872662961}
+  m_GameObject: {fileID: 472638415211219853}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.115116894, y: 0.89250493, z: -0.33745214, w: -0.27624097}
-  m_LocalPosition: {x: -0.42, y: 1.423, z: 0.615}
+  m_LocalRotation: {x: 0.13408731, y: -0.30708024, z: 0.041044906, w: 0.94129574}
+  m_LocalPosition: {x: -0.261, y: 1.12, z: -0.639}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 194350368164650583}
-  m_LocalEulerAnglesHint: {x: 401.756, y: -146.162, z: -1.463}
+  m_LocalEulerAnglesHint: {x: 16.119, y: -36.179, z: -0.303}
 --- !u!1 &7444523083108187349
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,11 +60,13 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2476001865603530243}
-  - {fileID: 8430168240294338915}
+  - {fileID: 1292271734753591272}
+  - {fileID: 8926975152500437169}
+  - {fileID: 4588393376419304267}
+  - {fileID: 4278023573815634925}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &9011537357414914401
+--- !u!1 &8636593909076004793
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -72,21 +74,52 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2476001865603530243}
+  - component: {fileID: 4588393376419304267}
   m_Layer: 0
-  m_Name: CameraInitialPosition
+  m_Name: Camera_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
---- !u!4 &2476001865603530243
+--- !u!4 &4588393376419304267
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9011537357414914401}
+  m_GameObject: {fileID: 8636593909076004793}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.019519763, y: 0.95329136, z: -0.08755309, w: -0.2884252}
+  m_LocalPosition: {x: -0.213, y: 1.121, z: 0.917}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 194350368164650583}
+  m_LocalEulerAnglesHint: {x: 10.264, y: 213.737, z: 0.774}
+--- !u!1 &8649402815613340584
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1292271734753591272}
+  m_Layer: 0
+  m_Name: Camera_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &1292271734753591272
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8649402815613340584}
   serializedVersion: 2
   m_LocalRotation: {x: 0.3265759, y: 0.25846097, z: -0.10432702, w: 0.90314007}
   m_LocalPosition: {x: -1.135, y: 1.414, z: -0.516}
@@ -95,3 +128,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 194350368164650583}
   m_LocalEulerAnglesHint: {x: 40.077, y: 31.404, z: -1.47}
+--- !u!1 &8765594296548510149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8926975152500437169}
+  m_Layer: 0
+  m_Name: Camera_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &8926975152500437169
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8765594296548510149}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.037739117, y: 0.9443269, z: -0.106055774, w: 0.30915168}
+  m_LocalPosition: {x: -1.346, y: 1.108, z: 0.838}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 194350368164650583}
+  m_LocalEulerAnglesHint: {x: 12.923, y: 143.783, z: 0.335}

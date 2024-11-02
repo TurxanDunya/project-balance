@@ -38,7 +38,11 @@ public class CubeMovement : MonoBehaviour
         cubeRayCast = GetComponent<CubeRayCast>();
         cubeRayCast.UpdateLineRendererPosition();
 
-        // Since the camera is static, calculating only once should be enough
+        UpdateCameraDirection();
+    }
+
+    private void UpdateCameraDirection()
+    {
         forwardDirection = Vector3.ProjectOnPlane(
            Camera.main.transform.forward, Vector3.up).normalized;
         rightDirection = Vector3.ProjectOnPlane(
@@ -73,6 +77,8 @@ public class CubeMovement : MonoBehaviour
 
     public void Move(Vector2 delta)
     {
+        UpdateCameraDirection();
+
         gameObject.layer = LayerMask.NameToLayer("Outlined");
         moveDirection = forwardDirection * delta.y + rightDirection * delta.x;
         moveDirection *= Time.deltaTime * 0.03f;
