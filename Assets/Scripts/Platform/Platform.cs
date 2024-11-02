@@ -30,17 +30,18 @@ public class Platform : MonoBehaviour
         }
     }
 
-    /*
-     * TODO: some validations should be add for this method
-     * Because if gapFromPlatformEdge and gapFromCenter gets invalid parameters
-     * it will be work as unexpected
-     */
     public Vector3 DefineSpawnablePosition(
         float gapWithPlatformY, float gapFromPlatformEdge, float gapFromCenter)
     {
-        ResetPositions();
-
         Vector3 platformScale = transform.localScale;
+        if (gapFromPlatformEdge + gapFromCenter > platformScale.x / 2
+            || gapFromPlatformEdge + gapFromCenter > platformScale.z / 2)
+        {
+            throw new Exception("Sum of gapFromPlatformEdge and gapFromCenter" +
+                "is greater than platform half");
+        }
+
+        ResetPositions();
 
         xDistanceFromCenter = Random.Range(
             -platformScale.x / 2 + gapFromPlatformEdge - gapFromCenter,

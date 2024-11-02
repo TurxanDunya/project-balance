@@ -7,6 +7,7 @@ public class CameraPosition : MonoBehaviour
 {
     [Header("Params")]
     [SerializeField] private float normalizedDegreeToMoveOppsiteSide = 0.2f;
+    [SerializeField] private float speed = 3f;
     [SerializeField] private PathType pathType;
 
     private GameObject platformObj;
@@ -16,7 +17,8 @@ public class CameraPosition : MonoBehaviour
     private void Start()
     {
         platformObj = GameObject.FindGameObjectWithTag(TagConstants.MAIN_PLATFORM);
-        GameObject predefinedPositions = GameObject.FindGameObjectWithTag(TagConstants.PREDEFINED_POSITIONS);
+        GameObject predefinedPositions =
+            GameObject.FindGameObjectWithTag(TagConstants.PREDEFINED_POSITIONS);
         positions = predefinedPositions.GetComponentsInChildren<Transform>()
             .Select(position => position.position)
             .ToArray();
@@ -31,12 +33,12 @@ public class CameraPosition : MonoBehaviour
             Quaternion platformRotation = platformObj.transform.rotation;
             int targetIndex = GetPositionIndexFromRotation(platformRotation);
 
-            if (targetIndex != currentTargetIndex)
+            if (targetIndex != currentTargetIndex && targetIndex != 0)
             {
                 currentTargetIndex = targetIndex;
                 Vector3 targetPosition = positions[targetIndex];
 
-                Tweener moveTween = transform.DOPath(new Vector3[] { targetPosition }, 3f, pathType);
+                Tweener moveTween = transform.DOPath(new Vector3[] { targetPosition }, speed, pathType);
 
                 while (moveTween.IsActive() && !moveTween.IsComplete())
                 {
@@ -45,7 +47,7 @@ public class CameraPosition : MonoBehaviour
                 }
             }
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
         }
     }
 
@@ -58,7 +60,7 @@ public class CameraPosition : MonoBehaviour
         if (zRot > normalizedDegreeToMoveOppsiteSide) return 2;
         if (xRot < -normalizedDegreeToMoveOppsiteSide) return 1;
         if (zRot < -normalizedDegreeToMoveOppsiteSide) return 4;
-        return 1;
+        return 0; // 0 means position should not be changed
     }
 
 }
