@@ -89,6 +89,28 @@ public class LevelsSceneController : MonoBehaviour, IControllerTemplate
 
             scrollView.Add(levelView);
         }
+
+        AddToBeContinued();
+    }
+
+    private void AddToBeContinued()
+    {
+        var levelView = levelItem.Instantiate();
+
+        var itemVE = levelView.Q<VisualElement>("item");
+        var backgroundVE = itemVE.Q<VisualElement>("background");
+        var levelNameLbl = backgroundVE.Q<Label>("name");
+        var starsVE = backgroundVE.Q<VisualElement>("stars");
+        var statusLockedVE = backgroundVE.Q<VisualElement>("status");
+
+        levelNameLbl.text = "New levels soon..";
+        levelNameLbl.style.fontSize = 70;
+        levelNameLbl.style.color = Color.black;
+
+        starsVE.style.display = DisplayStyle.None;
+        statusLockedVE.style.display = DisplayStyle.None;
+
+        scrollView.Add(levelView);
     }
 
     private void HideLevelMenu()

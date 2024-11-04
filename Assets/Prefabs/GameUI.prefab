@@ -80,6 +80,7 @@ GameObject:
   - component: {fileID: 1901870133191469171}
   - component: {fileID: 3455018955299775731}
   - component: {fileID: 5220793423915971287}
+  - component: {fileID: 2721959783313584613}
   m_Layer: 5
   m_Name: HomeUI
   m_TagString: Untagged
@@ -161,6 +162,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tableName: GameText
+--- !u!114 &2721959783313584613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331211012847983943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc0863436bc724c2a9fa7f02e67091ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tableName: GameText
 --- !u!1 &471164949728130507
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,6 +187,7 @@ GameObject:
   - component: {fileID: 6575613912695690708}
   - component: {fileID: 7830707259022999204}
   - component: {fileID: 2619908225063594149}
+  - component: {fileID: 7952320678470126464}
   m_Layer: 5
   m_Name: PauseScreenUI
   m_TagString: Untagged
@@ -237,6 +252,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tableName: GameText
+--- !u!114 &7952320678470126464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471164949728130507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc0863436bc724c2a9fa7f02e67091ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tableName: GameText
 --- !u!1 &933027444706891834
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,6 +277,7 @@ GameObject:
   - component: {fileID: 2078459970637071347}
   - component: {fileID: 9183529347513530654}
   - component: {fileID: 7056767900986460580}
+  - component: {fileID: 8814425604020168404}
   m_Layer: 5
   m_Name: AboutUsUI
   m_TagString: Untagged
@@ -313,6 +342,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tableName: GameText
+--- !u!114 &8814425604020168404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933027444706891834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc0863436bc724c2a9fa7f02e67091ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tableName: GameText
 --- !u!1 &2299487983283890040
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,6 +366,7 @@ GameObject:
   - component: {fileID: 2341419557921409428}
   - component: {fileID: 7517108394963523991}
   - component: {fileID: 4808201747720204789}
+  - component: {fileID: 2761818305227045316}
   m_Layer: 5
   m_Name: WinnerUI
   m_TagString: Untagged
@@ -363,6 +406,19 @@ MonoBehaviour:
   sourceAsset: {fileID: 9197481963319205126, guid: 50ec330b789574c91aa7d23b7fb990af, type: 3}
   m_SortingOrder: 4
 --- !u!114 &4808201747720204789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2299487983283890040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc0863436bc724c2a9fa7f02e67091ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tableName: GameText
+--- !u!114 &2761818305227045316
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -503,6 +559,7 @@ GameObject:
   - component: {fileID: 4439974479573489929}
   - component: {fileID: 44683584306850804}
   - component: {fileID: 4346004766947890272}
+  - component: {fileID: 6166143860604035730}
   m_Layer: 5
   m_Name: SettingsUI
   m_TagString: Untagged
@@ -579,6 +636,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tableName: GameText
+--- !u!114 &6166143860604035730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4206477802807428289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc0863436bc724c2a9fa7f02e67091ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tableName: GameText
 --- !u!1 &4981585557895238111
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,6 +703,7 @@ GameObject:
   - component: {fileID: 1845998657033733588}
   - component: {fileID: 2498823953149181725}
   - component: {fileID: 2888533943265053394}
+  - component: {fileID: 7459109668782529936}
   m_Layer: 5
   m_Name: GameOverUI
   m_TagString: Untagged
@@ -672,6 +743,19 @@ MonoBehaviour:
   sourceAsset: {fileID: 9197481963319205126, guid: bed988c549fee4e3ab156ef397958bbf, type: 3}
   m_SortingOrder: 4
 --- !u!114 &2888533943265053394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5715331772997791880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc0863436bc724c2a9fa7f02e67091ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tableName: GameText
+--- !u!114 &7459109668782529936
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
