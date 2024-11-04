@@ -11,9 +11,9 @@ public class GameCore : MonoBehaviour
     private TimeLevelWinner timeLevelWinner;
     private CubeSpawnManagement cubeSpawnManagement;
 
-    private bool isGameEnd = false;
-    private bool isWin = false;
-    private bool isAboutToWin = false;
+    private bool IsGameEnd = false;
+    public bool IsWin { get; private set; } = false;
+    public bool IsAboutToWin { get; private set; } = false;
 
     private void Awake()
     {
@@ -44,7 +44,7 @@ public class GameCore : MonoBehaviour
 
     public void ProcessWinEvent()
     {
-        if (isWin || isAboutToWin)
+        if (IsWin || IsAboutToWin)
         {
             // Win event already started
             return;
@@ -55,26 +55,26 @@ public class GameCore : MonoBehaviour
 
     public void ProcessEndGame()
     {
-        if (!isWin)
+        if (!IsWin)
         {
             StopCoroutine(CheckGameWinAndSaveStar());
             Destroy(timeLevelWinner);
             gameUIController.HideWinnerTimeOnScreen();
 
-            isGameEnd = true;
+            IsGameEnd = true;
             gameUIController.GameOverUIVisibility(true);
             cubeSpawnManagement.DestroyCurrentCube();
         }
     }
 
     private IEnumerator CheckGameWinAndSaveStar() {
-        isAboutToWin = true;
+        IsAboutToWin = true;
         if(timeLevelWinner != null) timeLevelWinner.StartCountDownTimer(countDownFromForWin);
         yield return new WaitForSeconds(countDownFromForWin);
 
-        if (!isGameEnd)
+        if (!IsGameEnd)
         {
-            isWin = true;
+            IsWin = true;
             LevelManagment levelManagment = LevelManager.INSTANCE.levelManagment;
 
             Level nextLevel = levelManagment.FindNextLevel();
