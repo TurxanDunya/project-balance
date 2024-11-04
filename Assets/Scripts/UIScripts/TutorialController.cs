@@ -8,6 +8,7 @@ public class TutorialController : MonoBehaviour, IControllerTemplate
 
     [SerializeField] private GameObject[] tutorials;
     [SerializeField] private GameObject rootTutorialObject;
+    [SerializeField] private float tutorialPopUpInterval = 0.5f;
 
     private TutorialSaveSystem tutorialSaveSystem;
 
@@ -66,7 +67,7 @@ public class TutorialController : MonoBehaviour, IControllerTemplate
 
             if (currentTutorialNumber < tutorialCountOnLevel)
             {
-                yield return new WaitForSeconds(3);
+                yield return new WaitForSeconds(tutorialPopUpInterval);
             }
         }
 
