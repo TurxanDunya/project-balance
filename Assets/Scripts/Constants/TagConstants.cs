@@ -1,5 +1,6 @@
 public class TagConstants
 {
+    public const string MAIN_CAMERA = "MainCamera";
     public const string PLAYABLE_CUBE = "PlayableCube";
     public const string DROPPED_CUBE = "DroppedCube";
     public const string MAGNET = "Magnet";

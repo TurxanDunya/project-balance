@@ -16,6 +16,7 @@ public class WindEffect : MonoBehaviour
     [SerializeField] private float minWindInterval = 5f;
     [SerializeField] private float maxWindInterval = 15f;
     [SerializeField] private float windDuration = 2f;
+    [SerializeField] private float distanceFromCamera = 0.1f;
 
     [Header("Fade")]
     [SerializeField] private float fadeInDuration = 1f;
@@ -27,6 +28,7 @@ public class WindEffect : MonoBehaviour
     private Vector3 windDirection;
     private float currentWindForce = 0f;
     private float currentAlpha = 0f;
+    bool isVFXPlaying = false;
 
     void Start()
     {
@@ -37,6 +39,7 @@ public class WindEffect : MonoBehaviour
         windVFX.SetFloat("Alpha", currentAlpha);
 
         StartCoroutine(WindCycle());
+        StartCoroutine(UpdateVFXPosition());
     }
 
     private IEnumerator WindCycle()
@@ -110,10 +113,12 @@ public class WindEffect : MonoBehaviour
     {
         if (state)
         {
+            isVFXPlaying = true;
             StartCoroutine(FadeInVfx());
         }
         else
         {
+            
             StartCoroutine(FadeOutVfx());
         }
     }
@@ -148,6 +153,23 @@ public class WindEffect : MonoBehaviour
 
         windVFX.SetFloat("Alpha", 0f);
         windVFX.Stop();
+        isVFXPlaying = false;
+    }
+
+    private IEnumerator UpdateVFXPosition()
+    {
+        while (true)
+        {
+            if (windVFX)
+            {
+                yield return new WaitUntil(() => isVFXPlaying);
+            }
+
+            Transform cameraPosition = Camera.main.transform;
+            transform.SetPositionAndRotation(
+                cameraPosition.position + cameraPosition.forward * distanceFromCamera,
+                Quaternion.LookRotation(-cameraPosition.forward) * Quaternion.Euler(0, 0, 90));
+        }
     }
 
 }

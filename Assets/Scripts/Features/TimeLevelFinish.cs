@@ -44,6 +44,14 @@ public class TimeLevelFinish : MonoBehaviour
             {
                 yield return new WaitForSeconds(1);
             }
+            else if (gameCore.IsAboutToWin || gameCore.IsWin)
+            {
+                if (audioSource.isPlaying)
+                {
+                    audioSource.Pause();
+                }
+                yield return new WaitForSeconds(0.1f);
+            }
             else
             {
                 OnUpdateSecondEvent(timeToFinishLevel);
