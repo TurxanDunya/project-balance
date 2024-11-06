@@ -6,7 +6,7 @@ public class FallingShapesController : MonoBehaviour
     [SerializeField] private GameObject[] FallingObjects;
     [SerializeField] private GameObject platformObj;
     [SerializeField] private int fallingSecond = 3;
-    [SerializeField] private float gapFromPlatformEdge = 0.1f;
+    [SerializeField] private float gapWithPlatformY = 0.2f;
 
     private Vector3 platformScale;
     private Vector3 fallPosition;
@@ -21,9 +21,9 @@ public class FallingShapesController : MonoBehaviour
         platformScale = platformObj.transform.localScale;
 
         var fallXDistanceFromCenter = Random.Range(
-            -platformScale.x + gapFromPlatformEdge, platformScale.x  - gapFromPlatformEdge);
+            -platformScale.x, platformScale.x);
         var fallZDistanceFromCenter = Random.Range(
-            -platformScale.z  + gapFromPlatformEdge, platformScale.z  - gapFromPlatformEdge);
+            -platformScale.z, platformScale.z);
 
         Vector3 platformUpDirection = platformObj.transform.up;
         Vector3 platformSurfacePosition =
@@ -33,7 +33,7 @@ public class FallingShapesController : MonoBehaviour
             new(fallXDistanceFromCenter, 0, fallZDistanceFromCenter));
 
         fallPosition = new Vector3(
-            fallPosition.x, platformSurfacePosition.y + gapFromPlatformEdge, fallPosition.z);
+            fallPosition.x, platformSurfacePosition.y + gapWithPlatformY, fallPosition.z);
     }
 
     private IEnumerator FallShape()
