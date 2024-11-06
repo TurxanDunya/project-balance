@@ -696,7 +696,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d0acc00cc82d436b9d11446d2ddfef6, type: 3}
---- !u!43 &1118511930
+--- !u!43 &1195014824
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1268,6 +1268,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 99244388521668570, guid: 34774c494f9724ef4b6d28a127e34312, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -6264578195049403651, guid: 3fbc21ac2bc7c4c0dba96e3fb7b70302, type: 3}
     - target: {fileID: 4153823044031560882, guid: 34774c494f9724ef4b6d28a127e34312, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.10205257

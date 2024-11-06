@@ -505,7 +505,7 @@ MonoBehaviour:
   isFallingShapesModeEnabled: 1
   isWindModeEnabled: 0
   isCubeLateFallEnabled: 0
---- !u!43 &507596596
+--- !u!43 &453648054
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -841,6 +841,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 158819102894078549, guid: 3da7ffc36d1f743cbbcef56c0dfd8dd9, type: 3}
+      propertyPath: field of view
+      value: 63
+      objectReference: {fileID: 0}
     - target: {fileID: 1543627745434495899, guid: 3da7ffc36d1f743cbbcef56c0dfd8dd9, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -1185,6 +1189,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 30225781}
+    - target: {fileID: 1712442047976225971, guid: e00f5431c587546d0aaef94fb85b2fe2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -6264578195049403651, guid: 3fbc21ac2bc7c4c0dba96e3fb7b70302, type: 3}
     - target: {fileID: 4339745188373034851, guid: e00f5431c587546d0aaef94fb85b2fe2, type: 3}
       propertyPath: m_Name
       value: StarPlatform
