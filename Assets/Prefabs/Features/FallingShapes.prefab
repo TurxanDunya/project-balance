@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6657874334814090302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3772510746270115839}
+  - component: {fileID: 5654440564841099017}
+  m_Layer: 0
+  m_Name: FallingShapes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3772510746270115839
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6657874334814090302}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.6712063, y: 1.3014989, z: -0.73729515}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5654440564841099017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6657874334814090302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1133b658390948daae75f59a8725369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FallingObjects:
+  - {fileID: 933889076519039923, guid: badfd046a4c4346d5869ab7fe43a677d, type: 3}
+  - {fileID: 1055473725428104789, guid: 94aa4060ada0d420c807431908161b1e, type: 3}
+  - {fileID: 7031093882148115742, guid: 4713dfff7e2414c7d8c0d883a38cf5ec, type: 3}
+  - {fileID: 1480686291123421765, guid: 012cf4d0edd264b8c8416bec28ab228b, type: 3}
+  - {fileID: 7687772928053034139, guid: 741f1420c33cc4087a13f6e74d1f3011, type: 3}
+  - {fileID: 2774697827873066054, guid: 57d0b3494ef2045928a79004c03f03a8, type: 3}
+  - {fileID: 7508059795537229031, guid: 55d5403ac90e34c19b1d692e1109d4cd, type: 3}
+  - {fileID: 6707558308149724288, guid: e8f0750dd312945fd83270638aeca43d, type: 3}
+  - {fileID: 7941693418078374720, guid: 7d5967cfd0c6d48d68d787e331b232de, type: 3}
+  - {fileID: 5936100581112791353, guid: ba2a0aca94645422180dda21dffb7b58, type: 3}
+  platformObj: {fileID: 0}
+  fallingSecond: 3
+  gapWithPlatformY: 0.2
