@@ -234,7 +234,7 @@ public class TutorialController : MonoBehaviour, IControllerTemplate
             }
         }
 
-        if (tutorial.name == "CubeLateFall")
+        if (tutorial.name == "CubeLateFallTutorial")
         {
             if (tutorialSaveSystem.GetCubeLateFallTutorialWatched())
             {
