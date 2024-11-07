@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.19562685, g: 0.38271832, b: 0.29205823, a: 1}
+  m_IndirectSpecularColor: {r: 0.19562623, g: 0.382718, b: 0.29205778, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -463,7 +463,7 @@ GameObject:
   m_Component:
   - component: {fileID: 789708642}
   m_Layer: 0
-  m_Name: LevelOneSpecific
+  m_Name: LevelSpecific
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -487,7 +487,7 @@ Transform:
   - {fileID: 1904363048}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!43 &803046082
+--- !u!43 &926152472
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -652,54 +652,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &1120527337
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1120527338}
-  - component: {fileID: 1120527339}
-  m_Layer: 0
-  m_Name: MeetWoodAndChanger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1120527338
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1120527337}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1316953097}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1120527339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1120527337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PanelSettings: {fileID: 11400000, guid: 468278f28d0ac4cd18ca82d7196688b5, type: 2}
-  m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: 8afcb1558928e48a58f626ce242fb806, type: 3}
-  m_SortingOrder: 6
 --- !u!1 &1266393113
 GameObject:
   m_ObjectHideFlags: 0
@@ -776,7 +728,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1405537471}
-  - {fileID: 1120527338}
   - {fileID: 1954633242}
   m_Father: {fileID: 789708642}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -791,7 +742,7 @@ GameObject:
   - component: {fileID: 1405537471}
   - component: {fileID: 1405537472}
   m_Layer: 5
-  m_Name: WelcomeTutorialUI
+  m_Name: CubeLateFallTutorial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -826,8 +777,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PanelSettings: {fileID: 11400000, guid: 468278f28d0ac4cd18ca82d7196688b5, type: 2}
   m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: a907d66a3ca4e4afcb13574b912e31b9, type: 3}
-  m_SortingOrder: 7
+  sourceAsset: {fileID: 9197481963319205126, guid: abaf35a0f7c272743919bca83d71d064, type: 3}
+  m_SortingOrder: 6
 --- !u!1 &1408442759
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,7 +989,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorials:
   - {fileID: 1405537470}
-  - {fileID: 1120527337}
   rootTutorialObject: {fileID: 1316953096}
   tutorialPopUpInterval: 0.5
 --- !u!114 &2065624188 stripped
