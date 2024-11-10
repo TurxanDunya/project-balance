@@ -33,30 +33,9 @@ public class Cube : MonoBehaviour
         return cubeMaterialType;
     }
 
-    private void OnEnable()
-    {
-        Platform.CubeLanded += CubeLanded;
-    }
-
-    private void OnDisable()
-    {
-        Platform.CubeLanded -= CubeLanded;
-    }
-
-    private void CubeLanded() {
-        Platform.CubeLanded -= CubeLanded;
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         Collider collider = collision.collider;
-        if (collider.CompareTag(TagConstants.DROPPED_CUBE)
-            || collider.CompareTag(TagConstants.PLAYABLE_CUBE))
-        {
-            Platform.CallCubeLandedEvent();
-            return;
-        }
-
         if (collider.CompareTag(TagConstants.MAIN_PLATFORM)
             || collider.CompareTag(TagConstants.MAIN_PLATFORM_COLLIDER))
         {

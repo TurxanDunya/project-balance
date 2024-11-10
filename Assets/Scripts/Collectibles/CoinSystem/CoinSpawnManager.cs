@@ -46,10 +46,7 @@ public class CoinSpawnManager : MonoBehaviour
 
     public void SpawnCoin()
     {
-        if (currentInstantiatedCoin)
-        {
-            return;
-        }
+        RemoveCurrentCoin();
 
         DefineCoinSpawnPosition();
 

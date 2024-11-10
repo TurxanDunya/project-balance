@@ -50,7 +50,7 @@ MonoBehaviour:
   affectedMeshRb: {fileID: 0}
   audioClip: {fileID: 8300000, guid: ecfd3f069074c8640ada863d47547991, type: 3}
   initialDelay: 3
-  maxWindForce: 10
+  maxWindForce: 5
   windRampTime: 2
   minWindInterval: 5
   maxWindInterval: 15
