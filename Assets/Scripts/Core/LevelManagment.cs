@@ -102,12 +102,17 @@ public class LevelManagment
    public Level FindNextLevel() {
         var index = levelList.levels.IndexOf(currentLevel);
 
+        if (index >= levelList.levels.Count)
+        {
+            return levelList.levels[index];
+        }
+
         if (index < levelList.levels.Count - 1) 
         {
             var nextIndex = ++index;
             return levelList.levels[nextIndex];
         }
-        
+
         return levelList.levels[index];
    }
 
@@ -119,7 +124,7 @@ public class LevelManagment
 
     public Level GetLastStatusOpenLevel()
     {
-        return levelList.levels.FindLast(c => c.status == LevelStatus.Open);
+        return levelList.levels.FindLast(level => level.status == LevelStatus.Open);
     }
 
 }

@@ -5013,8 +5013,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6134999963169008612}
   serializedVersion: 4
-  m_Mass: 0.1
-  m_Drag: 7
+  m_Mass: 0.5
+  m_Drag: 0
   m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -5046,7 +5046,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attractDistance: 0.1
   stopAttractDistance: 0.03
-  attractForce: 300
+  attractForce: 500
   magnetEffect:
   - {fileID: 7173157162527071687}
   - {fileID: 2344847386065001209}
@@ -5077,6 +5077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdd5d4f297f3b1041a27c2168491ff11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  invertAxis: 0
 --- !u!114 &9019311322459126119
 MonoBehaviour:
   m_ObjectHideFlags: 0
