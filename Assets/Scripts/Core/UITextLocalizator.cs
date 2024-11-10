@@ -1,21 +1,17 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Xml;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
-using UnityEngine.Localization.Tables;
 using UnityEngine.UIElements;
 
 public class UITextLocalizator : MonoBehaviour
 {
     [SerializeField] string tableName = "GameText";
     private UIDocument uiDocument;
-    private List<KeyValuePair<string, TextElement>> uiElements = new List<KeyValuePair<string, TextElement>>();
+    private readonly List<KeyValuePair<string, TextElement>> uiElements = new();
 
     void Start()
     {
-        
         if (uiDocument == null)
             uiDocument = GetComponent<UIDocument>();
 
@@ -42,8 +38,8 @@ public class UITextLocalizator : MonoBehaviour
             entry.Value.text =
                 LocalizationSettings.StringDatabase.GetLocalizedString(table, entry.Key);
         }
-
     }
+
     void FindChildrenInHierarch(VisualElement element)
     {
         VisualElement.Hierarchy elementHierarchy = element.hierarchy;
@@ -76,4 +72,3 @@ public class UITextLocalizator : MonoBehaviour
         }
     }
 }
-

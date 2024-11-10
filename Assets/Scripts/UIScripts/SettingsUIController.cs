@@ -168,14 +168,12 @@ public class SettingsUIController : MonoBehaviour, IControllerTemplate
     private void ChangeLanguageToAze()
     {
         SaveLangSetting(Language.AZ);
-
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[0];
     }
 
     private void ChangeLanguageToEng()
     {
         SaveLangSetting(Language.ENG);
-
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[1];
     }
 
