@@ -176,6 +176,10 @@ PrefabInstance:
       value: TimerFeature
       objectReference: {fileID: 0}
     - target: {fileID: 8428210882874495994, guid: bff86b46ae1d2445c9ba083463e1d3fb, type: 3}
+      propertyPath: timeToFinishLevel
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8428210882874495994, guid: bff86b46ae1d2445c9ba083463e1d3fb, type: 3}
       propertyPath: homeScreenController
       value: 
       objectReference: {fileID: 282231325}
@@ -696,7 +700,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d0acc00cc82d436b9d11446d2ddfef6, type: 3}
---- !u!43 &919368718
+--- !u!114 &1442075612 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1439958952294343122, guid: 7f3e224445bba4c8f838c2ca32164068, type: 3}
+  m_PrefabInstance: {fileID: 4484884394408053838}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 417115ba13dda43b2ac792b79a7e721f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!43 &1455466731
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -861,17 +876,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!114 &1442075612 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1439958952294343122, guid: 7f3e224445bba4c8f838c2ca32164068, type: 3}
-  m_PrefabInstance: {fileID: 4484884394408053838}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 417115ba13dda43b2ac792b79a7e721f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1764416063
 GameObject:
   m_ObjectHideFlags: 0

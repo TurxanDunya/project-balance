@@ -16,14 +16,23 @@ public class FallingShapesController : MonoBehaviour
         StartCoroutine(FallShape());
     }
 
+    private IEnumerator FallShape()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(fallingSecond);
+            DefineCoinSpawnPosition();
+            GameObject fallingShape = FallingObjects[Random.Range(0, FallingObjects.Length)];
+            Instantiate(fallingShape, fallPosition, Quaternion.identity);
+        }
+    }
+
     private void DefineCoinSpawnPosition()
     {
         platformScale = platformObj.transform.localScale;
 
-        var fallXDistanceFromCenter = Random.Range(
-            -platformScale.x, platformScale.x);
-        var fallZDistanceFromCenter = Random.Range(
-            -platformScale.z, platformScale.z);
+        var fallXDistanceFromCenter = Random.Range(-platformScale.x, platformScale.x);
+        var fallZDistanceFromCenter = Random.Range(-platformScale.z, platformScale.z);
 
         Vector3 platformUpDirection = platformObj.transform.up;
         Vector3 platformSurfacePosition =
@@ -34,15 +43,5 @@ public class FallingShapesController : MonoBehaviour
 
         fallPosition = new Vector3(
             fallPosition.x, platformSurfacePosition.y + gapWithPlatformY, fallPosition.z);
-    }
-
-    private IEnumerator FallShape()
-    {
-        while (true) {
-            yield return new WaitForSeconds(fallingSecond);
-            DefineCoinSpawnPosition();
-            GameObject fallingShape = FallingObjects[Random.Range(0, FallingObjects.Length)];
-            Instantiate(fallingShape, fallPosition, Quaternion.identity);
-        }
     }
 }
