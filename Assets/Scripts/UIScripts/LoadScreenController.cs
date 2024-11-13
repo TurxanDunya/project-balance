@@ -43,6 +43,8 @@ public class LoadScreenController : MonoBehaviour, AdsEventCallback, IController
 
     private IEnumerator LoadLevelAsync(string levelName)
     {
+        Scene currentScene = SceneManager.GetActiveScene();
+
         AsyncOperation loadOperation = SceneManager.LoadSceneAsync(levelName);
         loadOperation.allowSceneActivation = false;
 
@@ -60,6 +62,10 @@ public class LoadScreenController : MonoBehaviour, AdsEventCallback, IController
 
             yield return null;
         }
+
+        // To prevent memory leaks
+        SceneManager.UnloadSceneAsync(currentScene);
+        Resources.UnloadUnusedAssets();
     }
 
     private IEnumerator FadeIn()
