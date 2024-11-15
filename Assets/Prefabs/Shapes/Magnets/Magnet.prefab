@@ -4905,8 +4905,6 @@ GameObject:
   - component: {fileID: 2657055666291051924}
   - component: {fileID: 5767341383668985657}
   - component: {fileID: 6731362336072562549}
-  - component: {fileID: 9019311322459126119}
-  - component: {fileID: 929292032459008792}
   - component: {fileID: -7440424010985265218}
   - component: {fileID: -6908359564844064679}
   m_Layer: 0
@@ -5078,36 +5076,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invertAxis: 0
---- !u!114 &9019311322459126119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6134999963169008612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thickness: 0
-  material: {fileID: 0}
-  filter: -65535
-  m_SourceCollider: {fileID: 7021116763975018581}
-  m_DistanceField: {fileID: 0}
---- !u!114 &929292032459008792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6134999963169008612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62359d80fdc0e4315ab6331b78ec5b90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  kinematicForParticles: 1
 --- !u!114 &-7440424010985265218
 MonoBehaviour:
   m_ObjectHideFlags: 0
