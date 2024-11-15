@@ -22,12 +22,14 @@ public class HomeScreenController : MonoBehaviour, AdsEventCallback, IController
     private Button aboutUsButton;
     private Button addStarAdsButton;
     private AdmobRewardedAd rewardedAd;
+    private CoinManager coinManager;
 
     private bool isHomePageEnabled = true;
 
     private void Start()
     {
         buttonShaker = GetComponent<ButtonShaker>();
+        coinManager = FindAnyObjectByType<CoinManager>();
         MakeBindings();
 
         ShakeAdsButton(); // Should be at the end because of coroutine
@@ -122,7 +124,7 @@ public class HomeScreenController : MonoBehaviour, AdsEventCallback, IController
 
     public void OnRewardedAdsClose()
     {
-        //add coin here
+        coinManager.AddCoin(5);
     }
 
     public bool IsDisplayFlex()
