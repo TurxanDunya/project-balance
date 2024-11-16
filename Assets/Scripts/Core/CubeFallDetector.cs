@@ -13,6 +13,12 @@ public class CubeFallDetector : MonoBehaviour
             playableCubeDetect?.Invoke();
             Destroy(collider.gameObject);
             return;
+        }else if(collider.CompareTag(TagConstants.MAGNET)
+            || collider.CompareTag(TagConstants.BOMB)){
+            CubeSpawnManagement cubeSpawnManagement = FindAnyObjectByType<CubeSpawnManagement>();
+            cubeSpawnManagement.SpawnCube();
+            Destroy(collider.gameObject);
+            return;
         }
 
         Destroy(collider.gameObject);
