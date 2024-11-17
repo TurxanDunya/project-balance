@@ -26,7 +26,7 @@ public class LoadScreenController : MonoBehaviour, AdsEventCallback, IController
         progressBar = rootVE.Q<ProgressBar>("progress");
 
         string lastPlayedLevelName =
-            LevelManager.INSTANCE.levelManagment.levelList.lastPlayedLevelName;
+            LevelManager.INSTANCE.levelManagment.currentLevel.name;
         StartLoad(lastPlayedLevelName);
     }
 

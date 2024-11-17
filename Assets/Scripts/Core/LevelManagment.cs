@@ -46,7 +46,7 @@ public class LevelManagment
         var levelList = new LevelList
         {
             levels = initials,
-            lastPlayedLevelName = LevelNameConstants.LEVEL_1_NAME
+            lastPlayedLevelName = GetLastStatusOpenLevel().name
         };
 
         return levelList;
