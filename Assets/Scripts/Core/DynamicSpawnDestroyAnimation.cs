@@ -4,7 +4,6 @@ public class DynamicSpawnDestroyAnimation : MonoBehaviour
 {
     [Header("Spawn Animation")]
     [SerializeField] private Vector3 startSpawnScale = new Vector3(0.01f, 0.01f, 0.01f);
-    [SerializeField] private Vector3 startSpawnRotation = new Vector3(0, 220, 0);
     [SerializeField] private float spawnAnimationDuration = 0.2f;
     private Vector3 endSpawnScale;
     private Vector3 endSpawnRotation;
@@ -19,6 +18,11 @@ public class DynamicSpawnDestroyAnimation : MonoBehaviour
         endSpawnScale = transform.localScale;
         endSpawnRotation = transform.eulerAngles;
         PlaySpawnAnimation();
+    }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
     }
 
     private System.Collections.IEnumerator ScaleAndRotate(Vector3 targetScale, Vector3 targetRotation, float duration, bool destroy = false)
@@ -52,4 +56,5 @@ public class DynamicSpawnDestroyAnimation : MonoBehaviour
     {
         StartCoroutine(ScaleAndRotate(endDestroyScale, startDestoryRotation, destroyAnimationDuration, true));
     }
+
 }

@@ -32,6 +32,11 @@ public class SurpriseStar : MonoBehaviour
         CheckAndStartCoroutine();
     }
 
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
     private void CheckAndStartCoroutine()
     {
         SurpriseData surpriseData = surpriseSaveSystem.GetSurpriseData();

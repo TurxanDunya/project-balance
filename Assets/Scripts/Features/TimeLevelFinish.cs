@@ -36,6 +36,11 @@ public class TimeLevelFinish : MonoBehaviour
         StartCoroutine(UpdateSecond());
     }
 
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
     private IEnumerator UpdateSecond()
     {
         while (timeToFinishLevel >= 0)

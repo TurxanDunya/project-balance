@@ -8,6 +8,11 @@ public class TimeLevelWinner : MonoBehaviour
     public delegate void UpdateSecond(int currentSecond);
     public event UpdateSecond OnUpdateSecond;
 
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
     public void StartCountDownTimer(int seconds)
     {
         StartCoroutine(CountDownFrom(seconds));

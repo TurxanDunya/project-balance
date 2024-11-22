@@ -36,6 +36,8 @@ public class Magnet : MonoBehaviour
     private void OnDisable()
     {
         Platform.CubeLanded -= UpdateAttractibleObjectList;
+
+        DestroyAllInstantiated();
     }
 
     public void PlayVFXEffect()
@@ -138,6 +140,18 @@ public class Magnet : MonoBehaviour
     private void RemoveLandedCubeFromAttractibles(GameObject newLandedCube)
     {
         attractibleObjects.Remove(newLandedCube);
+    }
+
+    private void DestroyAllInstantiated()
+    {
+        if (target != null) Destroy(target);
+
+        GameObject[] magnetObjects =
+            GameObject.FindGameObjectsWithTag(TagConstants.MAGNET);
+        foreach (GameObject magnetObject in magnetObjects)
+        {
+            Destroy(magnetObject);
+        }
     }
 
 }

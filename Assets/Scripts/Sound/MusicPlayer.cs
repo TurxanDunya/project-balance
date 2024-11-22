@@ -22,6 +22,11 @@ public class MusicPlayer : BaseMusicPlayer
         StartCoroutine(MusicQueue());
     }
 
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
     public bool GetIsMusicOn()
     {
         return isMusicOn;

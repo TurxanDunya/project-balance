@@ -18,6 +18,11 @@ public class ProjectionIcon : MonoBehaviour
         StartCoroutine(ScaleIcon());
     }
 
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
     private void Update()
     {
         transform.position = cubeRayCast.GetLineRendererHitPosition();

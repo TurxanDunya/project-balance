@@ -40,7 +40,7 @@ public class PauseScreenController : MonoBehaviour, IControllerTemplate
 
         topVE = rootElement.Q<VisualElement>("topVE");
         homeButton = topVE.Q<Button>("Home");
-        homeButton.clicked += () => ChangeStateToHomePage();
+        homeButton.clicked += ChangeStateToHomePage;
 
         pausePopUpVE = rootElement.Q<VisualElement>("PausePopUpVE");
         buttonsLineVE = pausePopUpVE.Q<VisualElement>("buttons_line_ve");
@@ -51,29 +51,64 @@ public class PauseScreenController : MonoBehaviour, IControllerTemplate
 
         soundOnVE = soundControlVE.Q<VisualElement>("sound_on_ve");
         soundOnBtn = soundOnVE.Q<Button>("sound_on_btn");
-        soundOnBtn.clicked += () => MakeSoundOff();
+        soundOnBtn.clicked += MakeSoundOff;
 
         soundOffVE = soundControlVE.Q<VisualElement>("sound_off_ve");
         soundOffBtn = soundOffVE.Q<Button>("sound_off_btn");
-        soundOffBtn.clicked += () => MakeSoundOn();
+        soundOffBtn.clicked += MakeSoundOn;
 
         musicUnmuteVE = musicControlVE.Q<VisualElement>("music_unmute_ve");
         musicUnmuteBtn = musicUnmuteVE.Q<Button>("music_unmute_btn");
-        musicUnmuteBtn.clicked += () => MakeMusicOff();
+        musicUnmuteBtn.clicked += MakeMusicOff;
 
         musicMuteVE = musicControlVE.Q<VisualElement>("music_mute_ve");
         musicMuteBtn = musicMuteVE.Q<Button>("music_mute_btn");
-        musicMuteBtn.clicked += () => MakeMusicOn();
+        musicMuteBtn.clicked += MakeMusicOn;
 
         resumeBtn = resumeVE.Q<Button>("resume_btn");
-        resumeBtn.clicked += () => ChangeStateToResume();
+        resumeBtn.clicked += ChangeStateToResume;
 
         restartBtn = restartVE.Q<Button>("restart_btn");
-        restartBtn.clicked += () => ReloadLevel();
+        restartBtn.clicked += ReloadLevel;
 
         DefineSoundButtonsState();
 
         SafeArea.ApplySafeArea(rootElement);
+    }
+
+    private void OnDisable()
+    {
+        homeButton.clicked -= ChangeStateToHomePage;
+        soundOnBtn.clicked -= MakeSoundOff;
+        soundOffBtn.clicked -= MakeSoundOn;
+        musicUnmuteBtn.clicked -= MakeMusicOff;
+        musicMuteBtn.clicked -= MakeMusicOn;
+        resumeBtn.clicked -= ChangeStateToResume;
+        restartBtn.clicked -= ReloadLevel;
+
+        rootElement = null;
+        topVE = null;
+
+        pausePopUpVE = null;
+        buttonsLineVE = null;
+        soundControlVE = null;
+        resumeVE = null;
+        restartVE = null;
+        musicControlVE = null;
+
+        homeButton = null;
+
+        soundOnVE = null;
+        soundOffVE = null;
+        musicMuteVE = null;
+        musicUnmuteVE = null;
+
+        soundOnBtn = null;
+        soundOffBtn = null;
+        musicUnmuteBtn = null;
+        resumeBtn = null;
+        restartBtn = null;
+        musicMuteBtn = null;
     }
 
     private void DefineSoundButtonsState()

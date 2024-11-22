@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Cube : MonoBehaviour
@@ -8,6 +9,11 @@ public class Cube : MonoBehaviour
     private void Start()
     {
         GetComponent<Rigidbody>().isKinematic = true;
+    }
+
+    private void OnDisable()
+    {
+        DestroyAllInstantiated();
     }
 
     public void Release()
@@ -45,15 +51,44 @@ public class Cube : MonoBehaviour
         tag = TagConstants.DROPPED_CUBE;
     }
 
+    ParticleSystem ripple = null;
     private void PlayParticleEffect()
     {
         if (rippleEffect != null)
         {
-            ParticleSystem ripple = Instantiate(
+            ripple = Instantiate(
                 rippleEffect, transform.position, Quaternion.Euler(90, 0, 0));
             ripple.Play();
             rippleEffect = null;
+            StartCoroutine(DestroyRippleEffect());
         };
+    }
+
+    private IEnumerator DestroyRippleEffect()
+    {
+        while(ripple.isPlaying)
+        {
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        Destroy(ripple);
+    }
+
+    private void DestroyAllInstantiated()
+    {
+        GameObject[] playableCubeObjects =
+            GameObject.FindGameObjectsWithTag(TagConstants.PLAYABLE_CUBE);
+        foreach (GameObject playableCubeObject in playableCubeObjects)
+        {
+            Destroy(playableCubeObject);
+        }
+
+        GameObject[] droppedCubeObjects =
+            GameObject.FindGameObjectsWithTag(TagConstants.DROPPED_CUBE);
+        foreach (GameObject droppedCubeObject in droppedCubeObjects)
+        {
+            Destroy(droppedCubeObject);
+        }
     }
 
 }

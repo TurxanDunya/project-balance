@@ -42,6 +42,11 @@ public class WindEffect : MonoBehaviour
         StartCoroutine(UpdateVFXPosition());
     }
 
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
     private IEnumerator WindCycle()
     {
         yield return new WaitForSeconds(initialDelay);

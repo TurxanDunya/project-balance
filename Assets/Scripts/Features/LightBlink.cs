@@ -28,6 +28,11 @@ public class LightBlink : MonoBehaviour
         StartCoroutine(BlinkLight());
     }
 
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
     private IEnumerator BlinkLight()
     {
         yield return new WaitForSeconds(initialDelay);

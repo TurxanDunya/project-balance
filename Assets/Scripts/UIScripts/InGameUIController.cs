@@ -79,6 +79,46 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         {
             timeLevelFinish.OnUpdateSecondEvent -= UpdateTimerModeIconLabel;
         }
+
+        firstPowerUpButton.clicked -= PerformFirstPowerUp;
+        secondPowerUpButton.clicked -= PerformSecondPowerUp;
+        thirdPowerUpButton.clicked -= PerformThirdPowerUp;
+        fourthPowerUpButton.clicked -= PerformFourthPowerUp;
+
+        pauseButton.clicked -= PauseGame;
+        levelsButton.clicked -= ShowLevels;
+
+        rootElement = null;
+
+        powerUpsVE = null;
+        firstPowerUpButton = null;
+        secondPowerUpButton = null;
+        thirdPowerUpButton = null;
+        fourthPowerUpButton = null;
+
+        topVE = null;
+        pauseButton = null;
+        levelsButton = null;
+
+        leftCubesCountVE = null;
+        woodVE = null;
+        woodCountLabel = null;
+        metalVE = null;
+        metalCountLabel = null;
+        iceVE = null;
+        iceCountLabel = null;
+        rockVE = null;
+        rockCountLabel = null;
+
+        rightVE = null;
+        ghostCubeVE = null;
+        lightOnOffVE = null;
+        timerVE = null;
+        currentTimeLbl = null;
+        invertModeVE = null;
+        fallingShapeVE = null;
+        windModeVE = null;
+        cubeLateFallVE = null;
     }
 
     private void Start()
@@ -203,13 +243,13 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
 
     private void BindEventsWithFunctions()
     {
-        firstPowerUpButton.clicked += () => PerformFirstPowerUp();
-        secondPowerUpButton.clicked += () => PerformSecondPowerUp();
-        thirdPowerUpButton.clicked += () => PerformThirdPowerUp();
-        fourthPowerUpButton.clicked += () => PerformFourthPowerUp();
+        firstPowerUpButton.clicked += PerformFirstPowerUp;
+        secondPowerUpButton.clicked += PerformSecondPowerUp;
+        thirdPowerUpButton.clicked += PerformThirdPowerUp;
+        fourthPowerUpButton.clicked += PerformFourthPowerUp;
 
-        pauseButton.clicked += () => PauseGame();
-        levelsButton.clicked += () => ShowLevels();
+        pauseButton.clicked += PauseGame;
+        levelsButton.clicked += ShowLevels;
     }
 
     private void PerformFirstPowerUp()

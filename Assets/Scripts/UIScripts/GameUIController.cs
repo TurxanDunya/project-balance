@@ -46,6 +46,30 @@ public class GameUIController : MonoBehaviour, IControllerTemplate
         SafeArea.ApplySafeArea(rootLevelStars);
     }
 
+    private void OnDisable()
+    {
+        rootGameOver.Q<Button>("btn_home").clicked -= GoHomePage;
+        rootGameOver.Q<Button>("btn_replay").clicked -= ReloadLevel;
+        rootGameOver.Q<Button>("btn_levels").clicked -= OpenLevelMenu;
+
+        rootWinner.Q<Button>("btn_home").clicked -= GoHomePage;
+        rootWinner.Q<Button>("btn_next").clicked -= GoNextLevel;
+        rootWinner.Q<Button>("btn_levels").clicked -= OpenLevelMenu;
+        rootWinner.Q<Button>("btn_replay").clicked -= ReloadLevel;
+
+        rootGameOver = null;
+        rootWinner = null;
+        winnerVE = null;
+        currentSecondLabel = null;
+
+        rootLevelStars = null;
+        levelStarProgressBar = null;
+        starsVe = null;
+        starsVe1 = null;
+        starsVe2 = null;
+        starsVe3 = null;
+    }
+
     private void Update()
     {
         SetLevelStarsByPlatformAngle(angleCalculator.GetPlatformAngle());
@@ -153,9 +177,9 @@ public class GameUIController : MonoBehaviour, IControllerTemplate
         rootGameOver = gameOverUI.GetComponent<UIDocument>()
             .rootVisualElement.Q<VisualElement>("root_container");
 
-        rootGameOver.Q<Button>("btn_home").clicked += () => GoHomePage();
-        rootGameOver.Q<Button>("btn_replay").clicked += () => ReloadLevel();
-        rootGameOver.Q<Button>("btn_levels").clicked += () => OpenLevelMenu();
+        rootGameOver.Q<Button>("btn_home").clicked += GoHomePage;
+        rootGameOver.Q<Button>("btn_replay").clicked += ReloadLevel;
+        rootGameOver.Q<Button>("btn_levels").clicked += OpenLevelMenu;
     }
 
     private void ConfigureWinnerUIElements()
@@ -166,10 +190,10 @@ public class GameUIController : MonoBehaviour, IControllerTemplate
         winnerVE = rootWinner.Q<VisualElement>("winner_VE");
         currentSecondLabel = rootWinner.Q<Label>("CurrentSecondLabel");
 
-        rootWinner.Q<Button>("btn_home").clicked += () => GoHomePage();
-        rootWinner.Q<Button>("btn_next").clicked += () => GoNextLevel();
-        rootWinner.Q<Button>("btn_levels").clicked += () => OpenLevelMenu();
-        rootWinner.Q<Button>("btn_replay").clicked += () => ReloadLevel();
+        rootWinner.Q<Button>("btn_home").clicked += GoHomePage;
+        rootWinner.Q<Button>("btn_next").clicked += GoNextLevel;
+        rootWinner.Q<Button>("btn_levels").clicked += OpenLevelMenu;
+        rootWinner.Q<Button>("btn_replay").clicked += ReloadLevel;
     }
 
     private void ConfigureLevelStarUIElements()

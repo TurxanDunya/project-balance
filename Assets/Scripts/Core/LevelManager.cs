@@ -30,6 +30,11 @@ public class LevelManager : MonoBehaviour
         StartLanguageCoroutine();
     }
 
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
     private void StartLanguageCoroutine()
     {
         if (settingSaveSystem == null)

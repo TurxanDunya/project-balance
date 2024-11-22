@@ -14,6 +14,11 @@ public class ButtonShaker : MonoBehaviour
 
     private Button button;
 
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
     public void ShakeButton(Button button)
     {
         this.button = button;

@@ -27,6 +27,11 @@ public class CoinSpawnManager : MonoBehaviour
         SpawnNewCoinByChance();
     }
 
+    private void OnDisable()
+    {
+        DestroyAllInstantiated();
+    }
+
     private void Update()
     {
         UpdateCoinPosition();
@@ -106,6 +111,16 @@ public class CoinSpawnManager : MonoBehaviour
         coinXDistanceFromCenter = 0;
         coinZDistanceFromCenter = 0;
         coinYDistanceFromCenter = 0;
+    }
+
+    private void DestroyAllInstantiated()
+    {
+        GameObject[] starObjects = GameObject.FindGameObjectsWithTag(TagConstants.STAR);
+
+        foreach (GameObject starObject in starObjects)
+        {
+            Destroy(starObject);
+        }
     }
 
 }

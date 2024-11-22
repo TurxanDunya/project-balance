@@ -10,6 +10,11 @@ public class SelfDestroyWithDelay : MonoBehaviour
         StartCoroutine(SelfDestroy());
     }
 
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
     private IEnumerator SelfDestroy()
     {
         yield return new WaitForSeconds(delaySecond);

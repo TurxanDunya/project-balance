@@ -38,10 +38,48 @@ public class SettingsUIController : MonoBehaviour, IControllerTemplate
 
     void Start()
     {
+        musicPlayer = FindAnyObjectByType<MusicPlayer>();
+
         settingSaveSystem = GetComponent<SettingSaveSystem>();
         MakeBindings();
 
         SafeArea.ApplySafeArea(rootElement);
+    }
+
+    private void OnDisable()
+    {
+        homeButton.clicked -= stateChanger.ChangeStateToMainUIWithoutLoadPage;
+        soundOnBtn.clicked -= MakeSoundOff;
+        soundOffBtn.clicked -= MakeSoundOn;
+        musicUnmuteBtn.clicked -= MakeMusicOff;
+        musicMuteBtn.clicked -= MakeMusicOn;
+
+        azeRbtn.UnregisterCallback<ClickEvent>(evt => ChangeLanguageToAze());
+        engRbtn.UnregisterCallback<ClickEvent>(evt => ChangeLanguageToEng());
+
+        rootElement = null;
+        topVE = null;
+
+        settingsPopUpVE = null;
+        buttonsLineVE = null;
+        localizationVE = null;
+        soundControlVE = null;
+        musicControlVE = null;
+
+        homeButton = null;
+
+        soundOnVE = null;
+        soundOffVE = null;
+        musicMuteVE = null;
+        musicUnmuteVE = null;
+
+        soundOnBtn = null;
+        soundOffBtn = null;
+        musicUnmuteBtn = null;
+        musicMuteBtn = null;
+
+        azeRbtn = null;
+        engRbtn = null;
     }
 
     public void MakeBindings()
@@ -51,7 +89,7 @@ public class SettingsUIController : MonoBehaviour, IControllerTemplate
 
         topVE = rootElement.Q<VisualElement>("topVE");
         homeButton = topVE.Q<Button>("Home");
-        homeButton.clicked += () => stateChanger.ChangeStateToMainUIWithoutLoadPage();
+        homeButton.clicked += stateChanger.ChangeStateToMainUIWithoutLoadPage;
 
         settingsPopUpVE = rootElement.Q<VisualElement>("SettingsPopUpVE");
         buttonsLineVE = settingsPopUpVE.Q<VisualElement>("buttons_line_ve");
@@ -61,19 +99,19 @@ public class SettingsUIController : MonoBehaviour, IControllerTemplate
 
         soundOnVE = soundControlVE.Q<VisualElement>("sound_on_ve");
         soundOnBtn = soundOnVE.Q<Button>("sound_on_btn");
-        soundOnBtn.clicked += () => MakeSoundOff();
+        soundOnBtn.clicked += MakeSoundOff;
 
         soundOffVE = soundControlVE.Q<VisualElement>("sound_off_ve");
         soundOffBtn = soundOffVE.Q<Button>("sound_off_btn");
-        soundOffBtn.clicked += () => MakeSoundOn();
+        soundOffBtn.clicked += MakeSoundOn;
 
         musicUnmuteVE = musicControlVE.Q<VisualElement>("music_unmute_ve");
         musicUnmuteBtn = musicUnmuteVE.Q<Button>("music_unmute_btn");
-        musicUnmuteBtn.clicked += () => MakeMusicOff();
+        musicUnmuteBtn.clicked += MakeMusicOff;
 
         musicMuteVE = musicControlVE.Q<VisualElement>("music_mute_ve");
         musicMuteBtn = musicMuteVE.Q<Button>("music_mute_btn");
-        musicMuteBtn.clicked += () => MakeMusicOn();
+        musicMuteBtn.clicked += MakeMusicOn;
 
         azeRbtn = localizationVE.Q<RadioButton>("aze_rbtn");
         engRbtn = localizationVE.Q<RadioButton>("eng_rbtn");
@@ -86,8 +124,6 @@ public class SettingsUIController : MonoBehaviour, IControllerTemplate
 
     private void DefineSoundButtonsState()
     {
-        musicPlayer = FindAnyObjectByType<MusicPlayer>();
-
         if (!musicPlayer)
         {
             logger.Log(LogType.Warning,
