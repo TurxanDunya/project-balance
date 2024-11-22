@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -23,12 +21,20 @@ public class RandomFallSpeed : MonoBehaviour
         defaultDrag = rb.drag;
         if (randomlyActive)
         {
-            if (Random.Range(0, randomActiveFactor + 1) == randomActiveFactor) rb.drag = Random.Range(minFallDrag, maxFallDrag);
+            if (Random.Range(0, randomActiveFactor + 1) == randomActiveFactor)
+            {
+                rb.drag = Random.Range(minFallDrag, maxFallDrag);
+            }
         }
         else
         {
             rb.drag = Random.Range(minFallDrag, maxFallDrag);
         }
+    }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
     }
 
     public void RestoreDefaultSpeed()

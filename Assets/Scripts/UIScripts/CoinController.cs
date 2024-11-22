@@ -22,6 +22,10 @@ public class CoinController : MonoBehaviour, IControllerTemplate
     private void OnDisable()
     {
         coinManager.OnCoinCountChangeEvent -= UpdateInGameCoinValue;
+
+        rootElement = null;
+        collectedCoinsVE = null;
+        coinCountLabel = null;
     }
 
     void Start()

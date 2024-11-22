@@ -30,6 +30,11 @@ public class CameraPosition : MonoBehaviour
         StartCoroutine(ChangePositionBasedOnPlatform());
     }
 
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
     private IEnumerator ChangePositionBasedOnPlatform()
     {
         while (true)

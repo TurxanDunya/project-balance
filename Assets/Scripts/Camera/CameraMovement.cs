@@ -21,6 +21,11 @@ public class CameraMovement : MonoBehaviour
         StartCoroutine(SmoothFOVTransition());
     }
 
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
     private IEnumerator SmoothFOVTransition()
     {
         while (cameraComponent.fieldOfView > fovFinishValue)

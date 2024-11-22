@@ -16,6 +16,8 @@ public class InvisibleObject : MonoBehaviour
     private void OnDisable()
     {
         Platform.CubeLanded -= MakeRandomDroppedCubeInvisible;
+
+        StopAllCoroutines();
     }
 
     public void MakeRandomDroppedCubeInvisible()

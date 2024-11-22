@@ -25,7 +25,12 @@ public class TutorialController : MonoBehaviour, IControllerTemplate
 
     private void OnDisable()
     {
-        StateChanger.CheckTutorialsStatus += CheckStatuses;
+        StateChanger.CheckTutorialsStatus -= CheckStatuses;
+
+        StopAllCoroutines();
+
+        rootElement = null;
+        continueBtn = null;
     }
 
     private void CheckStatuses()

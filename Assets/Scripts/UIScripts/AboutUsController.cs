@@ -1,7 +1,5 @@
 using UnityEngine;
 using UnityEngine.UIElements;
-using UnityEngine.Localization;
-using UnityEngine.Localization.Settings;
 
 public class AboutUsController : MonoBehaviour, IControllerTemplate
 {
@@ -37,15 +35,55 @@ public class AboutUsController : MonoBehaviour, IControllerTemplate
     private Button memberTwoLinkedinButton;
     private Button memberTwoXButton;
 
-   
-
     private void Start()
     {
         MakeBindings();
-
         SafeArea.ApplySafeArea(rootVE);
+    }
 
-        
+    private void OnDisable()
+    {
+        studioFbButton.clicked -= GoToStudioFbAccount;
+        studioInstaButton.clicked -= GoToStudioInstaAccount;
+        studioYoutubeButton.clicked -= GoToStudioYoutubeAccount;
+
+        memberOneFbButton.clicked -= GoToMemberOneFbAccount;
+        memberOneInstaButton.clicked -= GoToMemberOneInstaAccount;
+        memberOneLinkedinButton.clicked -= GoToMemberOneLinkedinAccount;
+        memberOneYoutubeButton.clicked -= GoToMemberOneYoutubeAccount;
+
+        memberTwoFbButton.clicked -= GoToMemberTwoFbAccount;
+        memberTwoInstaButton.clicked -= GoToMemberTwoInstaAccount;
+        memberTwoLinkedinButton.clicked -= GoToMemberTwoLinkedinAccount;
+        memberTwoXButton.clicked -= GoToMemberTwoXAccount;
+
+        homeButton.clicked -= stateChanger.ChangeStateToMainUIWithoutLoadPage;
+
+        rootVE = null;
+        topVE = null;
+        homeButton = null;
+        membersVE = null;
+
+        studioInfoVE = null;
+        studioSocialAccountsVE = null;
+        studioFbButton = null;
+        studioInstaButton = null;
+        studioYoutubeButton = null;
+        aboutUs = null;
+
+        memberOneVE = null;
+        memberOneSocialAccountsVE = null;
+        memberOneFbButton = null;
+        memberOneInstaButton = null;
+        memberOneLinkedinButton = null;
+        memberOneYoutubeButton = null;
+
+        memberTwoVE = null;
+        memberTwoSocialAccountsVE = null;
+        memberTwoFbButton = null;
+        memberTwoInstaButton = null;
+        memberTwoLinkedinButton = null;
+        memberTwoXButton = null;
     }
 
     public void MakeBindings()
@@ -63,7 +101,6 @@ public class AboutUsController : MonoBehaviour, IControllerTemplate
         DefineMemberTwoUIElements();
     }
 
-
     private void DefineStudioUIElements()
     {
         studioInfoVE = rootVE.Q<VisualElement>("studio_info_ve");
@@ -74,10 +111,9 @@ public class AboutUsController : MonoBehaviour, IControllerTemplate
         studioInstaButton = studioSocialAccountsVE.Q<Button>("instagram");
         studioYoutubeButton = studioSocialAccountsVE.Q<Button>("youtube");
 
-        studioFbButton.clicked += () => GoToStudioFbAccount();
-        studioInstaButton.clicked += () => GoToStudioInstaAccount();
-        studioYoutubeButton.clicked += () => GoToStudioYoutubeAccount();
-
+        studioFbButton.clicked += GoToStudioFbAccount;
+        studioInstaButton.clicked += GoToStudioInstaAccount;
+        studioYoutubeButton.clicked += GoToStudioYoutubeAccount;
     }
 
     private void DefineMemberOneUIElements()
@@ -90,10 +126,10 @@ public class AboutUsController : MonoBehaviour, IControllerTemplate
         memberOneLinkedinButton = memberOneSocialAccountsVE.Q<Button>("linkedin");
         memberOneYoutubeButton = memberOneSocialAccountsVE.Q<Button>("youtube");
 
-        memberOneFbButton.clicked += () => GoToMemberOneFbAccount();
-        memberOneInstaButton.clicked += () => GoToMemberOneInstaAccount();
-        memberOneLinkedinButton.clicked += () => GoToMemberOneLinkedinAccount();
-        memberOneYoutubeButton.clicked += () => GoToMemberOneYoutubeAccount();
+        memberOneFbButton.clicked += GoToMemberOneFbAccount;
+        memberOneInstaButton.clicked += GoToMemberOneInstaAccount;
+        memberOneLinkedinButton.clicked += GoToMemberOneLinkedinAccount;
+        memberOneYoutubeButton.clicked += GoToMemberOneYoutubeAccount;
     }
 
     private void DefineMemberTwoUIElements()
@@ -106,10 +142,10 @@ public class AboutUsController : MonoBehaviour, IControllerTemplate
         memberTwoLinkedinButton = memberTwoSocialAccountsVE.Q<Button>("linkedin");
         memberTwoXButton = memberTwoSocialAccountsVE.Q<Button>("x");
 
-        memberTwoFbButton.clicked += () => GoToMemberTwoFbAccount();
-        memberTwoInstaButton.clicked += () => GoToMemberTwoInstaAccount();
-        memberTwoLinkedinButton.clicked += () => GoToMemberTwoLinkedinAccount();
-        memberTwoXButton.clicked += () => GoToMemberTwoXAccount();
+        memberTwoFbButton.clicked += GoToMemberTwoFbAccount;
+        memberTwoInstaButton.clicked += GoToMemberTwoInstaAccount;
+        memberTwoLinkedinButton.clicked += GoToMemberTwoLinkedinAccount;
+        memberTwoXButton.clicked += GoToMemberTwoXAccount;
 
         homeButton.clicked += () => stateChanger.ChangeStateToMainUIWithoutLoadPage();
     }

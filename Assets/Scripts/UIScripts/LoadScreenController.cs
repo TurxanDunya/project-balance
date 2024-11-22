@@ -30,6 +30,12 @@ public class LoadScreenController : MonoBehaviour, AdsEventCallback, IController
         StartLoad(lastPlayedLevelName);
     }
 
+    private void OnDisable()
+    {
+        rootVE = null;
+        progressBar = null;
+    }
+
     public void StartLoad(string levelName)
     {
         navigateLevelAfterAds = levelName;
@@ -64,7 +70,11 @@ public class LoadScreenController : MonoBehaviour, AdsEventCallback, IController
         }
 
         // To prevent memory leaks
-        SceneManager.UnloadSceneAsync(currentScene);
+        AsyncOperation unloadOperation = SceneManager.UnloadSceneAsync(currentScene);
+        while (!unloadOperation.isDone)
+        {
+            yield return new WaitForSeconds(0.1f);
+        }
         Resources.UnloadUnusedAssets();
     }
 

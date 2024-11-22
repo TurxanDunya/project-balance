@@ -21,6 +21,7 @@ public class HomeScreenController : MonoBehaviour, AdsEventCallback, IController
     private Button tapToPlayButton;
     private Button aboutUsButton;
     private Button addStarAdsButton;
+
     private AdmobRewardedAd rewardedAd;
     private CoinManager coinManager;
 
@@ -37,6 +38,24 @@ public class HomeScreenController : MonoBehaviour, AdsEventCallback, IController
         SafeArea.ApplySafeArea(rootElement);
     }
 
+    private void OnDisable()
+    {
+        addStarAdsButton.clicked -= ShowAdsAndAddCoin;
+
+        settingsButton.clicked -= ShowSettingsUI;
+        tapToPlayButton.clicked -= ChangeStateForInGameUI;
+        aboutUsButton.clicked -= ShowAboutUsUI;
+
+        rootElement = null;
+        topVE = null;
+        leftSideVE = null;
+        rightSideVE = null;
+        settingsButton = null;
+        tapToPlayButton = null;
+        aboutUsButton = null;
+        addStarAdsButton = null;
+    }
+
     public void MakeBindings()
     {
         rewardedAd = new AdmobRewardedAd();
@@ -50,13 +69,13 @@ public class HomeScreenController : MonoBehaviour, AdsEventCallback, IController
 
         rightSideVE = topVE.Q<VisualElement>("right_side_ve");
         addStarAdsButton = rightSideVE.Q<Button>("add_star_ads_btn");
-        addStarAdsButton.clicked += () => ShowAdsAndAddCoin();
+        addStarAdsButton.clicked += ShowAdsAndAddCoin;
 
         tapToPlayButton = rootElement.Q<Button>("tapToPlayButton");
 
-        settingsButton.clicked += () => ShowSettingsUI();
-        tapToPlayButton.clicked += () => ChangeStateForInGameUI();
-        aboutUsButton.clicked += () => ShowAboutUsUI();
+        settingsButton.clicked += ShowSettingsUI;
+        tapToPlayButton.clicked += ChangeStateForInGameUI;
+        aboutUsButton.clicked += ShowAboutUsUI;
     }
 
     private void FixedUpdate()

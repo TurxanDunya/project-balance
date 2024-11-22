@@ -31,6 +31,11 @@ public class StateChanger : MonoBehaviour
         homeScreenUI.SetDisplayFlex();
     }
 
+    private void OnDisable()
+    {
+        Destroy(this);
+    }
+
     public static event Action CheckTutorialsStatus;
 
     public void ChangeStateToInGameUI()

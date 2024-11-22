@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -11,6 +12,8 @@ public class CubeSpawnManagement : MonoBehaviour
     private Platform platform;
 
     public static event Action winGame;
+
+    private readonly List<GameObject> allInstantiatedObjects = new();
 
     [Header("Cube spawn position params")]
     [SerializeField] private float gapWithPlatformY = 0.11f;
@@ -56,6 +59,8 @@ public class CubeSpawnManagement : MonoBehaviour
     {
         Platform.CubeLanded -= SpawnCube;
         inputManager.OnEndTouch -= ReleaseObject;
+
+        DestroyAllInstantiated();
     }
 
     public void SpawnCube()
@@ -79,6 +84,7 @@ public class CubeSpawnManagement : MonoBehaviour
                 gapWithPlatformY, gapFromPlatformEdge, gapFromCenter);
 
             currentMoveableObject = Instantiate(cubePrefab, spawnPosition, Quaternion.identity);
+            allInstantiatedObjects.Add(currentMoveableObject);
 
             if (uIElementEnabler.isCubeLateFallEnabled)
             {
@@ -115,6 +121,7 @@ public class CubeSpawnManagement : MonoBehaviour
         if (cubePrefab != null)
         {
             currentMoveableObject = Instantiate(cubePrefab, spawnPosition, Quaternion.identity);
+            allInstantiatedObjects.Add(currentMoveableObject);
         }
         return true;
     }
@@ -137,6 +144,7 @@ public class CubeSpawnManagement : MonoBehaviour
 
         GameObject magnet = GetCubePrefabFromPool(CubeData.CubeMaterialType.MAGNET);
         currentMoveableObject = Instantiate(magnet, spawnPosition, Quaternion.identity);
+        allInstantiatedObjects.Add(currentMoveableObject);
         return true;
     }
 
@@ -158,6 +166,7 @@ public class CubeSpawnManagement : MonoBehaviour
 
         GameObject bomb = GetCubePrefabFromPool(CubeData.CubeMaterialType.BOMB);
         currentMoveableObject = Instantiate(bomb, spawnPosition, Quaternion.identity);
+        allInstantiatedObjects.Add(currentMoveableObject);
         return true;
     }
 
@@ -166,11 +175,11 @@ public class CubeSpawnManagement : MonoBehaviour
         if(!currentMoveableObject)
         {
             logger.Log(LogType.Warning,
-               "CurrentMoveableObject requested to set active false, but was null!");
+               "CurrentMoveableObject requested to destroy, but was null!");
             return;
         }
         
-        currentMoveableObject.SetActive(false);
+        Destroy(currentMoveableObject);
     }
 
     private GameObject GetCubePrefabFromPool(CubeData.CubeMaterialType? cubeMaterialType)
@@ -234,6 +243,28 @@ public class CubeSpawnManagement : MonoBehaviour
             bomb.Release();
             currentMoveableObject = null;
             return;
+        }
+    }
+
+    private void DestroyAllInstantiated()
+    {
+        foreach (GameObject objectToDestroy in allInstantiatedObjects)
+        {
+            Destroy(objectToDestroy);
+        }
+
+        GameObject[] playableCubeObjects =
+            GameObject.FindGameObjectsWithTag(TagConstants.PLAYABLE_CUBE);
+        foreach (GameObject playableCubeObject in playableCubeObjects)
+        {
+            Destroy(playableCubeObject);
+        }
+
+        GameObject[] droppedCubeObjects =
+            GameObject.FindGameObjectsWithTag(TagConstants.DROPPED_CUBE);
+        foreach (GameObject droppedCubeObject in droppedCubeObjects)
+        {
+            Destroy(droppedCubeObject);
         }
     }
 

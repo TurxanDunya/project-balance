@@ -35,6 +35,9 @@ public class GameCore : MonoBehaviour
         CubeFallDetector.playableCubeDetect -= PlayableCubeDetected;
         CubeSpawnManagement.winGame -= ProcessWinEvent;
         timeLevelWinner.OnUpdateSecond -= gameUIController.ShowAndUpdateWinnerTimeOnScreen;
+
+        StopAllCoroutines();
+        Destroy(uiPrefab);
     }
 
     public void PlayableCubeDetected()

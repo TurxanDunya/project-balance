@@ -11,9 +11,18 @@ public class FallingShapesController : MonoBehaviour
     private Vector3 platformScale;
     private Vector3 fallPosition;
 
+    private GameObject currentFallingShape;
+
     void Start()
     {
         StartCoroutine(FallShape());
+    }
+
+    private void OnDisable()
+    {
+        if (currentFallingShape != null) Destroy(currentFallingShape);
+
+        StopAllCoroutines();
     }
 
     private IEnumerator FallShape()
@@ -23,7 +32,9 @@ public class FallingShapesController : MonoBehaviour
             yield return new WaitForSeconds(fallingSecond);
             DefineCoinSpawnPosition();
             GameObject fallingShape = FallingObjects[Random.Range(0, FallingObjects.Length)];
-            Instantiate(fallingShape, fallPosition, Quaternion.identity);
+
+            if (currentFallingShape != null) Destroy(currentFallingShape);
+            currentFallingShape = Instantiate(fallingShape, fallPosition, Quaternion.identity);
         }
     }
 
@@ -44,4 +55,5 @@ public class FallingShapesController : MonoBehaviour
         fallPosition = new Vector3(
             fallPosition.x, platformSurfacePosition.y + gapWithPlatformY, fallPosition.z);
     }
+
 }
