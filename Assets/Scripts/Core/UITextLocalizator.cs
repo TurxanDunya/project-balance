@@ -71,4 +71,10 @@ public class UITextLocalizator : MonoBehaviour
                 FindChildrenInHierarch(child);
         }
     }
+
+    private void OnDestroy()
+    {
+        LocalizationSettings.SelectedLocaleChanged -= ChangeLocale;
+        uiElements.Clear();
+    }
 }

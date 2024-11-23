@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8681164093472688090}
   - component: {fileID: 2793375046434462447}
   - component: {fileID: 4201346298903201681}
+  - component: {fileID: 4359434443536544262}
   m_Layer: 5
   m_Name: InGameUI
   m_TagString: Untagged
@@ -67,6 +68,19 @@ MonoBehaviour:
   cubeSpawnManagement: {fileID: 0}
   timeLevelFinish: {fileID: 0}
   coinManager: {fileID: 0}
+--- !u!114 &4359434443536544262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235646756320863911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc0863436bc724c2a9fa7f02e67091ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tableName: GameText
 --- !u!1 &331211012847983943
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,6 +771,7 @@ GameObject:
   - component: {fileID: 6183301874274508061}
   - component: {fileID: 231312923564456866}
   - component: {fileID: 6376478351113902647}
+  - component: {fileID: 8528879502250819067}
   m_Layer: 5
   m_Name: GameUI
   m_TagString: Untagged
@@ -828,6 +843,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+--- !u!114 &8528879502250819067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6973379358230488474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc0863436bc724c2a9fa7f02e67091ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tableName: GameText
 --- !u!1 &9114757805446755880
 GameObject:
   m_ObjectHideFlags: 0

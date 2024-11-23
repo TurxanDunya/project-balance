@@ -13,6 +13,7 @@ public class FileUtil
     public static string? LoadFromFile(string file)
     {
         var path = Application.persistentDataPath + "/" + file;
+        Debug.Log(Application.persistentDataPath);
         if (File.Exists(path)) {
             var stringData = File.ReadAllText(path);
             return stringData;

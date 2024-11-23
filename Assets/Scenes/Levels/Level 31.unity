@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.21956551, g: 0.08151921, b: 0.3757304, a: 1}
+  m_IndirectSpecularColor: {r: 0.21949267, g: 0.08148838, b: 0.37560403, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -538,7 +538,7 @@ MonoBehaviour:
   isFallingShapesModeEnabled: 0
   isWindModeEnabled: 0
   isCubeLateFallEnabled: 0
---- !u!43 &1375686444
+--- !u!43 &1095870195
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -870,6 +870,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1981843057}
   - component: {fileID: 1981843056}
+  - component: {fileID: 1981843058}
   m_Layer: 0
   m_Name: GhostCubeTutorial
   m_TagString: Untagged
@@ -908,6 +909,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 79145627}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1981843058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981843055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc0863436bc724c2a9fa7f02e67091ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tableName: GameText
 --- !u!114 &2065624188 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6762653154033847079, guid: 7f3e224445bba4c8f838c2ca32164068, type: 3}
