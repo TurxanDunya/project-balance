@@ -7,8 +7,16 @@ public class ApplicationSettings : MonoBehaviour
     {
         Application.targetFrameRate = 60;
 
-        LunarConsole.Hide();
-        LunarConsole.Clear();
-        LunarConsole.SetConsoleEnabled(false);
+        CheckLunarConsoleState();
     }
+
+    private void CheckLunarConsoleState()
+    {
+        #if UNITY_EDITOR || DEVELOPMENT_BUILD
+             LunarConsole.SetConsoleEnabled(true);
+        #else
+             LunarConsole.SetConsoleEnabled(false);
+        #endif
+    }
+
 }
