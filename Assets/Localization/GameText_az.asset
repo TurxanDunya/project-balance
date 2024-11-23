@@ -183,7 +183,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 12734040569274368
-    m_Localized: Do you believe in ghosts?
+    m_Localized: "Ruhlara inan\u0131rsan?"
     m_Metadata:
       m_Items: []
   - m_Id: 12739632734134272
@@ -192,6 +192,135 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 12740311615791104
     m_Localized: Buz
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12736876518563840
+    m_Localized: "VAXT \u018FLAV\u018F ET+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12734193913028608
+    m_Localized: "D\u0130QQ\u018FTL\u0130 OL!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12739633610743808
+    m_Localized: "Bu bombad\u0131r!\nBomba \u0259trafdak\u0131 obyektl\u0259ri m\u0259hv
+      etm\u0259k \xFC\xE7\xFCn \u0259lad\u0131r.\nLakin, bomban\u0131n t\u0259sir
+      zonas\u0131 limitlidir."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12739631895273472
+    m_Localized: Buuuuuuuummmm!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12738419410067456
+    m_Localized: "Kub d\u0259yi\u015Fici art\u0131q AKT\u0130VD\u0130R!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12739309420404736
+    m_Localized: "\u018Ftrafda t\u0259sad\xFCfi d\xFC\u015F\u0259r\u0259k platforman\u0131n
+      balans\u0131n\u0131 pozma\u011Fa \xE7al\u0131\u015Fan obyektl\u0259r olacaq.
+      Yen\u0259 d\u0259 balans\u0131 saxlamaq \xFC\xE7\xFCn \u0259lind\u0259n g\u0259l\u0259ni
+      et!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12736093077102592
+    m_Localized: Tez! Tez! Tez!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12734099088203776
+    m_Localized: "\u018Fg\u0259r ekran\u0131n sa\u011F t\u0259r\u0259find\u0259 bu
+      ikonu g\xF6r\xFCrs\u0259ns\u0259,\nbu o dem\u0259kdir ki, kublar\u0131n aras\u0131nda
+      yoxa \xE7\u0131xa bil\u0259nl\u0259r var."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12734413962993664
+    m_Localized: "Kublar platformada yoxa \xE7\u0131xma\u011Fa ba\u015Flayacaq.\nAmma
+      sad\u0259c\u0259 g\xF6z\u0259 g\xF6r\xFCnm\u0259zdir.\nPlatforman\u0131n balans\u0131n\u0131
+      pozma\u011Fa davam ed\u0259c\u0259kl\u0259r!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12739448763572224
+    m_Localized: Getdik!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12739623221452800
+    m_Localized: "\u018Fg\u0259r ekran\u0131n sa\u011F t\u0259r\u0259find\u0259 bu
+      ikonu g\xF6r\xFCrs\u0259ns\u0259 t\u0259xmin et n\u0259 ba\u015F verir :)\n\u0130stiqam\u0259tl\u0259r
+      d\u0259yi\u015Fdi!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12738816019259392
+    m_Localized: "\u018Fg\u0259r ekran\u0131n sa\u011F t\u0259r\u0259find\u0259 bu
+      ikonu g\xF6r\xFCrs\u0259ns\u0259 kublar qravitasiyaya qar\u015F\u0131 daha
+      \xE7ox m\xFCqavim\u0259t g\xF6st\u0259rir"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12735136591241216
+    m_Localized: "\u0130\u015F\u0131q pulunu \xF6d\u0259m\u0259misiniz?\n\u018Fg\u0259r
+      bu ikonu g\xF6r\xFCrs\u0259ns\u0259, i\u015F\u0131qlar yax\u015F\u0131 i\u015Fl\u0259mir"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12737818919952384
+    m_Localized: "\xC7ox sa\u011F ol, amma d\u0259yi\u015F\u0259k..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12739487929982976
+    m_Localized: "Hmm! N\u0259s\u0259 s\u0259hvdi!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12738673207402496
+    m_Localized: "Hmm... Kublar qravitasiyaya qar\u015F\u0131 g\u0259lm\u0259yin
+      yolunu tap\u0131blar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12740309719965696
+    m_Localized: "Diqq\u0259t! Ya\u015F z\u0259min!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12740313054437376
+    m_Localized: "Bu buzdur!\nAmma, diqq\u0259li ol! Buzlar platforma \xFCz\u0259rind\u0259
+      \xE7ox s\xFCr\xFC\u015F\xFCrl\u0259r!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12740314933485568
+    m_Localized: "Getdikc\u0259 daha \xE7\u0259tin olur!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12740316690898944
+    m_Localized: "K\xFCl\u0259kli havan\u0131 sevirs\u0259n?!\nH\u018F? Onda bu level
+      s\u0259nin \xFC\xE7\xFCnd\xFCr.\nYOX? Onda daha \xE7\u0259tin olacaq!\nPlatforma
+      k\xFCl\u0259yin t\u0259siri il\u0259 balans\u0131n\u0131 itir\u0259c\u0259k.
+      Diqq\u0259tli ol!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12733443262636032
+    m_Localized: +1000 Ulduz
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12733071546638336
+    m_Localized: "B\u0259z\u0259n g\xF6zl\u0259diyin hadis\u0259l\u0259r, s\u0259n
+      onlar\u0131 \u0259n \xE7ox g\xF6zl\u0259m\u0259diyin anda g\u0259lir.\n1000
+      ulduz bizd\u0259n h\u0259diyy\u0259!\nXeyirl\u0259r\u0259 x\u0259rcl\u0259!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12736238535565312
+    m_Localized: "\u018Fg\u0259r bu ikonu ekran\u0131n sa\u011F t\u0259r\u0259find\u0259
+      g\xF6r\xFCrs\u0259ns\u0259,\nbu o dem\u0259kdir ki, leveli bitirm\u0259k \xFC\xE7\xFCn
+      zaman\u0131n L\u0130M\u0130TL\u0130D\u0130R!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12737223127457792
+    m_Localized: "Amma yax\u015F\u0131 x\u0259b\u0259r odur ki, yeni k\xF6m\u0259yimiz
+      var!\nBu k\xF6m\u0259kd\u0259n istifad\u0259 ed\u0259r\u0259k vaxt\u0131 art\u0131ra
+      bil\u0259rs\u0259n. U\u011Furlar!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12738945249959936
+    m_Localized: Yoxla!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12739168063971328
+    m_Localized: "\u0130ndi n\u0259?!"
     m_Metadata:
       m_Items: []
   references:
