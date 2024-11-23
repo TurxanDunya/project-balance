@@ -16,8 +16,7 @@ MonoBehaviour:
     m_Code: az
   m_SharedData: {fileID: 11400000, guid: 5e35f07b876a540d48b26b2ae7cd4973, type: 2}
   m_Metadata:
-    m_Items:
-    - rid: 1941731470240907267
+    m_Items: []
   m_TableData:
   - m_Id: 296880168960
     m_Localized: "Biz b\xF6y\xFCk bir h\u0259v\u0259sl\u0259 oyunlar haz\u0131rlayan
@@ -60,8 +59,7 @@ MonoBehaviour:
   - m_Id: 1913513390891008
     m_Localized: Davam
     m_Metadata:
-      m_Items:
-      - rid: 1941731470240907267
+      m_Items: []
   - m_Id: 1914606409736192
     m_Localized: "T\u0259krar"
     m_Metadata:
@@ -180,10 +178,22 @@ MonoBehaviour:
       \xF6d\u0259m\u0259li olacaqsan :)"
     m_Metadata:
       m_Items: []
+  - m_Id: 2249649254555648
+    m_Localized: Surpriz Bonus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12734040569274368
+    m_Localized: Do you believe in ghosts?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12739632734134272
+    m_Localized: Bomba
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12740311615791104
+    m_Localized: Buz
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
-    RefIds:
-    - rid: 1941731470240907267
-      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
-      data:
-        m_Entries: 00e0ef8d54cc0600
+    RefIds: []

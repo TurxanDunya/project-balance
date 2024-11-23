@@ -174,6 +174,148 @@ MonoBehaviour:
       Mmm, it will cost you just 30 star!
     m_Metadata:
       m_Items: []
+  - m_Id: 2249649254555648
+    m_Localized: Suprise Bonus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12733071546638336
+    m_Localized: "Sometimes good things come when you least expect it. \n1000 stars
+      are gift from us!\nEnjoy and have a good day!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12733443262636032
+    m_Localized: +1000 Stars
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12734040569274368
+    m_Localized: Do you believe in ghosts?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12734099088203776
+    m_Localized: "If you see this icon on right pane, \nit means there are GHOST
+      CUBES among them."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12734193913028608
+    m_Localized: BE CAREFUL!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12734413962993664
+    m_Localized: 'They will dissappear on platform,
+
+      and you will not see them.
+
+      But
+      still be affecting platform balance!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12736876518563840
+    m_Localized: ADD TIME+
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12735136591241216
+    m_Localized: 'Light is not working as expected :(
+
+      If this icon shows up,
+      light will on and off periodically!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12736093077102592
+    m_Localized: Faster! Faster! Faster!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12736238535565312
+    m_Localized: "\u0130f you see this icon on right pane,\nit means level should
+      be finished LIMITED time!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12737223127457792
+    m_Localized: 'But good news is that you have new POWERUP!
+
+      You can increase
+      limited time by using it! Good luck!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12737818919952384
+    m_Localized: No thanks... Change pls...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12738419410067456
+    m_Localized: Cube changer is ACTIVE now!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12738673207402496
+    m_Localized: Hmm... Cubes have found a way to overcome gravity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12738816019259392
+    m_Localized: If you see this icon on the right side of screen, it means cubes
+      resist against gravity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12738945249959936
+    m_Localized: TRY IT!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12739168063971328
+    m_Localized: What now?!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12739309420404736
+    m_Localized: There will be random shapes falling to platform and affect platform
+      balance. Try to keep balance whatever it takes!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12739448763572224
+    m_Localized: GO!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12739487929982976
+    m_Localized: Hmm! Something wrong!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12739623221452800
+    m_Localized: 'If this icon shows-up in right side of screen, guess what!
+
+      Axis
+      was inverted!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12739631895273472
+    m_Localized: Booooooom!!!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12739632734134272
+    m_Localized: Changer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12739633610743808
+    m_Localized: "Meet the BOMB!\nBomb is a very powerful to destroy objects around.
+      \nBomb will blast objects around in certain radius."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12740309719965696
+    m_Localized: Caution! Wet floor!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12740311615791104
+    m_Localized: Ice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12740313054437376
+    m_Localized: "This is ICE!\nLike other cubes, ice is also a simple cube just
+      made from ice.\nBUT, ice is VERY SL\u0130PPERY!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12740314933485568
+    m_Localized: It is getting more challanging!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12740316690898944
+    m_Localized: "Do you like windy weather?\nIf YES, this level for you. \nNOT,
+      then more challange for you!\nPlatform will be affected by wind. Be careful!"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
