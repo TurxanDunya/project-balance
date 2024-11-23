@@ -20,7 +20,7 @@ MonoBehaviour:
   m_TableData:
   - m_Id: 296880168960
     m_Localized: We are a very small team passionate about creating our own games.
-      You can follow or contact us from the links below
+      You can follow or contact us from the links below!
     m_Metadata:
       m_Items: []
   - m_Id: 439847215104
@@ -44,7 +44,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1911714793644032
-    m_Localized: Earn Now
+    m_Localized: Earn Now!
     m_Metadata:
       m_Items: []
   - m_Id: 1911825355497472
@@ -120,11 +120,12 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2247045590016000
-    m_Localized: Good Luck
+    m_Localized: Good Luck!
     m_Metadata:
       m_Items: []
   - m_Id: 2247208790384640
-    m_Localized: "WELCOME! \nThe purpose is simple. \nJust keep cubes on balance!"
+    m_Localized: "WELCOME! \nThe purpose is simple. \nJust keep platform on balance.
+      Cubes should not be fall from platform!"
     m_Metadata:
       m_Items: []
   - m_Id: 2247272682217472

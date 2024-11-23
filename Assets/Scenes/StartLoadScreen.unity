@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeSpeed: 2
-  chanceToShowAd: 10
+  chanceToShowAd: 3
 --- !u!1 &636098947
 GameObject:
   m_ObjectHideFlags: 0

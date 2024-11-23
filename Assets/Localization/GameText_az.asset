@@ -16,12 +16,13 @@ MonoBehaviour:
     m_Code: az
   m_SharedData: {fileID: 11400000, guid: 5e35f07b876a540d48b26b2ae7cd4973, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 1941731470240907267
   m_TableData:
   - m_Id: 296880168960
-    m_Localized: "Biz B\xF6y\xFCk bir h\u0259v\u0259sl\u0259 oyunlar haz\u0131rlayan
-      Ki\xE7ik bir komanday\u0131q. Bizi a\u015Fa\u011F\u0131dak\u0131 linkl\u0259rd\u0259n
-      izl\u0259y\u0259 bil\u0259rs\u0259n"
+    m_Localized: "Biz b\xF6y\xFCk bir h\u0259v\u0259sl\u0259 oyunlar haz\u0131rlayan
+      ki\xE7ik bir komanday\u0131q. Bizi a\u015Fa\u011F\u0131dak\u0131 linkl\u0259rd\u0259n
+      izl\u0259y\u0259 bil\u0259rsiniz!"
     m_Metadata:
       m_Items: []
   - m_Id: 439847215104
@@ -29,7 +30,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1906621314752512
-    m_Localized: "S\u0259ssiz yoxsa musiqili"
+    m_Localized: "S\u0259ssiz yoxsa musiqili?"
     m_Metadata:
       m_Items: []
   - m_Id: 1907320475869184
@@ -41,31 +42,32 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1906258641674240
-    m_Localized: Ayarlar
+    m_Localized: "T\u0259nziml\u0259m\u0259l\u0259r"
     m_Metadata:
       m_Items: []
   - m_Id: 1911714793644032
-    m_Localized: Indi Qazan
+    m_Localized: Indi Qazan!
     m_Metadata:
       m_Items: []
   - m_Id: 1911825355497472
-    m_Localized: "Bas v\u0259 oyna"
+    m_Localized: "Klikl\u0259 v\u0259 Oyna"
     m_Metadata:
       m_Items: []
   - m_Id: 1912261735079936
-    m_Localized: "Saxlan\u0131ld\u0131"
+    m_Localized: Pauza
     m_Metadata:
       m_Items: []
   - m_Id: 1913513390891008
     m_Localized: Davam
     m_Metadata:
-      m_Items: []
+      m_Items:
+      - rid: 1941731470240907267
   - m_Id: 1914606409736192
-    m_Localized: "Yenid\u0259n"
+    m_Localized: "T\u0259krar"
     m_Metadata:
       m_Items: []
   - m_Id: 1915359996141568
-    m_Localized: Oyun bitdi
+    m_Localized: Oyun Bitdi
     m_Metadata:
       m_Items: []
   - m_Id: 1915414580813824
@@ -77,7 +79,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1916217332850688
-    m_Localized: Bir daha
+    m_Localized: "T\u0259krar"
     m_Metadata:
       m_Items: []
   - m_Id: 1916638906540032
@@ -89,7 +91,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1917943054065664
-    m_Localized: "\u018Ffsan\u0259"
+    m_Localized: "\u018Ffsan\u0259!"
     m_Metadata:
       m_Items: []
   - m_Id: 1918401088839680
@@ -121,11 +123,12 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2247045590016000
-    m_Localized: "U\u011Furlar"
+    m_Localized: "U\u011Furlar!"
     m_Metadata:
       m_Items: []
   - m_Id: 2247208790384640
-    m_Localized: Xos geldin
+    m_Localized: "Xos geldin!\nM\u0259qs\u0259d sad\u0259dir.\nPlatforman\u0131 balansda
+      saxla. Kublar platformadan d\xFC\u015Fm\u0259m\u0259lidir!"
     m_Metadata:
       m_Items: []
   - m_Id: 2247272682217472
@@ -133,7 +136,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2247739369840640
-    m_Localized: Izah edim
+    m_Localized: "M\u0259lumat"
     m_Metadata:
       m_Items: []
   - m_Id: 2247865278652416
@@ -141,7 +144,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2248126789312512
-    m_Localized: Bu taxtadi
+    m_Localized: "Bu taxtad\u0131r. Platforma kimi onun da material\u0131 taxtad\u0131r"
     m_Metadata:
       m_Items: []
   - m_Id: 2248210536980480
@@ -149,11 +152,13 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2248562866905088
-    m_Localized: Kublari deyisir
+    m_Localized: "Bu k\xF6m\u0259k\xE7i kublari d\u0259yi\u015Fir.\n\u0130stifad\u0259
+      ed\u0259 bilm\u0259k \xFC\xE7\xFCn n\xF6vb\u0259ti b\xF6l\xFCml\u0259r\u0259
+      davam et :)"
     m_Metadata:
       m_Items: []
   - m_Id: 2248995245121536
-    m_Localized: Yeni element
+    m_Localized: "Yeni elementl\u0259 tan\u0131\u015F olma\u011Fa haz\u0131rsan?"
     m_Metadata:
       m_Items: []
   - m_Id: 2249122106040320
@@ -161,7 +166,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2249323780759552
-    m_Localized: Metal agirdi
+    m_Localized: "Da-dam! Metal taxtadan daha a\u011F\u0131rd\u0131r. Amma, narahat
+      olma! K\xF6m\u0259kl\u0259ri d\u0259 unutmad\u0131q"
     m_Metadata:
       m_Items: []
   - m_Id: 2249401727705088
@@ -169,9 +175,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2249553284685824
-    m_Localized: Maqnit metali cekir
+    m_Localized: "Metallar\u0131 bir yer\u0259 toplamaq \xFC\xE7\xFCn maqnitd\u0259n
+      istifad\u0259 ed\u0259 bil\u0259rs\u0259n. Hmm, bunun \xFC\xE7\xFCn 30 ulduz
+      \xF6d\u0259m\u0259li olacaqsan :)"
     m_Metadata:
       m_Items: []
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 1941731470240907267
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 00e0ef8d54cc0600
