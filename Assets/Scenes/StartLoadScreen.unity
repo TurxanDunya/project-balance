@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeSpeed: 2
-  chanceToShowAd: 3
+  chanceToShowAd: 3000
 --- !u!1 &636098947
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,6 +459,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e38e78dce0ed2124bbb441c9abeac757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1439659243 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 183544, guid: 6d0acc00cc82d436b9d11446d2ddfef6, type: 3}
+  m_PrefabInstance: {fileID: 652211163}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1613363254
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,6 +630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb7ac407f95e344e4a14fc1cc721fe56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lunarConsolePrefab: {fileID: 1439659243}
 --- !u!4 &1960885186
 Transform:
   m_ObjectHideFlags: 0

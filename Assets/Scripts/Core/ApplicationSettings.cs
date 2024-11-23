@@ -3,6 +3,8 @@ using LunarConsolePlugin;
 
 public class ApplicationSettings : MonoBehaviour
 {
+    [SerializeField] private GameObject lunarConsolePrefab; 
+
     private void Start()
     {
         Application.targetFrameRate = 60;
@@ -12,11 +14,13 @@ public class ApplicationSettings : MonoBehaviour
 
     private void CheckLunarConsoleState()
     {
-        #if UNITY_EDITOR || DEVELOPMENT_BUILD
-             LunarConsole.SetConsoleEnabled(true);
-        #else
-             LunarConsole.SetConsoleEnabled(false);
-        #endif
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        LunarConsole.SetConsoleEnabled(true);
+        Destroy(lunarConsolePrefab);
+#else
+        LunarConsole.SetConsoleEnabled(false);
+        Destroy(lunarConsolePrefab);
+#endif
     }
 
 }
