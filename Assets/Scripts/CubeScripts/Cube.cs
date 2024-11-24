@@ -11,11 +11,6 @@ public class Cube : MonoBehaviour
         GetComponent<Rigidbody>().isKinematic = true;
     }
 
-    private void OnDisable()
-    {
-        DestroyAllInstantiated();
-    }
-
     public void Release()
     {
         GetComponent<Rigidbody>().isKinematic = false;
@@ -72,23 +67,6 @@ public class Cube : MonoBehaviour
         }
 
         Destroy(ripple);
-    }
-
-    private void DestroyAllInstantiated()
-    {
-        GameObject[] playableCubeObjects =
-            GameObject.FindGameObjectsWithTag(TagConstants.PLAYABLE_CUBE);
-        foreach (GameObject playableCubeObject in playableCubeObjects)
-        {
-            Destroy(playableCubeObject);
-        }
-
-        GameObject[] droppedCubeObjects =
-            GameObject.FindGameObjectsWithTag(TagConstants.DROPPED_CUBE);
-        foreach (GameObject droppedCubeObject in droppedCubeObjects)
-        {
-            Destroy(droppedCubeObject);
-        }
     }
 
 }
