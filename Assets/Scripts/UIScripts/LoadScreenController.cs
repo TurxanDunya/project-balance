@@ -40,6 +40,12 @@ public class LoadScreenController : MonoBehaviour, AdsEventCallback, IController
     {
         navigateLevelAfterAds = levelName;
 
+        if (levelName == LevelNameConstants.LEVEL_1_NAME)
+        {
+            StartCoroutine(LoadLevelAsync(levelName));
+            return;
+        }
+
         bool shouldShowAd = Random.Range(1, chanceToShowAd) == 1;
         if (!shouldShowAd || !interstitialAd.ShowInterstitialAd())
         {
