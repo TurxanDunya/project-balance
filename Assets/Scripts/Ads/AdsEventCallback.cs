@@ -3,5 +3,5 @@
 public interface AdsEventCallback
 {
     void OnStandartAdsClose();
-    void OnRewardedAdsClose();
+    void OnRewardedAdsClose(double reward);
 }

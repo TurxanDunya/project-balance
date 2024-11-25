@@ -24,13 +24,13 @@ public class AdmobInterstitialAd
     {
         MobileAds.RaiseAdEventsOnUnityMainThread = true;
         MobileAds.Initialize((InitializationStatus initStatus) => {
-            loadAd();
+            LoadAd();
         });
        
     }
 
 
-    private void loadAd()
+    public void LoadAd()
     {
         // Clean up the old ad before loading a new one.
         if (interstitialAd != null)
@@ -61,12 +61,10 @@ public class AdmobInterstitialAd
         this.adsCallbacks = callbacks;
     }
 
-    public Boolean ShowInterstitialAd()
+    public Boolean CanShowInterstitialAd()
     {
-
         if (interstitialAd != null && interstitialAd.CanShowAd())
         {
-            interstitialAd.Show();
             return true;
         }
         else
@@ -74,6 +72,11 @@ public class AdmobInterstitialAd
             return false;
         }
        
+    }
+
+    public void ShowAd()
+    {
+        interstitialAd.Show();
     }
 
     private void RegisterEventHandlers(InterstitialAd interstitialAd)
@@ -101,17 +104,21 @@ public class AdmobInterstitialAd
         // Raised when the ad closed full screen content.
         interstitialAd.OnAdFullScreenContentClosed += () =>
         {
-            
             adsCallbacks.OnStandartAdsClose();
-            loadAd();
-            
         };
 
         // Raised when the ad failed to open full screen content.
         interstitialAd.OnAdFullScreenContentFailed += (AdError error) =>
         {
            
-            loadAd();
+            LoadAd();
         };
+    }
+
+    public void Destroy()
+    {
+        if (interstitialAd != null) {
+            interstitialAd.Destroy();
+        }
     }
 }

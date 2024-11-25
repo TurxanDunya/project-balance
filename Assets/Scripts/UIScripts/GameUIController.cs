@@ -1,8 +1,11 @@
+using GoogleMobileAds.Api;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-public class GameUIController : MonoBehaviour, IControllerTemplate
+enum RedirectAction { HOME, REPLAY, NEXTLEVEL };
+
+public class GameUIController : MonoBehaviour, IControllerTemplate, AdsEventCallback
 {
     private AngleCalculator angleCalculator;
 
@@ -33,8 +36,16 @@ public class GameUIController : MonoBehaviour, IControllerTemplate
     private VisualElement starsVe2;
     private VisualElement starsVe3;
 
+    [Header("AdMob params")]
+    [SerializeField] private int chanceToShowAd = 3;
+    AdmobInterstitialAd interstitialAd;
+
+    private RedirectAction redirectAction;
+
     void Start()
     {
+        interstitialAd = new AdmobInterstitialAd();
+        interstitialAd.SetAdsCallback(this);
         angleCalculator = GetComponent<AngleCalculator>();
 
         ConfigureGameOverUIElements();
@@ -109,6 +120,30 @@ public class GameUIController : MonoBehaviour, IControllerTemplate
             rootWinner.style.display = DisplayStyle.None;
             winnerVE.style.display = DisplayStyle.None;
         }
+    }
+
+
+    public void OnStandartAdsClose()
+    {
+        switch (redirectAction)
+        {
+            case RedirectAction.HOME:
+                RedirectHomePage();
+                break;
+            case RedirectAction.REPLAY:
+                RedirectHomePage();
+                break;
+            case RedirectAction.NEXTLEVEL:
+                RedirectNextLevel();
+                break;
+        }
+
+        RedirectHomePage();
+    }
+
+    public void OnRewardedAdsClose(double reward)
+    {
+
     }
 
     public bool IsGameWinUIVisible()
@@ -220,12 +255,51 @@ public class GameUIController : MonoBehaviour, IControllerTemplate
 
     private void GoHomePage()
     {
+        redirectAction = RedirectAction.HOME;
+
+        if (ShouldShowAd())
+        {
+            if (interstitialAd.CanShowInterstitialAd())
+            {
+                interstitialAd.ShowAd();
+            }
+            else
+            {
+                RedirectHomePage();
+            }
+        }
+        else
+        {
+            RedirectHomePage();
+        }
+    }
+
+
+    private void RedirectHomePage()
+    {
         stateChanger.ChangeStateToHome();
     }
 
+
     private void ReloadLevel()
     {
-        stateChanger.ChangeStateToHome();
+        redirectAction = RedirectAction.REPLAY;
+        if (ShouldShowAd())
+        {
+            if (interstitialAd.CanShowInterstitialAd())
+            {
+                interstitialAd.ShowAd();
+            }
+            else
+            {
+                RedirectHomePage();
+            }
+        }
+        else
+        {
+            RedirectHomePage();
+        }
+
     }
 
     private void OpenLevelMenu()
@@ -235,6 +309,25 @@ public class GameUIController : MonoBehaviour, IControllerTemplate
 
     void GoNextLevel()
     {
+        redirectAction = RedirectAction.NEXTLEVEL;
+        if (ShouldShowAd())
+        {
+            if (interstitialAd.CanShowInterstitialAd())
+            {
+                interstitialAd.ShowAd();
+            }
+            else
+            {
+                RedirectNextLevel();
+            }
+        }
+        else
+        {
+            RedirectNextLevel();
+        }
+    }
+
+    private void RedirectNextLevel() {
         LevelManagment levelManagment = LevelManager.INSTANCE.levelManagment;
         Level nextLevel = levelManagment.FindNextLevel();
         levelManagment.currentLevel = nextLevel;
@@ -242,6 +335,13 @@ public class GameUIController : MonoBehaviour, IControllerTemplate
 
         LevelManager.INSTANCE.levelManagment.levelList.lastPlayedLevelName = nextLevel.name;
         SceneManager.LoadScene(LevelNameConstants.START_LOAD_SCREEN);
+    }
+
+
+    private bool ShouldShowAd()
+    {
+        bool shouldShowAd = Random.Range(1, chanceToShowAd) == 1;
+        return shouldShowAd;
     }
 
     private void GetStarStatusByProgress(float progress)
@@ -310,6 +410,11 @@ public class GameUIController : MonoBehaviour, IControllerTemplate
     public void SetDisplayFlex()
     {
         // Should be implemented when we refactor class
+    }
+
+    private void OnDestroy()
+    {
+        interstitialAd.Destroy();
     }
 
 }
