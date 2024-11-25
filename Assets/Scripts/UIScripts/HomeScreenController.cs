@@ -36,6 +36,10 @@ public class HomeScreenController : MonoBehaviour, AdsEventCallback, IController
         ShakeAdsButton(); // Should be at the end because of coroutine
 
         SafeArea.ApplySafeArea(rootElement);
+        if (!rewardedAd.CanShowRewardedAds())
+        {
+            rewardedAd.LoadAd();
+        }
     }
 
     private void OnDisable()
@@ -111,7 +115,9 @@ public class HomeScreenController : MonoBehaviour, AdsEventCallback, IController
 
     private void ShowAdsAndAddCoin()
     {
-        rewardedAd.ShowRewardedAds();
+        if (rewardedAd.CanShowRewardedAds()) {
+            rewardedAd.ShowAd();
+        }
     }
 
     private void DefineAboutUsButtonPosition()
@@ -141,9 +147,10 @@ public class HomeScreenController : MonoBehaviour, AdsEventCallback, IController
        
     }
 
-    public void OnRewardedAdsClose()
+    public void OnRewardedAdsClose(double reward)
     {
-        coinManager.AddCoin(5);
+        long stars = (long) reward;
+        coinManager.AddCoin(stars);
     }
 
     public bool IsDisplayFlex()
@@ -169,6 +176,11 @@ public class HomeScreenController : MonoBehaviour, AdsEventCallback, IController
     public bool IsOverUI()
     {
         return rootElement.style.display == DisplayStyle.Flex;
+    }
+
+    private void OnDestroy()
+    {
+        rewardedAd.Destroy();
     }
 
 }

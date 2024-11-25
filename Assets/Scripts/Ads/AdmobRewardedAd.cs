@@ -2,6 +2,7 @@ using UnityEngine;
 using GoogleMobileAds.Api;
 using System;
 using System.IO;
+using static UnityEngine.Rendering.DebugUI;
 
 public class AdmobRewardedAd
 {
@@ -24,12 +25,12 @@ public class AdmobRewardedAd
     {
         MobileAds.RaiseAdEventsOnUnityMainThread = true;
         MobileAds.Initialize(initStatus => {
-            loadAd();
+            LoadAd();
         });
        
     }
 
-    private void loadAd()
+    public void LoadAd()
     {
             if (rewardedAd != null)
             {
@@ -60,16 +61,19 @@ public class AdmobRewardedAd
         this.adsCallbacks = callbacks;
     }
 
-    public Boolean ShowRewardedAds()
+    public Boolean CanShowRewardedAds()
     {
         if (rewardedAd != null && rewardedAd.CanShowAd())
         {
-            rewardedAd.Show((Reward reward) => { });
             return true;
         }
         else {
             return false;
         }
+    }
+
+    public void ShowAd() {
+        rewardedAd.Show((Reward reward) => {});
     }
 
 
@@ -98,14 +102,22 @@ public class AdmobRewardedAd
         // Raised when the ad closed full screen content.
         ad.OnAdFullScreenContentClosed += () =>
         {
-            adsCallbacks.OnRewardedAdsClose();
-            loadAd();
+            adsCallbacks.OnRewardedAdsClose(ad.GetRewardItem().Amount);
+            LoadAd();
          
         };
         // Raised when the ad failed to open full screen content.
         ad.OnAdFullScreenContentFailed += (AdError error) =>
         {
-            loadAd();
+            LoadAd();
         };
+    }
+
+    public void Destroy()
+    {
+        if (rewardedAd != null)
+        {
+            rewardedAd.Destroy();
+        }
     }
 }

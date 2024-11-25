@@ -2,26 +2,17 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
+using GoogleMobileAds.Api;
 
-public class LoadScreenController : MonoBehaviour, AdsEventCallback, IControllerTemplate
+public class LoadScreenController : MonoBehaviour, IControllerTemplate
 {
     [SerializeField] private float fadeSpeed = 1f;
-
-    [Header("AdMob params")]
-    [SerializeField] private int chanceToShowAd;
-
     private VisualElement rootVE;
     private ProgressBar progressBar;
-
-    // admob fields
-    private AdmobInterstitialAd interstitialAd;
     private string navigateLevelAfterAds;
 
     void Start()
     {
-        interstitialAd = new AdmobInterstitialAd();
-        interstitialAd.SetAdsCallback(this);
-
         rootVE = GetComponent<UIDocument>().rootVisualElement;
         progressBar = rootVE.Q<ProgressBar>("progress");
 
@@ -39,18 +30,7 @@ public class LoadScreenController : MonoBehaviour, AdsEventCallback, IController
     public void StartLoad(string levelName)
     {
         navigateLevelAfterAds = levelName;
-
-        if (levelName == LevelNameConstants.LEVEL_1_NAME)
-        {
-            StartCoroutine(LoadLevelAsync(levelName));
-            return;
-        }
-
-        bool shouldShowAd = Random.Range(1, chanceToShowAd) == 1;
-        if (!shouldShowAd || !interstitialAd.ShowInterstitialAd())
-        {
-            StartCoroutine(LoadLevelAsync(levelName));
-        }
+        StartCoroutine(LoadLevelAsync(levelName));
     }
 
     private IEnumerator LoadLevelAsync(string levelName)
@@ -97,16 +77,6 @@ public class LoadScreenController : MonoBehaviour, AdsEventCallback, IController
         }
     }
 
-    public void OnStandartAdsClose()
-    {
-        StartCoroutine(LoadLevelAsync(navigateLevelAfterAds));
-    }
-
-    public void OnRewardedAdsClose()
-    {
-       
-    }
-
     public void SetDisplayFlex()
     {
         rootVE.style.display = DisplayStyle.Flex;
@@ -121,5 +91,4 @@ public class LoadScreenController : MonoBehaviour, AdsEventCallback, IController
     {
         return rootVE.style.display == DisplayStyle.Flex;
     }
-
 }
