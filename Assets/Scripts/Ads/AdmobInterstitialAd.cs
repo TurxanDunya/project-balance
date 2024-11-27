@@ -10,9 +10,9 @@ public class AdmobInterstitialAd
 {
 
 #if UNITY_ANDROID
-    private string _adUnitId = "ca-app-pub-3940256099942544/1033173712";
+    private string _adUnitId = "ca-app-pub-4184154542839563/6659386113";
 #elif UNITY_IPHONE
-  private string _adUnitId = "ca-app-pub-3940256099942544/4411468910";
+  private string _adUnitId = "ca-app-pub-4184154542839563/6659386113";
 #else
   private string _adUnitId = "unused";
 #endif

@@ -9,11 +9,11 @@ public class AdmobRewardedAd
 
 
 #if UNITY_ANDROID
-    private string adUnitId = "ca-app-pub-3940256099942544/5224354917";
+    private string _adUnitId = "ca-app-pub-4184154542839563/8915121589";
 #elif UNITY_IPHONE
-  private string adUnitId = "ca-app-pub-3940256099942544/1712485313";
+  private string _adUnitId = "ca-app-pub-4184154542839563/8915121589";
 #else
-  private string adUnitId = "unused";
+  private string _adUnitId = "unused";
 #endif
 
 
@@ -40,7 +40,7 @@ public class AdmobRewardedAd
  
             var adRequest = new AdRequest();
 
-            RewardedAd.Load(adUnitId, adRequest,
+            RewardedAd.Load(_adUnitId, adRequest,
                 (RewardedAd ad, LoadAdError error) =>
                 {
                     if (error != null || ad == null)
