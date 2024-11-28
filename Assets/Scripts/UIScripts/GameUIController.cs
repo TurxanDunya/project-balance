@@ -55,6 +55,10 @@ public class GameUIController : MonoBehaviour, IControllerTemplate, AdsEventCall
         SafeArea.ApplySafeArea(rootGameOver);
         SafeArea.ApplySafeArea(rootWinner);
         SafeArea.ApplySafeArea(rootLevelStars);
+
+        if (!interstitialAd.CanShowInterstitialAd()) {
+            interstitialAd.LoadAd();
+        }
     }
 
     private void OnDisable()
@@ -231,6 +235,19 @@ public class GameUIController : MonoBehaviour, IControllerTemplate, AdsEventCall
         rootWinner.Q<Button>("btn_replay").clicked += ReloadLevel;
     }
 
+    private void SetActionButtonsStatus(bool status) {
+
+        rootGameOver.Q<Button>("btn_home").SetEnabled(status);
+        rootGameOver.Q<Button>("btn_replay").SetEnabled(status);
+        rootGameOver.Q<Button>("btn_levels").SetEnabled(status);
+
+        rootWinner.Q<Button>("btn_home").SetEnabled(status);
+        rootWinner.Q<Button>("btn_next").SetEnabled(status);
+        rootWinner.Q<Button>("btn_levels").SetEnabled(status);
+        rootWinner.Q<Button>("btn_replay").SetEnabled(status);
+
+    }
+
     private void ConfigureLevelStarUIElements()
     {
         rootLevelStars = gameUI.GetComponent<UIDocument>()
@@ -261,6 +278,7 @@ public class GameUIController : MonoBehaviour, IControllerTemplate, AdsEventCall
         {
             if (interstitialAd.CanShowInterstitialAd())
             {
+                SetActionButtonsStatus(false);
                 interstitialAd.ShowAd();
             }
             else
@@ -288,6 +306,7 @@ public class GameUIController : MonoBehaviour, IControllerTemplate, AdsEventCall
         {
             if (interstitialAd.CanShowInterstitialAd())
             {
+                SetActionButtonsStatus(false);
                 interstitialAd.ShowAd();
             }
             else
@@ -314,6 +333,7 @@ public class GameUIController : MonoBehaviour, IControllerTemplate, AdsEventCall
         {
             if (interstitialAd.CanShowInterstitialAd())
             {
+                SetActionButtonsStatus(false);
                 interstitialAd.ShowAd();
             }
             else
@@ -340,7 +360,7 @@ public class GameUIController : MonoBehaviour, IControllerTemplate, AdsEventCall
 
     private bool ShouldShowAd()
     {
-        bool shouldShowAd = Random.Range(1, chanceToShowAd) == 1;
+        bool shouldShowAd = Random.Range(1, chanceToShowAd + 1) == 1;
         return shouldShowAd;
     }
 
