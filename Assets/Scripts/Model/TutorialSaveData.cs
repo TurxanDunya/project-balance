@@ -3,6 +3,7 @@ public class TutorialSaveData
 {
     public bool isWelcomeTutorialWatched;
     public bool isMeetWoodAndChangerTutorialWatched;
+    public bool isMoveAndPlayTutorialWatched;
     public bool isMeetMetalAndMagnetTutorialWatched;
     public bool isMeetIceCubeTutorialWatched;
     public bool isMeetBombTutorialWatched;

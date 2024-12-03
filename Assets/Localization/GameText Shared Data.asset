@@ -287,6 +287,10 @@ MonoBehaviour:
     m_Key: wood_description
     m_Metadata:
       m_Items: []
+  - m_Id: 16404869184593920
+    m_Key: move_and_play
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

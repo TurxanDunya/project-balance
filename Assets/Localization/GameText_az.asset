@@ -323,6 +323,11 @@ MonoBehaviour:
     m_Localized: "\u0130ndi n\u0259?!"
     m_Metadata:
       m_Items: []
+  - m_Id: 16404869184593920
+    m_Localized: "Oyuna ba\u015Flamaq \xFC\xE7\xFCn sad\u0259c\u0259 ekrana klikl\u0259
+      v\u0259 sa\u011Fa-sola h\u0259r\u0259k\u0259t etdir!"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
