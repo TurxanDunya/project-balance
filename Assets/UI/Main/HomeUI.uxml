@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
     <Style src="project://database/Assets/UI/InGameUI/ButtonStyles.uss?fileID=7433441132597879392&amp;guid=a7847a2045c9046f68fb9fc1c8d4c6d3&amp;type=3#ButtonStyles" />
-    <ui:VisualElement name="rootVE" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+    <ui:VisualElement name="rootVE" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.81);">
         <ui:VisualElement name="topVE" class="topVE_style" style="flex-grow: 1; height: 30%; max-height: 30%; min-height: 30%;">
             <ui:VisualElement name="left_side_ve" style="flex-grow: 1; align-items: flex-start; align-self: auto; padding-top: 0; padding-right: 0; padding-left: 0; width: 50%; max-width: 50%; min-width: 50%;">
                 <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="settings_btn" class="pause_btn_style" style="background-image: url(&quot;project://database/Assets/Graphics/UI/buttons/settings.png?fileID=2800000&amp;guid=60f559ef4a34b4de6b0f1a536d09d351&amp;type=3#settings&quot;); height: 15%; width: 20%; margin-top: 10%; margin-right: 0; margin-bottom: 0; margin-left: 10%; overflow: visible; display: flex;" />

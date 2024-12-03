@@ -120,6 +120,23 @@ public class TutorialController : MonoBehaviour, IControllerTemplate
             }
         }
 
+        if (tutorial.name == "MoveAndPlayTutorial")
+        {
+            if (tutorialSaveSystem.GetIsMoveAndPlayTutorialWatched())
+            {
+                DismissUIPanel(tutorial);
+                return true;
+            }
+            else
+            {
+                tutorial.SetActive(true);
+                rootElement = tutorial.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("RootVE");
+                rootElement.style.display = DisplayStyle.Flex;
+                tutorialSaveSystem.SetIsMoveAndPlayTutorialWatched();
+                return false;
+            }
+        }
+
         if (tutorial.name == "MeetMetalAndMagnet")
         {
             if (tutorialSaveSystem.GetMeetMetalAndMagnetTutorialWatched())

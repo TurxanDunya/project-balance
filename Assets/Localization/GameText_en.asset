@@ -316,6 +316,10 @@ MonoBehaviour:
       then more challange for you!\nPlatform will be affected by wind. Be careful!"
     m_Metadata:
       m_Items: []
+  - m_Id: 16404869184593920
+    m_Localized: To start playing just touch to screen and move right or left!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

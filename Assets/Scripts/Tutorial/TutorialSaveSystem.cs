@@ -18,6 +18,7 @@ public class TutorialSaveSystem : MonoBehaviour
             tutorialSaveData = new();
             tutorialSaveData.isWelcomeTutorialWatched = false;
             tutorialSaveData.isMeetWoodAndChangerTutorialWatched = false;
+            tutorialSaveData.isMoveAndPlayTutorialWatched = false;
             tutorialSaveData.isMeetMetalAndMagnetTutorialWatched = false;
             tutorialSaveData.isGhostCubeTutorialWatched = false;
             tutorialSaveData.isLightOnOffTutorialWatched = false;
@@ -50,6 +51,11 @@ public class TutorialSaveSystem : MonoBehaviour
     public bool GetMeetIceCubeTutorialWatched()
     {
         return tutorialSaveData.isMeetIceCubeTutorialWatched;
+    }
+
+    public bool GetIsMoveAndPlayTutorialWatched()
+    {
+        return tutorialSaveData.isMoveAndPlayTutorialWatched;
     }
 
     public bool GetMeetBombTutorialWatched()
@@ -106,6 +112,12 @@ public class TutorialSaveSystem : MonoBehaviour
     public void SetMeetWoodAndChangerTutorialWatched()
     {
         tutorialSaveData.isMeetWoodAndChangerTutorialWatched = true;
+        SaveData();
+    }
+
+    public void SetIsMoveAndPlayTutorialWatched()
+    {
+        tutorialSaveData.isMoveAndPlayTutorialWatched = true;
         SaveData();
     }
 
