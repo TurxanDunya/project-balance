@@ -17,6 +17,7 @@ public class InputManager : MonoBehaviour
     private TouchControls touchControls;
 
     private UIButtonsTemplate uIButtonsTemplate;
+    public static bool isCancelMode = false;
 
     // This class should be singleton, because of integration with old input system
     public static InputManager Instance
@@ -77,14 +78,14 @@ public class InputManager : MonoBehaviour
         }
         else
         {
-            HapticFeedback.HeavyFeedback();
+           HapticFeedback.HeavyFeedback();
            isOverUI = false;
         }
 }
 
     private void EndTouch()
     {
-        if (OnEndTouch != null && !isOverUI)
+        if (OnEndTouch != null && !isOverUI && !isCancelMode)
         {
             OnEndTouch();
         }
@@ -92,7 +93,7 @@ public class InputManager : MonoBehaviour
 
     private void PerformTouch(InputAction.CallbackContext moveContext)
     {
-        if (OnPerformedTouch != null && !isOverUI)
+        if (OnPerformedTouch != null && !isOverUI && !isCancelMode)
         {
             Vector2 delta = moveContext.ReadValue<Vector2>();
             OnPerformedTouch(delta);

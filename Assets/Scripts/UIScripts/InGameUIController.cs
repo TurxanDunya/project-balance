@@ -7,6 +7,8 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
     [Header("Dependant controllers")]
     [SerializeField] private PauseScreenController pauseScreenController;
 
+
+    private InputManager inputManager;
     [SerializeField] private StateChanger stateChanger;
 
     [SerializeField] private PowerUps powerUps;
@@ -20,6 +22,7 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
     private VisualElement rootElement;
 
     private VisualElement powerUpsVE;
+    private VisualElement cancelVE;
     private Button firstPowerUpButton;
     private Button secondPowerUpButton;
     private Button thirdPowerUpButton;
@@ -50,11 +53,13 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
     private VisualElement fallingShapeVE;
     private VisualElement windModeVE;
     private VisualElement cubeLateFallVE;
+    private bool isCancelViewShow = false;
    
     private void Awake()
     {
         cubeCounter = FindAnyObjectByType<CubeCounter>();
         uiElementEnabler = FindAnyObjectByType<UIElementEnabler>();
+        inputManager = gameObject.AddComponent<InputManager>();
     }
 
     private void OnEnable()
@@ -67,6 +72,23 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         {
             timeLevelFinish.OnUpdateSecondEvent += UpdateTimerModeIconLabel;
         }
+
+        inputManager.OnEndTouch += EndTouch;
+        inputManager.OnPerformedTouch += StartDrag;
+    }
+
+    private void EnterCancelMode(PointerEnterEvent ev)
+    {
+        InputManager.isCancelMode = true;
+        cubeSpawnManagement.ResetCurrentMoveableObjectPosition();
+    }
+
+    private void ExitCancelMode(PointerLeaveEvent ev)
+    {
+        InputManager.isCancelMode = false;
+        isCancelViewShow = false;
+        ShouldShowPoweups(true);
+        ShouldShowCancel(false);
     }
 
     private void OnDisable()
@@ -85,12 +107,16 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         thirdPowerUpButton.clicked -= PerformThirdPowerUp;
         fourthPowerUpButton.clicked -= PerformFourthPowerUp;
 
+        cancelVE.UnregisterCallback<PointerEnterEvent>(EnterCancelMode);
+        cancelVE.UnregisterCallback<PointerLeaveEvent>(ExitCancelMode);
+
         pauseButton.clicked -= PauseGame;
         levelsButton.clicked -= ShowLevels;
 
         rootElement = null;
 
         powerUpsVE = null;
+        cancelVE = null;
         firstPowerUpButton = null;
         secondPowerUpButton = null;
         thirdPowerUpButton = null;
@@ -119,6 +145,9 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         fallingShapeVE = null;
         windModeVE = null;
         cubeLateFallVE = null;
+
+        inputManager.OnPerformedTouch -= StartDrag;
+        inputManager.OnEndTouch -= EndTouch;
     }
 
     private void Start()
@@ -127,6 +156,7 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
             .rootVisualElement.Q<VisualElement>("rootVE");
 
         powerUpsVE = rootElement.Q<VisualElement>("power_ups");
+        cancelVE = rootElement.Q<VisualElement>("cancel_ve");
         firstPowerUpButton = powerUpsVE.Q<Button>("first_power_up");
         secondPowerUpButton = powerUpsVE.Q<Button>("second_power_up");
         thirdPowerUpButton = powerUpsVE.Q<Button>("third_power_up");
@@ -170,6 +200,9 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         UpdateFirstPowerUpIconStatus(cubeCounter.IsCubeExistOnDifferentTypes());
 
         SafeArea.ApplySafeArea(rootElement);
+
+        cancelVE.RegisterCallback<PointerEnterEvent>(EnterCancelMode);
+        cancelVE.RegisterCallback<PointerLeaveEvent>(ExitCancelMode);
     }
 
     public bool IsOverUI(Vector2 touchPosition)
@@ -189,6 +222,22 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         return false;
     }
 
+    private void EndTouch() {
+        ShouldShowCancel(false);
+        ShouldShowPoweups(true);
+        isCancelViewShow = true;
+    }
+
+    private void StartDrag(Vector2 delta)
+    {
+        if (!isCancelViewShow) {
+            isCancelViewShow = true;
+            ShouldShowCancel(true);
+            ShouldShowPoweups(false);
+        }
+    }
+
+    
     private void UpdateTimerModeIconLabel(int second)
     {
         if (currentTimeLbl == null)
@@ -503,6 +552,32 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
             cubeLateFallVE.style.display = DisplayStyle.None;
         }
     }
+
+
+    private void ShouldShowCancel(bool isVisible)
+    {
+        if (isVisible)
+        {
+            cancelVE.style.display = DisplayStyle.Flex;
+        }
+        else
+        {
+            cancelVE.style.display = DisplayStyle.None;
+        }
+    }
+
+    private void ShouldShowPoweups(bool isVisible)
+    {
+        if (isVisible)
+        {
+            powerUpsVE.style.display = DisplayStyle.Flex;
+        }
+        else
+        {
+            powerUpsVE.style.display = DisplayStyle.None;
+        }
+    }
+
 
     private void PauseGame()
     {

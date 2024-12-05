@@ -93,6 +93,11 @@ public class CubeSpawnManagement : MonoBehaviour
         }
     }
 
+    public void ResetCurrentMoveableObjectPosition()
+    {
+        currentMoveableObject.transform.position = spawnPosition;
+    }
+
     public bool ReplaceCube()
     {
         if (!currentMoveableObject)
