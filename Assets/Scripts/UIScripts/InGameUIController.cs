@@ -7,7 +7,6 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
     [Header("Dependant controllers")]
     [SerializeField] private PauseScreenController pauseScreenController;
 
-
     private InputManager inputManager;
     [SerializeField] private StateChanger stateChanger;
 
@@ -113,39 +112,6 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         pauseButton.clicked -= PauseGame;
         levelsButton.clicked -= ShowLevels;
 
-        rootElement = null;
-
-        powerUpsVE = null;
-        cancelVE = null;
-        firstPowerUpButton = null;
-        secondPowerUpButton = null;
-        thirdPowerUpButton = null;
-        fourthPowerUpButton = null;
-
-        topVE = null;
-        pauseButton = null;
-        levelsButton = null;
-
-        leftCubesCountVE = null;
-        woodVE = null;
-        woodCountLabel = null;
-        metalVE = null;
-        metalCountLabel = null;
-        iceVE = null;
-        iceCountLabel = null;
-        rockVE = null;
-        rockCountLabel = null;
-
-        rightVE = null;
-        ghostCubeVE = null;
-        lightOnOffVE = null;
-        timerVE = null;
-        currentTimeLbl = null;
-        invertModeVE = null;
-        fallingShapeVE = null;
-        windModeVE = null;
-        cubeLateFallVE = null;
-
         inputManager.OnPerformedTouch -= StartDrag;
         inputManager.OnEndTouch -= EndTouch;
     }
@@ -225,7 +191,7 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
     private void EndTouch() {
         ShouldShowCancel(false);
         ShouldShowPoweups(true);
-        isCancelViewShow = true;
+        isCancelViewShow = false;
     }
 
     private void StartDrag(Vector2 delta)
@@ -237,7 +203,6 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         }
     }
 
-    
     private void UpdateTimerModeIconLabel(int second)
     {
         if (currentTimeLbl == null)
@@ -279,8 +244,6 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
 
     private bool IsOnButton(Vector2 touchPosition)
     {
-        // Because VE position coord and touch coord differs in y axis
-        touchPosition.y = rootElement.layout.height - touchPosition.y;
         if (touchPosition.x >= leftBorder && touchPosition.x <= rightBorder
             && touchPosition.y <= bottomBorder && touchPosition.y >= upBorder)
         {

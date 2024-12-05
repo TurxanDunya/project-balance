@@ -291,6 +291,10 @@ MonoBehaviour:
     m_Key: move_and_play
     m_Metadata:
       m_Items: []
+  - m_Id: 17220449975918592
+    m_Key: cancel
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

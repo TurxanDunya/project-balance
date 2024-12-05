@@ -25,6 +25,12 @@ public class ProjectionIcon : MonoBehaviour
 
     private void Update()
     {
+        string raycastCollidedObjectTag = cubeRayCast.GetLineRendererHitObjectTag();
+        if (raycastCollidedObjectTag != null && raycastCollidedObjectTag == TagConstants.STAR)
+        {
+            return;
+        }
+
         transform.position = cubeRayCast.GetLineRendererHitPosition();
         transform.position += new Vector3(0, gapWithPlatform, 0);
 

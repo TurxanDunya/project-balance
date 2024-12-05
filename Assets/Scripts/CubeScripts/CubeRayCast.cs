@@ -4,9 +4,9 @@ public class CubeRayCast : MonoBehaviour
 {
     public float raycastDistance = 50f;
 
+    private RaycastHit hit;
     private LineRenderer lineRenderer;
-    private Vector3 hitPosition;
-    private float minDistance = 0.05f;
+    private readonly float minDistance = 0.05f;
 
     void Start()
     {
@@ -16,7 +16,12 @@ public class CubeRayCast : MonoBehaviour
 
     public Vector3 GetLineRendererHitPosition()
     {
-        return hitPosition;
+        return hit.point;
+    }
+
+    public string GetLineRendererHitObjectTag()
+    {
+        return hit.collider.tag;
     }
 
     public void UpdateRaycastHitPosition()
@@ -28,17 +33,12 @@ public class CubeRayCast : MonoBehaviour
                 return;
             }
 
-            hitPosition = hit.point;
+            this.hit = hit;
         }
     }
 
     public bool IsHittingPlayables()
     {
-        if (!Physics.Raycast(transform.position, -transform.up, out RaycastHit hit, raycastDistance))
-        {
-            return false;
-        }
-
         if (!hit.collider.CompareTag(TagConstants.MAIN_PLATFORM) &&
                 !hit.collider.CompareTag(TagConstants.MAIN_PLATFORM_COLLIDER) &&
                 !hit.collider.CompareTag(TagConstants.PLAYABLE_CUBE) &&
@@ -67,10 +67,10 @@ public class CubeRayCast : MonoBehaviour
             }
 
             lineRenderer.enabled = true;
-            hitPosition = hit.point;
+            this.hit = hit;
 
             lineRenderer.SetPosition(0, transform.position);
-            lineRenderer.SetPosition(1, hitPosition);
+            lineRenderer.SetPosition(1, hit.point);
         }
         else
         {
@@ -80,12 +80,7 @@ public class CubeRayCast : MonoBehaviour
 
     public Quaternion GetLineRendererHitRotation()
     {
-        if (Physics.Raycast(transform.position, -transform.up, out RaycastHit hit, raycastDistance))
-        {
-            return hit.transform.rotation;
-        }
-
-        return Quaternion.identity;
+        return hit.transform.rotation;
     }
 
 }
