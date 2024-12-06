@@ -328,6 +328,10 @@ MonoBehaviour:
       v\u0259 sa\u011Fa-sola h\u0259r\u0259k\u0259t etdir!"
     m_Metadata:
       m_Items: []
+  - m_Id: 17220449975918592
+    m_Localized: "L\u0259\u011Fv et"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

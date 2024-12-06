@@ -320,6 +320,10 @@ MonoBehaviour:
     m_Localized: To start playing just touch to screen and move right or left!
     m_Metadata:
       m_Items: []
+  - m_Id: 17220449975918592
+    m_Localized: Cancel
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
