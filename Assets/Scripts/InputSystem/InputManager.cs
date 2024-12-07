@@ -7,6 +7,7 @@ public class InputManager : MonoBehaviour
 {
     private static InputManager instance;
     private bool isOverUI = false;
+    public static bool isCancelButtonEnabled;
 
     public delegate void EndTouchEvent();
     public event EndTouchEvent OnEndTouch;
@@ -17,7 +18,6 @@ public class InputManager : MonoBehaviour
     private TouchControls touchControls;
 
     private UIButtonsTemplate uIButtonsTemplate;
-    public static bool isCancelMode = false;
 
     // This class should be singleton, because of integration with old input system
     public static InputManager Instance
@@ -85,7 +85,7 @@ public class InputManager : MonoBehaviour
 
     private void EndTouch()
     {
-        if (OnEndTouch != null && !isOverUI && !isCancelMode)
+        if (OnEndTouch != null && !isOverUI && !isCancelButtonEnabled)
         {
             OnEndTouch();
         }
@@ -93,7 +93,7 @@ public class InputManager : MonoBehaviour
 
     private void PerformTouch(InputAction.CallbackContext moveContext)
     {
-        if (OnPerformedTouch != null && !isOverUI && !isCancelMode)
+        if (OnPerformedTouch != null && !isOverUI)
         {
             Vector2 delta = moveContext.ReadValue<Vector2>();
             OnPerformedTouch(delta);

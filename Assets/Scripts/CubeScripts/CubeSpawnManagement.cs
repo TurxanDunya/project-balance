@@ -95,6 +95,11 @@ public class CubeSpawnManagement : MonoBehaviour
 
     public void ResetCurrentMoveableObjectPosition()
     {
+        if (!currentMoveableObject)
+        {
+            return;
+        }
+
         currentMoveableObject.transform.position = spawnPosition;
     }
 

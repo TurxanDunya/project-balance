@@ -35,7 +35,7 @@ public class HomeScreenController : MonoBehaviour, AdsEventCallback, IController
 
         ShakeAdsButton(); // Should be at the end because of coroutine
 
-        SafeArea.ApplySafeArea(rootElement);
+        SafeArea.ApplySafeArea(topVE);
 
         if (!rewardedAd.CanShowRewardedAds())
         {
