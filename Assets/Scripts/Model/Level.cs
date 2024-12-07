@@ -3,5 +3,5 @@ public class Level
 {
     public string name;
     public int star = 0;
-    public LevelStatus status = LevelStatus.Locked;
+    public LevelStatus status = LevelStatus.Open;
 }
