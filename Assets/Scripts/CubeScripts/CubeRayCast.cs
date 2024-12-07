@@ -39,6 +39,7 @@ public class CubeRayCast : MonoBehaviour
 
     public bool IsHittingPlayables()
     {
+        UpdateRaycastHitPosition();
         if (!hit.collider.CompareTag(TagConstants.MAIN_PLATFORM) &&
                 !hit.collider.CompareTag(TagConstants.MAIN_PLATFORM_COLLIDER) &&
                 !hit.collider.CompareTag(TagConstants.PLAYABLE_CUBE) &&

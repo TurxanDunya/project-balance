@@ -20,6 +20,7 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
 
     private VisualElement rootElement;
 
+    private VisualElement bottomVE;
     private VisualElement powerUpsVE;
     private VisualElement cancelVE;
     private Button firstPowerUpButton;
@@ -52,7 +53,6 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
     private VisualElement fallingShapeVE;
     private VisualElement windModeVE;
     private VisualElement cubeLateFallVE;
-    private bool isCancelViewShow = false;
    
     private void Awake()
     {
@@ -72,54 +72,15 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
             timeLevelFinish.OnUpdateSecondEvent += UpdateTimerModeIconLabel;
         }
 
-        inputManager.OnEndTouch += EndTouch;
-        inputManager.OnPerformedTouch += StartDrag;
-    }
-
-    private void EnterCancelMode(PointerEnterEvent ev)
-    {
-        InputManager.isCancelMode = true;
-        cubeSpawnManagement.ResetCurrentMoveableObjectPosition();
-    }
-
-    private void ExitCancelMode(PointerLeaveEvent ev)
-    {
-        InputManager.isCancelMode = false;
-        isCancelViewShow = false;
-        ShouldShowPoweups(true);
-        ShouldShowCancel(false);
-    }
-
-    private void OnDisable()
-    {
-        cubeCounter.OnUpdateCubeCount -= UpdateCubeCounts;
-        cubeCounter.OnCanReplaceCubeEvent -= UpdateFirstPowerUpIconStatus;
-        coinManager.OnCoinCountChangeEvent -= UpdatePowerUpIconStatusesByCoinCount;
-
-        if (timeLevelFinish != null)
-        {
-            timeLevelFinish.OnUpdateSecondEvent -= UpdateTimerModeIconLabel;
-        }
-
-        firstPowerUpButton.clicked -= PerformFirstPowerUp;
-        secondPowerUpButton.clicked -= PerformSecondPowerUp;
-        thirdPowerUpButton.clicked -= PerformThirdPowerUp;
-        fourthPowerUpButton.clicked -= PerformFourthPowerUp;
-
-        cancelVE.UnregisterCallback<PointerEnterEvent>(EnterCancelMode);
-        cancelVE.UnregisterCallback<PointerLeaveEvent>(ExitCancelMode);
-
-        pauseButton.clicked -= PauseGame;
-        levelsButton.clicked -= ShowLevels;
-
-        inputManager.OnPerformedTouch -= StartDrag;
-        inputManager.OnEndTouch -= EndTouch;
+        inputManager.OnPerformedTouch += HidePowerUpsAndShowCancel;
     }
 
     private void Start()
     {
         rootElement = GetComponent<UIDocument>()
             .rootVisualElement.Q<VisualElement>("rootVE");
+
+        bottomVE = rootElement.Q<VisualElement>("bottom_ve");
 
         powerUpsVE = rootElement.Q<VisualElement>("power_ups");
         cancelVE = rootElement.Q<VisualElement>("cancel_ve");
@@ -167,13 +128,65 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
 
         SafeArea.ApplySafeArea(rootElement);
 
-        cancelVE.RegisterCallback<PointerEnterEvent>(EnterCancelMode);
-        cancelVE.RegisterCallback<PointerLeaveEvent>(ExitCancelMode);
+        cancelVE.RegisterCallback<PointerEnterEvent>(EnterCancelVE);
+        cancelVE.RegisterCallback<PointerUpEvent>(ExitCancelVE);
+        cancelVE.RegisterCallback<PointerDownEvent>(ExecuteCancel);
+        cancelVE.RegisterCallback<PointerLeaveEvent>(EnableEndTouch);
+    }
+
+    private void OnDisable()
+    {
+        cubeCounter.OnUpdateCubeCount -= UpdateCubeCounts;
+        cubeCounter.OnCanReplaceCubeEvent -= UpdateFirstPowerUpIconStatus;
+        coinManager.OnCoinCountChangeEvent -= UpdatePowerUpIconStatusesByCoinCount;
+
+        if (timeLevelFinish != null)
+        {
+            timeLevelFinish.OnUpdateSecondEvent -= UpdateTimerModeIconLabel;
+        }
+
+        firstPowerUpButton.clicked -= PerformFirstPowerUp;
+        secondPowerUpButton.clicked -= PerformSecondPowerUp;
+        thirdPowerUpButton.clicked -= PerformThirdPowerUp;
+        fourthPowerUpButton.clicked -= PerformFourthPowerUp;
+
+        cancelVE.UnregisterCallback<PointerEnterEvent>(EnterCancelVE);
+        cancelVE.UnregisterCallback<PointerUpEvent>(ExitCancelVE);
+        cancelVE.UnregisterCallback<PointerDownEvent>(ExecuteCancel);
+        cancelVE.UnregisterCallback<PointerLeaveEvent>(EnableEndTouch);
+
+        pauseButton.clicked -= PauseGame;
+        levelsButton.clicked -= ShowLevels;
+
+        inputManager.OnPerformedTouch -= HidePowerUpsAndShowCancel;
+    }
+
+    private void EnterCancelVE(PointerEnterEvent ev)
+    {
+        InputManager.isCancelButtonEnabled = true;
+    }
+
+    private void ExitCancelVE(PointerUpEvent ev)
+    {
+        InputManager.isCancelButtonEnabled = false;
+        HideCancelButtonAndShowPowerUps();
+    }
+
+    private void ExecuteCancel(PointerDownEvent ev)
+    {
+        cubeSpawnManagement.ResetCurrentMoveableObjectPosition();
+        HideCancelButtonAndShowPowerUps();
+        InputManager.isCancelButtonEnabled = true;
+    }
+
+    private void EnableEndTouch(PointerLeaveEvent ev)
+    {
+        InputManager.isCancelButtonEnabled = false;
     }
 
     public bool IsOverUI(Vector2 touchPosition)
     {
-        CalculatePowerUpsVECoords();
+        CalculateBottomVECoords();
         if (IsOnButton(touchPosition))
         {
             return true;
@@ -188,19 +201,17 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         return false;
     }
 
-    private void EndTouch() {
+    private void HideCancelButtonAndShowPowerUps()
+    {
+        InputManager.isCancelButtonEnabled = true;
         ShouldShowCancel(false);
-        ShouldShowPoweups(true);
-        isCancelViewShow = false;
+        ShouldShowPowerups(true);
     }
 
-    private void StartDrag(Vector2 delta)
+    private void HidePowerUpsAndShowCancel(Vector2 delta)
     {
-        if (!isCancelViewShow) {
-            isCancelViewShow = true;
-            ShouldShowCancel(true);
-            ShouldShowPoweups(false);
-        }
+        ShouldShowCancel(true);
+        ShouldShowPowerups(false);
     }
 
     private void UpdateTimerModeIconLabel(int second)
@@ -226,12 +237,12 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
     float rightBorder;
     float bottomBorder;
     float upBorder;
-    private void CalculatePowerUpsVECoords()
+    private void CalculateBottomVECoords()
     {
-        leftBorder = powerUpsVE.layout.x;
-        rightBorder = powerUpsVE.layout.x + powerUpsVE.layout.width;
-        bottomBorder = powerUpsVE.layout.y + powerUpsVE.layout.height;
-        upBorder = powerUpsVE.layout.y;
+        leftBorder = bottomVE.layout.x;
+        rightBorder = bottomVE.layout.x + bottomVE.layout.width;
+        bottomBorder = bottomVE.layout.y + bottomVE.layout.height;
+        upBorder = bottomVE.layout.y;
     }
 
     private void CalculateTopVECoords()
@@ -516,7 +527,6 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         }
     }
 
-
     private void ShouldShowCancel(bool isVisible)
     {
         if (isVisible)
@@ -529,7 +539,7 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         }
     }
 
-    private void ShouldShowPoweups(bool isVisible)
+    private void ShouldShowPowerups(bool isVisible)
     {
         if (isVisible)
         {
@@ -540,7 +550,6 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
             powerUpsVE.style.display = DisplayStyle.None;
         }
     }
-
 
     private void PauseGame()
     {
