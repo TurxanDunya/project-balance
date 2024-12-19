@@ -157,7 +157,7 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         levelsButton.clicked -= ShowLevels;
 
         inputManager.OnPerformedTouch -= HidePowerUpsAndShowCancel;
-        inputManager.OnEndTouch += EndTouch;
+        inputManager.OnEndTouch -= EndTouch;
     }
 
     private void EnterCancelVE(PointerEnterEvent ev)
