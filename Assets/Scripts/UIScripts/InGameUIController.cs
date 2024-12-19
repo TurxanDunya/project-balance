@@ -73,6 +73,7 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         }
 
         inputManager.OnPerformedTouch += HidePowerUpsAndShowCancel;
+        inputManager.OnEndTouch += EndTouch;
     }
 
     private void Start()
@@ -116,6 +117,7 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
 
         DefineUIElementsVisibility();
         BindEventsWithFunctions();
+        HideCancelButtonAndShowPowerUps();
         UpdatePowerUpIconStatusesByCoinCount(coinManager.CoinCount);
 
         UpdateCubeCounts(
@@ -129,9 +131,7 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         SafeArea.ApplySafeArea(rootElement);
 
         cancelVE.RegisterCallback<PointerEnterEvent>(EnterCancelVE);
-        cancelVE.RegisterCallback<PointerUpEvent>(ExitCancelVE);
-        cancelVE.RegisterCallback<PointerDownEvent>(ExecuteCancel);
-        cancelVE.RegisterCallback<PointerLeaveEvent>(EnableEndTouch);
+        cancelVE.RegisterCallback<PointerUpEvent>(ExecuteCancel);
     }
 
     private void OnDisable()
@@ -151,14 +151,13 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         fourthPowerUpButton.clicked -= PerformFourthPowerUp;
 
         cancelVE.UnregisterCallback<PointerEnterEvent>(EnterCancelVE);
-        cancelVE.UnregisterCallback<PointerUpEvent>(ExitCancelVE);
-        cancelVE.UnregisterCallback<PointerDownEvent>(ExecuteCancel);
-        cancelVE.UnregisterCallback<PointerLeaveEvent>(EnableEndTouch);
+        cancelVE.UnregisterCallback<PointerUpEvent>(ExecuteCancel);
 
         pauseButton.clicked -= PauseGame;
         levelsButton.clicked -= ShowLevels;
 
         inputManager.OnPerformedTouch -= HidePowerUpsAndShowCancel;
+        inputManager.OnEndTouch += EndTouch;
     }
 
     private void EnterCancelVE(PointerEnterEvent ev)
@@ -166,22 +165,17 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         InputManager.isCancelButtonEnabled = true;
     }
 
-    private void ExitCancelVE(PointerUpEvent ev)
+    private void ExecuteCancel(PointerUpEvent ev)
     {
         InputManager.isCancelButtonEnabled = false;
-        HideCancelButtonAndShowPowerUps();
-    }
-
-    private void ExecuteCancel(PointerDownEvent ev)
-    {
         cubeSpawnManagement.ResetCurrentMoveableObjectPosition();
         HideCancelButtonAndShowPowerUps();
-        InputManager.isCancelButtonEnabled = true;
     }
 
-    private void EnableEndTouch(PointerLeaveEvent ev)
+    private void EndTouch()
     {
         InputManager.isCancelButtonEnabled = false;
+        HideCancelButtonAndShowPowerUps();
     }
 
     public bool IsOverUI(Vector2 touchPosition)
@@ -203,7 +197,6 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
 
     private void HideCancelButtonAndShowPowerUps()
     {
-        InputManager.isCancelButtonEnabled = true;
         ShouldShowCancel(false);
         ShouldShowPowerups(true);
     }
