@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9f0926b75fbf3745b26799987d020fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraMovementEventChannel: {fileID: 11400000, guid: 4f71474a72da3694fba9157b924920af, type: 2}
   normalizedDegreeToMoveOppsiteSide: 0.2
   speed: 1.5
   pathType: 1

@@ -4,6 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class InGameUIController : MonoBehaviour, IControllerTemplate
 {
+    [Header("Event Channels")]
+    [SerializeField] private CameraMovementEventChannelSO cameraMovementEventChannelSO;
+
     [Header("Dependant controllers")]
     [SerializeField] private PauseScreenController pauseScreenController;
 
@@ -42,6 +45,11 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
     private Label iceCountLabel;
     private VisualElement rockVE;
     private Label rockCountLabel;
+
+    // middle pane icons
+    private Button moveCameraAcrossBtn;
+    private Button moveCameraLeftBtn;
+    private Button moveCameraRightBtn;
 
     // right pane icons
     private VisualElement rightVE;
@@ -95,6 +103,7 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         levelsButton = topVE.Q<Button>("Levels");
         levelsButton.text = SceneManager.GetActiveScene().name;
 
+        // left pane
         leftCubesCountVE = rootElement.Q<VisualElement>("left_cubes_count_VE");
         woodVE = leftCubesCountVE.Q<VisualElement>("wood_VE");
         woodCountLabel = woodVE.Q<Label>("wood_count_lbl");
@@ -105,6 +114,12 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         rockVE = leftCubesCountVE.Q<VisualElement>("rock_VE");
         rockCountLabel = rockVE.Q<Label>("rock_count_lbl");
 
+        // middle pane
+        moveCameraAcrossBtn = rootElement.Q<Button>("move_camera_across_btn");
+        moveCameraLeftBtn = rootElement.Q<Button>("move_camera_left_btn");
+        moveCameraRightBtn = rootElement.Q<Button>("move_camera_right_btn");
+
+        // right pane
         rightVE = rootElement.Q<VisualElement>("right_ve");
         ghostCubeVE = rightVE.Q<VisualElement>("ghost_cube_ve");
         lightOnOffVE = rightVE.Q<VisualElement>("light_on_off_ve");
@@ -266,6 +281,25 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
 
         pauseButton.clicked += PauseGame;
         levelsButton.clicked += ShowLevels;
+
+        moveCameraAcrossBtn.clicked += MoveCameraAcross;
+        moveCameraLeftBtn.clicked += MoveCameraLeft;
+        moveCameraRightBtn.clicked += MoveCameraRight;
+    }
+
+    private void MoveCameraAcross()
+    {
+        cameraMovementEventChannelSO.RaiseEvent(CameraPosition.Direction.ACROSS);
+    }
+
+    private void MoveCameraLeft()
+    {
+        cameraMovementEventChannelSO.RaiseEvent(CameraPosition.Direction.LEFT);
+    }
+
+    private void MoveCameraRight()
+    {
+        cameraMovementEventChannelSO.RaiseEvent(CameraPosition.Direction.RIGHT);
     }
 
     private void PerformFirstPowerUp()

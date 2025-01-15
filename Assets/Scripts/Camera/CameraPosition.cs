@@ -1,20 +1,35 @@
 using System.Collections;
+
 using UnityEngine;
 using DG.Tweening;
 using System.Linq;
+using System.Collections.Generic;
 
 public class CameraPosition : MonoBehaviour
 {
+    [Header("Listening on Channels")]
+    [SerializeField] private CameraMovementEventChannelSO cameraMovementEventChannel;
+
     [Header("Params")]
     [SerializeField] private float normalizedDegreeToMoveOppsiteSide = 0.2f;
     [SerializeField] private float speed = 3f;
     [SerializeField] private PathType pathType;
 
     private GameObject platformObj;
-    private Vector3[] positions;
+    private Transform[] cameraTransforms;
     private int currentTargetIndex = 1;
 
     private AudioSource cameraChangePositionSFX;
+
+    private void OnEnable()
+    {
+        cameraMovementEventChannel.CameraMoveEvent += StartChangePositionCoroutine;
+    }
+
+    private void OnDisable()
+    {
+        cameraMovementEventChannel.CameraMoveEvent -= StartChangePositionCoroutine;
+    }
 
     private void Start()
     {
@@ -23,54 +38,67 @@ public class CameraPosition : MonoBehaviour
         platformObj = GameObject.FindGameObjectWithTag(TagConstants.MAIN_PLATFORM);
         GameObject predefinedPositions =
             GameObject.FindGameObjectWithTag(TagConstants.PREDEFINED_POSITIONS);
-        positions = predefinedPositions.GetComponentsInChildren<Transform>()
-            .Select(position => position.position)
-            .ToArray();
-
-        StartCoroutine(ChangePositionBasedOnPlatform());
+        cameraTransforms = predefinedPositions.GetComponentsInChildren<Transform>();
     }
 
-    private void OnDisable()
+    private void StartChangePositionCoroutine(Direction direction)
     {
-        StopAllCoroutines();
+        StartCoroutine(ChangePosition(direction));
     }
 
-    private IEnumerator ChangePositionBasedOnPlatform()
+    private IEnumerator ChangePosition(Direction direction)
     {
-        while (true)
+        currentTargetIndex = DefineNextCameraPositionIndex(direction);
+        Transform targetTransform = cameraTransforms[currentTargetIndex];
+
+        Tweener moveTween = transform.DOPath(new Vector3[] { targetTransform.position }, speed, pathType);
+        cameraChangePositionSFX.Play();
+
+        while (moveTween.IsActive() && !moveTween.IsComplete())
         {
-            Quaternion platformRotation = platformObj.transform.rotation;
-            int targetIndex = GetPositionIndexFromRotation(platformRotation);
-
-            if (targetIndex != currentTargetIndex && targetIndex != 0)
-            {
-                currentTargetIndex = targetIndex;
-                Vector3 targetPosition = positions[targetIndex];
-
-                Tweener moveTween = transform.DOPath(new Vector3[] { targetPosition }, speed, pathType);
-                cameraChangePositionSFX.Play();
-
-                while (moveTween.IsActive() && !moveTween.IsComplete())
-                {
-                    transform.LookAt(platformObj.transform.position);
-                    yield return null;
-                }
-            }
-
-            yield return new WaitForSeconds(1f);
+            transform.LookAt(platformObj.transform.position);
+            yield return null;
         }
+
+        yield return null;
     }
 
-    private int GetPositionIndexFromRotation(Quaternion rotation)
+    private int DefineNextCameraPositionIndex(Direction direction)
     {
-        float xRot = rotation.x;
-        float zRot = rotation.z;
+        if (direction == Direction.ACROSS && currentTargetIndex <= 2)
+        {
+            return currentTargetIndex += 2;
+        }
+        else if (direction == Direction.ACROSS && currentTargetIndex <= 4)
+        {
+            return currentTargetIndex -= 2;
+        }
 
-        if (xRot > normalizedDegreeToMoveOppsiteSide) return 3;
-        if (zRot > normalizedDegreeToMoveOppsiteSide) return 2;
-        if (xRot < -normalizedDegreeToMoveOppsiteSide) return 1;
-        if (zRot < -normalizedDegreeToMoveOppsiteSide) return 4;
-        return 0; // 0 means position should not be changed
+        if (direction == Direction.LEFT && currentTargetIndex < 4)
+        {
+            return currentTargetIndex += 1;
+        }
+        else if (direction == Direction.LEFT && currentTargetIndex == 4)
+        {
+            return 1;
+        }
+
+        if (direction == Direction.RIGHT && currentTargetIndex > 1)
+        {
+            return currentTargetIndex -= 1;
+        }
+        else if (direction == Direction.RIGHT && currentTargetIndex == 1)
+        {
+            return 4;
+        }
+
+        return currentTargetIndex;
+    }
+
+    public enum Direction { 
+        ACROSS, 
+        LEFT, 
+        RIGHT 
     }
 
 }
