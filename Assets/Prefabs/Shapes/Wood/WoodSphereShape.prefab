@@ -101,7 +101,6 @@ MonoBehaviour:
   gapWithPlatform: 0.001
   scaleFactor: 2
   duration: 1
-  initialScale: {x: 0.001, y: 0.001, z: 0.001}
 --- !u!1 &6455784016782959165
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,7 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e633dca4970d4e3998e07065d12f222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raycastDistance: 50
+  raycastDistance: 1
 --- !u!114 &6509309810509646140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,6 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdd5d4f297f3b1041a27c2168491ff11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  invertAxis: 0
 --- !u!114 &1052269199838345262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,7 +415,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleEffect: {fileID: 3354640814156343705, guid: 70b48ba4e6495400b8acdb9bf1fa31c8, type: 3}
   cubeMaterialType: 0
-  fallSFXPlayer: {fileID: 2482244780212473831}
 --- !u!114 &2157119853688586906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,8 +427,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ebd5a2809aab4dc79b969fb3178e302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationDuration: 0.3
-  isAnimateToDownCoroutineFinished: 0
 --- !u!64 &1938925977049973329
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -560,7 +557,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 811fe86f0efe64490a04e3d976295cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startFadeInScale: {x: 0.01, y: 0.01, z: 0.01}
-  endFadeOutScale: {x: 0.01, y: 0.01, z: 0.01}
-  fadeInAnimationDuration: 0.2
-  fadeOutAnimationDuration: 0.2
+  startSpawnScale: {x: 0.01, y: 0.01, z: 0.01}
+  spawnAnimationDuration: 0.2
+  endDestroyScale: {x: 0.01, y: 0.01, z: 0.01}
+  startDestoryRotation: {x: 0, y: -220, z: 0}
+  destroyAnimationDuration: 0.2

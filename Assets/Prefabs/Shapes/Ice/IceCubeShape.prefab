@@ -358,7 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e633dca4970d4e3998e07065d12f222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raycastDistance: 50
+  raycastDistance: 1
 --- !u!114 &4650758137202491222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,6 +371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdd5d4f297f3b1041a27c2168491ff11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  invertAxis: 0
 --- !u!114 &114428912295585841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -577,7 +578,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startSpawnScale: {x: 0.01, y: 0.01, z: 0.01}
-  startSpawnRotation: {x: 0, y: 220, z: 0}
   spawnAnimationDuration: 0.2
   endDestroyScale: {x: 0.01, y: 0.01, z: 0.01}
   startDestoryRotation: {x: 0, y: -220, z: 0}

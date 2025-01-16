@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine;
 using DG.Tweening;
 using System.Linq;
-using System.Collections.Generic;
 
 public class CameraPosition : MonoBehaviour
 {
@@ -19,8 +18,6 @@ public class CameraPosition : MonoBehaviour
     private Transform[] cameraTransforms;
     private int currentTargetIndex = 1;
 
-    private AudioSource cameraChangePositionSFX;
-
     private void OnEnable()
     {
         cameraMovementEventChannel.CameraMoveEvent += StartChangePositionCoroutine;
@@ -33,8 +30,6 @@ public class CameraPosition : MonoBehaviour
 
     private void Start()
     {
-        cameraChangePositionSFX = GetComponent<AudioSource>();
-
         platformObj = GameObject.FindGameObjectWithTag(TagConstants.MAIN_PLATFORM);
         GameObject predefinedPositions =
             GameObject.FindGameObjectWithTag(TagConstants.PREDEFINED_POSITIONS);
@@ -52,7 +47,6 @@ public class CameraPosition : MonoBehaviour
         Transform targetTransform = cameraTransforms[currentTargetIndex];
 
         Tweener moveTween = transform.DOPath(new Vector3[] { targetTransform.position }, speed, pathType);
-        cameraChangePositionSFX.Play();
 
         while (moveTween.IsActive() && !moveTween.IsComplete())
         {
