@@ -1,18 +1,16 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using CandyCoded.HapticFeedback;
-using UnityEngine.EventSystems;
 
 [DefaultExecutionOrder(-1)]
-public class InputManager : MonoBehaviour, IPointerDownHandler
+public class InputManager : MonoBehaviour
 {
-    public void OnPointerDown(PointerEventData eventData)
-    {
-    }
-
     private static InputManager instance;
     private bool isOverUI = false;
-    public static bool isCancelButtonEnabled;
+
+    // Use this static field to block UI elements from now on!
+    // isOverUI functionality is deprecated!
+    public static bool isButtonPressed;
 
     public delegate void EndTouchEvent();
     public event EndTouchEvent OnEndTouch;
@@ -61,15 +59,9 @@ public class InputManager : MonoBehaviour, IPointerDownHandler
     private void Start()
     {
         touchControls.CubeController.Touch.started += touchContext => StartTouch(touchContext);
-        touchControls.CubeController.Touch.canceled += _ => EndTouch();
+        touchControls.CubeController.Touch.canceled += touchContext => EndTouch();
 
         touchControls.CubeController.DragAndMove.started += moveContext => PerformTouch(moveContext);
-    }
-
-    private void acva()
-    {
-        Debug.Log("Called");
-        isOverUI = true;
     }
 
     // In start touch we define if overlapping UI, and if so all other inputs will be blocked
@@ -96,7 +88,7 @@ public class InputManager : MonoBehaviour, IPointerDownHandler
 
     private void EndTouch()
     {
-        if (OnEndTouch != null && !isOverUI && !isCancelButtonEnabled)
+        if (OnEndTouch != null && !isOverUI && !isButtonPressed)
         {
             OnEndTouch();
         }

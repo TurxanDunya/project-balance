@@ -173,23 +173,32 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
 
         inputManager.OnPerformedTouch -= HidePowerUpsAndShowCancel;
         inputManager.OnEndTouch -= EndTouch;
+
+        moveCameraAcrossBtn.UnregisterCallback<PointerEnterEvent>(MoveCameraAcrossEnter);
+        moveCameraAcrossBtn.UnregisterCallback<PointerLeaveEvent>(MoveCameraAcrossLeave);
+
+        moveCameraLeftBtn.UnregisterCallback<PointerEnterEvent>(MoveCameraLeftEnter);
+        moveCameraLeftBtn.UnregisterCallback<PointerLeaveEvent>(MoveCameraLeftLeave);
+
+        moveCameraRightBtn.UnregisterCallback<PointerEnterEvent>(MoveCameraRightEnter);
+        moveCameraRightBtn.UnregisterCallback<PointerLeaveEvent>(MoveCameraRightLeave);
     }
 
     private void EnterCancelVE(PointerEnterEvent ev)
     {
-        InputManager.isCancelButtonEnabled = true;
+        InputManager.isButtonPressed = true;
     }
 
     private void ExecuteCancel(PointerUpEvent ev)
     {
-        InputManager.isCancelButtonEnabled = false;
+        InputManager.isButtonPressed = false;
         cubeSpawnManagement.ResetCurrentMoveableObjectPosition();
         HideCancelButtonAndShowPowerUps();
     }
 
     private void EndTouch()
     {
-        InputManager.isCancelButtonEnabled = false;
+        InputManager.isButtonPressed = false;
         HideCancelButtonAndShowPowerUps();
     }
 
@@ -282,24 +291,47 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         pauseButton.clicked += PauseGame;
         levelsButton.clicked += ShowLevels;
 
-        moveCameraAcrossBtn.clicked += MoveCameraAcross;
-        moveCameraLeftBtn.clicked += MoveCameraLeft;
-        moveCameraRightBtn.clicked += MoveCameraRight;
+        moveCameraAcrossBtn.RegisterCallback<PointerEnterEvent>(MoveCameraAcrossEnter);
+        moveCameraAcrossBtn.RegisterCallback<PointerLeaveEvent>(MoveCameraAcrossLeave);
+
+        moveCameraLeftBtn.RegisterCallback<PointerEnterEvent>(MoveCameraLeftEnter);
+        moveCameraLeftBtn.RegisterCallback<PointerLeaveEvent>(MoveCameraLeftLeave);
+
+        moveCameraRightBtn.RegisterCallback<PointerEnterEvent>(MoveCameraRightEnter);
+        moveCameraRightBtn.RegisterCallback<PointerLeaveEvent>(MoveCameraRightLeave);
     }
 
-    private void MoveCameraAcross()
+    private void MoveCameraAcrossEnter(PointerEnterEvent ev)
     {
+        InputManager.isButtonPressed = true;
         cameraMovementEventChannelSO.RaiseEvent(CameraPosition.Direction.ACROSS);
     }
 
-    private void MoveCameraLeft()
+    private void MoveCameraAcrossLeave(PointerLeaveEvent ev)
     {
+        InputManager.isButtonPressed = false;
+    }
+
+    private void MoveCameraLeftEnter(PointerEnterEvent ev)
+    {
+        InputManager.isButtonPressed = true;
         cameraMovementEventChannelSO.RaiseEvent(CameraPosition.Direction.LEFT);
     }
 
-    private void MoveCameraRight()
+    private void MoveCameraLeftLeave(PointerLeaveEvent ev)
     {
+        InputManager.isButtonPressed = false;
+    }
+
+    private void MoveCameraRightEnter(PointerEnterEvent ev)
+    {
+        InputManager.isButtonPressed = true;
         cameraMovementEventChannelSO.RaiseEvent(CameraPosition.Direction.RIGHT);
+    }
+
+    private void MoveCameraRightLeave(PointerLeaveEvent ev)
+    {
+        InputManager.isButtonPressed = false;
     }
 
     private void PerformFirstPowerUp()
