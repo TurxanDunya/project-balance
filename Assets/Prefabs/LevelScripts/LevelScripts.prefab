@@ -251,7 +251,6 @@ GameObject:
   - component: {fileID: 1358680912485753600}
   - component: {fileID: 1320848035307831412}
   - component: {fileID: 5407609522226821562}
-  - component: {fileID: 3951953760788507052}
   m_Layer: 0
   m_Name: InputManager
   m_TagString: Untagged
@@ -318,49 +317,19 @@ MonoBehaviour:
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
   m_ActionsAsset: {fileID: -944628639613478452, guid: 669a89aa46ce14e0ab87c6fbdb228cf1, type: 3}
-  m_PointAction: {fileID: 7819399341710069174, guid: 669a89aa46ce14e0ab87c6fbdb228cf1, type: 3}
+  m_PointAction: {fileID: -597912031488652710, guid: 669a89aa46ce14e0ab87c6fbdb228cf1, type: 3}
   m_MoveAction: {fileID: 8203851311126086221, guid: 669a89aa46ce14e0ab87c6fbdb228cf1, type: 3}
   m_SubmitAction: {fileID: 6744563976870178700, guid: 669a89aa46ce14e0ab87c6fbdb228cf1, type: 3}
   m_CancelAction: {fileID: -8386437888139572529, guid: 669a89aa46ce14e0ab87c6fbdb228cf1, type: 3}
-  m_LeftClickAction: {fileID: -1701642163748818080, guid: 669a89aa46ce14e0ab87c6fbdb228cf1, type: 3}
+  m_LeftClickAction: {fileID: 8056856818456041789, guid: 669a89aa46ce14e0ab87c6fbdb228cf1, type: 3}
   m_MiddleClickAction: {fileID: 6515179585604821366, guid: 669a89aa46ce14e0ab87c6fbdb228cf1, type: 3}
   m_RightClickAction: {fileID: 1328433410060034227, guid: 669a89aa46ce14e0ab87c6fbdb228cf1, type: 3}
   m_ScrollWheelAction: {fileID: 7734444536441300189, guid: 669a89aa46ce14e0ab87c6fbdb228cf1, type: 3}
   m_TrackedDevicePositionAction: {fileID: 2634946843892092883, guid: 669a89aa46ce14e0ab87c6fbdb228cf1, type: 3}
   m_TrackedDeviceOrientationAction: {fileID: 635201327313905293, guid: 669a89aa46ce14e0ab87c6fbdb228cf1, type: 3}
   m_DeselectOnBackgroundClick: 1
-  m_PointerBehavior: 0
+  m_PointerBehavior: 1
   m_CursorLockBehavior: 0
---- !u!114 &3951953760788507052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 854566181623443387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 669a89aa46ce14e0ab87c6fbdb228cf1, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 5407609522226821562}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: CubeController
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!1 &3347014556053285954
 GameObject:
   m_ObjectHideFlags: 0

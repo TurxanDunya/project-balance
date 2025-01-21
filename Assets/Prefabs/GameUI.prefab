@@ -453,58 +453,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelItem: {fileID: 9197481963319205126, guid: fadf0c0aee5aa4126ac385d90348d808, type: 3}
   stateChanger: {fileID: 4542121699140896450}
---- !u!1 &2376893904073220104
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5641408657223682463}
-  - component: {fileID: 431547344754842001}
-  m_Layer: 5
-  m_Name: UITemplate
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
---- !u!4 &5641408657223682463
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2376893904073220104}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5320259708045471241}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &431547344754842001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2376893904073220104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91fa2931edb7b468683567e0965760b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inGameUIController: {fileID: 4201346298903201681}
-  gameUIController: {fileID: 231312923564456866}
-  tutorialController: {fileID: 0}
-  homeScreenController: {fileID: 1901870133191469171}
-  levelsSceneController: {fileID: 6936001421119730849}
-  pauseScreenController: {fileID: 7830707259022999204}
-  aboutUsController: {fileID: 9183529347513530654}
-  settingsUIController: {fileID: 4439974479573489929}
 --- !u!1 &4206477802807428289
 GameObject:
   m_ObjectHideFlags: 0
@@ -628,7 +576,6 @@ Transform:
   - {fileID: 6295839369286795132}
   - {fileID: 2042761371791577540}
   - {fileID: 8681164093472688090}
-  - {fileID: 5641408657223682463}
   - {fileID: 542228473333071466}
   - {fileID: 6752976954760435011}
   - {fileID: 3016752400100898545}

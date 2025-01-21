@@ -40,7 +40,9 @@ public class PauseScreenController : MonoBehaviour, IControllerTemplate
 
         topVE = rootElement.Q<VisualElement>("topVE");
         homeButton = topVE.Q<Button>("Home");
-        homeButton.clicked += ChangeStateToHomePage;
+
+        homeButton.RegisterCallback<PointerEnterEvent>(ChangeStateToHomePage);
+        homeButton.RegisterCallback<PointerLeaveEvent>(ChangeStateToHomePage);
 
         pausePopUpVE = rootElement.Q<VisualElement>("PausePopUpVE");
         buttonsLineVE = pausePopUpVE.Q<VisualElement>("buttons_line_ve");
@@ -51,25 +53,37 @@ public class PauseScreenController : MonoBehaviour, IControllerTemplate
 
         soundOnVE = soundControlVE.Q<VisualElement>("sound_on_ve");
         soundOnBtn = soundOnVE.Q<Button>("sound_on_btn");
-        soundOnBtn.clicked += MakeSoundOff;
+
+        soundOnBtn.RegisterCallback<PointerEnterEvent>(MakeSoundOff);
+        soundOnBtn.RegisterCallback<PointerLeaveEvent>(MakeSoundOff);
 
         soundOffVE = soundControlVE.Q<VisualElement>("sound_off_ve");
         soundOffBtn = soundOffVE.Q<Button>("sound_off_btn");
-        soundOffBtn.clicked += MakeSoundOn;
+
+        soundOffBtn.RegisterCallback<PointerEnterEvent>(MakeSoundOn);
+        soundOffBtn.RegisterCallback<PointerLeaveEvent>(MakeSoundOn);
 
         musicUnmuteVE = musicControlVE.Q<VisualElement>("music_unmute_ve");
         musicUnmuteBtn = musicUnmuteVE.Q<Button>("music_unmute_btn");
-        musicUnmuteBtn.clicked += MakeMusicOff;
+
+        musicUnmuteBtn.RegisterCallback<PointerEnterEvent>(MakeMusicOff);
+        musicUnmuteBtn.RegisterCallback<PointerLeaveEvent>(MakeMusicOff);
 
         musicMuteVE = musicControlVE.Q<VisualElement>("music_mute_ve");
         musicMuteBtn = musicMuteVE.Q<Button>("music_mute_btn");
-        musicMuteBtn.clicked += MakeMusicOn;
+
+        musicMuteBtn.RegisterCallback<PointerEnterEvent>(MakeMusicOn);
+        musicMuteBtn.RegisterCallback<PointerLeaveEvent>(MakeMusicOn);
 
         resumeBtn = resumeVE.Q<Button>("resume_btn");
-        resumeBtn.clicked += ChangeStateToResume;
+
+        resumeBtn.RegisterCallback<PointerEnterEvent>(ChangeStateToResume);
+        resumeBtn.RegisterCallback<PointerLeaveEvent>(ChangeStateToResume);
 
         restartBtn = restartVE.Q<Button>("restart_btn");
-        restartBtn.clicked += ReloadLevel;
+
+        restartBtn.RegisterCallback<PointerEnterEvent>(ReloadLevel);
+        restartBtn.RegisterCallback<PointerLeaveEvent>(ReloadLevel);
 
         DefineSoundButtonsState();
 
@@ -78,37 +92,26 @@ public class PauseScreenController : MonoBehaviour, IControllerTemplate
 
     private void OnDisable()
     {
-        homeButton.clicked -= ChangeStateToHomePage;
-        soundOnBtn.clicked -= MakeSoundOff;
-        soundOffBtn.clicked -= MakeSoundOn;
-        musicUnmuteBtn.clicked -= MakeMusicOff;
-        musicMuteBtn.clicked -= MakeMusicOn;
-        resumeBtn.clicked -= ChangeStateToResume;
-        restartBtn.clicked -= ReloadLevel;
+        homeButton.UnregisterCallback<PointerEnterEvent>(ChangeStateToHomePage);
+        homeButton.UnregisterCallback<PointerLeaveEvent>(ChangeStateToHomePage);
 
-        rootElement = null;
-        topVE = null;
+        soundOnBtn.UnregisterCallback<PointerEnterEvent>(MakeSoundOff);
+        soundOnBtn.UnregisterCallback<PointerLeaveEvent>(MakeSoundOff);
 
-        pausePopUpVE = null;
-        buttonsLineVE = null;
-        soundControlVE = null;
-        resumeVE = null;
-        restartVE = null;
-        musicControlVE = null;
+        soundOffBtn.UnregisterCallback<PointerEnterEvent>(MakeSoundOn);
+        soundOffBtn.UnregisterCallback<PointerLeaveEvent>(MakeSoundOn);
 
-        homeButton = null;
+        musicUnmuteBtn.UnregisterCallback<PointerEnterEvent>(MakeMusicOff);
+        musicUnmuteBtn.UnregisterCallback<PointerLeaveEvent>(MakeMusicOff);
 
-        soundOnVE = null;
-        soundOffVE = null;
-        musicMuteVE = null;
-        musicUnmuteVE = null;
+        musicMuteBtn.UnregisterCallback<PointerEnterEvent>(MakeMusicOn);
+        musicMuteBtn.UnregisterCallback<PointerLeaveEvent>(MakeMusicOn);
 
-        soundOnBtn = null;
-        soundOffBtn = null;
-        musicUnmuteBtn = null;
-        resumeBtn = null;
-        restartBtn = null;
-        musicMuteBtn = null;
+        resumeBtn.UnregisterCallback<PointerEnterEvent>(ChangeStateToResume);
+        resumeBtn.UnregisterCallback<PointerLeaveEvent>(ChangeStateToResume);
+
+        restartBtn.UnregisterCallback<PointerEnterEvent>(ReloadLevel);
+        restartBtn.UnregisterCallback<PointerLeaveEvent>(ReloadLevel);
     }
 
     private void DefineSoundButtonsState()
@@ -146,52 +149,89 @@ public class PauseScreenController : MonoBehaviour, IControllerTemplate
         }
     }
 
-    public void ChangeStateToPausePage()
+    private void ChangeStateToHomePage(PointerEnterEvent ev)
     {
-        stateChanger.ChangeStateToPause();
+        InputManager.isOverUI = true;
     }
 
-    private void ChangeStateToHomePage()
+    private void ChangeStateToHomePage(PointerLeaveEvent ev)
     {
         stateChanger.ChangeStateToHome();
+        InputManager.isOverUI = false;
     }
 
-    private void ChangeStateToResume()
+    private void ChangeStateToResume(PointerEnterEvent ev)
+    {
+        InputManager.isOverUI = true;
+    }
+
+    private void ChangeStateToResume(PointerLeaveEvent ev)
     {
         stateChanger.ChangeStateToResume();
+        InputManager.isOverUI = false;
     }
 
-    private void ReloadLevel()
+    private void ReloadLevel(PointerEnterEvent ev)
+    {
+        InputManager.isOverUI = true;
+    }
+
+    private void ReloadLevel(PointerLeaveEvent ev)
     {
         stateChanger.ChangeStateToHome();
+        InputManager.isOverUI = false;
     }
 
-    private void MakeSoundOn()
+    private void MakeSoundOn(PointerEnterEvent ev)
+    {
+        InputManager.isOverUI = true;
+    }
+
+    private void MakeSoundOn(PointerLeaveEvent ev)
     {
         musicPlayer.MakeSoundsOn();
         soundOffVE.style.display = DisplayStyle.None;
         soundOnVE.style.display = DisplayStyle.Flex;
+        InputManager.isOverUI = false;
     }
 
-    private void MakeSoundOff()
+    private void MakeSoundOff(PointerEnterEvent ev)
+    {
+        InputManager.isOverUI = true;
+    }
+
+    private void MakeSoundOff(PointerLeaveEvent ev)
     {
         musicPlayer.MakeSoundsOff();
         soundOnVE.style.display = DisplayStyle.None;
         soundOffVE.style.display = DisplayStyle.Flex;
+        InputManager.isOverUI = false;
     }
 
-    private void MakeMusicOn()
+    private void MakeMusicOn(PointerEnterEvent ev)
+    {
+        InputManager.isOverUI = true;
+    }
+
+    private void MakeMusicOn(PointerLeaveEvent ev)
     {
         musicPlayer.PlayMusic();
         musicMuteVE.style.display = DisplayStyle.None;
         musicUnmuteVE.style.display = DisplayStyle.Flex;
+        InputManager.isOverUI = false;
     }
 
-    private void MakeMusicOff()
+    private void MakeMusicOff(PointerEnterEvent ev)
+    {
+        InputManager.isOverUI = true;
+    }
+
+    private void MakeMusicOff(PointerLeaveEvent ev)
     {
         musicPlayer.MuteMusic();
         musicUnmuteVE.style.display = DisplayStyle.None;
         musicMuteVE.style.display = DisplayStyle.Flex;
+        InputManager.isOverUI = false;
     }
 
     public void SetDisplayFlex()
@@ -202,11 +242,6 @@ public class PauseScreenController : MonoBehaviour, IControllerTemplate
     public void SetDisplayNone()
     {
         rootElement.style.display = DisplayStyle.None;
-    }
-
-    public bool IsOverUI()
-    {
-        return rootElement.style.display == DisplayStyle.Flex;
     }
 
 }

@@ -26,11 +26,6 @@ public class TutorialController : MonoBehaviour, IControllerTemplate
     private void OnDisable()
     {
         StateChanger.CheckTutorialsStatus -= CheckStatuses;
-
-        StopAllCoroutines();
-
-        rootElement = null;
-        continueBtn = null;
     }
 
     private void CheckStatuses()
@@ -62,13 +57,19 @@ public class TutorialController : MonoBehaviour, IControllerTemplate
             continueBtn = rootElement.Q<Button>("continue_btn");
 
             bool isBtnClicked = false;
-            continueBtn.clicked += () =>
+            continueBtn.RegisterCallback<PointerEnterEvent>((ev) =>
             {
+                InputManager.isOverUI = true;
                 isBtnClicked = true;
                 DismissUIPanel(tutorial);
-            };
+            });
 
             yield return new WaitUntil(() => isBtnClicked);
+
+            continueBtn.UnregisterCallback<PointerEnterEvent>((ev) =>
+            {
+                InputManager.isOverUI = false;
+            });
 
             if (currentTutorialNumber < tutorialCountOnLevel)
             {
@@ -346,11 +347,6 @@ public class TutorialController : MonoBehaviour, IControllerTemplate
     public void SetDisplayNone()
     {
         rootElement.style.display = DisplayStyle.None;
-    }
-
-    public bool IsOverUI()
-    {
-        return rootElement.style.display == DisplayStyle.Flex;
     }
 
 }

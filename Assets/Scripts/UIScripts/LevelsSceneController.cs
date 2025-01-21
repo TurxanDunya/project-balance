@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -15,8 +14,6 @@ public class LevelsSceneController : MonoBehaviour, IControllerTemplate
     private ScrollView scrollView;
     private Button resumeBtn;
 
-    private readonly List<VisualElement> levelViews = new();
-
     void Start()
     {
         rootContainer = GetComponent<UIDocument>()
@@ -24,7 +21,8 @@ public class LevelsSceneController : MonoBehaviour, IControllerTemplate
         scrollView = rootContainer.Q<ScrollView>("ScrollView");
         resumeBtn = rootContainer.Q<Button>("resume_btn");
 
-        resumeBtn.clicked += HideLevelMenu;
+        resumeBtn.RegisterCallback<PointerEnterEvent>(ResumePressed);
+        resumeBtn.RegisterCallback<PointerLeaveEvent>(ResumeReleased);
 
         AddItems();
 
@@ -33,13 +31,8 @@ public class LevelsSceneController : MonoBehaviour, IControllerTemplate
 
     private void OnDisable()
     {
-        resumeBtn.clicked -= HideLevelMenu;
-
-        DestroyAllInstantiated();
-
-        rootContainer = null;
-        scrollView = null;
-        resumeBtn = null;
+        resumeBtn.UnregisterCallback<PointerEnterEvent>(ResumePressed);
+        resumeBtn.UnregisterCallback<PointerLeaveEvent>(ResumeReleased);
     }
 
     private void AddItems()
@@ -127,8 +120,14 @@ public class LevelsSceneController : MonoBehaviour, IControllerTemplate
         scrollView.Add(levelView);
     }
 
-    private void HideLevelMenu()
+    private void ResumePressed(PointerEnterEvent pointerEnterEvent)
     {
+        InputManager.isOverUI = true;
+    }
+
+    private void ResumeReleased(PointerLeaveEvent pointerLeaveEvent)
+    {
+        InputManager.isOverUI = false;
         stateChanger.HideLevelMenu();
     }
 
@@ -142,19 +141,4 @@ public class LevelsSceneController : MonoBehaviour, IControllerTemplate
         rootContainer.style.display = DisplayStyle.None;
     }
 
-    public bool IsOverUI()
-    {
-        return rootContainer.style.display == DisplayStyle.Flex;
-    }
-
-    private void DestroyAllInstantiated()
-    {
-        foreach(VisualElement levelView in levelViews)
-        {
-            levelView.Clear();
-            levelView.RemoveFromHierarchy();
-        }
-
-        levelViews.Clear();
-    }
 }

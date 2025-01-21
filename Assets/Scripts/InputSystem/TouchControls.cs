@@ -193,6 +193,15 @@ public partial class @TouchControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Point"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""fcee8f4a-8ff5-4b44-81ab-eecf2c6e18ff"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -239,6 +248,39 @@ public partial class @TouchControls: IInputActionCollection2, IDisposable
                     ""action"": ""Click"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e82959fb-9545-4a84-88e1-9b678171d0b5"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Point"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""96095275-a896-4b6e-9700-90b4bd1abc57"",
+                    ""path"": ""<Pen>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Point"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""efcef13e-da40-44a7-aea9-1f4d9b597d8e"",
+                    ""path"": ""<Touchscreen>/touch*/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Point"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -252,6 +294,7 @@ public partial class @TouchControls: IInputActionCollection2, IDisposable
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Click = m_UI.FindAction("Click", throwIfNotFound: true);
+        m_UI_Point = m_UI.FindAction("Point", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -368,11 +411,13 @@ public partial class @TouchControls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_UI;
     private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
     private readonly InputAction m_UI_Click;
+    private readonly InputAction m_UI_Point;
     public struct UIActions
     {
         private @TouchControls m_Wrapper;
         public UIActions(@TouchControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Click => m_Wrapper.m_UI_Click;
+        public InputAction @Point => m_Wrapper.m_UI_Point;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -385,6 +430,9 @@ public partial class @TouchControls: IInputActionCollection2, IDisposable
             @Click.started += instance.OnClick;
             @Click.performed += instance.OnClick;
             @Click.canceled += instance.OnClick;
+            @Point.started += instance.OnPoint;
+            @Point.performed += instance.OnPoint;
+            @Point.canceled += instance.OnPoint;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -392,6 +440,9 @@ public partial class @TouchControls: IInputActionCollection2, IDisposable
             @Click.started -= instance.OnClick;
             @Click.performed -= instance.OnClick;
             @Click.canceled -= instance.OnClick;
+            @Point.started -= instance.OnPoint;
+            @Point.performed -= instance.OnPoint;
+            @Point.canceled -= instance.OnPoint;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -417,5 +468,6 @@ public partial class @TouchControls: IInputActionCollection2, IDisposable
     public interface IUIActions
     {
         void OnClick(InputAction.CallbackContext context);
+        void OnPoint(InputAction.CallbackContext context);
     }
 }
