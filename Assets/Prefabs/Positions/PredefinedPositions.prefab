@@ -24,13 +24,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 472638415211219853}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13783525, y: -0.41038322, z: 0.02579795, w: 0.9010669}
-  m_LocalPosition: {x: -0.085, y: 1.115, z: -0.497}
+  m_LocalRotation: {x: 0.23311493, y: -0.4143751, z: 0.10735559, w: 0.87316984}
+  m_LocalPosition: {x: -0.196, y: 1.353, z: -0.405}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 194350368164650583}
-  m_LocalEulerAnglesHint: {x: 15.639, y: -49.518, z: -3.968}
+  m_LocalEulerAnglesHint: {x: 29.74, y: -50.875, z: -0.377}
 --- !u!1 &7444523083108187349
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,13 +90,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8636593909076004793}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.019519763, y: 0.95329136, z: -0.08755309, w: -0.2884252}
-  m_LocalPosition: {x: -0.213, y: 1.414, z: 0.917}
+  m_LocalRotation: {x: -0.08296371, y: 0.91017324, z: -0.29667252, w: -0.27692443}
+  m_LocalPosition: {x: -0.383, y: 1.418, z: 0.662}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 194350368164650583}
-  m_LocalEulerAnglesHint: {x: 10.264, y: 213.737, z: 0.774}
+  m_LocalEulerAnglesHint: {x: 35.873, y: 214.149, z: 0.94}
 --- !u!1 &8649402815613340584
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,10 +152,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8765594296548510149}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.025203837, y: 0.9021737, z: -0.109712504, w: 0.416426}
-  m_LocalPosition: {x: -1.522, y: 1.098, z: 0.647}
+  m_LocalRotation: {x: 0.11448606, y: 0.8670277, z: -0.2335764, w: 0.42496833}
+  m_LocalPosition: {x: -1.39, y: 1.358, z: 0.545}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 194350368164650583}
-  m_LocalEulerAnglesHint: {x: 12.647, y: 130.147, z: -2.696}
+  m_LocalEulerAnglesHint: {x: 30.155, y: 127.777, z: 0}

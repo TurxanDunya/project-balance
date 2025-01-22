@@ -6,8 +6,7 @@ using CandyCoded.HapticFeedback;
 public class InputManager : MonoBehaviour
 {
     private static InputManager instance;
-    private bool isOverUI = false;
-    public static bool isCancelButtonEnabled;
+    public static bool isOverUI = false;
 
     public delegate void EndTouchEvent();
     public event EndTouchEvent OnEndTouch;
@@ -17,9 +16,6 @@ public class InputManager : MonoBehaviour
 
     private TouchControls touchControls;
 
-    private UIButtonsTemplate uIButtonsTemplate;
-
-    // This class should be singleton, because of integration with old input system
     public static InputManager Instance
     {
         get
@@ -39,8 +35,6 @@ public class InputManager : MonoBehaviour
     private void Awake()
     {
         touchControls = new TouchControls();
-
-        uIButtonsTemplate = FindObjectOfType<UIButtonsTemplate>();
     }
 
     private void OnEnable()
@@ -50,43 +44,23 @@ public class InputManager : MonoBehaviour
 
     private void OnDisable()
     {
+        touchControls.CubeController.Touch.canceled -= touchContext => EndTouch();
+        touchControls.CubeController.DragAndMove.started -= moveContext => PerformTouch(moveContext);
+
         touchControls.Disable();
     }
 
     private void Start()
     {
-        touchControls.CubeController.Touch.started += touchContext => StartTouch(touchContext);
-        touchControls.CubeController.Touch.canceled += _ => EndTouch();
-
+        touchControls.CubeController.Touch.canceled += touchContext => EndTouch();
         touchControls.CubeController.DragAndMove.started += moveContext => PerformTouch(moveContext);
     }
 
-    // In start touch we define if overlapping UI, and if so all other inputs will be blocked
-    private void StartTouch(InputAction.CallbackContext touchContext)
-    {
-        Vector2 touchPosition = touchContext.ReadValue<Vector2>();
-
-        if (!uIButtonsTemplate)
-        {
-            isOverUI = true;
-            return;
-        }
-
-        if (uIButtonsTemplate.IsOverlappingAnyUI(touchPosition))
-        {
-            isOverUI = true;
-        }
-        else
-        {
-           HapticFeedback.HeavyFeedback();
-           isOverUI = false;
-        }
-}
-
     private void EndTouch()
     {
-        if (OnEndTouch != null && !isOverUI && !isCancelButtonEnabled)
+        if (OnEndTouch != null && !isOverUI)
         {
+            HapticFeedback.HeavyFeedback();
             OnEndTouch();
         }
     }

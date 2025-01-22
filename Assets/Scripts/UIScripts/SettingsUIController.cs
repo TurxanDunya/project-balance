@@ -48,38 +48,23 @@ public class SettingsUIController : MonoBehaviour, IControllerTemplate
 
     private void OnDisable()
     {
-        homeButton.clicked -= stateChanger.ChangeStateToMainUIWithoutLoadPage;
-        soundOnBtn.clicked -= MakeSoundOff;
-        soundOffBtn.clicked -= MakeSoundOn;
-        musicUnmuteBtn.clicked -= MakeMusicOff;
-        musicMuteBtn.clicked -= MakeMusicOn;
+        homeButton.UnregisterCallback<PointerEnterEvent>(ChangeStateToMainUIWithoutLoadPage);
+        homeButton.UnregisterCallback<PointerLeaveEvent>(ChangeStateToMainUIWithoutLoadPage);
+
+        soundOnBtn.UnregisterCallback<PointerEnterEvent>(MakeSoundOff);
+        soundOnBtn.UnregisterCallback<PointerLeaveEvent>(MakeSoundOff);
+
+        soundOffBtn.UnregisterCallback<PointerEnterEvent>(MakeSoundOn);
+        soundOffBtn.UnregisterCallback<PointerLeaveEvent>(MakeSoundOn);
+
+        musicUnmuteBtn.UnregisterCallback<PointerEnterEvent>(MakeMusicOff);
+        musicUnmuteBtn.UnregisterCallback<PointerLeaveEvent>(MakeMusicOff);
+
+        musicMuteBtn.UnregisterCallback<PointerEnterEvent>(MakeMusicOn);
+        musicMuteBtn.UnregisterCallback<PointerLeaveEvent>(MakeMusicOn);
 
         azeRbtn.UnregisterCallback<ClickEvent>(evt => ChangeLanguageToAze());
         engRbtn.UnregisterCallback<ClickEvent>(evt => ChangeLanguageToEng());
-
-        rootElement = null;
-        topVE = null;
-
-        settingsPopUpVE = null;
-        buttonsLineVE = null;
-        localizationVE = null;
-        soundControlVE = null;
-        musicControlVE = null;
-
-        homeButton = null;
-
-        soundOnVE = null;
-        soundOffVE = null;
-        musicMuteVE = null;
-        musicUnmuteVE = null;
-
-        soundOnBtn = null;
-        soundOffBtn = null;
-        musicUnmuteBtn = null;
-        musicMuteBtn = null;
-
-        azeRbtn = null;
-        engRbtn = null;
     }
 
     public void MakeBindings()
@@ -89,7 +74,8 @@ public class SettingsUIController : MonoBehaviour, IControllerTemplate
 
         topVE = rootElement.Q<VisualElement>("topVE");
         homeButton = topVE.Q<Button>("Home");
-        homeButton.clicked += stateChanger.ChangeStateToMainUIWithoutLoadPage;
+        homeButton.RegisterCallback<PointerEnterEvent>(ChangeStateToMainUIWithoutLoadPage);
+        homeButton.RegisterCallback<PointerLeaveEvent>(ChangeStateToMainUIWithoutLoadPage);
 
         settingsPopUpVE = rootElement.Q<VisualElement>("SettingsPopUpVE");
         buttonsLineVE = settingsPopUpVE.Q<VisualElement>("buttons_line_ve");
@@ -99,19 +85,23 @@ public class SettingsUIController : MonoBehaviour, IControllerTemplate
 
         soundOnVE = soundControlVE.Q<VisualElement>("sound_on_ve");
         soundOnBtn = soundOnVE.Q<Button>("sound_on_btn");
-        soundOnBtn.clicked += MakeSoundOff;
+        soundOnBtn.RegisterCallback<PointerEnterEvent>(MakeSoundOff);
+        soundOnBtn.RegisterCallback<PointerLeaveEvent>(MakeSoundOff);
 
         soundOffVE = soundControlVE.Q<VisualElement>("sound_off_ve");
         soundOffBtn = soundOffVE.Q<Button>("sound_off_btn");
-        soundOffBtn.clicked += MakeSoundOn;
+        soundOffBtn.RegisterCallback<PointerEnterEvent>(MakeSoundOn);
+        soundOffBtn.RegisterCallback<PointerLeaveEvent>(MakeSoundOn);
 
         musicUnmuteVE = musicControlVE.Q<VisualElement>("music_unmute_ve");
         musicUnmuteBtn = musicUnmuteVE.Q<Button>("music_unmute_btn");
-        musicUnmuteBtn.clicked += MakeMusicOff;
+        musicUnmuteBtn.RegisterCallback<PointerEnterEvent>(MakeMusicOff);
+        musicUnmuteBtn.RegisterCallback<PointerLeaveEvent>(MakeMusicOff);
 
         musicMuteVE = musicControlVE.Q<VisualElement>("music_mute_ve");
         musicMuteBtn = musicMuteVE.Q<Button>("music_mute_btn");
-        musicMuteBtn.clicked += MakeMusicOn;
+        musicMuteBtn.RegisterCallback<PointerEnterEvent>(MakeMusicOn);
+        musicMuteBtn.RegisterCallback<PointerLeaveEvent>(MakeMusicOn);
 
         azeRbtn = localizationVE.Q<RadioButton>("aze_rbtn");
         engRbtn = localizationVE.Q<RadioButton>("eng_rbtn");
@@ -173,32 +163,67 @@ public class SettingsUIController : MonoBehaviour, IControllerTemplate
         }
     }
 
-    private void MakeSoundOn()
+    private void ChangeStateToMainUIWithoutLoadPage(PointerEnterEvent ev)
+    {
+        InputManager.isOverUI = true;
+    }
+
+    private void ChangeStateToMainUIWithoutLoadPage(PointerLeaveEvent ev)
+    {
+        stateChanger.ChangeStateToMainUIWithoutLoadPage();
+        InputManager.isOverUI = false;
+    }
+
+    private void MakeSoundOn(PointerEnterEvent ev)
+    {
+        InputManager.isOverUI = true;
+    }
+
+    private void MakeSoundOn(PointerLeaveEvent ev)
     {
         musicPlayer.MakeSoundsOn();
         soundOffVE.style.display = DisplayStyle.None;
         soundOnVE.style.display = DisplayStyle.Flex;
+        InputManager.isOverUI = false;
     }
 
-    private void MakeSoundOff()
+    private void MakeSoundOff(PointerEnterEvent ev)
+    {
+        InputManager.isOverUI = true;
+    }
+
+    private void MakeSoundOff(PointerLeaveEvent ev)
     {
         musicPlayer.MakeSoundsOff();
         soundOnVE.style.display = DisplayStyle.None;
         soundOffVE.style.display = DisplayStyle.Flex;
+        InputManager.isOverUI = false;
     }
 
-    private void MakeMusicOn()
+    private void MakeMusicOn(PointerEnterEvent ev)
+    {
+        InputManager.isOverUI = true;
+    }
+
+    private void MakeMusicOn(PointerLeaveEvent ev)
     {
         musicPlayer.PlayMusic();
         musicMuteVE.style.display = DisplayStyle.None;
         musicUnmuteVE.style.display = DisplayStyle.Flex;
+        InputManager.isOverUI = false;
     }
 
-    private void MakeMusicOff()
+    private void MakeMusicOff(PointerEnterEvent ev)
+    {
+        InputManager.isOverUI = true;
+    }
+
+    private void MakeMusicOff(PointerLeaveEvent ev)
     {
         musicPlayer.MuteMusic();
         musicUnmuteVE.style.display = DisplayStyle.None;
         musicMuteVE.style.display = DisplayStyle.Flex;
+        InputManager.isOverUI = false;
     }
 
     private void ChangeLanguageToAze()
@@ -229,11 +254,6 @@ public class SettingsUIController : MonoBehaviour, IControllerTemplate
     public void SetDisplayNone()
     {
         rootElement.style.display = DisplayStyle.None;
-    }
-
-    public bool IsOverUI()
-    {
-        return rootElement.style.display == DisplayStyle.Flex;
     }
 
 }

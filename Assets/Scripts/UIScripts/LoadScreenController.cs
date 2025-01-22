@@ -2,14 +2,12 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
-using GoogleMobileAds.Api;
 
 public class LoadScreenController : MonoBehaviour, IControllerTemplate
 {
     [SerializeField] private float fadeSpeed = 1f;
     private VisualElement rootVE;
     private ProgressBar progressBar;
-    private string navigateLevelAfterAds;
 
     void Start()
     {
@@ -29,7 +27,6 @@ public class LoadScreenController : MonoBehaviour, IControllerTemplate
 
     public void StartLoad(string levelName)
     {
-        navigateLevelAfterAds = levelName;
         StartCoroutine(LoadLevelAsync(levelName));
     }
 
@@ -85,10 +82,5 @@ public class LoadScreenController : MonoBehaviour, IControllerTemplate
     public void SetDisplayNone()
     {
         rootVE.style.display = DisplayStyle.None;
-    }
-
-    public bool IsOverUI()
-    {
-        return rootVE.style.display == DisplayStyle.Flex;
     }
 }

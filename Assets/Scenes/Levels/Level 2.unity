@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.13468578, g: 0.09858542, b: 0.3183091, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -199,10 +199,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 431547344754842001, guid: d5923e079c0f24774a058aa61b19623e, type: 3}
-      propertyPath: welcomeTutorialController
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4201346298903201681, guid: d5923e079c0f24774a058aa61b19623e, type: 3}
       propertyPath: powerUps
       value: 
@@ -212,17 +208,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1442075612}
     - target: {fileID: 4201346298903201681, guid: d5923e079c0f24774a058aa61b19623e, type: 3}
-      propertyPath: timeLevelFinish
+      propertyPath: cameraPosition
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 723919453485950980}
     - target: {fileID: 4201346298903201681, guid: d5923e079c0f24774a058aa61b19623e, type: 3}
       propertyPath: cubeSpawnManagement
       value: 
       objectReference: {fileID: 2065624188}
-    - target: {fileID: 4542121699140896450, guid: d5923e079c0f24774a058aa61b19623e, type: 3}
-      propertyPath: welcomeTutorialUI
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4981585557895238111, guid: d5923e079c0f24774a058aa61b19623e, type: 3}
       propertyPath: m_Name
       value: UI
@@ -379,7 +371,123 @@ Transform:
   - {fileID: 1596803214}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!43 &1304668507
+--- !u!114 &1442075612 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1439958952294343122, guid: 7f3e224445bba4c8f838c2ca32164068, type: 3}
+  m_PrefabInstance: {fileID: 4484884394408053838}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 417115ba13dda43b2ac792b79a7e721f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1596803213
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1596803214}
+  - component: {fileID: 1596803215}
+  m_Layer: 0
+  m_Name: Scripts
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1596803214
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596803213}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.6705377, y: 0.62573254, z: -0.72698915}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 949755474}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1596803215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596803213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b74d4739eac41d892043a7855edaa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCubeChangerEnabled: 1
+  isTimerEnabled: 0
+  isMagnetEnabled: 0
+  isBombEnabled: 0
+  isWoodCubeEnabled: 1
+  isMetalCubeEnabled: 0
+  isIceCubeEnabled: 0
+  isRockEnabled: 0
+  isGhostModeEnabled: 0
+  isLightBlinkModeEnabled: 0
+  isTimeModeEnabled: 0
+  isInvertModeEnabled: 0
+  isFallingShapesModeEnabled: 0
+  isWindModeEnabled: 0
+  isCubeLateFallEnabled: 0
+--- !u!1 &1662604411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1662604413}
+  - component: {fileID: 1662604412}
+  m_Layer: 0
+  m_Name: BurstCollisionWorld
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1662604412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662604411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a161c4294214a4fbcb7e9e94800494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cellSpans:
+    m_AlignBytes: 16
+--- !u!4 &1662604413
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662604411}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!43 &1913333528
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -544,122 +652,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!114 &1442075612 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1439958952294343122, guid: 7f3e224445bba4c8f838c2ca32164068, type: 3}
-  m_PrefabInstance: {fileID: 4484884394408053838}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 417115ba13dda43b2ac792b79a7e721f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &1596803213
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1596803214}
-  - component: {fileID: 1596803215}
-  m_Layer: 0
-  m_Name: Scripts
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1596803214
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1596803213}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.6705377, y: 0.62573254, z: -0.72698915}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 949755474}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1596803215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1596803213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0b74d4739eac41d892043a7855edaa5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isCubeChangerEnabled: 1
-  isTimerEnabled: 0
-  isMagnetEnabled: 0
-  isBombEnabled: 0
-  isWoodCubeEnabled: 1
-  isMetalCubeEnabled: 0
-  isIceCubeEnabled: 0
-  isRockEnabled: 0
-  isGhostModeEnabled: 0
-  isLightBlinkModeEnabled: 0
-  isTimeModeEnabled: 0
-  isInvertModeEnabled: 0
-  isFallingShapesModeEnabled: 0
-  isWindModeEnabled: 0
-  isCubeLateFallEnabled: 0
---- !u!1 &1662604411
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1662604413}
-  - component: {fileID: 1662604412}
-  m_Layer: 0
-  m_Name: BurstCollisionWorld
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1662604412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1662604411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1a161c4294214a4fbcb7e9e94800494, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cellSpans:
-    m_AlignBytes: 16
---- !u!4 &1662604413
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1662604411}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1991808323
 Mesh:
   m_ObjectHideFlags: 0
@@ -901,6 +893,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3da7ffc36d1f743cbbcef56c0dfd8dd9, type: 3}
+--- !u!114 &723919453485950980 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4323844931334835486, guid: 3da7ffc36d1f743cbbcef56c0dfd8dd9, type: 3}
+  m_PrefabInstance: {fileID: 723919453485950979}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9f0926b75fbf3745b26799987d020fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4484884394408053838
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -960,6 +963,14 @@ PrefabInstance:
     - target: {fileID: 6328143981375303186, guid: 7f3e224445bba4c8f838c2ca32164068, type: 3}
       propertyPath: m_Name
       value: LevelScripts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6762653154033847079, guid: 7f3e224445bba4c8f838c2ca32164068, type: 3}
+      propertyPath: metalPrefab.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8430131813013168004, guid: 7f3e224445bba4c8f838c2ca32164068, type: 3}
+      propertyPath: cubeCountDataByMaterialTypeList.Array.data[0].cubeCount
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

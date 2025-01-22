@@ -124,8 +124,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2247208790384640
-    m_Localized: "WELCOME! \nThe purpose is simple. \nJust keep platform on balance.
-      Cubes should not be fall from platform!"
+    m_Localized: "WELCOME! \nThe purpose is simple. \nJust keep the platform on balance.
+      Cubes should not fall from the platform!"
     m_Metadata:
       m_Items: []
   - m_Id: 2247272682217472
