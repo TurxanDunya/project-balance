@@ -62,7 +62,7 @@ public class TutorialController : MonoBehaviour, IControllerTemplate
                 InputManager.isOverUI = true;
                 isBtnClicked = true;
                 DismissUIPanel(tutorial);
-            });
+            }, TrickleDown.TrickleDown);
 
             yield return new WaitUntil(() => isBtnClicked);
 

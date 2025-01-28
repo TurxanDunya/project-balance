@@ -198,13 +198,13 @@ public class GameUIController : MonoBehaviour, IControllerTemplate, AdsEventCall
         rootGameOver = gameOverUI.GetComponent<UIDocument>()
             .rootVisualElement.Q<VisualElement>("root_container");
 
-        rootGameOver.Q<Button>("btn_home").RegisterCallback<PointerDownEvent>(GoHomePagePressed);
+        rootGameOver.Q<Button>("btn_home").RegisterCallback<PointerDownEvent>(GoHomePagePressed, TrickleDown.TrickleDown);
         rootGameOver.Q<Button>("btn_home").RegisterCallback<PointerUpEvent>(GoHomePageReleased);
 
-        rootGameOver.Q<Button>("btn_replay").RegisterCallback<PointerDownEvent>(ReloadLevelPressed);
+        rootGameOver.Q<Button>("btn_replay").RegisterCallback<PointerDownEvent>(ReloadLevelPressed, TrickleDown.TrickleDown);
         rootGameOver.Q<Button>("btn_replay").RegisterCallback<PointerUpEvent>(ReloadLevelReleased);
 
-        rootGameOver.Q<Button>("btn_levels").RegisterCallback<PointerDownEvent>(OpenLevelMenuPressed);
+        rootGameOver.Q<Button>("btn_levels").RegisterCallback<PointerDownEvent>(OpenLevelMenuPressed, TrickleDown.TrickleDown);
         rootGameOver.Q<Button>("btn_levels").RegisterCallback<PointerUpEvent>(OpenLevelMenuReleased);
     }
 
@@ -216,16 +216,16 @@ public class GameUIController : MonoBehaviour, IControllerTemplate, AdsEventCall
         winnerVE = rootWinner.Q<VisualElement>("winner_VE");
         currentSecondLabel = rootWinner.Q<Label>("CurrentSecondLabel");
 
-        rootWinner.Q<Button>("btn_home").RegisterCallback<PointerDownEvent>(GoHomePagePressed);
+        rootWinner.Q<Button>("btn_home").RegisterCallback<PointerDownEvent>(GoHomePagePressed, TrickleDown.TrickleDown);
         rootWinner.Q<Button>("btn_home").RegisterCallback<PointerUpEvent>(GoHomePageReleased);
 
-        rootWinner.Q<Button>("btn_next").RegisterCallback<PointerDownEvent>(GoNextLevelPressed);
+        rootWinner.Q<Button>("btn_next").RegisterCallback<PointerDownEvent>(GoNextLevelPressed, TrickleDown.TrickleDown);
         rootWinner.Q<Button>("btn_next").RegisterCallback<PointerUpEvent>(GoNextLevelReleased);
 
-        rootWinner.Q<Button>("btn_levels").RegisterCallback<PointerDownEvent>(OpenLevelMenuPressed);
+        rootWinner.Q<Button>("btn_levels").RegisterCallback<PointerDownEvent>(OpenLevelMenuPressed, TrickleDown.TrickleDown);
         rootWinner.Q<Button>("btn_levels").RegisterCallback<PointerUpEvent>(OpenLevelMenuReleased);
 
-        rootWinner.Q<Button>("btn_replay").RegisterCallback<PointerDownEvent>(ReloadLevelPressed);
+        rootWinner.Q<Button>("btn_replay").RegisterCallback<PointerDownEvent>(ReloadLevelPressed, TrickleDown.TrickleDown);
         rootWinner.Q<Button>("btn_replay").RegisterCallback<PointerUpEvent>(ReloadLevelReleased);
     }
 

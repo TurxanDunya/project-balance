@@ -328,7 +328,7 @@ MonoBehaviour:
   m_TrackedDevicePositionAction: {fileID: 2634946843892092883, guid: 669a89aa46ce14e0ab87c6fbdb228cf1, type: 3}
   m_TrackedDeviceOrientationAction: {fileID: 635201327313905293, guid: 669a89aa46ce14e0ab87c6fbdb228cf1, type: 3}
   m_DeselectOnBackgroundClick: 1
-  m_PointerBehavior: 1
+  m_PointerBehavior: 2
   m_CursorLockBehavior: 0
 --- !u!1 &3347014556053285954
 GameObject:

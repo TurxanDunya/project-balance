@@ -2,16 +2,20 @@ using UnityEngine;
 
 public class CubeRayCast : MonoBehaviour
 {
-    public float raycastDistance = 50f;
+    public float raycastDistance = 5f;
 
     private RaycastHit hit;
     private LineRenderer lineRenderer;
     private readonly float minDistance = 0.05f;
 
+    private void OnEnable()
+    {
+        UpdateRaycastHitPosition();
+    }
+
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
-        UpdateRaycastHitPosition();
     }
 
     public Vector3 GetLineRendererHitPosition()

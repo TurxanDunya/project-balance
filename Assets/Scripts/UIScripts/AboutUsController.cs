@@ -40,6 +40,24 @@ public class AboutUsController : MonoBehaviour, IControllerTemplate
         SafeArea.ApplySafeArea(rootVE);
     }
 
+    public void MakeBindings()
+    {
+        rootVE = GetComponent<UIDocument>()
+            .rootVisualElement.Q<VisualElement>("rootVE");
+
+        topVE = rootVE.Q<VisualElement>("top_ve");
+        homeButton = topVE.Q<Button>("home_btn");
+
+        membersVE = rootVE.Q<VisualElement>("members_ve");
+
+        DefineStudioUIElements();
+        DefineMemberOneUIElements();
+        DefineMemberTwoUIElements();
+
+        homeButton.RegisterCallback<PointerDownEvent>(ReturnHomePagePress, TrickleDown.TrickleDown);
+        homeButton.RegisterCallback<PointerUpEvent>(ReturnHomePageRelease, TrickleDown.TrickleDown);
+    }
+
     private void OnDisable()
     {
         studioFbButton.UnregisterCallback<PointerDownEvent>(GoToStudioFbAccount);
@@ -78,24 +96,6 @@ public class AboutUsController : MonoBehaviour, IControllerTemplate
         homeButton.clicked -= stateChanger.ChangeStateToMainUIWithoutLoadPage;
     }
 
-    public void MakeBindings()
-    {
-        rootVE = GetComponent<UIDocument>()
-            .rootVisualElement.Q<VisualElement>("rootVE");
-
-        topVE = rootVE.Q<VisualElement>("top_ve");
-        homeButton = topVE.Q<Button>("home_btn");
-
-        membersVE = rootVE.Q<VisualElement>("members_ve");
-
-        DefineStudioUIElements();
-        DefineMemberOneUIElements();
-        DefineMemberTwoUIElements();
-
-        homeButton.RegisterCallback<PointerDownEvent>(ReturnHomePagePress);
-        homeButton.RegisterCallback<PointerUpEvent>(ReturnHomePageRelease);
-    }
-
     private void DefineStudioUIElements()
     {
         studioInfoVE = rootVE.Q<VisualElement>("studio_info_ve");
@@ -105,13 +105,13 @@ public class AboutUsController : MonoBehaviour, IControllerTemplate
         studioInstaButton = studioSocialAccountsVE.Q<Button>("instagram");
         studioYoutubeButton = studioSocialAccountsVE.Q<Button>("youtube");
 
-        studioFbButton.RegisterCallback<PointerDownEvent>(GoToStudioFbAccount);
+        studioFbButton.RegisterCallback<PointerDownEvent>(GoToStudioFbAccount, TrickleDown.TrickleDown);
         studioFbButton.RegisterCallback<PointerUpEvent>(LeaveStudioFbAccount);
 
-        studioInstaButton.RegisterCallback<PointerDownEvent>(GoToStudioInstaAccount);
+        studioInstaButton.RegisterCallback<PointerDownEvent>(GoToStudioInstaAccount, TrickleDown.TrickleDown);
         studioInstaButton.RegisterCallback<PointerUpEvent>(LeaveStudioInstaAccount);
 
-        studioYoutubeButton.RegisterCallback<PointerDownEvent>(GoToStudioYoutubeAccount);
+        studioYoutubeButton.RegisterCallback<PointerDownEvent>(GoToStudioYoutubeAccount, TrickleDown.TrickleDown);
         studioYoutubeButton.RegisterCallback<PointerUpEvent>(LeaveStudioYoutubeAccount);
     }
 
@@ -125,16 +125,16 @@ public class AboutUsController : MonoBehaviour, IControllerTemplate
         memberOneLinkedinButton = memberOneSocialAccountsVE.Q<Button>("linkedin");
         memberOneYoutubeButton = memberOneSocialAccountsVE.Q<Button>("youtube");
 
-        memberOneFbButton.RegisterCallback<PointerDownEvent>(GoToMemberOneFbAccount);
+        memberOneFbButton.RegisterCallback<PointerDownEvent>(GoToMemberOneFbAccount, TrickleDown.TrickleDown);
         memberOneFbButton.RegisterCallback<PointerUpEvent>(LeaveMemberOneFbAccount);
 
-        memberOneInstaButton.RegisterCallback<PointerDownEvent>(GoToMemberOneInstaAccount);
+        memberOneInstaButton.RegisterCallback<PointerDownEvent>(GoToMemberOneInstaAccount, TrickleDown.TrickleDown);
         memberOneInstaButton.RegisterCallback<PointerUpEvent>(LeaveMemberOneInstaAccount);
 
-        memberOneLinkedinButton.RegisterCallback<PointerDownEvent>(GoToMemberOneLinkedinAccount);
+        memberOneLinkedinButton.RegisterCallback<PointerDownEvent>(GoToMemberOneLinkedinAccount, TrickleDown.TrickleDown);
         memberOneLinkedinButton.RegisterCallback<PointerUpEvent>(LeaveMemberOneLinkedinAccount);
 
-        memberOneYoutubeButton.RegisterCallback<PointerDownEvent>(GoToMemberOneYoutubeAccount);
+        memberOneYoutubeButton.RegisterCallback<PointerDownEvent>(GoToMemberOneYoutubeAccount, TrickleDown.TrickleDown);
         memberOneYoutubeButton.RegisterCallback<PointerUpEvent>(LeaveMemberOneYoutubeAccount);
     }
 
@@ -148,16 +148,16 @@ public class AboutUsController : MonoBehaviour, IControllerTemplate
         memberTwoLinkedinButton = memberTwoSocialAccountsVE.Q<Button>("linkedin");
         memberTwoXButton = memberTwoSocialAccountsVE.Q<Button>("x");
 
-        memberTwoFbButton.RegisterCallback<PointerDownEvent>(GoToMemberTwoFbAccount);
+        memberTwoFbButton.RegisterCallback<PointerDownEvent>(GoToMemberTwoFbAccount, TrickleDown.TrickleDown);
         memberTwoFbButton.RegisterCallback<PointerUpEvent>(LeaveMemberTwoFbAccount);
 
-        memberTwoInstaButton.RegisterCallback<PointerDownEvent>(GoToMemberTwoInstaAccount);
+        memberTwoInstaButton.RegisterCallback<PointerDownEvent>(GoToMemberTwoInstaAccount, TrickleDown.TrickleDown);
         memberTwoInstaButton.RegisterCallback<PointerUpEvent>(LeaveMemberTwoInstaAccount);
 
-        memberTwoLinkedinButton.RegisterCallback<PointerDownEvent>(GoToMemberTwoLinkedinAccount);
+        memberTwoLinkedinButton.RegisterCallback<PointerDownEvent>(GoToMemberTwoLinkedinAccount, TrickleDown.TrickleDown);
         memberTwoLinkedinButton.RegisterCallback<PointerUpEvent>(LeaveMemberTwoLinkedinAccount);
 
-        memberTwoXButton.RegisterCallback<PointerDownEvent>(GoToMemberTwoXAccount);
+        memberTwoXButton.RegisterCallback<PointerDownEvent>(GoToMemberTwoXAccount, TrickleDown.TrickleDown);
         memberTwoXButton.RegisterCallback<PointerUpEvent>(LeaveMemberTwoXAccount);
     }
 

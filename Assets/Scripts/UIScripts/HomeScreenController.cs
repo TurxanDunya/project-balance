@@ -41,21 +41,6 @@ public class HomeScreenController : MonoBehaviour, AdsEventCallback, IController
         }
     }
 
-    private void OnDisable()
-    {
-        addStarAdsButton.UnregisterCallback<PointerDownEvent>(ShowAdsAndAddCoinPressed);
-        addStarAdsButton.UnregisterCallback<PointerUpEvent>(ShowAdsAndAddCoinReleased);
-
-        settingsButton.UnregisterCallback<PointerDownEvent>(ShowSettingsUIPressed);
-        settingsButton.UnregisterCallback<PointerUpEvent>(ShowSettingsUIReleased);
-
-        tapToPlayButton.UnregisterCallback<PointerDownEvent>(ChangeStateForInGameUIPressed);
-        tapToPlayButton.UnregisterCallback<PointerUpEvent>(ChangeStateForInGameUIReleased);
-
-        aboutUsButton.UnregisterCallback<PointerDownEvent>(ShowAboutUsUIPressed);
-        aboutUsButton.UnregisterCallback<PointerUpEvent>(ShowAboutUsUIReleased);
-    }
-
     public void MakeBindings()
     {
         rewardedAd = new AdmobRewardedAd();
@@ -70,19 +55,34 @@ public class HomeScreenController : MonoBehaviour, AdsEventCallback, IController
         rightSideVE = topVE.Q<VisualElement>("right_side_ve");
         addStarAdsButton = rightSideVE.Q<Button>("add_star_ads_btn");
 
-        addStarAdsButton.RegisterCallback<PointerDownEvent>(ShowAdsAndAddCoinPressed);
+        addStarAdsButton.RegisterCallback<PointerDownEvent>(ShowAdsAndAddCoinPressed, TrickleDown.TrickleDown);
         addStarAdsButton.RegisterCallback<PointerUpEvent>(ShowAdsAndAddCoinReleased);
 
         tapToPlayButton = rootElement.Q<Button>("tapToPlayButton");
 
-        settingsButton.RegisterCallback<PointerDownEvent>(ShowSettingsUIPressed);
+        settingsButton.RegisterCallback<PointerDownEvent>(ShowSettingsUIPressed, TrickleDown.TrickleDown);
         settingsButton.RegisterCallback<PointerUpEvent>(ShowSettingsUIReleased);
 
-        tapToPlayButton.RegisterCallback<PointerDownEvent>(ChangeStateForInGameUIPressed);
+        tapToPlayButton.RegisterCallback<PointerDownEvent>(ChangeStateForInGameUIPressed, TrickleDown.TrickleDown);
         tapToPlayButton.RegisterCallback<PointerUpEvent>(ChangeStateForInGameUIReleased);
 
-        aboutUsButton.RegisterCallback<PointerDownEvent>(ShowAboutUsUIPressed);
+        aboutUsButton.RegisterCallback<PointerDownEvent>(ShowAboutUsUIPressed, TrickleDown.TrickleDown);
         aboutUsButton.RegisterCallback<PointerUpEvent>(ShowAboutUsUIReleased);
+    }
+
+    private void OnDisable()
+    {
+        addStarAdsButton.UnregisterCallback<PointerDownEvent>(ShowAdsAndAddCoinPressed);
+        addStarAdsButton.UnregisterCallback<PointerUpEvent>(ShowAdsAndAddCoinReleased);
+
+        settingsButton.UnregisterCallback<PointerDownEvent>(ShowSettingsUIPressed);
+        settingsButton.UnregisterCallback<PointerUpEvent>(ShowSettingsUIReleased);
+
+        tapToPlayButton.UnregisterCallback<PointerDownEvent>(ChangeStateForInGameUIPressed);
+        tapToPlayButton.UnregisterCallback<PointerUpEvent>(ChangeStateForInGameUIReleased);
+
+        aboutUsButton.UnregisterCallback<PointerDownEvent>(ShowAboutUsUIPressed);
+        aboutUsButton.UnregisterCallback<PointerUpEvent>(ShowAboutUsUIReleased);
     }
 
     private void FixedUpdate()
@@ -168,10 +168,7 @@ public class HomeScreenController : MonoBehaviour, AdsEventCallback, IController
         }
     }
 
-    public void OnStandartAdsClose()
-    {
-       
-    }
+    public void OnStandartAdsClose() {}
 
     public void OnRewardedAdsClose(double reward)
     {

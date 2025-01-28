@@ -60,7 +60,7 @@ public class InputManager : MonoBehaviour
     {
         if (OnEndTouch != null && !isOverUI)
         {
-            HapticFeedback.HeavyFeedback();
+            HapticFeedback.MediumFeedback();
             OnEndTouch();
         }
     }

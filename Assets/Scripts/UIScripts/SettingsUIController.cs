@@ -74,7 +74,7 @@ public class SettingsUIController : MonoBehaviour, IControllerTemplate
 
         topVE = rootElement.Q<VisualElement>("topVE");
         homeButton = topVE.Q<Button>("Home");
-        homeButton.RegisterCallback<PointerDownEvent>(ChangeStateToMainUIWithoutLoadPage);
+        homeButton.RegisterCallback<PointerDownEvent>(ChangeStateToMainUIWithoutLoadPage, TrickleDown.TrickleDown);
         homeButton.RegisterCallback<PointerUpEvent>(ChangeStateToMainUIWithoutLoadPage);
 
         settingsPopUpVE = rootElement.Q<VisualElement>("SettingsPopUpVE");
@@ -85,22 +85,22 @@ public class SettingsUIController : MonoBehaviour, IControllerTemplate
 
         soundOnVE = soundControlVE.Q<VisualElement>("sound_on_ve");
         soundOnBtn = soundOnVE.Q<Button>("sound_on_btn");
-        soundOnBtn.RegisterCallback<PointerDownEvent>(MakeSoundOff);
+        soundOnBtn.RegisterCallback<PointerDownEvent>(MakeSoundOff, TrickleDown.TrickleDown);
         soundOnBtn.RegisterCallback<PointerUpEvent>(MakeSoundOff);
 
         soundOffVE = soundControlVE.Q<VisualElement>("sound_off_ve");
         soundOffBtn = soundOffVE.Q<Button>("sound_off_btn");
-        soundOffBtn.RegisterCallback<PointerDownEvent>(MakeSoundOn);
+        soundOffBtn.RegisterCallback<PointerDownEvent>(MakeSoundOn, TrickleDown.TrickleDown);
         soundOffBtn.RegisterCallback<PointerUpEvent>(MakeSoundOn);
 
         musicUnmuteVE = musicControlVE.Q<VisualElement>("music_unmute_ve");
         musicUnmuteBtn = musicUnmuteVE.Q<Button>("music_unmute_btn");
-        musicUnmuteBtn.RegisterCallback<PointerDownEvent>(MakeMusicOff);
+        musicUnmuteBtn.RegisterCallback<PointerDownEvent>(MakeMusicOff, TrickleDown.TrickleDown);
         musicUnmuteBtn.RegisterCallback<PointerUpEvent>(MakeMusicOff);
 
         musicMuteVE = musicControlVE.Q<VisualElement>("music_mute_ve");
         musicMuteBtn = musicMuteVE.Q<Button>("music_mute_btn");
-        musicMuteBtn.RegisterCallback<PointerDownEvent>(MakeMusicOn);
+        musicMuteBtn.RegisterCallback<PointerDownEvent>(MakeMusicOn, TrickleDown.TrickleDown);
         musicMuteBtn.RegisterCallback<PointerUpEvent>(MakeMusicOn);
 
         azeRbtn = localizationVE.Q<RadioButton>("aze_rbtn");
