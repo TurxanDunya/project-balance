@@ -42,38 +42,38 @@ public class AboutUsController : MonoBehaviour, IControllerTemplate
 
     private void OnDisable()
     {
-        studioFbButton.UnregisterCallback<PointerEnterEvent>(GoToStudioFbAccount);
-        studioFbButton.UnregisterCallback<PointerLeaveEvent>(LeaveStudioFbAccount);
+        studioFbButton.UnregisterCallback<PointerDownEvent>(GoToStudioFbAccount);
+        studioFbButton.UnregisterCallback<PointerUpEvent>(LeaveStudioFbAccount);
 
-        studioInstaButton.UnregisterCallback<PointerEnterEvent>(GoToStudioInstaAccount);
-        studioInstaButton.UnregisterCallback<PointerLeaveEvent>(LeaveStudioInstaAccount);
+        studioInstaButton.UnregisterCallback<PointerDownEvent>(GoToStudioInstaAccount);
+        studioInstaButton.UnregisterCallback<PointerUpEvent>(LeaveStudioInstaAccount);
 
-        studioYoutubeButton.UnregisterCallback<PointerEnterEvent>(GoToStudioYoutubeAccount);
-        studioYoutubeButton.UnregisterCallback<PointerLeaveEvent>(LeaveStudioYoutubeAccount);
+        studioYoutubeButton.UnregisterCallback<PointerDownEvent>(GoToStudioYoutubeAccount);
+        studioYoutubeButton.UnregisterCallback<PointerUpEvent>(LeaveStudioYoutubeAccount);
 
-        memberOneFbButton.RegisterCallback<PointerEnterEvent>(GoToMemberOneFbAccount);
-        memberOneFbButton.RegisterCallback<PointerLeaveEvent>(LeaveMemberOneFbAccount);
+        memberOneFbButton.RegisterCallback<PointerDownEvent>(GoToMemberOneFbAccount);
+        memberOneFbButton.RegisterCallback<PointerUpEvent>(LeaveMemberOneFbAccount);
 
-        memberOneInstaButton.UnregisterCallback<PointerEnterEvent>(GoToMemberOneInstaAccount);
-        memberOneInstaButton.UnregisterCallback<PointerLeaveEvent>(LeaveMemberOneInstaAccount);
+        memberOneInstaButton.UnregisterCallback<PointerDownEvent>(GoToMemberOneInstaAccount);
+        memberOneInstaButton.UnregisterCallback<PointerUpEvent>(LeaveMemberOneInstaAccount);
 
-        memberOneLinkedinButton.UnregisterCallback<PointerEnterEvent>(GoToMemberOneLinkedinAccount);
-        memberOneLinkedinButton.UnregisterCallback<PointerLeaveEvent>(LeaveMemberOneLinkedinAccount);
+        memberOneLinkedinButton.UnregisterCallback<PointerDownEvent>(GoToMemberOneLinkedinAccount);
+        memberOneLinkedinButton.UnregisterCallback<PointerUpEvent>(LeaveMemberOneLinkedinAccount);
 
-        memberOneYoutubeButton.UnregisterCallback<PointerEnterEvent>(GoToMemberOneYoutubeAccount);
-        memberOneYoutubeButton.UnregisterCallback<PointerLeaveEvent>(LeaveMemberOneYoutubeAccount);
+        memberOneYoutubeButton.UnregisterCallback<PointerDownEvent>(GoToMemberOneYoutubeAccount);
+        memberOneYoutubeButton.UnregisterCallback<PointerUpEvent>(LeaveMemberOneYoutubeAccount);
 
-        memberTwoFbButton.UnregisterCallback<PointerEnterEvent>(GoToMemberTwoFbAccount);
-        memberTwoFbButton.UnregisterCallback<PointerLeaveEvent>(LeaveMemberTwoFbAccount);
+        memberTwoFbButton.UnregisterCallback<PointerDownEvent>(GoToMemberTwoFbAccount);
+        memberTwoFbButton.UnregisterCallback<PointerUpEvent>(LeaveMemberTwoFbAccount);
 
-        memberTwoInstaButton.UnregisterCallback<PointerEnterEvent>(GoToMemberTwoInstaAccount);
-        memberTwoInstaButton.UnregisterCallback<PointerLeaveEvent>(LeaveMemberTwoInstaAccount);
+        memberTwoInstaButton.UnregisterCallback<PointerDownEvent>(GoToMemberTwoInstaAccount);
+        memberTwoInstaButton.UnregisterCallback<PointerUpEvent>(LeaveMemberTwoInstaAccount);
 
-        memberTwoLinkedinButton.UnregisterCallback<PointerEnterEvent>(GoToMemberTwoLinkedinAccount);
-        memberTwoLinkedinButton.UnregisterCallback<PointerLeaveEvent>(LeaveMemberTwoLinkedinAccount);
+        memberTwoLinkedinButton.UnregisterCallback<PointerDownEvent>(GoToMemberTwoLinkedinAccount);
+        memberTwoLinkedinButton.UnregisterCallback<PointerUpEvent>(LeaveMemberTwoLinkedinAccount);
 
-        memberTwoXButton.UnregisterCallback<PointerEnterEvent>(GoToMemberTwoXAccount);
-        memberTwoXButton.UnregisterCallback<PointerLeaveEvent>(LeaveMemberTwoXAccount);
+        memberTwoXButton.UnregisterCallback<PointerDownEvent>(GoToMemberTwoXAccount);
+        memberTwoXButton.UnregisterCallback<PointerUpEvent>(LeaveMemberTwoXAccount);
 
         homeButton.clicked -= stateChanger.ChangeStateToMainUIWithoutLoadPage;
     }
@@ -92,8 +92,8 @@ public class AboutUsController : MonoBehaviour, IControllerTemplate
         DefineMemberOneUIElements();
         DefineMemberTwoUIElements();
 
-        homeButton.RegisterCallback<PointerEnterEvent>(ReturnHomePagePress);
-        homeButton.RegisterCallback<PointerLeaveEvent>(ReturnHomePageRelease);
+        homeButton.RegisterCallback<PointerDownEvent>(ReturnHomePagePress);
+        homeButton.RegisterCallback<PointerUpEvent>(ReturnHomePageRelease);
     }
 
     private void DefineStudioUIElements()
@@ -105,14 +105,14 @@ public class AboutUsController : MonoBehaviour, IControllerTemplate
         studioInstaButton = studioSocialAccountsVE.Q<Button>("instagram");
         studioYoutubeButton = studioSocialAccountsVE.Q<Button>("youtube");
 
-        studioFbButton.RegisterCallback<PointerEnterEvent>(GoToStudioFbAccount);
-        studioFbButton.RegisterCallback<PointerLeaveEvent>(LeaveStudioFbAccount);
+        studioFbButton.RegisterCallback<PointerDownEvent>(GoToStudioFbAccount);
+        studioFbButton.RegisterCallback<PointerUpEvent>(LeaveStudioFbAccount);
 
-        studioInstaButton.RegisterCallback<PointerEnterEvent>(GoToStudioInstaAccount);
-        studioInstaButton.RegisterCallback<PointerLeaveEvent>(LeaveStudioInstaAccount);
+        studioInstaButton.RegisterCallback<PointerDownEvent>(GoToStudioInstaAccount);
+        studioInstaButton.RegisterCallback<PointerUpEvent>(LeaveStudioInstaAccount);
 
-        studioYoutubeButton.RegisterCallback<PointerEnterEvent>(GoToStudioYoutubeAccount);
-        studioYoutubeButton.RegisterCallback<PointerLeaveEvent>(LeaveStudioYoutubeAccount);
+        studioYoutubeButton.RegisterCallback<PointerDownEvent>(GoToStudioYoutubeAccount);
+        studioYoutubeButton.RegisterCallback<PointerUpEvent>(LeaveStudioYoutubeAccount);
     }
 
     private void DefineMemberOneUIElements()
@@ -125,17 +125,17 @@ public class AboutUsController : MonoBehaviour, IControllerTemplate
         memberOneLinkedinButton = memberOneSocialAccountsVE.Q<Button>("linkedin");
         memberOneYoutubeButton = memberOneSocialAccountsVE.Q<Button>("youtube");
 
-        memberOneFbButton.RegisterCallback<PointerEnterEvent>(GoToMemberOneFbAccount);
-        memberOneFbButton.RegisterCallback<PointerLeaveEvent>(LeaveMemberOneFbAccount);
+        memberOneFbButton.RegisterCallback<PointerDownEvent>(GoToMemberOneFbAccount);
+        memberOneFbButton.RegisterCallback<PointerUpEvent>(LeaveMemberOneFbAccount);
 
-        memberOneInstaButton.RegisterCallback<PointerEnterEvent>(GoToMemberOneInstaAccount);
-        memberOneInstaButton.RegisterCallback<PointerLeaveEvent>(LeaveMemberOneInstaAccount);
+        memberOneInstaButton.RegisterCallback<PointerDownEvent>(GoToMemberOneInstaAccount);
+        memberOneInstaButton.RegisterCallback<PointerUpEvent>(LeaveMemberOneInstaAccount);
 
-        memberOneLinkedinButton.RegisterCallback<PointerEnterEvent>(GoToMemberOneLinkedinAccount);
-        memberOneLinkedinButton.RegisterCallback<PointerLeaveEvent>(LeaveMemberOneLinkedinAccount);
+        memberOneLinkedinButton.RegisterCallback<PointerDownEvent>(GoToMemberOneLinkedinAccount);
+        memberOneLinkedinButton.RegisterCallback<PointerUpEvent>(LeaveMemberOneLinkedinAccount);
 
-        memberOneYoutubeButton.RegisterCallback<PointerEnterEvent>(GoToMemberOneYoutubeAccount);
-        memberOneYoutubeButton.RegisterCallback<PointerLeaveEvent>(LeaveMemberOneYoutubeAccount);
+        memberOneYoutubeButton.RegisterCallback<PointerDownEvent>(GoToMemberOneYoutubeAccount);
+        memberOneYoutubeButton.RegisterCallback<PointerUpEvent>(LeaveMemberOneYoutubeAccount);
     }
 
     private void DefineMemberTwoUIElements()
@@ -148,146 +148,146 @@ public class AboutUsController : MonoBehaviour, IControllerTemplate
         memberTwoLinkedinButton = memberTwoSocialAccountsVE.Q<Button>("linkedin");
         memberTwoXButton = memberTwoSocialAccountsVE.Q<Button>("x");
 
-        memberTwoFbButton.RegisterCallback<PointerEnterEvent>(GoToMemberTwoFbAccount);
-        memberTwoFbButton.RegisterCallback<PointerLeaveEvent>(LeaveMemberTwoFbAccount);
+        memberTwoFbButton.RegisterCallback<PointerDownEvent>(GoToMemberTwoFbAccount);
+        memberTwoFbButton.RegisterCallback<PointerUpEvent>(LeaveMemberTwoFbAccount);
 
-        memberTwoInstaButton.RegisterCallback<PointerEnterEvent>(GoToMemberTwoInstaAccount);
-        memberTwoInstaButton.RegisterCallback<PointerLeaveEvent>(LeaveMemberTwoInstaAccount);
+        memberTwoInstaButton.RegisterCallback<PointerDownEvent>(GoToMemberTwoInstaAccount);
+        memberTwoInstaButton.RegisterCallback<PointerUpEvent>(LeaveMemberTwoInstaAccount);
 
-        memberTwoLinkedinButton.RegisterCallback<PointerEnterEvent>(GoToMemberTwoLinkedinAccount);
-        memberTwoLinkedinButton.RegisterCallback<PointerLeaveEvent>(LeaveMemberTwoLinkedinAccount);
+        memberTwoLinkedinButton.RegisterCallback<PointerDownEvent>(GoToMemberTwoLinkedinAccount);
+        memberTwoLinkedinButton.RegisterCallback<PointerUpEvent>(LeaveMemberTwoLinkedinAccount);
 
-        memberTwoXButton.RegisterCallback<PointerEnterEvent>(GoToMemberTwoXAccount);
-        memberTwoXButton.RegisterCallback<PointerLeaveEvent>(LeaveMemberTwoXAccount);
+        memberTwoXButton.RegisterCallback<PointerDownEvent>(GoToMemberTwoXAccount);
+        memberTwoXButton.RegisterCallback<PointerUpEvent>(LeaveMemberTwoXAccount);
     }
 
-    private void GoToStudioFbAccount(PointerEnterEvent ev)
+    private void GoToStudioFbAccount(PointerDownEvent ev)
     {
         InputManager.isOverUI = true;
     }
 
-    private void LeaveStudioFbAccount(PointerLeaveEvent ev)
+    private void LeaveStudioFbAccount(PointerUpEvent ev)
     {
         Application.OpenURL("https://www.facebook.com/profile.php?id=61563914828343");
         InputManager.isOverUI = false;
     }
 
-    private void GoToStudioInstaAccount(PointerEnterEvent ev)
+    private void GoToStudioInstaAccount(PointerDownEvent ev)
     {
         InputManager.isOverUI = true;
     }
 
-    private void LeaveStudioInstaAccount(PointerLeaveEvent ev)
+    private void LeaveStudioInstaAccount(PointerUpEvent ev)
     {
         Application.OpenURL("https://www.instagram.com/massivedreamersstudio");
         InputManager.isOverUI = false;
     }
 
-    private void GoToStudioYoutubeAccount(PointerEnterEvent ev)
+    private void GoToStudioYoutubeAccount(PointerDownEvent ev)
     {
         InputManager.isOverUI = true;
     }
 
-    private void LeaveStudioYoutubeAccount(PointerLeaveEvent ev)
+    private void LeaveStudioYoutubeAccount(PointerUpEvent ev)
     {
         Application.OpenURL("/not_yet_initialized");
         InputManager.isOverUI = false;
     }
 
-    private void GoToMemberOneFbAccount(PointerEnterEvent ev)
+    private void GoToMemberOneFbAccount(PointerDownEvent ev)
     {
         InputManager.isOverUI = true;
     }
 
-    private void LeaveMemberOneFbAccount(PointerLeaveEvent ev)
+    private void LeaveMemberOneFbAccount(PointerUpEvent ev)
     {
         InputManager.isOverUI = false;
         Application.OpenURL("https://www.facebook.com/aqsins");
     }
 
-    private void GoToMemberOneInstaAccount(PointerEnterEvent ev)
+    private void GoToMemberOneInstaAccount(PointerDownEvent ev)
     {
         InputManager.isOverUI = true;
     }
 
-    private void LeaveMemberOneInstaAccount(PointerLeaveEvent ev)
+    private void LeaveMemberOneInstaAccount(PointerUpEvent ev)
     {
         InputManager.isOverUI = false;
         Application.OpenURL("https://www.instagram.com/aqsin.sulxayev/");
     }
 
-    private void GoToMemberOneLinkedinAccount(PointerEnterEvent ev)
+    private void GoToMemberOneLinkedinAccount(PointerDownEvent ev)
     {
         InputManager.isOverUI = true;
     }
 
-    private void LeaveMemberOneLinkedinAccount(PointerLeaveEvent ev)
+    private void LeaveMemberOneLinkedinAccount(PointerUpEvent ev)
     {
         InputManager.isOverUI = false;
         Application.OpenURL("https://www.linkedin.com/in/agshin-sulkhayev-427a27106");
     }
 
-    private void GoToMemberOneYoutubeAccount(PointerEnterEvent ev)
+    private void GoToMemberOneYoutubeAccount(PointerDownEvent ev)
     {
         InputManager.isOverUI = true;
     }
 
-    private void LeaveMemberOneYoutubeAccount(PointerLeaveEvent ev)
+    private void LeaveMemberOneYoutubeAccount(PointerUpEvent ev)
     {
         InputManager.isOverUI = false;
         Application.OpenURL("https://www.youtube.com/@aqsinsulxayev");
     }
 
-    private void GoToMemberTwoFbAccount(PointerEnterEvent ev)
+    private void GoToMemberTwoFbAccount(PointerDownEvent ev)
     {
         InputManager.isOverUI = true;
     }
 
-    private void LeaveMemberTwoFbAccount(PointerLeaveEvent ev)
+    private void LeaveMemberTwoFbAccount(PointerUpEvent ev)
     {
         InputManager.isOverUI = false;
         Application.OpenURL("https://www.facebook.com/profile.php?id=100018470349191");
     }
 
-    private void GoToMemberTwoInstaAccount(PointerEnterEvent ev)
+    private void GoToMemberTwoInstaAccount(PointerDownEvent ev)
     {
         InputManager.isOverUI = true;
     }
 
-    private void LeaveMemberTwoInstaAccount(PointerLeaveEvent ev)
+    private void LeaveMemberTwoInstaAccount(PointerUpEvent ev)
     {
         InputManager.isOverUI = false;
         Application.OpenURL("https://www.instagram.com/turxan_d/");
     }
 
-    private void GoToMemberTwoLinkedinAccount(PointerEnterEvent ev)
+    private void GoToMemberTwoLinkedinAccount(PointerDownEvent ev)
     {
         InputManager.isOverUI = true;
     }
 
-    private void LeaveMemberTwoLinkedinAccount(PointerLeaveEvent ev)
+    private void LeaveMemberTwoLinkedinAccount(PointerUpEvent ev)
     {
         InputManager.isOverUI = false;
         Application.OpenURL("https://www.linkedin.com/in/turxan-dunyamal%C4%B1yev-753339154/");
     }
 
-    private void GoToMemberTwoXAccount(PointerEnterEvent ev)
+    private void GoToMemberTwoXAccount(PointerDownEvent ev)
     {
         InputManager.isOverUI = true;
     }
 
-    private void LeaveMemberTwoXAccount(PointerLeaveEvent ev)
+    private void LeaveMemberTwoXAccount(PointerUpEvent ev)
     {
         InputManager.isOverUI = false;
         Application.OpenURL("https://x.com/TurxanDunya");
     }
 
-    private void ReturnHomePagePress(PointerEnterEvent ev)
+    private void ReturnHomePagePress(PointerDownEvent ev)
     {
         InputManager.isOverUI = true;
     }
 
-    private void ReturnHomePageRelease(PointerLeaveEvent ev)
+    private void ReturnHomePageRelease(PointerUpEvent ev)
     {
         stateChanger.ChangeStateToMainUIWithoutLoadPage();
         InputManager.isOverUI = false;

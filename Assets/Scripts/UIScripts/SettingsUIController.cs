@@ -48,20 +48,20 @@ public class SettingsUIController : MonoBehaviour, IControllerTemplate
 
     private void OnDisable()
     {
-        homeButton.UnregisterCallback<PointerEnterEvent>(ChangeStateToMainUIWithoutLoadPage);
-        homeButton.UnregisterCallback<PointerLeaveEvent>(ChangeStateToMainUIWithoutLoadPage);
+        homeButton.UnregisterCallback<PointerDownEvent>(ChangeStateToMainUIWithoutLoadPage);
+        homeButton.UnregisterCallback<PointerUpEvent>(ChangeStateToMainUIWithoutLoadPage);
 
-        soundOnBtn.UnregisterCallback<PointerEnterEvent>(MakeSoundOff);
-        soundOnBtn.UnregisterCallback<PointerLeaveEvent>(MakeSoundOff);
+        soundOnBtn.UnregisterCallback<PointerDownEvent>(MakeSoundOff);
+        soundOnBtn.UnregisterCallback<PointerUpEvent>(MakeSoundOff);
 
-        soundOffBtn.UnregisterCallback<PointerEnterEvent>(MakeSoundOn);
-        soundOffBtn.UnregisterCallback<PointerLeaveEvent>(MakeSoundOn);
+        soundOffBtn.UnregisterCallback<PointerDownEvent>(MakeSoundOn);
+        soundOffBtn.UnregisterCallback<PointerUpEvent>(MakeSoundOn);
 
-        musicUnmuteBtn.UnregisterCallback<PointerEnterEvent>(MakeMusicOff);
-        musicUnmuteBtn.UnregisterCallback<PointerLeaveEvent>(MakeMusicOff);
+        musicUnmuteBtn.UnregisterCallback<PointerDownEvent>(MakeMusicOff);
+        musicUnmuteBtn.UnregisterCallback<PointerUpEvent>(MakeMusicOff);
 
-        musicMuteBtn.UnregisterCallback<PointerEnterEvent>(MakeMusicOn);
-        musicMuteBtn.UnregisterCallback<PointerLeaveEvent>(MakeMusicOn);
+        musicMuteBtn.UnregisterCallback<PointerDownEvent>(MakeMusicOn);
+        musicMuteBtn.UnregisterCallback<PointerUpEvent>(MakeMusicOn);
 
         azeRbtn.UnregisterCallback<ClickEvent>(evt => ChangeLanguageToAze());
         engRbtn.UnregisterCallback<ClickEvent>(evt => ChangeLanguageToEng());
@@ -74,8 +74,8 @@ public class SettingsUIController : MonoBehaviour, IControllerTemplate
 
         topVE = rootElement.Q<VisualElement>("topVE");
         homeButton = topVE.Q<Button>("Home");
-        homeButton.RegisterCallback<PointerEnterEvent>(ChangeStateToMainUIWithoutLoadPage);
-        homeButton.RegisterCallback<PointerLeaveEvent>(ChangeStateToMainUIWithoutLoadPage);
+        homeButton.RegisterCallback<PointerDownEvent>(ChangeStateToMainUIWithoutLoadPage);
+        homeButton.RegisterCallback<PointerUpEvent>(ChangeStateToMainUIWithoutLoadPage);
 
         settingsPopUpVE = rootElement.Q<VisualElement>("SettingsPopUpVE");
         buttonsLineVE = settingsPopUpVE.Q<VisualElement>("buttons_line_ve");
@@ -85,23 +85,23 @@ public class SettingsUIController : MonoBehaviour, IControllerTemplate
 
         soundOnVE = soundControlVE.Q<VisualElement>("sound_on_ve");
         soundOnBtn = soundOnVE.Q<Button>("sound_on_btn");
-        soundOnBtn.RegisterCallback<PointerEnterEvent>(MakeSoundOff);
-        soundOnBtn.RegisterCallback<PointerLeaveEvent>(MakeSoundOff);
+        soundOnBtn.RegisterCallback<PointerDownEvent>(MakeSoundOff);
+        soundOnBtn.RegisterCallback<PointerUpEvent>(MakeSoundOff);
 
         soundOffVE = soundControlVE.Q<VisualElement>("sound_off_ve");
         soundOffBtn = soundOffVE.Q<Button>("sound_off_btn");
-        soundOffBtn.RegisterCallback<PointerEnterEvent>(MakeSoundOn);
-        soundOffBtn.RegisterCallback<PointerLeaveEvent>(MakeSoundOn);
+        soundOffBtn.RegisterCallback<PointerDownEvent>(MakeSoundOn);
+        soundOffBtn.RegisterCallback<PointerUpEvent>(MakeSoundOn);
 
         musicUnmuteVE = musicControlVE.Q<VisualElement>("music_unmute_ve");
         musicUnmuteBtn = musicUnmuteVE.Q<Button>("music_unmute_btn");
-        musicUnmuteBtn.RegisterCallback<PointerEnterEvent>(MakeMusicOff);
-        musicUnmuteBtn.RegisterCallback<PointerLeaveEvent>(MakeMusicOff);
+        musicUnmuteBtn.RegisterCallback<PointerDownEvent>(MakeMusicOff);
+        musicUnmuteBtn.RegisterCallback<PointerUpEvent>(MakeMusicOff);
 
         musicMuteVE = musicControlVE.Q<VisualElement>("music_mute_ve");
         musicMuteBtn = musicMuteVE.Q<Button>("music_mute_btn");
-        musicMuteBtn.RegisterCallback<PointerEnterEvent>(MakeMusicOn);
-        musicMuteBtn.RegisterCallback<PointerLeaveEvent>(MakeMusicOn);
+        musicMuteBtn.RegisterCallback<PointerDownEvent>(MakeMusicOn);
+        musicMuteBtn.RegisterCallback<PointerUpEvent>(MakeMusicOn);
 
         azeRbtn = localizationVE.Q<RadioButton>("aze_rbtn");
         engRbtn = localizationVE.Q<RadioButton>("eng_rbtn");
@@ -163,23 +163,23 @@ public class SettingsUIController : MonoBehaviour, IControllerTemplate
         }
     }
 
-    private void ChangeStateToMainUIWithoutLoadPage(PointerEnterEvent ev)
+    private void ChangeStateToMainUIWithoutLoadPage(PointerDownEvent ev)
     {
         InputManager.isOverUI = true;
     }
 
-    private void ChangeStateToMainUIWithoutLoadPage(PointerLeaveEvent ev)
+    private void ChangeStateToMainUIWithoutLoadPage(PointerUpEvent ev)
     {
         stateChanger.ChangeStateToMainUIWithoutLoadPage();
         InputManager.isOverUI = false;
     }
 
-    private void MakeSoundOn(PointerEnterEvent ev)
+    private void MakeSoundOn(PointerDownEvent ev)
     {
         InputManager.isOverUI = true;
     }
 
-    private void MakeSoundOn(PointerLeaveEvent ev)
+    private void MakeSoundOn(PointerUpEvent ev)
     {
         musicPlayer.MakeSoundsOn();
         soundOffVE.style.display = DisplayStyle.None;
@@ -187,12 +187,12 @@ public class SettingsUIController : MonoBehaviour, IControllerTemplate
         InputManager.isOverUI = false;
     }
 
-    private void MakeSoundOff(PointerEnterEvent ev)
+    private void MakeSoundOff(PointerDownEvent ev)
     {
         InputManager.isOverUI = true;
     }
 
-    private void MakeSoundOff(PointerLeaveEvent ev)
+    private void MakeSoundOff(PointerUpEvent ev)
     {
         musicPlayer.MakeSoundsOff();
         soundOnVE.style.display = DisplayStyle.None;
@@ -200,12 +200,12 @@ public class SettingsUIController : MonoBehaviour, IControllerTemplate
         InputManager.isOverUI = false;
     }
 
-    private void MakeMusicOn(PointerEnterEvent ev)
+    private void MakeMusicOn(PointerDownEvent ev)
     {
         InputManager.isOverUI = true;
     }
 
-    private void MakeMusicOn(PointerLeaveEvent ev)
+    private void MakeMusicOn(PointerUpEvent ev)
     {
         musicPlayer.PlayMusic();
         musicMuteVE.style.display = DisplayStyle.None;
@@ -213,12 +213,12 @@ public class SettingsUIController : MonoBehaviour, IControllerTemplate
         InputManager.isOverUI = false;
     }
 
-    private void MakeMusicOff(PointerEnterEvent ev)
+    private void MakeMusicOff(PointerDownEvent ev)
     {
         InputManager.isOverUI = true;
     }
 
-    private void MakeMusicOff(PointerLeaveEvent ev)
+    private void MakeMusicOff(PointerUpEvent ev)
     {
         musicPlayer.MuteMusic();
         musicUnmuteVE.style.display = DisplayStyle.None;

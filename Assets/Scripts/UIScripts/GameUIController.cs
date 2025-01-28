@@ -62,26 +62,26 @@ public class GameUIController : MonoBehaviour, IControllerTemplate, AdsEventCall
 
     private void OnDisable()
     {
-        rootGameOver.Q<Button>("btn_home").UnregisterCallback<PointerEnterEvent>(GoHomePagePressed);
-        rootGameOver.Q<Button>("btn_home").UnregisterCallback<PointerLeaveEvent>(GoHomePageReleased);
+        rootGameOver.Q<Button>("btn_home").UnregisterCallback<PointerDownEvent>(GoHomePagePressed);
+        rootGameOver.Q<Button>("btn_home").UnregisterCallback<PointerUpEvent>(GoHomePageReleased);
 
-        rootGameOver.Q<Button>("btn_replay").UnregisterCallback<PointerEnterEvent>(ReloadLevelPressed);
-        rootGameOver.Q<Button>("btn_replay").UnregisterCallback<PointerLeaveEvent>(ReloadLevelReleased);
+        rootGameOver.Q<Button>("btn_replay").UnregisterCallback<PointerDownEvent>(ReloadLevelPressed);
+        rootGameOver.Q<Button>("btn_replay").UnregisterCallback<PointerUpEvent>(ReloadLevelReleased);
 
-        rootGameOver.Q<Button>("btn_levels").UnregisterCallback<PointerEnterEvent>(OpenLevelMenuPressed);
-        rootGameOver.Q<Button>("btn_levels").UnregisterCallback<PointerLeaveEvent>(OpenLevelMenuReleased);
+        rootGameOver.Q<Button>("btn_levels").UnregisterCallback<PointerDownEvent>(OpenLevelMenuPressed);
+        rootGameOver.Q<Button>("btn_levels").UnregisterCallback<PointerUpEvent>(OpenLevelMenuReleased);
 
-        rootWinner.Q<Button>("btn_home").UnregisterCallback<PointerEnterEvent>(GoHomePagePressed);
-        rootWinner.Q<Button>("btn_home").UnregisterCallback<PointerLeaveEvent>(GoHomePageReleased);
+        rootWinner.Q<Button>("btn_home").UnregisterCallback<PointerDownEvent>(GoHomePagePressed);
+        rootWinner.Q<Button>("btn_home").UnregisterCallback<PointerUpEvent>(GoHomePageReleased);
 
-        rootWinner.Q<Button>("btn_next").UnregisterCallback<PointerEnterEvent>(GoNextLevelPressed);
-        rootWinner.Q<Button>("btn_next").UnregisterCallback<PointerLeaveEvent>(GoNextLevelReleased);
+        rootWinner.Q<Button>("btn_next").UnregisterCallback<PointerDownEvent>(GoNextLevelPressed);
+        rootWinner.Q<Button>("btn_next").UnregisterCallback<PointerUpEvent>(GoNextLevelReleased);
 
-        rootWinner.Q<Button>("btn_levels").UnregisterCallback<PointerEnterEvent>(OpenLevelMenuPressed);
-        rootWinner.Q<Button>("btn_levels").UnregisterCallback<PointerLeaveEvent>(OpenLevelMenuReleased);
+        rootWinner.Q<Button>("btn_levels").UnregisterCallback<PointerDownEvent>(OpenLevelMenuPressed);
+        rootWinner.Q<Button>("btn_levels").UnregisterCallback<PointerUpEvent>(OpenLevelMenuReleased);
 
-        rootWinner.Q<Button>("btn_replay").UnregisterCallback<PointerEnterEvent>(ReloadLevelPressed);
-        rootWinner.Q<Button>("btn_replay").UnregisterCallback<PointerLeaveEvent>(ReloadLevelReleased);
+        rootWinner.Q<Button>("btn_replay").UnregisterCallback<PointerDownEvent>(ReloadLevelPressed);
+        rootWinner.Q<Button>("btn_replay").UnregisterCallback<PointerUpEvent>(ReloadLevelReleased);
     }
 
     private void Update()
@@ -198,14 +198,14 @@ public class GameUIController : MonoBehaviour, IControllerTemplate, AdsEventCall
         rootGameOver = gameOverUI.GetComponent<UIDocument>()
             .rootVisualElement.Q<VisualElement>("root_container");
 
-        rootGameOver.Q<Button>("btn_home").RegisterCallback<PointerEnterEvent>(GoHomePagePressed);
-        rootGameOver.Q<Button>("btn_home").RegisterCallback<PointerLeaveEvent>(GoHomePageReleased);
+        rootGameOver.Q<Button>("btn_home").RegisterCallback<PointerDownEvent>(GoHomePagePressed);
+        rootGameOver.Q<Button>("btn_home").RegisterCallback<PointerUpEvent>(GoHomePageReleased);
 
-        rootGameOver.Q<Button>("btn_replay").RegisterCallback<PointerEnterEvent>(ReloadLevelPressed);
-        rootGameOver.Q<Button>("btn_replay").RegisterCallback<PointerLeaveEvent>(ReloadLevelReleased);
+        rootGameOver.Q<Button>("btn_replay").RegisterCallback<PointerDownEvent>(ReloadLevelPressed);
+        rootGameOver.Q<Button>("btn_replay").RegisterCallback<PointerUpEvent>(ReloadLevelReleased);
 
-        rootGameOver.Q<Button>("btn_levels").RegisterCallback<PointerEnterEvent>(OpenLevelMenuPressed);
-        rootGameOver.Q<Button>("btn_levels").RegisterCallback<PointerLeaveEvent>(OpenLevelMenuReleased);
+        rootGameOver.Q<Button>("btn_levels").RegisterCallback<PointerDownEvent>(OpenLevelMenuPressed);
+        rootGameOver.Q<Button>("btn_levels").RegisterCallback<PointerUpEvent>(OpenLevelMenuReleased);
     }
 
     private void ConfigureWinnerUIElements()
@@ -216,17 +216,17 @@ public class GameUIController : MonoBehaviour, IControllerTemplate, AdsEventCall
         winnerVE = rootWinner.Q<VisualElement>("winner_VE");
         currentSecondLabel = rootWinner.Q<Label>("CurrentSecondLabel");
 
-        rootWinner.Q<Button>("btn_home").RegisterCallback<PointerEnterEvent>(GoHomePagePressed);
-        rootWinner.Q<Button>("btn_home").RegisterCallback<PointerLeaveEvent>(GoHomePageReleased);
+        rootWinner.Q<Button>("btn_home").RegisterCallback<PointerDownEvent>(GoHomePagePressed);
+        rootWinner.Q<Button>("btn_home").RegisterCallback<PointerUpEvent>(GoHomePageReleased);
 
-        rootWinner.Q<Button>("btn_next").RegisterCallback<PointerEnterEvent>(GoNextLevelPressed);
-        rootWinner.Q<Button>("btn_next").RegisterCallback<PointerLeaveEvent>(GoNextLevelReleased);
+        rootWinner.Q<Button>("btn_next").RegisterCallback<PointerDownEvent>(GoNextLevelPressed);
+        rootWinner.Q<Button>("btn_next").RegisterCallback<PointerUpEvent>(GoNextLevelReleased);
 
-        rootWinner.Q<Button>("btn_levels").RegisterCallback<PointerEnterEvent>(OpenLevelMenuPressed);
-        rootWinner.Q<Button>("btn_levels").RegisterCallback<PointerLeaveEvent>(OpenLevelMenuReleased);
+        rootWinner.Q<Button>("btn_levels").RegisterCallback<PointerDownEvent>(OpenLevelMenuPressed);
+        rootWinner.Q<Button>("btn_levels").RegisterCallback<PointerUpEvent>(OpenLevelMenuReleased);
 
-        rootWinner.Q<Button>("btn_replay").RegisterCallback<PointerEnterEvent>(ReloadLevelPressed);
-        rootWinner.Q<Button>("btn_replay").RegisterCallback<PointerLeaveEvent>(ReloadLevelReleased);
+        rootWinner.Q<Button>("btn_replay").RegisterCallback<PointerDownEvent>(ReloadLevelPressed);
+        rootWinner.Q<Button>("btn_replay").RegisterCallback<PointerUpEvent>(ReloadLevelReleased);
     }
 
     private void SetActionButtonsStatus(bool status)
@@ -263,12 +263,12 @@ public class GameUIController : MonoBehaviour, IControllerTemplate, AdsEventCall
         GetStarStatusByProgress(progress);
     }
 
-    private void GoHomePagePressed(PointerEnterEvent ev)
+    private void GoHomePagePressed(PointerDownEvent ev)
     {
         InputManager.isOverUI = true;
     }
 
-    private void GoHomePageReleased(PointerLeaveEvent ev)
+    private void GoHomePageReleased(PointerUpEvent ev)
     {
         redirectAction = RedirectAction.HOME;
 
@@ -297,12 +297,12 @@ public class GameUIController : MonoBehaviour, IControllerTemplate, AdsEventCall
         stateChanger.ChangeStateToHome();
     }
 
-    private void ReloadLevelPressed(PointerEnterEvent ev)
+    private void ReloadLevelPressed(PointerDownEvent ev)
     {
         InputManager.isOverUI = true;
     }
 
-    private void ReloadLevelReleased(PointerLeaveEvent ev)
+    private void ReloadLevelReleased(PointerUpEvent ev)
     {
         redirectAction = RedirectAction.REPLAY;
         if (ShouldShowAd())
@@ -325,23 +325,23 @@ public class GameUIController : MonoBehaviour, IControllerTemplate, AdsEventCall
         InputManager.isOverUI = false;
     }
 
-    private void OpenLevelMenuPressed(PointerEnterEvent ev)
+    private void OpenLevelMenuPressed(PointerDownEvent ev)
     {
         InputManager.isOverUI = true;
     }
 
-    private void OpenLevelMenuReleased(PointerLeaveEvent ev)
+    private void OpenLevelMenuReleased(PointerUpEvent ev)
     {
         stateChanger.ChangeStateToLevelMenu();
         InputManager.isOverUI = false;
     }
 
-    private void GoNextLevelPressed(PointerEnterEvent ev)
+    private void GoNextLevelPressed(PointerDownEvent ev)
     {
         InputManager.isOverUI = true;
     }
 
-    private void GoNextLevelReleased(PointerLeaveEvent ev)
+    private void GoNextLevelReleased(PointerUpEvent ev)
     {
         redirectAction = RedirectAction.NEXTLEVEL;
         if (ShouldShowAd())

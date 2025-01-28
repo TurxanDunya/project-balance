@@ -142,35 +142,35 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
 
     private void BindEventsWithFunctions()
     {
-        firstPowerUpButton.RegisterCallback<PointerEnterEvent>(FirstPowerUpPressed);
-        firstPowerUpButton.RegisterCallback<PointerLeaveEvent>(FirstPowerUpReleased);
+        firstPowerUpButton.RegisterCallback<PointerDownEvent>(FirstPowerUpPressed);
+        firstPowerUpButton.RegisterCallback<PointerUpEvent>(FirstPowerUpReleased);
 
-        secondPowerUpButton.RegisterCallback<PointerEnterEvent>(SecondPowerUpPressed);
-        secondPowerUpButton.RegisterCallback<PointerLeaveEvent>(SecondPowerUpReleased);
+        secondPowerUpButton.RegisterCallback<PointerDownEvent>(SecondPowerUpPressed);
+        secondPowerUpButton.RegisterCallback<PointerUpEvent>(SecondPowerUpReleased);
 
-        thirdPowerUpButton.RegisterCallback<PointerEnterEvent>(ThirdPowerUpPressed);
-        thirdPowerUpButton.RegisterCallback<PointerLeaveEvent>(ThirdPowerUpReleased);
+        thirdPowerUpButton.RegisterCallback<PointerDownEvent>(ThirdPowerUpPressed);
+        thirdPowerUpButton.RegisterCallback<PointerUpEvent>(ThirdPowerUpReleased);
 
-        fourthPowerUpButton.RegisterCallback<PointerEnterEvent>(FourthPowerUpPressed);
-        fourthPowerUpButton.RegisterCallback<PointerLeaveEvent>(FourthPowerUpReleased);
+        fourthPowerUpButton.RegisterCallback<PointerDownEvent>(FourthPowerUpPressed);
+        fourthPowerUpButton.RegisterCallback<PointerUpEvent>(FourthPowerUpReleased);
 
         cancelVE.RegisterCallback<PointerEnterEvent>(EnterCancelVE);
         cancelVE.RegisterCallback<PointerUpEvent>(ExecuteCancel);
 
-        pauseButton.RegisterCallback<PointerEnterEvent>(PauseGameEnter);
-        pauseButton.RegisterCallback<PointerLeaveEvent>(PauseGameLeave);
+        pauseButton.RegisterCallback<PointerDownEvent>(PauseGameEnter);
+        pauseButton.RegisterCallback<PointerUpEvent>(PauseGameLeave);
 
-        levelsButton.RegisterCallback<PointerEnterEvent>(ShowLevelsEnter);
-        levelsButton.RegisterCallback<PointerLeaveEvent>(ShowLevelsLeave);
+        levelsButton.RegisterCallback<PointerDownEvent>(ShowLevelsEnter);
+        levelsButton.RegisterCallback<PointerUpEvent>(ShowLevelsLeave);
 
-        moveCameraAcrossBtn.RegisterCallback<PointerEnterEvent>(MoveCameraAcrossEnter);
-        moveCameraAcrossBtn.RegisterCallback<PointerLeaveEvent>(MoveCameraAcrossLeave);
+        moveCameraAcrossBtn.RegisterCallback<PointerDownEvent>(MoveCameraAcrossEnter);
+        moveCameraAcrossBtn.RegisterCallback<PointerUpEvent>(MoveCameraAcrossLeave);
 
-        moveCameraLeftBtn.RegisterCallback<PointerEnterEvent>(MoveCameraLeftEnter);
-        moveCameraLeftBtn.RegisterCallback<PointerLeaveEvent>(MoveCameraLeftLeave);
+        moveCameraLeftBtn.RegisterCallback<PointerDownEvent>(MoveCameraLeftEnter);
+        moveCameraLeftBtn.RegisterCallback<PointerUpEvent>(MoveCameraLeftLeave);
 
-        moveCameraRightBtn.RegisterCallback<PointerEnterEvent>(MoveCameraRightEnter);
-        moveCameraRightBtn.RegisterCallback<PointerLeaveEvent>(MoveCameraRightLeave);
+        moveCameraRightBtn.RegisterCallback<PointerDownEvent>(MoveCameraRightEnter);
+        moveCameraRightBtn.RegisterCallback<PointerUpEvent>(MoveCameraRightLeave);
     }
 
     private void OnDisable()
@@ -184,17 +184,17 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
             timeLevelFinish.OnUpdateSecondEvent -= UpdateTimerModeIconLabel;
         }
 
-        firstPowerUpButton.UnregisterCallback<PointerEnterEvent>(FirstPowerUpPressed);
-        firstPowerUpButton.UnregisterCallback<PointerLeaveEvent>(FirstPowerUpReleased);
+        firstPowerUpButton.UnregisterCallback<PointerDownEvent>(FirstPowerUpPressed);
+        firstPowerUpButton.UnregisterCallback<PointerUpEvent>(FirstPowerUpReleased);
 
-        secondPowerUpButton.UnregisterCallback<PointerEnterEvent>(SecondPowerUpPressed);
-        secondPowerUpButton.UnregisterCallback<PointerLeaveEvent>(SecondPowerUpReleased);
+        secondPowerUpButton.UnregisterCallback<PointerDownEvent>(SecondPowerUpPressed);
+        secondPowerUpButton.UnregisterCallback<PointerUpEvent>(SecondPowerUpReleased);
 
-        thirdPowerUpButton.UnregisterCallback<PointerEnterEvent>(ThirdPowerUpPressed);
-        thirdPowerUpButton.UnregisterCallback<PointerLeaveEvent>(ThirdPowerUpReleased);
+        thirdPowerUpButton.UnregisterCallback<PointerDownEvent>(ThirdPowerUpPressed);
+        thirdPowerUpButton.UnregisterCallback<PointerUpEvent>(ThirdPowerUpReleased);
 
-        fourthPowerUpButton.UnregisterCallback<PointerEnterEvent>(FourthPowerUpPressed);
-        fourthPowerUpButton.UnregisterCallback<PointerLeaveEvent>(FourthPowerUpReleased);
+        fourthPowerUpButton.UnregisterCallback<PointerDownEvent>(FourthPowerUpPressed);
+        fourthPowerUpButton.UnregisterCallback<PointerUpEvent>(FourthPowerUpReleased);
 
         cancelVE.UnregisterCallback<PointerEnterEvent>(EnterCancelVE);
         cancelVE.UnregisterCallback<PointerUpEvent>(ExecuteCancel);
@@ -202,20 +202,20 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         inputManager.OnPerformedTouch -= HidePowerUpsAndShowCancel;
         inputManager.OnEndTouch -= EndTouch;
 
-        pauseButton.UnregisterCallback<PointerEnterEvent>(PauseGameEnter);
-        pauseButton.UnregisterCallback<PointerLeaveEvent>(PauseGameLeave);
+        pauseButton.UnregisterCallback<PointerDownEvent>(PauseGameEnter);
+        pauseButton.UnregisterCallback<PointerUpEvent>(PauseGameLeave);
 
-        levelsButton.UnregisterCallback<PointerEnterEvent>(ShowLevelsEnter);
-        levelsButton.UnregisterCallback<PointerLeaveEvent>(ShowLevelsLeave);
+        levelsButton.UnregisterCallback<PointerDownEvent>(ShowLevelsEnter);
+        levelsButton.UnregisterCallback<PointerUpEvent>(ShowLevelsLeave);
 
-        moveCameraAcrossBtn.UnregisterCallback<PointerEnterEvent>(MoveCameraAcrossEnter);
-        moveCameraAcrossBtn.UnregisterCallback<PointerLeaveEvent>(MoveCameraAcrossLeave);
+        moveCameraAcrossBtn.UnregisterCallback<PointerDownEvent>(MoveCameraAcrossEnter);
+        moveCameraAcrossBtn.UnregisterCallback<PointerUpEvent>(MoveCameraAcrossLeave);
 
-        moveCameraLeftBtn.UnregisterCallback<PointerEnterEvent>(MoveCameraLeftEnter);
-        moveCameraLeftBtn.UnregisterCallback<PointerLeaveEvent>(MoveCameraLeftLeave);
+        moveCameraLeftBtn.UnregisterCallback<PointerDownEvent>(MoveCameraLeftEnter);
+        moveCameraLeftBtn.UnregisterCallback<PointerUpEvent>(MoveCameraLeftLeave);
 
-        moveCameraRightBtn.UnregisterCallback<PointerEnterEvent>(MoveCameraRightEnter);
-        moveCameraRightBtn.UnregisterCallback<PointerLeaveEvent>(MoveCameraRightLeave);
+        moveCameraRightBtn.UnregisterCallback<PointerDownEvent>(MoveCameraRightEnter);
+        moveCameraRightBtn.UnregisterCallback<PointerUpEvent>(MoveCameraRightLeave);
     }
 
     private void EnterCancelVE(PointerEnterEvent ev)
@@ -267,40 +267,40 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         }
     }
 
-    private void MoveCameraAcrossEnter(PointerEnterEvent ev)
+    private void MoveCameraAcrossEnter(PointerDownEvent ev)
     {
         InputManager.isOverUI = true;
         cameraMovementEventChannelSO.RaiseEvent(CameraPosition.Direction.ACROSS);
     }
 
-    private void MoveCameraAcrossLeave(PointerLeaveEvent ev)
+    private void MoveCameraAcrossLeave(PointerUpEvent ev)
     {
         InputManager.isOverUI = false;
     }
 
-    private void MoveCameraLeftEnter(PointerEnterEvent ev)
+    private void MoveCameraLeftEnter(PointerDownEvent ev)
     {
         InputManager.isOverUI = true;
         cameraMovementEventChannelSO.RaiseEvent(CameraPosition.Direction.LEFT);
     }
 
-    private void MoveCameraLeftLeave(PointerLeaveEvent ev)
+    private void MoveCameraLeftLeave(PointerUpEvent ev)
     {
         InputManager.isOverUI = false;
     }
 
-    private void MoveCameraRightEnter(PointerEnterEvent ev)
+    private void MoveCameraRightEnter(PointerDownEvent ev)
     {
         InputManager.isOverUI = true;
         cameraMovementEventChannelSO.RaiseEvent(CameraPosition.Direction.RIGHT);
     }
 
-    private void MoveCameraRightLeave(PointerLeaveEvent ev)
+    private void MoveCameraRightLeave(PointerUpEvent ev)
     {
         InputManager.isOverUI = false;
     }
 
-    private void FirstPowerUpPressed(PointerEnterEvent ev)
+    private void FirstPowerUpPressed(PointerDownEvent ev)
     {
         InputManager.isOverUI = true;
 
@@ -314,12 +314,12 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         }
     }
 
-    private void FirstPowerUpReleased(PointerLeaveEvent ev)
+    private void FirstPowerUpReleased(PointerUpEvent ev)
     {
         InputManager.isOverUI = false;
     }
 
-    private void SecondPowerUpPressed(PointerEnterEvent ev)
+    private void SecondPowerUpPressed(PointerDownEvent ev)
     {
         InputManager.isOverUI = true;
 
@@ -330,12 +330,12 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         }
     }
 
-    private void SecondPowerUpReleased(PointerLeaveEvent ev)
+    private void SecondPowerUpReleased(PointerUpEvent ev)
     {
         InputManager.isOverUI = false;
     }
 
-    private void ThirdPowerUpPressed(PointerEnterEvent ev)
+    private void ThirdPowerUpPressed(PointerDownEvent ev)
     {
         InputManager.isOverUI = true;
 
@@ -353,12 +353,12 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         }
     }
 
-    private void ThirdPowerUpReleased(PointerLeaveEvent ev)
+    private void ThirdPowerUpReleased(PointerUpEvent ev)
     {
         InputManager.isOverUI = false;
     }
 
-    private void FourthPowerUpPressed(PointerEnterEvent ev)
+    private void FourthPowerUpPressed(PointerDownEvent ev)
     {
         InputManager.isOverUI = true;
 
@@ -374,7 +374,7 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         }
     }
 
-    private void FourthPowerUpReleased(PointerLeaveEvent ev)
+    private void FourthPowerUpReleased(PointerUpEvent ev)
     {
         InputManager.isOverUI = false;
     }
@@ -604,23 +604,23 @@ public class InGameUIController : MonoBehaviour, IControllerTemplate
         }
     }
 
-    private void PauseGameEnter(PointerEnterEvent pointerEnterEvent)
+    private void PauseGameEnter(PointerDownEvent PointerDownEvent)
     {
         InputManager.isOverUI = true;
     }
 
-    private void PauseGameLeave(PointerLeaveEvent pointerLeaveEvent)
+    private void PauseGameLeave(PointerUpEvent PointerUpEvent)
     {
         InputManager.isOverUI = false;
         stateChanger.ChangeStateToPause();
     }
 
-    private void ShowLevelsEnter(PointerEnterEvent pointerDownEvent)
+    private void ShowLevelsEnter(PointerDownEvent pointerDownEvent)
     {
         InputManager.isOverUI = true;
     }
 
-    private void ShowLevelsLeave(PointerLeaveEvent pointerLeaveEvent)
+    private void ShowLevelsLeave(PointerUpEvent PointerUpEvent)
     {
         stateChanger.ChangeStateToLevelMenu();
     }

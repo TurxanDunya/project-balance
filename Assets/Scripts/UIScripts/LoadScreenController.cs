@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class LoadScreenController : MonoBehaviour, IControllerTemplate
 {
     [SerializeField] private float fadeSpeed = 1f;
+
     private VisualElement rootVE;
     private ProgressBar progressBar;
 
@@ -17,12 +18,6 @@ public class LoadScreenController : MonoBehaviour, IControllerTemplate
         string lastPlayedLevelName =
             LevelManager.INSTANCE.levelManagment.currentLevel.name;
         StartLoad(lastPlayedLevelName);
-    }
-
-    private void OnDisable()
-    {
-        rootVE = null;
-        progressBar = null;
     }
 
     public void StartLoad(string levelName)

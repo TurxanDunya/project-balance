@@ -21,8 +21,8 @@ public class LevelsSceneController : MonoBehaviour, IControllerTemplate
         scrollView = rootContainer.Q<ScrollView>("ScrollView");
         resumeBtn = rootContainer.Q<Button>("resume_btn");
 
-        resumeBtn.RegisterCallback<PointerEnterEvent>(ResumePressed);
-        resumeBtn.RegisterCallback<PointerLeaveEvent>(ResumeReleased);
+        resumeBtn.RegisterCallback<PointerDownEvent>(ResumePressed);
+        resumeBtn.RegisterCallback<PointerUpEvent>(ResumeReleased);
 
         AddItems();
 
@@ -31,8 +31,8 @@ public class LevelsSceneController : MonoBehaviour, IControllerTemplate
 
     private void OnDisable()
     {
-        resumeBtn.UnregisterCallback<PointerEnterEvent>(ResumePressed);
-        resumeBtn.UnregisterCallback<PointerLeaveEvent>(ResumeReleased);
+        resumeBtn.UnregisterCallback<PointerDownEvent>(ResumePressed);
+        resumeBtn.UnregisterCallback<PointerUpEvent>(ResumeReleased);
     }
 
     private void AddItems()
@@ -120,12 +120,12 @@ public class LevelsSceneController : MonoBehaviour, IControllerTemplate
         scrollView.Add(levelView);
     }
 
-    private void ResumePressed(PointerEnterEvent pointerEnterEvent)
+    private void ResumePressed(PointerDownEvent PointerDownEvent)
     {
         InputManager.isOverUI = true;
     }
 
-    private void ResumeReleased(PointerLeaveEvent pointerLeaveEvent)
+    private void ResumeReleased(PointerUpEvent PointerUpEvent)
     {
         InputManager.isOverUI = false;
         stateChanger.HideLevelMenu();

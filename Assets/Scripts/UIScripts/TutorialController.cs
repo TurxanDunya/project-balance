@@ -57,7 +57,7 @@ public class TutorialController : MonoBehaviour, IControllerTemplate
             continueBtn = rootElement.Q<Button>("continue_btn");
 
             bool isBtnClicked = false;
-            continueBtn.RegisterCallback<PointerEnterEvent>((ev) =>
+            continueBtn.RegisterCallback<PointerDownEvent>((ev) =>
             {
                 InputManager.isOverUI = true;
                 isBtnClicked = true;
@@ -66,7 +66,7 @@ public class TutorialController : MonoBehaviour, IControllerTemplate
 
             yield return new WaitUntil(() => isBtnClicked);
 
-            continueBtn.UnregisterCallback<PointerEnterEvent>((ev) =>
+            continueBtn.UnregisterCallback<PointerDownEvent>((ev) =>
             {
                 InputManager.isOverUI = false;
             });

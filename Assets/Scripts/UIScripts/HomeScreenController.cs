@@ -43,17 +43,17 @@ public class HomeScreenController : MonoBehaviour, AdsEventCallback, IController
 
     private void OnDisable()
     {
-        addStarAdsButton.UnregisterCallback<PointerEnterEvent>(ShowAdsAndAddCoinPressed);
-        addStarAdsButton.UnregisterCallback<PointerLeaveEvent>(ShowAdsAndAddCoinReleased);
+        addStarAdsButton.UnregisterCallback<PointerDownEvent>(ShowAdsAndAddCoinPressed);
+        addStarAdsButton.UnregisterCallback<PointerUpEvent>(ShowAdsAndAddCoinReleased);
 
-        settingsButton.UnregisterCallback<PointerEnterEvent>(ShowSettingsUIPressed);
-        settingsButton.UnregisterCallback<PointerLeaveEvent>(ShowSettingsUIReleased);
+        settingsButton.UnregisterCallback<PointerDownEvent>(ShowSettingsUIPressed);
+        settingsButton.UnregisterCallback<PointerUpEvent>(ShowSettingsUIReleased);
 
-        tapToPlayButton.UnregisterCallback<PointerEnterEvent>(ChangeStateForInGameUIPressed);
-        tapToPlayButton.UnregisterCallback<PointerLeaveEvent>(ChangeStateForInGameUIReleased);
+        tapToPlayButton.UnregisterCallback<PointerDownEvent>(ChangeStateForInGameUIPressed);
+        tapToPlayButton.UnregisterCallback<PointerUpEvent>(ChangeStateForInGameUIReleased);
 
-        aboutUsButton.UnregisterCallback<PointerEnterEvent>(ShowAboutUsUIPressed);
-        aboutUsButton.UnregisterCallback<PointerLeaveEvent>(ShowAboutUsUIReleased);
+        aboutUsButton.UnregisterCallback<PointerDownEvent>(ShowAboutUsUIPressed);
+        aboutUsButton.UnregisterCallback<PointerUpEvent>(ShowAboutUsUIReleased);
     }
 
     public void MakeBindings()
@@ -70,19 +70,19 @@ public class HomeScreenController : MonoBehaviour, AdsEventCallback, IController
         rightSideVE = topVE.Q<VisualElement>("right_side_ve");
         addStarAdsButton = rightSideVE.Q<Button>("add_star_ads_btn");
 
-        addStarAdsButton.RegisterCallback<PointerEnterEvent>(ShowAdsAndAddCoinPressed);
-        addStarAdsButton.RegisterCallback<PointerLeaveEvent>(ShowAdsAndAddCoinReleased);
+        addStarAdsButton.RegisterCallback<PointerDownEvent>(ShowAdsAndAddCoinPressed);
+        addStarAdsButton.RegisterCallback<PointerUpEvent>(ShowAdsAndAddCoinReleased);
 
         tapToPlayButton = rootElement.Q<Button>("tapToPlayButton");
 
-        settingsButton.RegisterCallback<PointerEnterEvent>(ShowSettingsUIPressed);
-        settingsButton.RegisterCallback<PointerLeaveEvent>(ShowSettingsUIReleased);
+        settingsButton.RegisterCallback<PointerDownEvent>(ShowSettingsUIPressed);
+        settingsButton.RegisterCallback<PointerUpEvent>(ShowSettingsUIReleased);
 
-        tapToPlayButton.RegisterCallback<PointerEnterEvent>(ChangeStateForInGameUIPressed);
-        tapToPlayButton.RegisterCallback<PointerLeaveEvent>(ChangeStateForInGameUIReleased);
+        tapToPlayButton.RegisterCallback<PointerDownEvent>(ChangeStateForInGameUIPressed);
+        tapToPlayButton.RegisterCallback<PointerUpEvent>(ChangeStateForInGameUIReleased);
 
-        aboutUsButton.RegisterCallback<PointerEnterEvent>(ShowAboutUsUIPressed);
-        aboutUsButton.RegisterCallback<PointerLeaveEvent>(ShowAboutUsUIReleased);
+        aboutUsButton.RegisterCallback<PointerDownEvent>(ShowAboutUsUIPressed);
+        aboutUsButton.RegisterCallback<PointerUpEvent>(ShowAboutUsUIReleased);
     }
 
     private void FixedUpdate()
@@ -95,45 +95,45 @@ public class HomeScreenController : MonoBehaviour, AdsEventCallback, IController
         buttonShaker.ShakeButton(addStarAdsButton);
     }
 
-    private void ChangeStateForInGameUIPressed(PointerEnterEvent ev)
+    private void ChangeStateForInGameUIPressed(PointerDownEvent ev)
     {
         InputManager.isOverUI = true;
     }
 
-    private void ChangeStateForInGameUIReleased(PointerLeaveEvent ev)
+    private void ChangeStateForInGameUIReleased(PointerUpEvent ev)
     {
         stateChanger.ChangeStateToInGameUI();
         InputManager.isOverUI = false;
     }
 
-    private void ShowSettingsUIPressed(PointerEnterEvent ev)
+    private void ShowSettingsUIPressed(PointerDownEvent ev)
     {
         InputManager.isOverUI = true;
     }
 
-    private void ShowSettingsUIReleased(PointerLeaveEvent ev)
+    private void ShowSettingsUIReleased(PointerUpEvent ev)
     {
         stateChanger.ChangeStateFromMainUIToSettingsUI();
         InputManager.isOverUI = false;
     }
 
-    private void ShowAboutUsUIPressed(PointerEnterEvent ev)
+    private void ShowAboutUsUIPressed(PointerDownEvent ev)
     {
         InputManager.isOverUI = true;
     }
 
-    private void ShowAboutUsUIReleased(PointerLeaveEvent ev)
+    private void ShowAboutUsUIReleased(PointerUpEvent ev)
     {
         stateChanger.ShowAboutUsUI();
         InputManager.isOverUI = false;
     }
 
-    private void ShowAdsAndAddCoinPressed(PointerEnterEvent ev)
+    private void ShowAdsAndAddCoinPressed(PointerDownEvent ev)
     {
         InputManager.isOverUI = true;
     }
 
-    private void ShowAdsAndAddCoinReleased(PointerLeaveEvent ev)
+    private void ShowAdsAndAddCoinReleased(PointerUpEvent ev)
     {
         if (rewardedAd.CanShowRewardedAds())
         {
