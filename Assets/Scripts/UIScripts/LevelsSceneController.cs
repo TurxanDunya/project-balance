@@ -127,8 +127,8 @@ public class LevelsSceneController : MonoBehaviour, IControllerTemplate
 
     private void ResumeReleased(PointerUpEvent PointerUpEvent)
     {
-        InputManager.isOverUI = false;
         stateChanger.HideLevelMenu();
+        InputManager.isOverUI = false;
     }
 
     public void SetDisplayFlex()
